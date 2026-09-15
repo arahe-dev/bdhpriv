@@ -18,8 +18,10 @@ Modes:
          loss/parameter/corpus-cursor equivalence. Prints the final
          machine-readable line ARM_A_2P5B_TRAINER_READY=true|false.
   train  Full training: streams the frozen corpus in deterministic order,
-         stops at --target-tokens (default 2.5e9; use "full" for the 5B
-         continuation), auto-resumes from the newest valid checkpoint.
+         stops at --target-tokens (default 2.5e9; use "full" to stream every
+         batch of the whole corpus, including the final 63-row partial batch
+         that closes out all 2,441,407 sequences -- no replay, no padding).
+         Auto-resumes from the newest valid checkpoint.
          The checkpoint carries optimizer/LR/token schedule state, so a
          later 5B continuation restarts nothing.
 
@@ -624,9 +626,16 @@ class FrozenPackedCorpus:
                    if shard is not None and shard.index + 1 < len(self.shards)
                    else None)
 
-    def stream_batches(self, start_sequence: int, batch_size: int
+    def stream_batches(self, start_sequence: int, batch_size: int,
+                       allow_partial_tail: bool = False
                        ) -> Iterator[Tuple[int, Dict[str, torch.Tensor]]]:
-        """Yield (first_sequence_of_batch, pinned CPU batch). Full batches only."""
+        """Yield (first_sequence_of_batch, pinned CPU batch).
+
+        Only full batches are yielded unless allow_partial_tail is set, in
+        which case the final short batch (rows < batch_size, consumed once
+        at the end of the corpus) is yielded as-is: never padded, never
+        replayed.
+        """
         xs, ys, poss, segs, starts, ivs, vs = [], [], [], [], [], [], []
         cursor = start_sequence
         for _, row in self.iter_rows(start_sequence):
@@ -641,7 +650,8 @@ class FrozenPackedCorpus:
                 yield cursor, self._assemble(xs, ys, poss, segs, starts, ivs, vs)
                 cursor += batch_size
                 xs, ys, poss, segs, starts, ivs, vs = [], [], [], [], [], [], []
-        # A partial tail is not yielded: no padding/replay is ever invented.
+        if allow_partial_tail and xs:
+            yield cursor, self._assemble(xs, ys, poss, segs, starts, ivs, vs)
 
     @staticmethod
     def _assemble(xs, ys, poss, segs, starts, ivs, vs):
@@ -912,7 +922,14 @@ def is_genuine_cuda_oom(error) -> bool:
 
 def one_full_update(cpu, model, compiled_model, optimizer, update_index,
                     cfg: ArmAConfig, device, check_grads: bool = True):
-    """One complete training update: fwd + CE + bwd (+accum) + clip + AdamW."""
+    """One complete training update: fwd + CE + bwd (+accum) + clip + AdamW.
+
+    Works for any packed batch size up to GLOBAL_BATCH, so the final
+    short batch of the corpus is a normal update without padding or replay.
+    """
+    rows = int(cpu["x"].shape[0])
+    if rows <= 0:
+        raise TrainerError(f"update {update_index}: empty packed batch")
     denom = int(cpu["valid"].sum().item())
     if denom <= 0:
         raise TrainerError(f"update {update_index}: no valid targets")
@@ -922,8 +939,8 @@ def one_full_update(cpu, model, compiled_model, optimizer, update_index,
     optimizer.zero_grad(set_to_none=True)
     loss_total = 0.0
     autocast_enabled = device.type == "cuda"
-    for lo in range(0, cfg.GLOBAL_BATCH, cfg.MICROBATCH):
-        hi = lo + cfg.MICROBATCH
+    for lo in range(0, rows, cfg.MICROBATCH):
+        hi = min(lo + cfg.MICROBATCH, rows)
         x = cpu["x"][lo:hi].to(device, dtype=torch.long, non_blocking=True)
         y = cpu["y"][lo:hi].to(device, dtype=torch.long, non_blocking=True)
         pos = cpu["pos"][lo:hi].to(device, dtype=torch.int32, non_blocking=True)
@@ -991,8 +1008,7 @@ def save_checkpoint_atomic(path: Path, payload: dict):
 
 
 def build_checkpoint(cfg, corpus, model, optimizer, updates_done, tokens_consumed,
-                     target_tokens, code_fp, session_stats=None):
-    next_sequence = updates_done * cfg.GLOBAL_BATCH
+                     next_sequence, target_tokens, code_fp, session_stats=None):
     payload = {
         "format": CKPT_FORMAT,
         "implementation": IMPLEMENTATION_VERSION,
@@ -1054,20 +1070,30 @@ def validate_and_load_checkpoint(path: Path, cfg, corpus, model, optimizer,
     updates_done = int(progress["updates_done"])
     tokens_consumed = int(progress["tokens_consumed"])
     next_sequence = int(progress["next_sequence"])
-    if tokens_consumed != updates_done * cfg.GLOBAL_BATCH * cfg.T:
-        raise TrainerError(f"token accounting inconsistent in {path}")
-    if next_sequence != updates_done * cfg.GLOBAL_BATCH:
-        raise TrainerError(f"corpus cursor inconsistent in {path}")
+    if next_sequence < 0 or tokens_consumed < 0 or updates_done < 0:
+        raise TrainerError(f"negative progress field in {path}")
     if not (0 <= next_sequence <= corpus.total_sequences):
         raise TrainerError(f"corpus cursor out of range in {path}")
+    if tokens_consumed != next_sequence * cfg.T:
+        raise TrainerError(
+            f"token accounting inconsistent in {path}: "
+            f"tokens_consumed={tokens_consumed} next_sequence={next_sequence}"
+        )
+    if updates_done == 0:
+        if next_sequence != 0:
+            raise TrainerError(f"corpus cursor inconsistent in {path}")
+    elif not ((updates_done - 1) * cfg.GLOBAL_BATCH < next_sequence
+              <= updates_done * cfg.GLOBAL_BATCH):
+        raise TrainerError(
+            f"update/cursor inconsistent in {path}: "
+            f"updates_done={updates_done} next_sequence={next_sequence}"
+        )
     model.load_state_dict(ckpt["model"], strict=True)
     optimizer.load_state_dict(ckpt["optimizer"])
     for name, p in model.named_parameters():
         if not bool(torch.isfinite(p).all()):
             raise TrainerError(f"non-finite parameter after resume: {name}")
     opt_state = optimizer.state_dict()
-    for group in opt_state.get("param_groups", []):
-        pass
     for state in opt_state.get("state", {}).values():
         for key in ("exp_avg", "exp_avg_sq"):
             if key in state and not bool(torch.isfinite(state[key]).all()):
@@ -1125,26 +1151,47 @@ def find_latest_valid_checkpoint(ckpt_dir, cfg, corpus, model, optimizer, device
 # startup gates
 # ---------------------------------------------------------------------------
 
+def production_probe_b1(batch, device, cfg):
+    """B=1 production-shaped probe (T, scan block) with the packed full mask.
+
+    Mirrors the certified G4 preflight graph-hygiene gate: one real packed
+    row, full_mask rebuilt from the sliced start/input_valid, no FP32 B64
+    forward (which would OOM the probe).
+    """
+    x = batch["x"][:1].to(device, dtype=torch.long, non_blocking=True)
+    pos = batch["pos"][:1].to(device, dtype=torch.int32, non_blocking=True)
+    segpos = batch["segpos"][:1].to(device, dtype=torch.int32,
+                                   non_blocking=True)
+    start = batch["start"][:1].to(device, dtype=torch.int32,
+                                  non_blocking=True)
+    input_valid = batch["input_valid"][:1].to(device, dtype=torch.bool,
+                                              non_blocking=True)
+    full_mask = (
+        (start[:, :, None] == start[:, None, :])
+        & input_valid[:, :, None]
+        & input_valid[:, None, :]
+        & _causal_full(device, cfg.T).unsqueeze(0)
+    )
+    return x, pos, segpos, full_mask, start
+
+
 def gate_graph_breaks(model, batch, device, logger) -> bool:
     if device.type != "cuda":
         logger.log("graph_break_gate", status="SKIP", reason="cpu")
         return True
     if hasattr(torch, "_dynamo"):
         torch._dynamo.reset()
-    explained = torch._dynamo.explain(model.forward_packed)(
-        batch["x"].to(device, dtype=torch.long, non_blocking=True),
-        batch["pos"].to(device, dtype=torch.int32, non_blocking=True),
-        batch["segpos"].to(device, dtype=torch.int32, non_blocking=True),
-        _causal_full(device, model.cfg.T).unsqueeze(0).expand(
-            batch["x"].shape[0], -1, -1),
-        batch["start"].to(device, dtype=torch.int32, non_blocking=True),
-    )
+    probe = production_probe_b1(batch, device, model.cfg)
+    explained = torch._dynamo.explain(model.forward_packed)(*probe)
     breaks = int(getattr(explained, "graph_break_count", -1))
     logger.log("graph_break_gate", status="PASS" if breaks == 0 else "FAIL",
                graph_break_count=breaks,
                graph_count=int(getattr(explained, "graph_count", -1)),
+               context="production T/block, B=1 packed",
                break_reasons=[str(r)[:200]
                               for r in getattr(explained, "break_reasons", [])])
+    del probe, explained
+    gc.collect()
     if hasattr(torch, "_dynamo"):
         torch._dynamo.reset()
     return breaks == 0
@@ -1164,6 +1211,40 @@ def _prepare_device():
     if torch.cuda.is_available():
         return torch.device("cuda")
     return torch.device("cpu")
+
+
+PROD_GPU_NAME = "RTX PRO 6000 Blackwell"
+PROD_GPU_CAPABILITY = (12, 0)
+PROD_TORCH_VERSION = "2.11.0+cu128"
+PROD_CUDA_VERSION = "12.8"
+
+
+def enforce_production_runtime(device, logger):
+    """Fail closed unless this is the certified G4 runtime."""
+    if device.type != "cuda":
+        raise TrainerError(
+            f"production runtime requires a CUDA device "
+            f"({PROD_GPU_NAME} sm_120); found {device.type}"
+        )
+    if not torch.cuda.is_bf16_supported():
+        raise TrainerError("CUDA device does not support BF16")
+    gpu_name = torch.cuda.get_device_name(0)
+    capability = tuple(torch.cuda.get_device_capability(0))
+    if PROD_GPU_NAME not in gpu_name or capability != PROD_GPU_CAPABILITY:
+        raise TrainerError(
+            f"unexpected GPU {gpu_name!r} capability={capability}; "
+            f"require {PROD_GPU_NAME} sm_120"
+        )
+    if (torch.__version__ != PROD_TORCH_VERSION
+            or torch.version.cuda != PROD_CUDA_VERSION):
+        raise TrainerError(
+            f"unexpected runtime torch={torch.__version__} "
+            f"CUDA={torch.version.cuda}; require torch "
+            f"{PROD_TORCH_VERSION} / CUDA {PROD_CUDA_VERSION}"
+        )
+    logger.log("runtime_gate", status="PASS", gpu=gpu_name,
+               capability=list(capability), torch=torch.__version__,
+               cuda=torch.version.cuda)
 
 
 def _mount_drive_if_needed(corpus_root: Path):
@@ -1254,6 +1335,7 @@ def run_smoke(cfg, corpus, run_dir: Path, device, use_compile=True,
             payload = build_checkpoint(cfg, corpus, model_a, opt_a,
                                        updates_done=2,
                                        tokens_consumed=2 * cfg.GLOBAL_BATCH * cfg.T,
+                                       next_sequence=2 * cfg.GLOBAL_BATCH,
                                        target_tokens=None, code_fp=code_fp)
             save_checkpoint_atomic(ckpt_path, payload)
             load_info = validate_and_load_checkpoint(
@@ -1358,21 +1440,23 @@ def run_train(cfg, corpus, run_dir: Path, device, target_tokens,
             load_init(model, canonical_init(cfg), device)
             updates_done = 0
             tokens_consumed = 0
+            next_sequence = 0
             logger.log("fresh_start")
         else:
             updates_done = resume["updates_done"]
             tokens_consumed = resume["tokens_consumed"]
+            next_sequence = resume["next_sequence"]
             logger.log("resumed", updates_done=updates_done,
                        tokens_consumed=tokens_consumed,
-                       next_sequence=resume["next_sequence"])
+                       next_sequence=next_sequence)
         model.train()
 
         if target_tokens is not None and tokens_consumed >= target_tokens:
             logger.log("already_complete", tokens_consumed=tokens_consumed,
                        target_tokens=target_tokens)
         else:
-            stream = corpus.stream_batches(updates_done * cfg.GLOBAL_BATCH,
-                                           cfg.GLOBAL_BATCH)
+            stream = corpus.stream_batches(next_sequence, cfg.GLOBAL_BATCH,
+                                           allow_partial_tail=True)
             first_batch = None
             try:
                 _, first_batch = next(stream)
@@ -1381,6 +1465,7 @@ def run_train(cfg, corpus, run_dir: Path, device, target_tokens,
             if first_batch is None:
                 logger.log("corpus_exhausted_before_target",
                            tokens_consumed=tokens_consumed,
+                           next_sequence=next_sequence,
                            target_tokens=target_tokens)
             else:
                 if check_graph_breaks:
@@ -1390,6 +1475,7 @@ def run_train(cfg, corpus, run_dir: Path, device, target_tokens,
                 batch = first_batch
                 session_start = time.perf_counter()
                 while True:
+                    rows = int(batch["x"].shape[0])
                     step_t0 = time.perf_counter()
                     result = one_full_update(batch, model, entry, optimizer,
                                              updates_done, cfg, device)
@@ -1397,7 +1483,8 @@ def run_train(cfg, corpus, run_dir: Path, device, target_tokens,
                         torch.cuda.synchronize(device)
                     step_ms = (time.perf_counter() - step_t0) * 1000.0
                     updates_done += 1
-                    tokens_consumed += cfg.GLOBAL_BATCH * cfg.T
+                    next_sequence += rows
+                    tokens_consumed += rows * cfg.T
                     if device.type == "cuda":
                         mem_alloc = torch.cuda.memory_allocated(device)
                         mem_peak = torch.cuda.max_memory_allocated(device)
@@ -1405,9 +1492,10 @@ def run_train(cfg, corpus, run_dir: Path, device, target_tokens,
                     else:
                         mem_alloc = mem_peak = mem_reserved = 0
                     if log_every and updates_done % log_every == 0:
-                        tok_s = (cfg.GLOBAL_BATCH * cfg.T) / (step_ms / 1000.0)
-                        logger.log("update", step=updates_done,
+                        tok_s = (rows * cfg.T) / (step_ms / 1000.0)
+                        logger.log("update", step=updates_done, rows=rows,
                                    tokens_consumed=tokens_consumed,
+                                   next_sequence=next_sequence,
                                    loss=result["loss"], lr=result["lr"],
                                    grad_norm=result["grad_norm"],
                                    valid_pairs=result["valid_pairs"],
@@ -1421,14 +1509,16 @@ def run_train(cfg, corpus, run_dir: Path, device, target_tokens,
                     if save_every and updates_done % save_every == 0:
                         payload = build_checkpoint(
                             cfg, corpus, model, optimizer, updates_done,
-                            tokens_consumed, target_tokens, code_fp,
+                            tokens_consumed, next_sequence, target_tokens,
+                            code_fp,
                             session_stats={"last_loss": result["loss"]})
                         save_checkpoint_atomic(ckpt_dir / "latest.pt", payload)
                         logger.log("checkpoint", step=updates_done)
                     if (archive_every and updates_done % archive_every == 0):
                         payload = build_checkpoint(
                             cfg, corpus, model, optimizer, updates_done,
-                            tokens_consumed, target_tokens, code_fp)
+                            tokens_consumed, next_sequence, target_tokens,
+                            code_fp)
                         save_checkpoint_atomic(
                             ckpt_dir / f"step_{updates_done:010d}.pt", payload)
                         archives = sorted(ckpt_dir.glob("step_*.pt"))
@@ -1440,11 +1530,15 @@ def run_train(cfg, corpus, run_dir: Path, device, target_tokens,
                     try:
                         _, batch = next(stream)
                     except StopIteration:
-                        logger.log("corpus_exhausted", tokens_consumed=tokens_consumed)
+                        logger.log("corpus_exhausted",
+                                   tokens_consumed=tokens_consumed,
+                                   next_sequence=next_sequence,
+                                   total_sequences=corpus.total_sequences)
                         break
 
         payload = build_checkpoint(cfg, corpus, model, optimizer, updates_done,
-                                   tokens_consumed, target_tokens, code_fp)
+                                   tokens_consumed, next_sequence, target_tokens,
+                                   code_fp)
         save_checkpoint_atomic(ckpt_dir / "latest.pt", payload)
         logger.log("checkpoint_final", step=updates_done)
         logger.log("session_end", status="COMPLETE",
@@ -1496,7 +1590,9 @@ def main(argv: Optional[List[str]] = None):
     parser.add_argument("--corpus-root", default=str(PROD_CORPUS_ROOT))
     parser.add_argument("--run-dir", default=str(PROD_RUN_DIR))
     parser.add_argument("--target-tokens", default=str(TARGET_2P5B),
-                        help="token budget for this run; 'full' = whole corpus")
+                        help="input-token budget for this run; 'full' streams "
+                             "the whole corpus, ending with the final "
+                             "partial (63-row) batch")
     parser.add_argument("--save-every", type=int, default=200)
     parser.add_argument("--archive-every", type=int, default=1000)
     parser.add_argument("--log-every", type=int, default=10)
@@ -1521,20 +1617,7 @@ def main(argv: Optional[List[str]] = None):
 
     logger = RunLogger(run_dir / "logs" / "startup.jsonl")
     try:
-        if device.type == "cpu":
-            logger.log("gpu_warning", reason="cpu_only",
-                       note="production runs on the BF16 Blackwell G4 runtime")
-        else:
-            gpu_name = torch.cuda.get_device_name(0)
-            if not torch.cuda.is_bf16_supported():
-                raise TrainerError(
-                    f"CUDA device {gpu_name!r} does not support BF16"
-                )
-            if "RTX PRO 6000 Blackwell" not in gpu_name:
-                logger.log("gpu_warning", reason="unexpected_gpu",
-                           gpu_name=gpu_name,
-                           note="certified anchor was measured on RTX PRO 6000 "
-                                "Blackwell sm_120")
+        enforce_production_runtime(device, logger)
         logger.log("startup", mode=args.mode, corpus_root=str(corpus_root),
                    run_dir=str(run_dir), device=str(device),
                    implementation=IMPLEMENTATION_VERSION,

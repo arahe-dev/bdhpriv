@@ -49,6 +49,11 @@ SMALL_CFG = trainer.ArmAConfig(
     SEED=7, THETA=2.0**16, READ_BLOCK=16, PEAK_LR=1e-3,
     WARMUP_TOKENS=512, GLOBAL_BATCH=4, MICROBATCH=2, SCAN_BLOCK=16,
 )
+TAIL_CFG = trainer.ArmAConfig(
+    T=T, V=128, D=16, N=64, H=4, L=2, HIDDEN=24,
+    SEED=7, THETA=2.0**16, READ_BLOCK=16, PEAK_LR=1e-3,
+    WARMUP_TOKENS=512, GLOBAL_BATCH=5, MICROBATCH=2, SCAN_BLOCK=16,
+)
 
 # (length, [(doc label, document offset, token count)]) per global sequence.
 PLAN = [
@@ -397,8 +402,10 @@ def test_contract_failclosed(tmp: Path, root: Path, contract, meta):
     out = io.StringIO()
     original_contract = trainer.PROD_CONTRACT
     original_cfg = trainer.PROD_CFG
+    original_gate = trainer.enforce_production_runtime
     trainer.PROD_CONTRACT = contract
     trainer.PROD_CFG = SMALL_CFG
+    trainer.enforce_production_runtime = lambda device, logger: None
     try:
         with contextlib.redirect_stdout(out):
             code = trainer.main([
@@ -410,6 +417,7 @@ def test_contract_failclosed(tmp: Path, root: Path, contract, meta):
     finally:
         trainer.PROD_CONTRACT = original_contract
         trainer.PROD_CFG = original_cfg
+        trainer.enforce_production_runtime = original_gate
     assert code == 2, f"CLI contract failure returned {code}"
     assert "ARM_A_2P5B_TRAINER_READY=false" in out.getvalue()
 
@@ -446,6 +454,20 @@ def test_batch_streaming(tmp: Path, root: Path, contract, meta):
     assert list(corpus.stream_batches(len(PLAN), batch_size)) == []
     assert len(list(corpus.iter_rows(len(PLAN)))) == 0
     assert len(list(corpus.iter_rows(len(PLAN) - 1))) == 1
+
+    partial = list(corpus.stream_batches(0, 5, allow_partial_tail=True))
+    assert [c for c, _ in partial] == [0, 5, 10, 15], [c for c, _ in partial]
+    assert [int(b["x"].shape[0]) for _, b in partial] == [5, 5, 5, 1]
+    for offset in range(1):
+        for key in partial[3][1]:
+            expected = torch.from_numpy(expected_row(meta, 15, SMALL_CFG)[key])
+            assert torch.equal(partial[3][1][key][offset], expected)
+    assert (list(corpus.stream_batches(15, 5, allow_partial_tail=True))
+            [0][0]) == 15
+    assert (list(corpus.stream_batches(4, 5, allow_partial_tail=True))
+            [0][0]) == 4
+    assert list(corpus.stream_batches(len(PLAN), 5,
+                                      allow_partial_tail=True)) == []
 
     dtypes = {k: v.dtype for k, v in batches[0][1].items()}
     assert dtypes == {
@@ -502,6 +524,7 @@ def test_checkpoint_roundtrip(tmp: Path, root: Path, contract, meta):
     payload = trainer.build_checkpoint(
         SMALL_CFG, corpus, model, optimizer, updates_done=2,
         tokens_consumed=2 * SMALL_CFG.GLOBAL_BATCH * SMALL_CFG.T,
+        next_sequence=2 * SMALL_CFG.GLOBAL_BATCH,
         target_tokens=4 * SMALL_CFG.GLOBAL_BATCH * SMALL_CFG.T,
         code_fp=code_fp, session_stats={"last_loss": losses[-1]},
     )
@@ -574,6 +597,7 @@ def _tamper_case(tmp, name, root, contract, mutate):
     payload = trainer.build_checkpoint(
         SMALL_CFG, corpus, model, optimizer, updates_done=1,
         tokens_consumed=SMALL_CFG.GLOBAL_BATCH * SMALL_CFG.T,
+        next_sequence=SMALL_CFG.GLOBAL_BATCH,
         target_tokens=None, code_fp=code_fp,
     )
     mutate(payload)
@@ -623,6 +647,7 @@ def test_checkpoint_failure_modes(tmp: Path, root: Path, contract, meta):
     payload = trainer.build_checkpoint(
         SMALL_CFG, corpus, model, optimizer, updates_done=1,
         tokens_consumed=SMALL_CFG.GLOBAL_BATCH * SMALL_CFG.T,
+        next_sequence=SMALL_CFG.GLOBAL_BATCH,
         target_tokens=None, code_fp=code_fp,
     )
     payload["code_sha256"] = "0" * 64
@@ -682,8 +707,10 @@ def test_smoke_mode(tmp: Path, root: Path, contract, meta):
     out = io.StringIO()
     original_contract = trainer.PROD_CONTRACT
     original_cfg = trainer.PROD_CFG
+    original_gate = trainer.enforce_production_runtime
     trainer.PROD_CONTRACT = contract
     trainer.PROD_CFG = SMALL_CFG
+    trainer.enforce_production_runtime = lambda device, logger: None
     try:
         with contextlib.redirect_stdout(out):
             code = trainer.main([
@@ -695,6 +722,7 @@ def test_smoke_mode(tmp: Path, root: Path, contract, meta):
     finally:
         trainer.PROD_CONTRACT = original_contract
         trainer.PROD_CFG = original_cfg
+        trainer.enforce_production_runtime = original_gate
     assert code == 0, out.getvalue()
     assert "ARM_A_2P5B_TRAINER_READY=true" in out.getvalue()
 
@@ -767,6 +795,86 @@ def test_train_and_resume(tmp: Path, root: Path, contract, meta):
     assert events.count("session_end") >= 2
 
 
+def test_partial_tail_train(tmp: Path, root: Path, contract, meta):
+    device = torch.device("cpu")
+    corpus = load_corpus(root, TAIL_CFG, contract)
+    run_dir = tmp / "tail_run"
+    with contextlib.redirect_stdout(io.StringIO()):
+        assert trainer.run_train(
+            TAIL_CFG, corpus, run_dir, device, target_tokens=None,
+            save_every=1, archive_every=1, log_every=1,
+            use_compile=False, check_graph_breaks=False,
+        )
+    state, progress = _latest_state(run_dir)
+    assert progress["updates_done"] == 4, progress
+    assert progress["next_sequence"] == len(PLAN), progress
+    assert progress["tokens_consumed"] == len(PLAN) * T, progress
+
+    events = [
+        json.loads(line)
+        for line in (run_dir / "logs" / "train.jsonl").read_text(
+            encoding="utf-8"
+        ).splitlines()
+        if line.strip()
+    ]
+    rows_per_update = [
+        e["rows"] for e in events if e["event"] == "update"
+    ]
+    assert rows_per_update == [5, 5, 5, 1], rows_per_update
+    assert any(e["event"] == "corpus_exhausted" for e in events)
+
+    with contextlib.redirect_stdout(io.StringIO()):
+        assert trainer.run_train(
+            TAIL_CFG, corpus, run_dir, device, target_tokens=None,
+            save_every=1, archive_every=1, log_every=1,
+            use_compile=False, check_graph_breaks=False,
+        )
+    state_again, progress_again = _latest_state(run_dir)
+    assert progress_again["next_sequence"] == len(PLAN)
+    for name in state:
+        assert torch.equal(state[name], state_again[name]), name
+    update_events_again = [
+        e for e in (
+            json.loads(line)
+            for line in (run_dir / "logs" / "train.jsonl").read_text(
+                encoding="utf-8"
+            ).splitlines()
+            if line.strip()
+        )
+        if e["event"] == "update"
+    ]
+    assert len(update_events_again) == 4, "replay after full-corpus resume"
+
+
+def test_runtime_gate(tmp: Path, root: Path, contract, meta):
+    logger = trainer.RunLogger(None)
+    with contextlib.redirect_stdout(io.StringIO()):
+        try:
+            trainer.enforce_production_runtime(torch.device("cpu"), logger)
+            raise AssertionError("CPU runtime was accepted")
+        except trainer.TrainerError as exc:
+            assert "CUDA" in str(exc), str(exc)
+    logger.close()
+
+    corpus = load_corpus(root, SMALL_CFG, contract)
+    _, full_batch = next(corpus.stream_batches(0, SMALL_CFG.GLOBAL_BATCH))
+    x, pos, segpos, full_mask, start = trainer.production_probe_b1(
+        full_batch, torch.device("cpu"), SMALL_CFG
+    )
+    assert x.shape == (1, SMALL_CFG.T), x.shape
+    assert pos.shape == segpos.shape == start.shape == (1, SMALL_CFG.T)
+    assert full_mask.shape == (1, SMALL_CFG.T, SMALL_CFG.T)
+    assert full_mask.dtype == torch.bool
+    assert not bool(full_mask[0].diagonal().any()), "diagonal must be masked"
+    expected = (
+        (start[:, :, None] == start[:, None, :])
+        & full_batch["input_valid"][:1][:, :, None]
+        & full_batch["input_valid"][:1][:, None, :]
+        & torch.ones((SMALL_CFG.T, SMALL_CFG.T), dtype=torch.bool).tril(-1)
+    )
+    assert torch.equal(full_mask, expected)
+
+
 def test_lr_schedule_invariance(tmp: Path, root: Path, contract, meta):
     cfg = SMALL_CFG
     per_update = cfg.GLOBAL_BATCH * cfg.T
@@ -777,6 +885,9 @@ def test_lr_schedule_invariance(tmp: Path, root: Path, contract, meta):
     assert trainer.parse_target("full") is None
     assert trainer.parse_target("2500000000") == 2_500_000_000
     assert trainer.frozen_config_dict(cfg)["flags"] == trainer.FROZEN_FLAGS
+    assert trainer.PROD_GPU_CAPABILITY == (12, 0)
+    assert trainer.PROD_TORCH_VERSION == "2.11.0+cu128"
+    assert trainer.PROD_CUDA_VERSION == "12.8"
 
 
 def main():
@@ -794,6 +905,8 @@ def main():
             ("checkpoint_failure_modes", test_checkpoint_failure_modes),
             ("smoke_mode", test_smoke_mode),
             ("train_and_resume", test_train_and_resume),
+            ("partial_tail_train", test_partial_tail_train),
+            ("runtime_gate", test_runtime_gate),
             ("lr_schedule_invariance", test_lr_schedule_invariance),
         ]
         for name, fn in tests:
