@@ -27,18 +27,23 @@ TINY = dict(T=16, V=32, D=8, N=16, H=2, L=2, HIDDEN=8)
 MODES = ("single", "two", "four", "heavy", "mixed")
 
 
-def build_pair(cfg, experts: int, dtype=torch.float32):
-    device = torch.device("cpu")
+def build_pair(cfg, experts: int, dtype=torch.float32, device=None):
+    device = device or torch.device("cpu")
     ref = OptArmA(
-        cfg, device, scan_block=cfg.K, use_checkpoint=False, coord="dense",
+        cfg, device, scan_block=1024, use_checkpoint=False, coord="dense",
         single_scan="chunkwise", packed_update="branchfree", zero_carry=True,
         paper_layout="direct", cache_rope=True,
     )
-    exp = ExpertizedArmA(cfg, device, experts=experts, scan_block=cfg.K)
+    exp = ExpertizedArmA(cfg, device, experts=experts, scan_block=1024)
+    ref = ref.to(device)
+    exp = exp.to(device)
     load_init(ref, canonical_init(cfg), device)
     exp.load_canonical(ref.state_dict())
-    ref = ref.to(dtype).eval()
-    exp = exp.to(dtype).eval()
+    if dtype != torch.float32:
+        ref = ref.to(dtype)
+        exp = exp.to(dtype)
+    ref = ref.eval()
+    exp = exp.eval()
     return ref, exp
 
 
@@ -153,7 +158,44 @@ def test_band_layout():
     return {"band_slices": 4, "ledger": ledger}
 
 
+def test_gpu_production(experts: int = 8, mode: str = "mixed"):
+    cfg = ArmAConfig()
+    device = torch.device("cuda")
+    ref, exp = build_pair(cfg, experts, device=device)
+    batch = synthetic_packed_batch(cfg, 1, device, seed=21, mode=mode)
+    with torch.no_grad():
+        a = ref.forward_packed(batch["x"], batch["pos"], batch["segpos"],
+                               batch["full_mask"], batch["segment_start"])
+        b = exp.forward_packed(batch["x"], batch["pos"], batch["segpos"],
+                               batch["full_mask"], batch["segment_start"])
+        fp32_err = float((a - b).abs().max())
+        with torch.autocast(device_type="cuda", dtype=torch.bfloat16,
+                            cache_enabled=False):
+            a16 = ref.forward_packed(batch["x"], batch["pos"], batch["segpos"],
+                                     batch["full_mask"],
+                                     batch["segment_start"])
+            b16 = exp.forward_packed(batch["x"], batch["pos"], batch["segpos"],
+                                     batch["full_mask"],
+                                     batch["segment_start"])
+        bf16_err = float((a16.float() - b16.float()).abs().max())
+    peak = torch.cuda.max_memory_allocated(device) / 2**30
+    return {
+        "experts": experts,
+        "mode": mode,
+        "gpu": torch.cuda.get_device_name(0),
+        "fp32_max_abs_diff": fp32_err,
+        "bf16_autocast_max_abs_diff": bf16_err,
+        "peak_mem_GiB": peak,
+        "pass": fp32_err < 1e-4 and bf16_err < 5e-2,
+    }
+
+
 def main():
+    if "--gpu" in sys.argv:
+        result = test_gpu_production()
+        print(json.dumps(result, indent=2))
+        print("GPU_EXPERT_EQUIVALENCE_PASS=" + str(result["pass"]).lower())
+        return 0 if result["pass"] else 1
     checks = {
         "modes_fp32": test_modes_fp32(),
         "fp64_oracle": test_fp64_oracle(),

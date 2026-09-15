@@ -50,13 +50,15 @@ def build_models(cfg, device, experts, expert_width, scan_block,
         coord="dense", single_scan="chunkwise", packed_update="branchfree",
         zero_carry=True, paper_layout="direct", cache_rope=True,
     )
-    load_init(baseline, canonical_init(cfg), device)
     candidate = ExpertizedArmA(
         cfg, device, experts=experts, expert_width=expert_width,
         scan_block=scan_block,
         learn_freq_scale=oscillator_flags["O1"],
         learn_band_amp=oscillator_flags["O2"],
     )
+    baseline = baseline.to(device)
+    candidate = candidate.to(device)
+    load_init(baseline, canonical_init(cfg), device)
     candidate.load_canonical(baseline.state_dict())
     return baseline, candidate
 
