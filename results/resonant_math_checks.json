@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "fp64_dense_oracle": {
+      "max_abs_logit_error_fp64": 1.9794242111723093e-08,
+      "pass": true
+    },
+    "rope_oscillator_identity": {
+      "max_abs_identity_error_fp64": 5.273559366969494e-16,
+      "pass": true
+    },
+    "q_pair_support": {
+      "pair_zero_mismatches": 0,
+      "q_coordinate_support_inflation": 9,
+      "pass": true
+    },
+    "exact_skips": {
+      "u_irrelevant_outside_supp_x_max_diff": 0.0,
+      "e_support_only_max_diff": 0.0,
+      "q_zero_state_skip_max_diff": 0.0,
+      "pass": true
+    },
+    "census_zero_change": {
+      "output_bitwise_equal": true,
+      "levels_captured": 2,
+      "sample_rows": 4,
+      "pass": true
+    }
+  },
+  "all_pass": true
+}
