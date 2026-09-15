@@ -1,0 +1,17 @@
+--- running gate group: model_equivalence ---
+GATE {"detail": {"grad": 0.0, "layouts": 5, "logit": 0.0, "loss": 0.0}, "name": "model_equiv_packed_fp32_eager", "status": "PASS"}
+GATE {"detail": {"grad": 3.725290298461914e-09, "layouts": 5, "logit": 8.940696716308594e-08, "loss": 0.0}, "name": "model_equiv_packed_fp32_compiled", "status": "PASS"}
+GATE {"detail": {"grad": 0.0, "layouts": 5, "logit": 0.0, "loss": 0.0}, "name": "model_equiv_packed_bf16_eager", "status": "PASS"}
+GATE {"detail": {"grad": 4.76837158203125e-07, "layouts": 5, "logit": 0.0, "loss": 0.0}, "name": "model_equiv_packed_bf16_compiled", "status": "PASS"}
+--- running gate group: graph_breaks ---
+GATE {"detail": {"break_reasons": [], "context": "production T/block, B=1 packed", "graph_break_count": 0, "graph_count": 1}, "name": "graph_breaks_candidate", "status": "PASS"}
+--- running gate group: determinism ---
+GATE {"detail": {"bitwise": false, "grad_max_abs_diff": 2.3283064365386963e-10, "loss_abs_diff": 0.0, "tolerance": 1e-05, "worst_parameter": "embedding.weight"}, "name": "determinism_repeat_backward", "status": "PASS"}
+GATE {"detail": {"bitwise": true, "param_max_abs_diff": 0.0, "tolerance": 0.0}, "name": "determinism_full_update_eager", "status": "PASS"}
+GATE {"detail": {"bitwise": false, "param_max_abs_diff": 9.313225746154785e-10, "tolerance": 1e-06}, "name": "determinism_full_update_compiled", "status": "PASS"}
+--- running gate group: checkpoint ---
+GATE {"detail": {"loss_max_abs_diff": 0.0, "param_max_abs_diff": 2.3283064365386963e-10, "steps_after": 1, "steps_before": 2}, "name": "checkpoint_resume_equivalence", "status": "PASS"}
+VALIDATOR_GATES=9
+VALIDATOR_FAILED=[]
+VALIDATOR_PASS=true
+done
