@@ -1,0 +1,24 @@
+{
+  "purpose": "context only; separate modern Transformer control, not Arm-A",
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "scale": {
+    "L": 8,
+    "D": 384,
+    "D_FF": 960,
+    "T": 2048,
+    "V": 8192,
+    "Q_heads": 6,
+    "KV_heads": 2,
+    "head_dim": 64
+  },
+  "parameters": {
+    "nonembedding": 11999616,
+    "total": 15145344
+  },
+  "runtime": {
+    "B64": true,
+    "median_step_ms": 119.521527,
+    "input_tokens_per_second": 1096639.269
+  },
+  "note": "This establishes the ~24x throughput gap but is not an optimization target for the overnight agent."
+}

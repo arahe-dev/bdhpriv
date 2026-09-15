@@ -1,0 +1,37 @@
+variant=ref_ckpt shape=T2048_L8 compiled=True
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                            full_update         0.00%       0.000us         0.00%       0.000us       0.000us     301.859ms       102.33%     301.859ms     301.859ms             1  
+## Call CompiledFxGraph faogs2gvw7zehbt5nornmkcz5hnx...         0.00%       0.000us         0.00%       0.000us       0.000us     233.088ms        79.02%     233.088ms     233.088ms             1  
+autograd::engine::evaluate_function: CompiledFunctio...         0.01%      33.166us        11.61%      40.538ms      40.538ms       0.000us         0.00%     229.484ms     229.484ms             1  
+                               CompiledFunctionBackward         0.08%     279.118us        11.60%      40.505ms      40.505ms       0.000us         0.00%     229.484ms     229.484ms             1  
+## Call CompiledFxGraph faogs2gvw7zehbt5nornmkcz5hnx...         4.71%      16.443ms        11.52%      40.226ms      40.226ms       0.000us         0.00%     229.484ms     229.484ms             1  
+                                              aten::bmm         2.16%       7.532ms         3.56%      12.447ms      25.932us     133.828ms        45.37%     133.828ms     278.808us           480  
+                                               aten::mm         0.93%       3.255ms         1.80%       6.299ms      33.683us      67.026ms        22.72%      67.026ms     358.427us           187  
+                                            full_update        12.53%      43.742ms        31.92%     111.467ms     111.467ms       0.000us         0.00%      64.083ms      64.083ms             1  
+## Call CompiledFxGraph ftsxtyhekibebnzwriltf2fqknga...         0.00%       0.000us         0.00%       0.000us       0.000us      61.731ms        20.93%      61.731ms      61.731ms             1  
+                             Torch-Compiled Region: 0/0         0.05%     174.184us         5.09%      17.761ms      17.761ms       0.000us         0.00%      59.838ms      59.838ms             1  
+                                       CompiledFunction         0.10%     353.177us         5.02%      17.544ms      17.544ms       0.000us         0.00%      59.838ms      59.838ms             1  
+## Call CompiledFxGraph ftsxtyhekibebnzwriltf2fqknga...         2.15%       7.508ms         4.92%      17.167ms      17.167ms       0.000us         0.00%      59.838ms      59.838ms             1  
+ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_3...         0.00%       0.000us         0.00%       0.000us       0.000us      58.245ms        19.75%      58.245ms     361.770us           161  
+ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_3...         0.00%       0.000us         0.00%       0.000us       0.000us      45.478ms        15.42%      45.478ms     402.458us           113  
+void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us      32.488ms        11.01%      32.488ms     676.834us            48  
+void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us      24.863ms         8.43%      24.863ms     517.989us            48  
+ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_3...         0.00%       0.000us         0.00%       0.000us       0.000us      20.353ms         6.90%      20.353ms     251.270us            81  
+triton_poi_fused_add_slice_backward_transpose_view_5...         0.06%     200.086us         0.09%     304.080us      38.010us      16.337ms         5.54%      16.337ms       2.042ms             8  
+triton_poi_fused_add_slice_backward_transpose_view_5...         0.00%       0.000us         0.00%       0.000us       0.000us      16.337ms         5.54%      16.337ms       2.042ms             8  
+triton_poi_fused_add_mul_neg_permute_relu_select_sel...         0.03%     111.422us         0.06%     213.421us      26.678us      15.042ms         5.10%      15.042ms       1.880ms             8  
+triton_poi_fused_add_mul_neg_permute_relu_select_sel...         0.00%       0.000us         0.00%       0.000us       0.000us      15.042ms         5.10%      15.042ms       1.880ms             8  
+triton_poi_fused_mul_permute_relu_threshold_backward...         0.04%     130.928us         0.08%     266.128us      33.266us      10.110ms         3.43%      10.110ms       1.264ms             8  
+triton_poi_fused_mul_permute_relu_threshold_backward...         0.00%       0.000us         0.00%       0.000us       0.000us      10.110ms         3.43%      10.110ms       1.264ms             8  
+              triton_poi_fused_mul_permute_relu_view_32         0.03%     101.152us         0.06%     209.369us      26.171us       8.057ms         2.73%       8.057ms       1.007ms             8  
+              triton_poi_fused_mul_permute_relu_view_32         0.00%       0.000us         0.00%       0.000us       0.000us       8.057ms         2.73%       8.057ms       1.007ms             8  
+void cutlass::Kernel2<cutlass_80_tensorop_bf16_s1681...         0.00%       0.000us         0.00%       0.000us       0.000us       7.696ms         2.61%       7.696ms     961.998us             8  
+              triton_poi_fused_mul_permute_relu_view_38         0.02%      69.832us         0.04%     150.772us      18.846us       7.614ms         2.58%       7.614ms     951.707us             8  
+              triton_poi_fused_mul_permute_relu_view_38         0.00%       0.000us         0.00%       0.000us       0.000us       7.614ms         2.58%       7.614ms     951.707us             8  
+triton_poi_fused_add_mul_relu_select_stack_sub_view_...         0.03%      89.113us         0.05%     174.589us      21.824us       5.916ms         2.01%       5.916ms     739.485us             8  
+triton_poi_fused_add_mul_relu_select_stack_sub_view_...         0.00%       0.000us         0.00%       0.000us       0.000us       5.916ms         2.01%       5.916ms     739.485us             8  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 349.185ms
+Self CUDA time total: 294.985ms

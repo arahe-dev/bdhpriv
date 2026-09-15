@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "A_TIMING_READY": true,
+  "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+  "sm_identity": "sm_120",
+  "torch_version": "2.11.0+cu128",
+  "cuda_version": "12.8",
+  "scale": {
+    "N": 16384,
+    "D": 256,
+    "H": 4,
+    "K": 4096,
+    "L": 8,
+    "T": 2048,
+    "V": 8192,
+    "writer_hidden": 1040
+  },
+  "parameter_counts": {
+    "paper_BDH_core_E_Dx_Dy": 12582912,
+    "nonembedding": 15278337,
+    "total_trainable": 17375489
+  },
+  "runtime": {
+    "global_sequences": 64,
+    "selected_configuration": "B32x2",
+    "gradient_accumulation_steps": 2,
+    "median_step_ms": 2873.4831819999727,
+    "p10_step_ms": 2870.49037200004,
+    "p90_step_ms": 2876.359488900016,
+    "input_tokens_per_second": 45614.32648050948,
+    "peak_allocated_vram_GiB": 75.72687435150146,
+    "peak_reserved_vram_GiB": 83.427734375,
+    "b64_genuine_oom_fallback_used": true,
+    "b64_oom_note": "B64 tried to allocate another 4.00 GiB with 3.41 GiB free; process had ~91.54 GiB in use, ~90.28 GiB allocated by PyTorch, ~623 MiB reserved-but-unallocated."
+  },
+  "projections": {
+    "2.5B_real_input_tokens": {
+      "hours": 15.224261718326002,
+      "CU_at_8.9_per_hour": 135.49592929310143
+    },
+    "5B_real_input_tokens": {
+      "hours": 30.448523436652003,
+      "CU_at_8.9_per_hour": 270.99185858620285
+    }
+  },
+  "scope_note": "Throughput measured on retained full same-document T=2048 windows. It is not final packed-corpus runtime certification."
+}

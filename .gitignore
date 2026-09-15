@@ -1,0 +1,12 @@
+# Local credentials
+.env
+.env.*
+!.env.example
+
+# Common dependency and generated-output directories
+node_modules/
+.venv/
+__pycache__/
+*.py[cod]
+dist/
+build/

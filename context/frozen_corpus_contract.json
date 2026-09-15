@@ -1,0 +1,16 @@
+{
+  "status": "FROZEN",
+  "corpus_id": "phase_bdh_stage2_5b_v1",
+  "context_length": 2048,
+  "tokenizer_sha256": "9a05bca4c065d9952a01ee1e3f4b6e23e39200e1f33da65e5dad1819419f71c3",
+  "logical_replay_sha256": "c60bd7df4a8ef7329d20ec5b0f022f4579fca20c95657a90f79a2e9e67edb043",
+  "artifact_hashes_sha256": "2fe45d14ff8ae36ded7f1b57af9e7e200233fcd3726354e1a6186af7ee0ea6a3",
+  "real_training_tokens": 5000000000,
+  "sequences": 2441407,
+  "selected_documents": 3498441,
+  "padding_tokens_masked": 1536,
+  "physical_tokens": 5000001536,
+  "shard_count": 25,
+  "colab_path": "/content/drive/Shareddrives/ICLR PHASE BDH/phase_bdh/corpus/stage2/frozen_5b_v1",
+  "note": "Do not modify. Local overnight optimization does not require the full corpus."
+}
