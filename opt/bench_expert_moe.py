@@ -28,6 +28,14 @@ from opt.expert_moe import ExpertizedArmA
 from opt.model_opt import OptArmA
 from opt.model_ref import ArmAConfig, canonical_init, load_init, \
     synthetic_packed_batch
+from opt.routed_expert import (
+    RoutedExpertArmA,
+    build_route_tensors,
+    fixed_route_sets,
+    group_route_table,
+    varying_route_sets,
+    window_route_sets,
+)
 
 TINY = dict(T=16, V=32, D=8, N=16, H=2, L=2, HIDDEN=8)
 
@@ -44,18 +52,23 @@ def make_batch(cfg, batch_size, device, mode, seed):
 
 
 def build_models(cfg, device, experts, expert_width, scan_block,
-                 oscillator_flags):
+                 oscillator_flags, arch="expertized"):
     baseline = OptArmA(
         cfg, device, scan_block=scan_block, use_checkpoint=False,
         coord="dense", single_scan="chunkwise", packed_update="branchfree",
         zero_carry=True, paper_layout="direct", cache_rope=True,
     )
-    candidate = ExpertizedArmA(
-        cfg, device, experts=experts, expert_width=expert_width,
-        scan_block=scan_block,
-        learn_freq_scale=oscillator_flags["O1"],
-        learn_band_amp=oscillator_flags["O2"],
-    )
+    if arch == "routed":
+        candidate = RoutedExpertArmA(
+            cfg, device, experts=experts, expert_width=expert_width,
+            scan_block=scan_block)
+    else:
+        candidate = ExpertizedArmA(
+            cfg, device, experts=experts, expert_width=expert_width,
+            scan_block=scan_block,
+            learn_freq_scale=oscillator_flags["O1"],
+            learn_band_amp=oscillator_flags["O2"],
+        )
     baseline = baseline.to(device)
     candidate = candidate.to(device)
     load_init(baseline, canonical_init(cfg), device)
@@ -63,14 +76,26 @@ def build_models(cfg, device, experts, expert_width, scan_block,
     return baseline, candidate
 
 
-def full_update(model, entry, optimizer, cfg, batch, device):
+def make_forward(entry, arch, route_tensors=None):
+    if arch == "routed":
+        def forward_fn(batch):
+            return entry(batch["x"], batch["pos"], batch["segpos"],
+                         batch["full_mask"], batch["segment_start"],
+                         route_tensors)
+    else:
+        def forward_fn(batch):
+            return entry(batch["x"], batch["pos"], batch["segpos"],
+                         batch["full_mask"], batch["segment_start"])
+    return forward_fn
+
+
+def full_update(model, forward_fn, optimizer, cfg, batch, device):
     denom = int(batch["valid"].sum().item())
     optimizer.zero_grad(set_to_none=True)
     enabled = device.type == "cuda"
     with torch.autocast(device_type=device.type, dtype=torch.bfloat16,
                         cache_enabled=False, enabled=enabled):
-        logits = entry(batch["x"], batch["pos"], batch["segpos"],
-                       batch["full_mask"], batch["segment_start"])
+        logits = forward_fn(batch)
         loss = F.cross_entropy(
             logits.reshape(-1, cfg.V), batch["y"].reshape(-1),
             reduction="none",
@@ -82,10 +107,10 @@ def full_update(model, entry, optimizer, cfg, batch, device):
     return float(loss.detach()), float(grad_norm)
 
 
-def measured_steps(model, entry, optimizer, cfg, batch, device, steps,
+def measured_steps(model, forward_fn, optimizer, cfg, batch, device, steps,
                    warmups, order):
     for _ in range(warmups):
-        full_update(model, entry, optimizer, cfg, batch, device)
+        full_update(model, forward_fn, optimizer, cfg, batch, device)
     if device.type == "cuda":
         torch.cuda.synchronize()
         torch.cuda.reset_peak_memory_stats(device)
@@ -95,7 +120,8 @@ def measured_steps(model, entry, optimizer, cfg, batch, device, steps,
         if order == "sync":
             torch.cuda.synchronize() if device.type == "cuda" else None
         t0 = time.perf_counter()
-        loss, _ = full_update(model, entry, optimizer, cfg, batch, device)
+        loss, _ = full_update(model, forward_fn, optimizer, cfg, batch,
+                              device)
         if device.type == "cuda":
             torch.cuda.synchronize()
         times.append((time.perf_counter() - t0) * 1000.0)
@@ -112,14 +138,11 @@ def measured_steps(model, entry, optimizer, cfg, batch, device, steps,
     }
 
 
-def graph_check(model, cfg, device, batch):
+def graph_check(model, forward_name, call_args):
     try:
         if hasattr(torch, "_dynamo"):
             torch._dynamo.reset()
-        exp = torch._dynamo.explain(model.forward_packed)(
-            batch["x"], batch["pos"], batch["segpos"], batch["full_mask"],
-            batch["segment_start"],
-        )
+        exp = torch._dynamo.explain(getattr(model, forward_name))(*call_args)
         out = {
             "graph_count": int(getattr(exp, "graph_count", -1)),
             "graph_break_count": int(getattr(exp, "graph_break_count", -1)),
@@ -149,6 +172,14 @@ def main():
     parser.set_defaults(compile=True)
     parser.add_argument("--O1", action="store_true")
     parser.add_argument("--O2", action="store_true")
+    parser.add_argument("--arch", choices=("expertized", "routed"),
+                        default="expertized")
+    parser.add_argument("--route",
+                        choices=("fixed", "varying", "window", "window_cyclic"),
+                        default="fixed")
+    parser.add_argument("--top-r", type=int, default=2)
+    parser.add_argument("--G", type=int, default=128)
+    parser.add_argument("--route-offset", type=int, default=0)
     parser.add_argument("--tiny", action="store_true")
     parser.add_argument("--graph-check", action="store_true")
     parser.add_argument("--device", default=None)
@@ -162,11 +193,13 @@ def main():
         args.scan_block = cfg.K
         if args.Ke == 512:
             args.Ke = cfg.K // args.M if cfg.K % args.M == 0 else 2
+        if args.G == 128:
+            args.G = max(2, cfg.T // 4)
     batch = make_batch(cfg, args.batch, device, args.mode, args.seed)
 
     flags = {"O1": args.O1, "O2": args.O2}
     baseline, candidate = build_models(cfg, device, args.M, args.Ke,
-                                       args.scan_block, flags)
+                                       args.scan_block, flags, arch=args.arch)
     baseline.train()
     candidate.train()
     opt_b = torch.optim.AdamW(baseline.parameters(), lr=cfg.PEAK_LR,
@@ -175,30 +208,58 @@ def main():
     opt_c = torch.optim.AdamW(candidate.parameters(), lr=cfg.PEAK_LR,
                               betas=cfg.BETAS, eps=cfg.EPS,
                               fused=device.type == "cuda")
+    route_tensors = None
+    route_info = None
+    if args.arch == "routed":
+        assert cfg.T % args.G == 0, "--G must divide T"
+        groups_per_row = cfg.T // args.G
+        if args.route == "fixed":
+            sets = fixed_route_sets(args.M, args.top_r, args.route_offset)
+        elif args.route == "varying":
+            sets = varying_route_sets(args.M, args.top_r)
+        elif args.route == "window_cyclic":
+            sets = window_route_sets(args.M, args.top_r, cyclic=True)
+        else:
+            sets = window_route_sets(args.M, args.top_r)
+        table = group_route_table(sets, groups_per_row)
+        route_tensors = build_route_tensors(table, args.G, args.batch,
+                                            cfg.T, args.M, device)
+        route_info = {
+            "route": args.route,
+            "top_r": args.top_r,
+            "G": args.G,
+            "sets": [list(s) for s in sets],
+            "capacity_tokens": int(route_tensors.sel_idx.shape[1]),
+            "active_experts": list(route_tensors.active),
+        }
     entry_b = torch.compile(baseline.forward_packed, mode="default") \
         if args.compile else baseline.forward_packed
-    entry_c = torch.compile(candidate.forward_packed, mode="default") \
-        if args.compile else candidate.forward_packed
+    candidate_fn = (candidate.forward_route if args.arch == "routed"
+                    else candidate.forward_packed)
+    entry_c = torch.compile(candidate_fn, mode="default") \
+        if args.compile else candidate_fn
+    fn_b = make_forward(entry_b, "expertized")
+    fn_c = make_forward(entry_c, args.arch, route_tensors)
 
     compile_seconds = {}
     if args.compile:
         t0 = time.perf_counter()
-        full_update(baseline, entry_b, opt_b, cfg, batch, device)
+        full_update(baseline, fn_b, opt_b, cfg, batch, device)
         compile_seconds["baseline"] = time.perf_counter() - t0
         t0 = time.perf_counter()
-        full_update(candidate, entry_c, opt_c, cfg, batch, device)
+        full_update(candidate, fn_c, opt_c, cfg, batch, device)
         compile_seconds["candidate"] = time.perf_counter() - t0
 
     order = ["baseline", "candidate"]
     random.Random(args.seed).shuffle(order)
     results = {}
     for name in order:
-        model, entry, opt = (
-            (baseline, entry_b, opt_b) if name == "baseline"
-            else (candidate, entry_c, opt_c)
+        model, fn, opt = (
+            (baseline, fn_b, opt_b) if name == "baseline"
+            else (candidate, fn_c, opt_c)
         )
         results[name] = measured_steps(
-            model, entry, opt, cfg, batch, device, args.steps, args.warmups,
+            model, fn, opt, cfg, batch, device, args.steps, args.warmups,
             "sync",
         )
     speedup = results["baseline"]["median_ms"] / results["candidate"]["median_ms"]
@@ -218,12 +279,15 @@ def main():
             "mode": args.mode,
             "steps": args.steps,
             "warmups": args.warmups,
+            "arch": args.arch,
         },
         "candidate": {
             "M": args.M,
             "Ke": args.Ke,
             "oscillator_flags": flags,
-            "ledger": candidate.parameter_ledger(),
+            "route_info": route_info,
+            "ledger": candidate.parameter_ledger(
+                args.top_r if args.arch == "routed" else args.M),
         },
         "baseline": results["baseline"],
         "candidate_results": results["candidate"],
@@ -235,9 +299,15 @@ def main():
         "compile_seconds": compile_seconds,
     }
     if args.graph_check:
+        base_args = [batch["x"], batch["pos"], batch["segpos"],
+                     batch["full_mask"], batch["segment_start"]]
         report["graph_breaks"] = {
-            "baseline": graph_check(baseline, cfg, device, batch),
-            "candidate": graph_check(candidate, cfg, device, batch),
+            "baseline": graph_check(baseline, "forward_packed", base_args),
+            "candidate": graph_check(
+                candidate,
+                "forward_route" if args.arch == "routed" else "forward_packed",
+                base_args + [route_tensors] if args.arch == "routed"
+                else base_args),
         }
     out = Path(args.out) if args.out else (
         Path("results") / f"bench_expert_moe_M{args.M}_Ke{args.Ke}"
