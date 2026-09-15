@@ -1,0 +1,1 @@
+{"event": "campaign_start", "campaign": "moe_resonant_local", "directive": "campaigns/ARM_A_MOE_RESONANT_LOCAL_DIRECTIVE.md", "baseline": "opt.model_opt OptArmA (opt3c_all flags), local 4060 via iclr-arm-a container", "date": "2026-09-15"}
