@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "tiny_diagnostic": true,
+    "device": "cpu",
+    "gpu": null,
+    "torch": "2.10.0+cpu",
+    "cuda": null,
+    "compile": false,
+    "batch": 1,
+    "T": 16,
+    "L": 2,
+    "mode": "mixed",
+    "steps": 2,
+    "warmups": 1
+  },
+  "candidate": {
+    "M": 4,
+    "Ke": 2,
+    "oscillator_flags": {
+      "O1": false,
+      "O2": false
+    },
+    "ledger": {
+      "M": 4,
+      "Ke": 2,
+      "top_r": 4,
+      "stored_params": 1097,
+      "stored_K_per_head": 8,
+      "active_K_per_head": 8,
+      "stored_N": 16,
+      "active_N": 16,
+      "active_fraction": 1.0
+    }
+  },
+  "baseline": {
+    "ms": [
+      9.14530000591185,
+      7.463200003257953
+    ],
+    "losses": [
+      3.4424870014190674,
+      3.4308531284332275
+    ],
+    "median_ms": 8.304250004584901,
+    "p10_ms": 7.463200003257953,
+    "p90_ms": 9.14530000591185,
+    "peak_mem_GiB": 0.0
+  },
+  "candidate_results": {
+    "ms": [
+      32.0728000078816,
+      34.3297000072198
+    ],
+    "losses": [
+      3.4424870014190674,
+      3.4308531284332275
+    ],
+    "median_ms": 33.2012500075507,
+    "p10_ms": 32.0728000078816,
+    "p90_ms": 34.3297000072198,
+    "peak_mem_GiB": 0.0
+  },
+  "speedup_same_session": 0.25011859501363143,
+  "tok_s": {
+    "baseline": 1926.7242666304796,
+    "candidate": 481.909566548285
+  },
+  "compile_seconds": {}
+}
