@@ -1,0 +1,48 @@
+{
+  "analytical": {
+    "note": "Analytical absolute minimum for eager fused FP32 recurrence (one read + one write of 128 MiB per token). NOT a benchmark result and NOT a throughput target.",
+    "state_only_bandwidth_ceiling_token_steps_per_s": 5948.9255130454685,
+    "state_traffic_bytes_per_token": 268451840
+  },
+  "assertions": {
+    "C_elements": true,
+    "S_elements": true,
+    "total_mib": true
+  },
+  "bytes_fp32": {
+    "C": 8192,
+    "S": 134217728,
+    "total": 134225920
+  },
+  "config": {
+    "D": 256,
+    "H": 4,
+    "HIDDEN": 1040,
+    "INIT_STD": 0.02,
+    "K": 4096,
+    "L": 8,
+    "N": 16384,
+    "READ_BLOCK": 256,
+    "SEED": 1337,
+    "T": 2048,
+    "THETA": 65536,
+    "V": 8192
+  },
+  "elements": {
+    "C": 2048,
+    "S": 33554432,
+    "last_hidden": 256,
+    "total_mathematical": 33556480
+  },
+  "hardware": {
+    "bandwidth_gbs": 1597,
+    "gpu": "RTX PRO 6000 Blackwell Server Edition",
+    "memory_gb": 96,
+    "note": "Server Edition bandwidth; not the 1792 GB/s Workstation Edition"
+  },
+  "mib": {
+    "C": 0.0078125,
+    "S": 128.0,
+    "total": 128.0078125
+  }
+}

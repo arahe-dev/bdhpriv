@@ -1,0 +1,18 @@
+{
+  "TOKENIZER_STATUS": "BLOCKED_ARTIFACT_NOT_LOCAL",
+  "TRAINED_CHECKPOINT_STATUS": "BLOCKED",
+  "blockers": [
+    {
+      "description": "exact training tokenizer bytelevel-bpe-8192-9a05bca4c065d995 (sha256 9a05bca4c065d9952a01ee1e3f4b6e23e39200e1f33da65e5dad1819419f71c3) is not present in the repository; text prompt CLI stays disabled until the real artifact is supplied and hashed",
+      "id": "tokenizer_artifact",
+      "status": "BLOCKED_ARTIFACT_NOT_LOCAL",
+      "validation": "py -3.12 -m akasha.checkpoint.validate_real_checkpoint --help; tokenizer: akasha/tokenizer/adapter.py status()"
+    },
+    {
+      "description": "final trained Arm-A checkpoint is not local; converter and loader are validated against source-compatible generated state_dicts only",
+      "id": "trained_checkpoint",
+      "status": "BLOCKED",
+      "validation": "py -3.12 -m akasha.checkpoint.validate_real_checkpoint --checkpoint <latest.pt> --out-dir results/akasha/real_package"
+    }
+  ]
+}

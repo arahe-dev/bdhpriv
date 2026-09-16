@@ -1,0 +1,5 @@
+{
+  "TRAINED_CHECKPOINT_LOCAL_STATUS": "BLOCKED",
+  "provided": null,
+  "reason": "no local trainer checkpoint supplied; pass --checkpoint or set AKASHA_ARM_A_CHECKPOINT"
+}
