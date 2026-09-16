@@ -1,0 +1,9 @@
+{
+  "diagnostic_note": "writer zeroed changes semantics; never promoted",
+  "dense_mb1_ms": 10958.518825002102,
+  "sparse_mb2_normal_ms": 2707.2928080015117,
+  "sparse_mb2_writer_zeroed_ms": 229.1326910017233,
+  "writer_share_of_mb2_wall": 0.9153646438521491,
+  "normal_tok_s": 48414.41591120527,
+  "zeroed_tok_s": 572035.3539557314
+}

@@ -1,0 +1,17 @@
+{
+  "mission": "350k_g4_sparse",
+  "projections_are_inferred": true,
+  "basis": "MEASURED local mb2 sparse 48165 tok/s; MEASURED local dense mb1 11089 tok/s; MEASURED G4 dense production 80300 tok/s",
+  "naive_ratio_transfer": {
+    "g4_over_local_dense": 7.24,
+    "projected_sparse_g4_tok_s": 348800,
+    "projected_2p5b_hours": 1.99
+  },
+  "caveat": "The G4/local dense ratio mixes geometries (G4 production B16x4 vs local accumulation mb1); sparse scales differently with geometry and hardware. Planning estimate only; the decision comes from results/g4_sparse_350k_cell.py.",
+  "targets": {
+    "primary_350k": "2.5B in ~1.98h",
+    "preferred_380k": "~1.83h",
+    "stretch_400k": "~1.74h"
+  },
+  "confidence": "low-medium; no G4 sparse measurement exists yet"
+}

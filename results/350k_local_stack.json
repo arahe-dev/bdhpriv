@@ -1,0 +1,21 @@
+{
+  "mission": "350k_g4_sparse",
+  "stack": "STACK0 = M8 Ke512 top1 fixed cyclic window, compact executor, microbatch 2 x 32 accumulation (global 64 x 2048)",
+  "measurements": [
+    {"source": "results/350k_local_reprofile.json", "median_ms": 2721, "packed_tok_s": 48165, "peak_GiB": 2.36},
+    {"source": "results/350k_b3_cache.json (cache_off)", "median_ms": 2725.8, "packed_tok_s": 48085, "peak_GiB": null},
+    {"source": "results/350k_b4_writer.json (normal)", "median_ms": 2707.3, "packed_tok_s": 48414, "peak_GiB": null},
+    {"source": "results/onehour_mb_cfg/sparse_mb2.json (earlier session)", "median_ms": 2804, "packed_tok_s": 46744, "peak_GiB": 2.29}
+  ],
+  "same_session_dense_controls": [
+    {"source": "results/350k_b3_cache.json", "dense_mb1_ms": 10958.5, "sparse_mb2_ms": 2725.8, "ratio": 4.02},
+    {"source": "results/350k_b4_writer.json", "dense_mb1_ms": 10958.5, "sparse_mb2_ms": 2707.3, "ratio": 4.05},
+    {"source": "results/onehour_microbatch.json", "dense_mb1_ms": 11820, "sparse_mb2_ms": 2804, "ratio": 4.22}
+  ],
+  "components_attempted": {
+    "B3_gather_caching": {"status": "KILLED", "effect_pct": -0.066, "evidence": "results/350k_b3_cache.json", "note": "level-invariant pos/segment gathers cached once per forward; within noise; code reverted"},
+    "B4_writer_ablation": {"status": "INVALID", "evidence": "results/350k_b4_writer.json", "note": "zeroing writer severs the level backward path; the 91.5% share is an ablation artifact; the earlier B1 17.1 ms writer attribution is hereby RETRACTED as cost evidence"}
+  },
+  "decision": "FREEZE STACK0 as the local systems champion; stop local systems optimization per the <5% B3+B4 rule",
+  "best_feasible_local": {"dense_tok_s": 11089, "sparse_tok_s": 48414, "ratio": 4.37}
+}

@@ -1,0 +1,121 @@
+{
+  "candidate": "M8 Ke512 top1 fixed cyclic window, compact executor",
+  "microbatch": 2,
+  "accumulation": 32,
+  "global_tokens": 131072,
+  "median_ms": 2721.3108010000724,
+  "p10_ms": 2719.4053899984283,
+  "p90_ms": 2747.147522997693,
+  "ms": [
+    2719.4053899984283,
+    2721.3108010000724,
+    2747.147522997693
+  ],
+  "packed_tok_s": 48165.02398470307,
+  "peak_mem_GiB": 2.360441207885742,
+  "profiler": {
+    "kernels_per_global_update": 137770,
+    "launch_api_cpu_ms_per_update": 589.370086999991,
+    "top_kernels_by_count": [
+      {
+        "name": "aten::bmm",
+        "count": 18944
+      },
+      {
+        "name": "aten::mm",
+        "count": 14688
+      },
+      {
+        "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn",
+        "count": 8992
+      },
+      {
+        "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt",
+        "count": 8736
+      },
+      {
+        "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn",
+        "count": 6176
+      },
+      {
+        "name": "void cublasLt::splitKreduce_kernel<32, 16, int, __nv_bfloat16, __nv_bfloat16, float, __nv_",
+        "count": 4352
+      },
+      {
+        "name": "triton_poi_fused_relu_threshold_backward_65",
+        "count": 3584
+      },
+      {
+        "name": "triton_poi_fused__to_copy_bmm_masked_fill_mul_permute_relu_squeeze_threshold_backward_view",
+        "count": 3584
+      },
+      {
+        "name": "Memset (Device)",
+        "count": 3008
+      },
+      {
+        "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_tn",
+        "count": 2560
+      },
+      {
+        "name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_128x128_32x4_nn_align8",
+        "count": 2048
+      },
+      {
+        "name": "void cutlass::Kernel2<cutlass_80_tensorop_bf16_s16816gemm_relu_bf16_128x128_32x4_tn_align8",
+        "count": 2048
+      }
+    ],
+    "top_kernels_by_device_ms": [
+      {
+        "name": "ProfilerStep*",
+        "device_ms": 2988.61
+      },
+      {
+        "name": "aten::bmm",
+        "device_ms": 683.68
+      },
+      {
+        "name": "aten::mm",
+        "device_ms": 519.5
+      },
+      {
+        "name": "triton_per_fused_add_native_layer_norm_native_layer_norm_backward_16",
+        "device_ms": 364.09
+      },
+      {
+        "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt",
+        "device_ms": 323.14
+      },
+      {
+        "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn",
+        "device_ms": 321.12
+      },
+      {
+        "name": "triton_poi_fused__to_copy_index_put_mul_permute_select_squeeze_view_7",
+        "device_ms": 305.32
+      },
+      {
+        "name": "triton_poi_fused__to_copy_add_bmm_select_backward_squeeze_view_70",
+        "device_ms": 291.98
+      },
+      {
+        "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn",
+        "device_ms": 216.52
+      },
+      {
+        "name": "triton_poi_fused__to_copy__unsafe_view_add_clone_permute_select_backward_squeeze_view_79",
+        "device_ms": 146.07
+      },
+      {
+        "name": "triton_poi_fused__to_copy_bmm_masked_fill_mul_permute_relu_squeeze_threshold_backward_view",
+        "device_ms": 135.23
+      },
+      {
+        "name": "triton_per_fused__to_copy_add_native_layer_norm_backward_view_47",
+        "device_ms": 97.07
+      }
+    ],
+    "note": "profiler overhead inflates wall; counts are valid"
+  }
+}

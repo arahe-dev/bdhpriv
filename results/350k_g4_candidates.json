@@ -1,0 +1,30 @@
+{
+  "mission": "350k_g4_sparse",
+  "g4_cell": "results/g4_sparse_350k_cell.py",
+  "candidates_for_transfer": [
+    {
+      "label": "A_SPEED_CHAMPION",
+      "architecture": "M8 / Ke512 / top1 / head-shared fixed cyclic window / compact executor",
+      "local": {"mb2_ms": 2707, "tok_s": 48414, "peak_GiB": 2.36, "ratio_vs_dense_mb1": 4.05},
+      "local_geometries": {"mb1": {"ms": 3465, "tok_s": 37827}, "mb2": {"ms": 2707, "tok_s": 48414}, "mb4": {"ms": 3113, "tok_s": 42110}},
+      "g4_geometry_plan": "B8, B16, B32 first; then B64 if improving; B4 if improving smaller",
+      "purpose": "production throughput ceiling"
+    },
+    {
+      "label": "B_SCIENTIFIC_CHAMPION",
+      "architecture": "M8 / Ke512 / learned top2 / straight-through hard routing, once-forward refresh, G128",
+      "local": {"mb1_ms": 91.7, "speedup": 2.38, "graph_breaks": 0, "overflow_tokens": 128},
+      "purpose": "conditional-compute result with the learned router; router overhead near zero vs fixed top2",
+      "note": "not included in the first G4 cell run unless the speed champion lands >=350k and the loop time remains cheap"
+    }
+  ],
+  "excluded": [
+    {"label": "C_OPTIONAL_FALLBACK", "reason": "no materially different safer/faster variant emerged; B3 killed, B4 attribution invalid; avoid near-duplicate G4 time"}
+  ],
+  "protocol": {
+    "fresh_runtime": "restart runtime before the cell",
+    "same_session_dense_reference": "B16x4 production geometry measured in the same cell",
+    "order": "dense first, then sparse geometries ascending",
+    "outputs": ["G4_DENSE_TOK_S_B16", "G4_SPARSE_TOK_S_B<geom>", "G4_SAME_SESSION_SPEEDUP_B<best>", "G4_BEST_GEOMETRY", "G4_PROJECTED_2P5B_HOURS", "G4_RESULT_JSON"]
+  }
+}
