@@ -89,13 +89,17 @@ def group_route_table(route_sets: Sequence[Sequence[int]],
 
 
 def build_route_tensors(group_table: Sequence[Sequence[int]], group: int,
-                        batch: int, time: int, experts: int, device) -> Route:
+                        batch: int, time: int, experts: int, device,
+                        capacity_factor: float = 1.0) -> Route:
     """Static capacity packing over routed experts only.
 
     Only experts that receive at least one group get a stream; capacity is
-    the max token count across those experts, and unused slots are masked.
-    Inactive experts are absent from the loop entirely (no zero-work GEMMs).
+    the max token count across those experts (times capacity_factor for the
+    padding intervention), and unused slots are masked. Inactive experts are
+    absent from the loop entirely (no zero-work GEMMs).
     """
+    if capacity_factor < 1.0:
+        raise ValueError("capacity_factor must be >= 1.0")
     token_positions = [[] for _ in range(experts)]
     groups_per_row = time // group
     for b in range(batch):
@@ -108,7 +112,8 @@ def build_route_tensors(group_table: Sequence[Sequence[int]], group: int,
                    if positions)
     if not active:
         raise ValueError("no route assignments")
-    total = max(len(token_positions[e]) for e in active)
+    used = max(len(token_positions[e]) for e in active)
+    total = int(math.ceil(used * capacity_factor))
     sel_idx = torch.zeros((len(active), total), dtype=torch.long)
     sel_mask = torch.zeros((len(active), total), dtype=torch.float32)
     for row, expert in enumerate(active):

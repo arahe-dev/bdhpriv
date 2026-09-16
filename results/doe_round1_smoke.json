@@ -1,0 +1,129 @@
+{
+  "summary": {
+    "out": "results/doe_round1_smoke.json",
+    "baseline_median_ms": 20.323600008850917,
+    "baseline_samples": [
+      20.323600008850917
+    ],
+    "noise_ms": null,
+    "runs": 4,
+    "best": "top2_G4",
+    "fit": {
+      "skipped": "too few records"
+    },
+    "residual_runtime_model": {
+      "skipped": "need >=3 low-padding records"
+    },
+    "speedups": {
+      "top1_G4": 0.516,
+      "top2_G4": 0.609,
+      "top2_G4_cap1.5": 0.421
+    }
+  },
+  "records": [
+    {
+      "id": "top1_G4",
+      "kind": "candidate",
+      "top_r": 1,
+      "G": 4,
+      "capacity_factor": 1.0,
+      "pack_ms": 0.3668999997898936,
+      "telemetry": "210 MHz, 405 MHz, 55, 4.47 W",
+      "route": {
+        "active_experts": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "capacity_tokens": 4,
+        "used_tokens": 16,
+        "padding_fraction": 0.0,
+        "routed_token_slots": 16
+      },
+      "ms": [
+        39.356399996904656
+      ],
+      "median_ms": 39.356399996904656,
+      "p10_ms": 39.356399996904656,
+      "p90_ms": 39.356399996904656,
+      "loss_last": 3.4541454315185547,
+      "peak_mem_GiB": 0.0,
+      "speedup_same_session": 0.5163988578845969
+    },
+    {
+      "id": "top2_G4",
+      "kind": "candidate",
+      "top_r": 2,
+      "G": 4,
+      "capacity_factor": 1.0,
+      "pack_ms": 0.2919000107795,
+      "telemetry": "210 MHz, 405 MHz, 55, 4.47 W",
+      "route": {
+        "active_experts": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "capacity_tokens": 8,
+        "used_tokens": 32,
+        "padding_fraction": 0.0,
+        "routed_token_slots": 32
+      },
+      "ms": [
+        33.37569997529499
+      ],
+      "median_ms": 33.37569997529499,
+      "p10_ms": 33.37569997529499,
+      "p90_ms": 33.37569997529499,
+      "loss_last": 3.4541451930999756,
+      "peak_mem_GiB": 0.0,
+      "speedup_same_session": 0.6089340455449515
+    },
+    {
+      "id": "ctrl_arm_a",
+      "kind": "baseline",
+      "telemetry": "210 MHz, 405 MHz, 55, 4.47 W",
+      "ms": [
+        20.323600008850917
+      ],
+      "median_ms": 20.323600008850917,
+      "p10_ms": 20.323600008850917,
+      "p90_ms": 20.323600008850917,
+      "loss_last": 3.454146146774292,
+      "peak_mem_GiB": 0.0,
+      "speedup_same_session": 1.0
+    },
+    {
+      "id": "top2_G4_cap1.5",
+      "kind": "candidate",
+      "top_r": 2,
+      "G": 4,
+      "capacity_factor": 1.5,
+      "pack_ms": 0.38460001815110445,
+      "telemetry": "210 MHz, 405 MHz, 55, 4.47 W",
+      "route": {
+        "active_experts": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "capacity_tokens": 12,
+        "used_tokens": 32,
+        "padding_fraction": 0.33333333333333337,
+        "routed_token_slots": 32
+      },
+      "ms": [
+        48.30789999687113
+      ],
+      "median_ms": 48.30789999687113,
+      "p10_ms": 48.30789999687113,
+      "p90_ms": 48.30789999687113,
+      "loss_last": 3.4424870014190674,
+      "peak_mem_GiB": 0.0,
+      "speedup_same_session": 0.42070965639506713
+    }
+  ]
+}
