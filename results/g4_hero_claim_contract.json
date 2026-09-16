@@ -2,9 +2,9 @@
   "contract_id": "g4_hero_claim_v1",
   "created_utc": "2026-09-16T09:05:00Z",
   "purpose": "Pre-registration for the single-cell G4 validation of the two currently testable ICLR hero claims (sparse Arm-A top1 production speed; learned top2 conditional compute). Frozen before the G4 run; the harness verifies these fingerprints and thresholds at runtime.",
-  "repo_commit": "2fc6833a9248543f8d44604f49686273daf71f8a",
-  "repo_commit_note": "Candidate systems freeze 0dcbb87; harness/contract/cell pin is this commit (contract_commit). The harness records the actual HEAD at run time; the candidate blobs below are identical at 734d622, 0dcbb87 and this commit.",
-  "contract_commit": "2fc6833a9248543f8d44604f49686273daf71f8a",
+  "repo_commit": "9d32f7198bc578a834b8e9a6a226a77995a0a3a8",
+  "repo_commit_note": "Candidate systems freeze 0dcbb87 (frozen-state manifest 02e6251); pinned harness/contract/cell commit is this commit. The harness records the actual HEAD at run time; the candidate blobs are byte-identical at 734d622, 0dcbb87 and this commit.",
+  "contract_commit": "9d32f7198bc578a834b8e9a6a226a77995a0a3a8",
   "systems_freeze_commit": "0dcbb878d24b99b5808359c889e97143c3cec00b",
   "candidate_blob_audit": {
     "compared": [
