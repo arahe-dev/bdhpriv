@@ -1,0 +1,66 @@
+{
+  "diagnostic_note": "synthetic packed mixed data, 2 rows x 2048 tokens, identical seeds; NOT frozen-corpus evidence",
+  "checkpoints": {
+    "step2000": "runs/arm_a_2p5b_opt3c_all/census_ckpts/step_0000002000.pt",
+    "final": "runs/arm_a_2p5b_opt3c_all/ckpt/latest.pt"
+  },
+  "steps": [
+    2000,
+    19074
+  ],
+  "headline": {
+    "x_zero_fraction": [
+      0.6510735154151917,
+      0.754001647233963
+    ],
+    "y_zero_fraction": [
+      0.7244478948414326,
+      0.6958180088549852
+    ],
+    "u_zero_fraction": [
+      0.9210315532982349,
+      0.9477128684520721
+    ],
+    "x_pair_zero_fraction": [
+      0.4518825598061085,
+      0.5995567254722118
+    ],
+    "x_adjacent_jaccard": [
+      0.37593823742732474,
+      0.36960319247696866
+    ],
+    "x_top_25pct_mass": [
+      0.8033501375466585,
+      0.9860690776258707
+    ],
+    "u_top_25pct_mass": [
+      0.49981494434177876,
+      0.5
+    ]
+  },
+  "block_any_active": {
+    "128": [
+      0.9999358654022217,
+      0.9983789920806885
+    ],
+    "16": [
+      0.9645507335662842,
+      0.8765385150909424
+    ],
+    "256": [
+      0.9999947547912598,
+      0.9997730255126953
+    ],
+    "32": [
+      0.9929970502853394,
+      0.9583222270011902
+    ],
+    "64": [
+      0.9991796016693115,
+      0.9902557134628296
+    ]
+  },
+  "delta_x_zero_fraction": 0.10292813181877136,
+  "delta_pair_zero_fraction": 0.14767416566610336,
+  "interpretation": "natural scalar and pair sparsity grow with training (x +10.3pts, pairs +14.8pts), but 87-99% of pair-preserving blocks remain non-empty even at width 16: block-skip sparsity is weak, routing-before-compute is the viable axis"
+}

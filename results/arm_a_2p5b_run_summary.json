@@ -1,0 +1,262 @@
+{
+  "run_dir": "runs\\arm_a_2p5b_opt3c_all",
+  "train_log": {
+    "event_counts": {
+      "session_start": 1,
+      "fresh_start": 1,
+      "graph_break_gate": 1,
+      "update": 1907,
+      "checkpoint": 95,
+      "checkpoint_archive": 19,
+      "checkpoint_final": 1,
+      "session_end": 1
+    },
+    "updates": 1907,
+    "first_update": {
+      "elapsed_s": 17.435024371000054,
+      "event": "update",
+      "grad_norm": 1.1587038040161133,
+      "loss": 8.709540605545044,
+      "lr": 0.000131072,
+      "mem_alloc_GiB": 0.2796812057495117,
+      "mem_peak_GiB": 58.203014850616455,
+      "mem_reserved_GiB": 58.57421875,
+      "next_sequence": 640,
+      "rows": 64,
+      "step": 10,
+      "step_ms": 1628.6892169998737,
+      "tok_s": 80476.98642067584,
+      "tokens_consumed": 1310720,
+      "ts": "2026-09-15T14:31:37Z",
+      "valid_pairs": 130990,
+      "valid_pairs_s": 80426.6391849085
+    },
+    "last_update": {
+      "elapsed_s": 31271.376359964,
+      "event": "update",
+      "grad_norm": 0.7802870869636536,
+      "loss": 2.9978013038635254,
+      "lr": 0.001,
+      "mem_alloc_GiB": 0.2796812057495117,
+      "mem_peak_GiB": 58.203014850616455,
+      "mem_reserved_GiB": 58.57421875,
+      "next_sequence": 1220480,
+      "rows": 64,
+      "step": 19070,
+      "step_ms": 1628.6398759984877,
+      "tok_s": 80479.42453800124,
+      "tokens_consumed": 2499543040,
+      "ts": "2026-09-15T23:12:31Z",
+      "valid_pairs": 130976,
+      "valid_pairs_s": 80420.4796469822
+    },
+    "loss_first": 8.709540605545044,
+    "loss_last": 2.9978013038635254,
+    "loss_min": 0.27610356360673904,
+    "loss_last50_mean": 2.8120948177576066,
+    "loss_last50_std": 0.1727388855392866,
+    "tok_s_median": 80444.58768808984,
+    "tok_s_last": 80479.42453800124,
+    "step_ms_median": 1629.3451649999042,
+    "step_ms_last": 1628.6398759984877,
+    "mem_peak_GiB_max": 58.203014850616455,
+    "tokens_consumed_last": 2499543040,
+    "wall_seconds": 31271.376359964
+  },
+  "startup": [
+    {
+      "capability": [
+        12,
+        0
+      ],
+      "cuda": "12.8",
+      "event": "runtime_gate",
+      "gpu": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+      "status": "PASS",
+      "torch": "2.11.0+cu128",
+      "ts": "2026-09-15T14:28:26Z"
+    }
+  ],
+  "smoke": [
+    {
+      "code_sha256": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
+      "corpus": {
+        "id": "phase_bdh_stage2_5b_v1",
+        "sequences": 2441407
+      },
+      "cuda": "12.8",
+      "device": "cuda",
+      "event": "session_start",
+      "implementation": "arm_a_2p5b_trainer_v1_opt3c_all_b1024",
+      "mode": "smoke",
+      "torch": "2.11.0+cu128",
+      "ts": "2026-09-15T14:30:09Z"
+    },
+    {
+      "break_reasons": [],
+      "context": "production T/block, B=1 packed",
+      "event": "graph_break_gate",
+      "graph_break_count": 0,
+      "graph_count": 1,
+      "status": "PASS",
+      "ts": "2026-09-15T14:30:13Z"
+    },
+    {
+      "event": "smoke_update",
+      "grad_norm": 1.1868970394134521,
+      "loss": 9.073219299316406,
+      "lr": 1.31072e-05,
+      "ts": "2026-09-15T14:30:33Z",
+      "update_index": 0,
+      "valid_pairs": 130994
+    },
+    {
+      "event": "batch_equivalence",
+      "status": "PASS",
+      "ts": "2026-09-15T14:30:37Z"
+    },
+    {
+      "cursor_a": 192,
+      "cursor_b": 192,
+      "event": "smoke_comparison",
+      "loss_a": 9.02271318435669,
+      "loss_b": 9.02271318435669,
+      "loss_diff": 0.0,
+      "param_max_abs_diff": 3.725290298461914e-09,
+      "ts": "2026-09-15T14:30:38Z"
+    },
+    {
+      "event": "smoke_end",
+      "reasons": [],
+      "status": "PASS",
+      "ts": "2026-09-15T14:30:38Z"
+    }
+  ],
+  "checkpoints": [
+    {
+      "path": "runs\\arm_a_2p5b_opt3c_all\\ckpt\\latest.pt",
+      "bytes": 208524709,
+      "progress": {
+        "updates_done": 19074,
+        "tokens_consumed": 2500067328,
+        "target_tokens": 2500000000,
+        "next_sequence": 1220736
+      },
+      "saved_at": "2026-09-15T23:12:38Z",
+      "implementation": "arm_a_2p5b_trainer_v1_opt3c_all_b1024",
+      "code_sha256": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
+      "torch": "2.11.0+cu128",
+      "cuda": "12.8",
+      "flags": {
+        "scan": "chunkwise",
+        "scan_block": 1024,
+        "packed_update": "branchfree",
+        "zero_carry": true,
+        "paper_layout": "direct",
+        "cache_rope": true,
+        "coordinator": "dense",
+        "checkpointing": "none",
+        "precision": "bf16_autocast_fp32_master",
+        "optimizer": "adamw_fused"
+      },
+      "session_stats": {}
+    },
+    {
+      "path": "runs\\arm_a_2p5b_opt3c_all\\ckpt\\step_0000018000.pt",
+      "bytes": 208524709,
+      "progress": {
+        "updates_done": 18000,
+        "tokens_consumed": 2359296000,
+        "target_tokens": 2500000000,
+        "next_sequence": 1152000
+      },
+      "saved_at": "2026-09-15T22:43:19Z",
+      "implementation": "arm_a_2p5b_trainer_v1_opt3c_all_b1024",
+      "code_sha256": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
+      "torch": "2.11.0+cu128",
+      "cuda": "12.8",
+      "flags": {
+        "scan": "chunkwise",
+        "scan_block": 1024,
+        "packed_update": "branchfree",
+        "zero_carry": true,
+        "paper_layout": "direct",
+        "cache_rope": true,
+        "coordinator": "dense",
+        "checkpointing": "none",
+        "precision": "bf16_autocast_fp32_master",
+        "optimizer": "adamw_fused"
+      },
+      "session_stats": {}
+    },
+    {
+      "path": "runs\\arm_a_2p5b_opt3c_all\\ckpt\\step_0000019000.pt",
+      "bytes": 208524709,
+      "progress": {
+        "updates_done": 19000,
+        "tokens_consumed": 2490368000,
+        "target_tokens": 2500000000,
+        "next_sequence": 1216000
+      },
+      "saved_at": "2026-09-15T23:10:36Z",
+      "implementation": "arm_a_2p5b_trainer_v1_opt3c_all_b1024",
+      "code_sha256": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
+      "torch": "2.11.0+cu128",
+      "cuda": "12.8",
+      "flags": {
+        "scan": "chunkwise",
+        "scan_block": 1024,
+        "packed_update": "branchfree",
+        "zero_carry": true,
+        "paper_layout": "direct",
+        "cache_rope": true,
+        "coordinator": "dense",
+        "checkpointing": "none",
+        "precision": "bf16_autocast_fp32_master",
+        "optimizer": "adamw_fused"
+      },
+      "session_stats": {}
+    },
+    {
+      "path": "runs\\arm_a_2p5b_opt3c_all\\census_ckpts\\step_0000002000.pt",
+      "bytes": 208524709,
+      "progress": {
+        "updates_done": 2000,
+        "tokens_consumed": 262144000,
+        "target_tokens": 2500000000,
+        "next_sequence": 128000
+      },
+      "saved_at": "2026-09-15T15:26:06Z",
+      "implementation": "arm_a_2p5b_trainer_v1_opt3c_all_b1024",
+      "code_sha256": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
+      "torch": "2.11.0+cu128",
+      "cuda": "12.8",
+      "flags": {
+        "scan": "chunkwise",
+        "scan_block": 1024,
+        "packed_update": "branchfree",
+        "zero_carry": true,
+        "paper_layout": "direct",
+        "cache_rope": true,
+        "coordinator": "dense",
+        "checkpointing": "none",
+        "precision": "bf16_autocast_fp32_master",
+        "optimizer": "adamw_fused"
+      },
+      "session_stats": {}
+    }
+  ],
+  "local_trainer_code_fingerprint": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
+  "checkpoint_code_fingerprint_matches_local_trainer": {
+    "runs\\arm_a_2p5b_opt3c_all\\ckpt\\latest.pt": true,
+    "runs\\arm_a_2p5b_opt3c_all\\ckpt\\step_0000018000.pt": true,
+    "runs\\arm_a_2p5b_opt3c_all\\ckpt\\step_0000019000.pt": true,
+    "runs\\arm_a_2p5b_opt3c_all\\census_ckpts\\step_0000002000.pt": true
+  },
+  "checkpoint_sha256": {
+    "runs\\arm_a_2p5b_opt3c_all\\ckpt\\latest.pt": "fe7e6c2c6ac0d12630018812f735486c45003678adbfcb4a88a476d886c47efb",
+    "runs\\arm_a_2p5b_opt3c_all\\ckpt\\step_0000018000.pt": "0fe610a8bba96880bdcb1d7e9b2b11bcb7f5cd553d9c252ee75dbdaad2c98e06",
+    "runs\\arm_a_2p5b_opt3c_all\\ckpt\\step_0000019000.pt": "3bd98125f883aabf0c21f1f2db27236e10a03ae5dae3048129a6ed144c133dd1",
+    "runs\\arm_a_2p5b_opt3c_all\\census_ckpts\\step_0000002000.pt": "39ad780b0bf68efa55ebb17ed8a3506f8ee74a20c67f6e1ef80b105af91a15ad"
+  }
+}

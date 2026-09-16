@@ -10,3 +10,10 @@ __pycache__/
 *.py[cod]
 dist/
 build/
+
+# Large public SAE artifacts are downloaded locally and kept out of Git.
+data/sae/**/*.safetensors
+data/sae/**/*.parquet
+data/sae/**/.cache/
+data/sae/_dryrun-current/
+runs/
