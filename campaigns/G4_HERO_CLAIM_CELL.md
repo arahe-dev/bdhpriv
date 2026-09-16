@@ -23,11 +23,15 @@ no B/C implementation is invented or benchmarked.
    `2.11.0+cu128`, CUDA 12.8, ≥90 GiB free VRAM. The harness fails closed on
    any other environment.
 2. The repo copy on the machine must include the contract commit
-   (`results/g4_hero_claim_contract.json`, harness commit
-   `38ecc189ad68e9726a9fe1fc9dbc87e475591ff5`) and be fingerprint-clean.
-   Sync it to `/content/iclr-oc` (or the Drive copy) first, e.g.:
+   (`results/g4_hero_claim_contract.json`; harness commit
+   `38ecc189ad68e9726a9fe1fc9dbc87e475591ff5`, or any descendant that keeps
+   the pinned fingerprints). The harness verifies every fingerprinted file
+   and its own SHA-256 at runtime; do not run against a stale or
+   concurrently-edited working tree. Sync it to `/content/iclr-oc` (or the
+   Drive copy) first, e.g. (use the final commit hash recorded in the
+   contract):
    ```bash
-   !git -C /content/iclr-oc fetch origin && git -C /content/iclr-oc checkout 38ecc189ad68e9726a9fe1fc9dbc87e475591ff5
+   !git -C /content/iclr-oc fetch origin && git -C /content/iclr-oc checkout <contract_commit>
    ```
    The cell verifies the harness SHA-256 before running and prints the
    expected value if the copy is stale.
@@ -103,8 +107,9 @@ if repo is None:
     print("REPO_NOT_FOUND: no candidate contains", HARNESS_REL)
     for candidate in REPO_CANDIDATES:
         print("  tried:", candidate or "<empty>")
-    print("Sync the repo (commit 38ecc189ad68e9726a9fe1fc9dbc87e475591ff5) "
-          "to /content/iclr-oc, then rerun this cell.")
+    print("Sync the repo (contract commit, see results/"
+          "g4_hero_claim_contract.json) to /content/iclr-oc, then rerun "
+          "this cell.")
     raise SystemExit(1)
 
 harness_bytes = (repo / HARNESS_REL).read_bytes().replace(b"\r\n", b"\n")

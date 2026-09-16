@@ -14,14 +14,15 @@
     "opt/model_ref.py": "2ff16aaa24ecd14021c46f2133779edcf86853869fbe9938a5a8b95d85eb579f",
     "opt/model_opt.py": "722fbdc1aee51721417a4dc2993312eb556b5057f6ce0d3314c94516dab8f8d8",
     "opt/scan_attn.py": "855f868e9d4869e509d2b847bc95417603239201738d304761a19a3277e5708b",
-    "opt/routed_expert.py": "dda1dfe9cc11f0f302543b89ee6e22613e06f5671c3f3d011ba2923ffc5d7e91",
-    "opt/learned_router.py": "55a4f0c3e30263bc71cffa331ccda9988af36fcff4cef582cc068061160be571",
+    "opt/routed_expert.py": "edb2ec5e0afeceade071073098de5945b0dcf3d1ed95283a0c17c20771e6eb6a",
+    "opt/learned_router.py": "52aab55d08404fe96d9cf9f1e9723a9f53af16f152f3ca5955a3625904958518",
     "opt/expert_moe.py": "90babd81d50a74b01265bf8e87ebba49403a2d16392e77b1cc119c0ac3f760fb",
     "opt/onehour_microbatch.py": "502ae32033bf0d1c9a8ae164fc106740fd4895018b5f6f0f3f4598ae80fb2226",
     "opt/bench_expert_moe.py": "fce89690c07bff652986c781332e55c891b1cac09cda1bd145032bde01b4bc74",
     "training/arm_a_2p5b_trainer.py": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
     "context/frozen_corpus_contract.json": "9a08725fb62705478cec07099f5347c62f562793fd88ce028c7da51841757562"
   },
+  "fingerprint_semantics": "Each fingerprint is the CRLF-normalized SHA-256 of the git blob at repo_commit, i.e. the exact implementation that produced the cited local evidence. The working tree may contain another agent's in-flight edits; the harness fails closed on any mismatch. Check out the pinned commit (or copy those exact file versions) before the G4 run. These candidates must not change without regenerating the contract, because the hero claims are tied to this revision.",
   "arm_status": {
     "arm_a": {
       "status": "DEFINED",
