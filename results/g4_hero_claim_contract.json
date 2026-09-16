@@ -1,0 +1,251 @@
+{
+  "contract_id": "g4_hero_claim_v1",
+  "created_utc": "2026-09-16T09:05:00Z",
+  "purpose": "Pre-registration for the single-cell G4 validation of the two currently testable ICLR hero claims (sparse Arm-A top1 production speed; learned top2 conditional compute). Frozen before the G4 run; the harness verifies these fingerprints and thresholds at runtime.",
+  "repo_commit": "38ecc189ad68e9726a9fe1fc9dbc87e475591ff5",
+  "repo_commit_note": "Commit containing the frozen harness (scripts/g4_hero_claim_validation.py). The contract is written immediately after; a later contract commit is allowed and the harness records the actual HEAD it ran at.",
+  "harness": {
+    "path": "scripts/g4_hero_claim_validation.py",
+    "sha256": "99481652a882cec467fe855352abf3a22beaa2db94e9c24b6f320cbe96c5aceb",
+    "hash_mode": "sha256 of text content with CRLF normalized to LF",
+    "selftest": "SELFTEST_PASS=true locally (CPU/tiny, torch 2.10.0+cpu, py3.12): model construction for dense/routed/learned, tiny fwd+bwd finite grads for all arms, learned route R0-R6 gates, unselected-expert zero-grad gate, straight-through proxy, update-glue bitwise-equal to opt.model_ref.full_update, report/verdict logic"
+  },
+  "fingerprints": {
+    "opt/model_ref.py": "2ff16aaa24ecd14021c46f2133779edcf86853869fbe9938a5a8b95d85eb579f",
+    "opt/model_opt.py": "722fbdc1aee51721417a4dc2993312eb556b5057f6ce0d3314c94516dab8f8d8",
+    "opt/scan_attn.py": "855f868e9d4869e509d2b847bc95417603239201738d304761a19a3277e5708b",
+    "opt/routed_expert.py": "dda1dfe9cc11f0f302543b89ee6e22613e06f5671c3f3d011ba2923ffc5d7e91",
+    "opt/learned_router.py": "55a4f0c3e30263bc71cffa331ccda9988af36fcff4cef582cc068061160be571",
+    "opt/expert_moe.py": "90babd81d50a74b01265bf8e87ebba49403a2d16392e77b1cc119c0ac3f760fb",
+    "opt/onehour_microbatch.py": "502ae32033bf0d1c9a8ae164fc106740fd4895018b5f6f0f3f4598ae80fb2226",
+    "opt/bench_expert_moe.py": "fce89690c07bff652986c781332e55c891b1cac09cda1bd145032bde01b4bc74",
+    "training/arm_a_2p5b_trainer.py": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
+    "context/frozen_corpus_contract.json": "9a08725fb62705478cec07099f5347c62f562793fd88ce028c7da51841757562"
+  },
+  "arm_status": {
+    "arm_a": {
+      "status": "DEFINED",
+      "canonical_source": "vendor/canonical/icrl_reintegrated_bdh_baseline_v1.py (pinned SHA-256 947f8b33e740adede3e13382f8cb9e8e374d845de75e282bda5feb05c582f624; original bytes not present)",
+      "executable_source_of_truth": "reference/arm_a_timing_cell_colab.py; local executable stack opt/model_ref.py + opt/model_opt.py + opt/scan_attn.py",
+      "production_execution": "opt3c_all_b1024: branch-free packed state update, zero-carry skip, paper_y direct layout, cached RoPE phase; no checkpoint; dense coordinator; compiled"
+    },
+    "arm_b": {
+      "status": "BLOCKED_BY_MISSING_CANONICAL_SPEC",
+      "evidence": "campaigns/ARM_BC_SEMANTICS.md (committed fbf270a): exhaustive repository search found no Arm-B definition, source, config, checkpoint or ledger entry. The separate modern Transformer control in context/transformer_control_context.json is explicitly not named Arm-B/C."
+    },
+    "arm_c": {
+      "status": "BLOCKED_BY_MISSING_CANONICAL_SPEC",
+      "evidence": "campaigns/ARM_BC_SEMANTICS.md (committed fbf270a). No redefinition performed."
+    }
+  },
+  "candidate_commits": {
+    "routed_expert_executor": {
+      "commit": "a4aebf8",
+      "summary": "Routed expert executor (E1, head-shared, compacted active experts); DOE round-0 top1 4.62x, cyclic-window top2 2.89x same-session vs Arm-A",
+      "paths": ["opt/routed_expert.py"]
+    },
+    "clean_doe_round1": {
+      "commit": "2fef7a6",
+      "summary": "Clean Round-1 DOE, per-config process isolation, capacity-padding intervention: top1 3.2-3.7x, top2 2.5-2.7x, top4 1.4x; residual runtime model T = 30 ms + 0.0575 ms/(Kactive/head)",
+      "paths": ["opt/doe_round1.py", "opt/doe_config.py", "results/doe_round1_sweep.json"]
+    },
+    "learned_router": {
+      "commit": "1bf7f00",
+      "summary": "Learned cyclic-window router, straight-through proxy (forward exactly hard), R0-R6 gates pass, graph_breaks=0, 2.38x same-session vs Arm-A at minimum capacity (fixed ref 2.40x)",
+      "paths": ["opt/learned_router.py"]
+    },
+    "microbatch_geometry": {
+      "commit": "d202cbd",
+      "summary": "Microbatch geometry at constant global batch 64x2048: sparse mb2 46.7k tok/s (4.22x best-feasible), dense mb2 thrash, mb1 anomaly resolved",
+      "paths": ["opt/onehour_microbatch.py", "opt/onehour_microbatch_sweep.py", "results/onehour_microbatch.json"]
+    },
+    "dense_execution_stack": {
+      "commit": "3d715e7 + 2fef7a6",
+      "summary": "opt3c_all production execution (bitwise/exact, verified); certified packed anchor 69,183 tok/s / 1894.56 ms / 62.55 GiB on G4",
+      "paths": ["opt/model_opt.py", "opt/scan_attn.py", "reference/arm_a_timing_cell_colab.py"]
+    }
+  },
+  "candidate_configs": {
+    "dense": {
+      "id": "opt3c_all_b1024",
+      "class": "opt.model_opt.OptArmA",
+      "scan_block": 1024,
+      "use_checkpoint": false,
+      "coord": "dense",
+      "single_scan": "chunkwise",
+      "packed_update": "branchfree",
+      "zero_carry": true,
+      "paper_layout": "direct",
+      "cache_rope": true,
+      "stored_params": 17375489,
+      "active_K_per_head": 4096
+    },
+    "sparse_top1": {
+      "id": "M8_Ke512_top1_fixed_cyclic_window_G128",
+      "class": "opt.routed_expert.RoutedExpertArmA",
+      "experts": 8,
+      "expert_width": 512,
+      "top_r": 1,
+      "route": "fixed cyclic contiguous windows, route_group=128",
+      "capacity": "exact balanced (B*T*top_r/M per expert), padding_fraction 0",
+      "stored_params": 17375489,
+      "stored_K_per_head": 4096,
+      "active_K_per_head": 512,
+      "active_fraction_per_token": 0.125,
+      "semantic_status": "declared sparse Arm-A executor; executor exact relative to the declared sparse architecture; all-active expertized execution recovers dense Arm-A"
+    },
+    "fixed_top2": {
+      "id": "M8_Ke512_top2_fixed_cyclic_window_G128",
+      "class": "opt.routed_expert.RoutedExpertArmA",
+      "top_r": 2,
+      "active_K_per_head": 1024,
+      "active_fraction_per_token": 0.25,
+      "semantic_status": "declared sparse Arm-A executor (top2 control for router-overhead comparison)"
+    },
+    "learned_top2": {
+      "id": "M8_Ke512_learned_cyclic_window_top2_G128",
+      "class": "opt.learned_router.LearnedRoutedExpertArmA",
+      "top_r": 2,
+      "route": "per-route-group argmax window, once per forward, straight-through proxy (forward exactly hard)",
+      "route_group": 128,
+      "router_params": 2056,
+      "router_init_scale": 1.0,
+      "capacity_factor": 1.25,
+      "overflow": "deterministically dropped overflow tokens, reported",
+      "active_K_per_head": 1024,
+      "semantic_status": "declared sparse Arm-A architecture change; not dense Arm-A; no claim of dense equivalence"
+    }
+  },
+  "local_evidence": {
+    "sparse_top1_same_session_speedups": {
+      "source": "results/doe_round1_sweep.json, results/onehour_active_width.json",
+      "top1_G128": [3.177, 3.184],
+      "top1_G256": [3.209],
+      "top1_G512": [3.67],
+      "range_across_sessions": [3.16, 3.67],
+      "label": "MEASURED on RTX 4060 Laptop 8GB (local ranking only; never extrapolated to G4)"
+    },
+    "sparse_best_feasible_microbatch": {
+      "source": "results/onehour_microbatch.json",
+      "sparse_mb2_tok_s": 46744,
+      "dense_mb1_tok_s": 11089,
+      "speedup": 4.22,
+      "label": "MEASURED local, geometry-limited by 8 GiB"
+    },
+    "learned_vs_fixed": {
+      "source": "results/bench_learned_v2.json, results/bench_fixed_ref.json",
+      "learned_ms": 91.7,
+      "learned_speedup": 2.38,
+      "fixed_ms": 91.69,
+      "fixed_speedup": 2.40,
+      "overhead": 0.0001,
+      "label": "MEASURED local same-session (B1, not microbatched)"
+    },
+    "dense_g4_anchor": {
+      "source": "README.md, results/G4_CONFIRM.md",
+      "packed_tok_s": 69183.0,
+      "ms_per_update": 1894.56,
+      "peak_allocated_GiB": 62.55,
+      "geometry": "B16x4, global 64 sequences, T=2048, frozen packed corpus",
+      "label": "MEASURED on G4 (direct)"
+    }
+  },
+  "selected_hero_claims": [
+    {
+      "id": "HERO_1",
+      "claim": "Sparse Arm-A top1 (M8/Ke512, fixed cyclic window, G=128, exact capacity, compiled production stack) reaches >=350,000 packed input tokens/s at global batch 64 x T2048 on G4, measured in the same session as the dense opt3c_all reference over the same frozen-corpus sequence range.",
+      "falsified_if": "best sparse packed tok/s < 350,000, or any hard correctness gate fails, or the dense/session controls drift beyond 5%",
+      "does_not_claim": "It is not dense Arm-A. The executor is exact relative to the declared sparse architecture; all-active expertized execution recovers dense Arm-A. No 2.5B training run is executed.",
+      "thresholds": {
+        "primary_pass_tok_s": 350000.0,
+        "hold_floor_tok_s": 245000.0,
+        "preferred_tok_s": 380000.0,
+        "stretch_tok_s": 400000.0
+      },
+      "evidence_grade_on_pass": "MEASURED (direct G4); 2.5B runtime projection is INFERRED; training/quality consequences are SPECULATIVE"
+    },
+    {
+      "id": "HERO_2",
+      "claim": "Learned top2 hard routing (M8/Ke512 learned cyclic window, straight-through proxy, inactive experts physically skipped) retains a large production speedup on G4 while adding negligible overhead relative to fixed top2 at the same microbatch geometry (B16x4).",
+      "falsified_if": "router_overhead > 15% or learned speedup vs dense < 1.5x",
+      "measurements": ["learned_top2_ms", "fixed_top2_ms", "dense_ms", "router_overhead = learned/fixed - 1", "learned_speedup_vs_dense = dense/learned"],
+      "thresholds": {
+        "overhead_pass": 0.05,
+        "overhead_hold": 0.15,
+        "speedup_pass": 2.0,
+        "speedup_hold": 1.5
+      },
+      "evidence_grade_on_pass": "MEASURED (direct G4)"
+    }
+  ],
+  "not_selected": {
+    "arm_b": "BLOCKED_BY_MISSING_CANONICAL_SPEC - omitted from the G4 cell",
+    "arm_c": "BLOCKED_BY_MISSING_CANONICAL_SPEC - omitted from the G4 cell",
+    "capacity_padding": "killed locally (results/doe_round1_sweep.json): padding is causal but avoidable with exact balanced capacity",
+    "width_subdivision": "killed locally (results/onehour_active_width.json): M16/M32 collapse; champion saturated at M8",
+    "cuda_graphs": "killed locally (B1 cudagraphs, ONE_HOUR_MISSION_REPORT.md)",
+    "oscillator_flags_O1_O2": "not promoted: no learning-quality evidence in the current campaign; systems-only claims"
+  },
+  "benchmark_protocol": {
+    "session": "one G4 Colab session, one process per config (compile-contamination rule), fresh model and fresh compile per config",
+    "randomized_order": "probe set {dense B16, sparse_top1 B8, sparse_top1 B16, sparse_top1 B32} shuffled with recorded seed; adaptive extras, Hero-2 pair, drift control and OOM census appended deterministically",
+    "cold_start": "fresh runtime; no torch import in the cell before the harness subprocess",
+    "global_batch": 64,
+    "context_length": 2048,
+    "tokens_per_update": 131072,
+    "microbatch_geometries": "B4x16, B8x8, B16x4, B32x2, B64x1 (global 64 sequences)",
+    "adaptive_rule": "probe B8/B16/B32; run B64 if B32 is best; run B4 if B8 is best",
+    "dense_production_geometry": "B16x4",
+    "dense_oom_census": "one B32x2 attempt, recorded explicitly (OOM-safe)",
+    "hero2_matched_geometry": "B16x4 (dense, fixed top2, learned top2)",
+    "warmups": 3,
+    "measured_updates": 10,
+    "timing": "CUDA-synchronized wall time around a complete update: H2D input transfer, on-device mask build, forward, CE (valid targets only), backward, grad clip, fused AdamW step; median and p10/p90",
+    "lr_schedule": "certified warmup (peak 1e-3, 10M tokens), identical for all arms",
+    "autocast": "bf16 autocast, fp32 master parameters",
+    "corpus": "/content/drive/Shareddrives/ICLR PHASE BDH/phase_bdh/corpus/stage2/frozen_5b_v1",
+    "corpus_verification": "FROZEN.json + corpus_manifest.json + artifact_hashes.json digests and all shard file sizes (fast_verify=True skips per-shard SHA-256); fail closed on mismatch",
+    "corpus_usage": "13 distinct 64-row packed batches per config (3 warmups + 10 measured), starting at sequence 0; no replay; cross-sequence lookahead targets and masked padding as produced by training/FrozenPackedCorpus",
+    "quality_gates": "CPU tiny fp64/fp32 oracles (all-active equivalence, sparse semantics oracle, document-boundary leak, unselected-expert zero grad, learned R0-R6); GPU production-shape all-active equivalence fp32/bf16 (logits, loss, mapped gradients); graph-break counts for dense/top1/top2/learned; repeated-forward determinism; packed boundary no-leak at production T; corpus contract probe",
+    "abort_policy": "environment, repo fingerprints and corpus contract hard-fail; correctness gates hard-fail and skip benchmarks; graph/determinism recorded",
+    "session_stability": "dense B16 drift control in a fresh process after all candidates; |drift| > 5% marks the session unstable and blocks FINAL_G4_VALIDATION_PASS"
+  },
+  "expected_thresholds": {
+    "hero1": {
+      "primary_pass_tok_s": 350000.0,
+      "hold_floor_tok_s": 245000.0,
+      "preferred_tok_s": 380000.0,
+      "stretch_tok_s": 400000.0,
+      "equivalent_ms_per_update": {
+        "350000": 374.5,
+        "380000": 345.0,
+        "400000": 327.7
+      }
+    },
+    "hero2": {
+      "overhead_pass": 0.05,
+      "overhead_hold": 0.15,
+      "speedup_pass": 2.0,
+      "speedup_hold": 1.5
+    },
+    "dense_anchor_relative_tolerance": 0.1,
+    "session_stability_relative_tolerance": 0.05,
+    "final_pass_rule": "all hard gates pass AND (HERO_1 PASS or HERO_2 PASS) AND session stable"
+  },
+  "verdict_lines_emitted_by_the_cell": [
+    "HERO_1_STATUS",
+    "HERO_2_STATUS",
+    "ARM_B_STATUS",
+    "ARM_C_STATUS",
+    "BEST_G4_CANDIDATE",
+    "BEST_PACKED_TOK_S",
+    "PROJECTED_2P5B_HOURS (INFERRED)",
+    "FINAL_G4_VALIDATION_PASS"
+  ],
+  "evidence_labels": {
+    "MEASURED": "direct G4 result produced by the cell",
+    "INFERRED": "2.5B runtime projection from measured full-update throughput; no 2.5B run executed",
+    "SPECULATIVE": "expected training/quality consequences; not part of this contract"
+  },
+  "contract_maintenance": "If any fingerprinted file changes, regenerate this contract (harness_sha256 and fingerprints) before the G4 run; the harness fails closed otherwise."
+}
