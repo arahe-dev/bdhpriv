@@ -38,6 +38,15 @@ from opt.routed_expert import (
 
 TINY = dict(T=16, V=32, D=8, N=16, H=2, L=2, HIDDEN=8)
 
+# Keep every compiled shape static: with dynamic shapes enabled, the first
+# new capacity shape switches the shared compiled function into dynamic
+# codegen and silently degrades later configs (observed as cap=256 slower
+# than cap=512). Recompile per shape instead.
+try:
+    torch._dynamo.config.automatic_dynamic_shapes = False
+except Exception:
+    pass
+
 
 def telemetry():
     try:

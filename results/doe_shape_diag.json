@@ -1,0 +1,106 @@
+{
+  "cap256": {
+    "capacity_tokens": 256,
+    "graph_breaks": 0,
+    "compiled_ms": [
+      67.30282700027601,
+      72.49283500004822,
+      60.939047000829305,
+      63.22764000015013
+    ],
+    "compiled_median_ms": 65.26523350021307,
+    "top_cuda_kernels": [
+      {
+        "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt",
+        "self_cuda_ms": 13.0
+      },
+      {
+        "name": "triton_poi_fused__to_copy_add_bmm_select_backward_squeeze_view_70",
+        "self_cuda_ms": 9.25
+      },
+      {
+        "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn",
+        "self_cuda_ms": 7.53
+      },
+      {
+        "name": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_32x32_64x1_tn_align8>",
+        "self_cuda_ms": 7.04
+      },
+      {
+        "name": "triton_per_fused_add_native_layer_norm_native_layer_norm_backward_16",
+        "self_cuda_ms": 6.47
+      },
+      {
+        "name": "triton_poi_fused__to_copy__unsafe_view_add_clone_permute_select_backward_squeeze_view_79",
+        "self_cuda_ms": 5.25
+      },
+      {
+        "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous n",
+        "self_cuda_ms": 4.55
+      },
+      {
+        "name": "triton_poi_fused__to_copy_index_put_mul_permute_select_squeeze_view_7",
+        "self_cuda_ms": 4.41
+      }
+    ],
+    "total_cuda_ms": 98.6
+  },
+  "cap512": {
+    "capacity_tokens": 512,
+    "graph_breaks": 0,
+    "compiled_ms": [
+      89.19893599977513,
+      86.29365099932329,
+      77.02370900005917,
+      77.0022880005854
+    ],
+    "compiled_median_ms": 81.65867999969123,
+    "top_cuda_kernels": [
+      {
+        "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nn",
+        "self_cuda_ms": 20.23
+      },
+      {
+        "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_nt",
+        "self_cuda_ms": 19.82
+      },
+      {
+        "name": "ampere_bf16_s1688gemm_bf16_128x128_ldg8_f2f_stages_32x1_tn",
+        "self_cuda_ms": 14.94
+      },
+      {
+        "name": "triton_poi_fused__to_copy_add_bmm_select_backward_squeeze_view_70",
+        "self_cuda_ms": 9.14
+      },
+      {
+        "name": "triton_per_fused_add_native_layer_norm_native_layer_norm_backward_16",
+        "self_cuda_ms": 6.23
+      },
+      {
+        "name": "triton_poi_fused__to_copy_index_put_mul_permute_select_squeeze_view_7",
+        "self_cuda_ms": 4.96
+      },
+      {
+        "name": "triton_poi_fused__to_copy__unsafe_view_add_clone_permute_select_backward_squeeze_view_79",
+        "self_cuda_ms": 4.56
+      },
+      {
+        "name": "void at::native::(anonymous namespace)::multi_tensor_apply_kernel<at::native::(anonymous n",
+        "self_cuda_ms": 4.3
+      }
+    ],
+    "total_cuda_ms": 145.27
+  },
+  "eager_cap256": {
+    "ms": [
+      257.58864599993103,
+      255.63924200014299,
+      249.52767299964762,
+      286.5361699996356
+    ],
+    "median_ms": 256.613944000037
+  },
+  "arm_a_baseline": {
+    "median_ms": 367.53060599949094
+  }
+}
