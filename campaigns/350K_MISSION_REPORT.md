@@ -44,7 +44,8 @@ runs kept as provenance (sparse mb1 anomaly resolved by clean repeat).
 - Zeroing the writer produces an apparent 91.5% share, but it severs the
   autograd path through all 8 levels; that run measures "no backward through
   levels", not writer cost.
-- The earlier B1 writer attribution (17.1 ms) is RETRACTED as cost evidence.
+- The earlier B1 writer attribution (17.1 ms) is PERMANENTLY RETRACTED as
+  cost evidence, and the B4 apparent share (91.5%) must never be cited.
 - Therefore the custom-kernel gate (writer subpath >=15% of wall with valid
   evidence) is NOT met. No custom kernel is justified.
 - Evidence: results/350k_b4_writer.json.
@@ -82,3 +83,15 @@ packed training smoke.
   invalidity, kernel event counts.
 - INFERRED: G4 sparse throughput and 2.5B runtime projection.
 - SPECULATIVE: any untested fusion savings; writer-cost claims (retracted).
+
+## 10. Frozen state manifest
+
+`results/350k_frozen_state.json` is the canonical frozen record:
+candidate source blob hashes at commit `0dcbb87`, exact STACK0 config,
+microbatch/global-batch contract, local benchmark distributions (all ms
+arrays), memory numbers, correctness status, B3 kill, B4 permanent
+retraction, and MEASURED/INFERRED/SPECULATIVE labels.
+
+Local optimization is STOPPED. On return of the G4 JSON: ingest, compare
+transfer ratio, update the production champion, decide on at most one
+targeted follow-up, update paper-safe claims.
