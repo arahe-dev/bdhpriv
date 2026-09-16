@@ -1,9 +1,14 @@
 """G4 hero-claim validation harness (Arm-A sparse systems claims).
 
 ONE reusable implementation behind the single copy-paste Colab cell
-(`campaigns/G4_HERO_CLAIM_CELL.md`). It prepares, runs and verdicts the G4
+(`campaigns/G4_HERO_CLAIM_CELL.md`). That cell is the canonical G4
+entrypoint and supersedes `results/g4_sparse_350k_cell.py` (kept as
+provenance; do not run both). It prepares, runs and verdicts the G4
 validation of the two currently testable hero claims:
 
+  DENSE   latest optimized production Arm-A (opt3c_all_b1024), measured in
+          the same session; the ONLY speedup denominator. Historical dense
+          numbers (69,183 and ~80.3k packed tok/s) are provenance only.
   HERO 1  sparse Arm-A top1 (M8/Ke512, fixed cyclic window, G=128, exact
           capacity, compiled production stack) reaches >=350k packed tok/s
           at global batch 64 x T2048 on G4.
@@ -68,11 +73,31 @@ DENSE_OOM_PROBE_MICROBATCH = 32
 HERO2_MICROBATCH = 16
 DEFAULT_STEPS = 10
 DEFAULT_WARMUPS = 3
-DENSE_ANCHOR = {
-    "packed_tok_s": 69183.0,
-    "ms_per_update": 1894.56,
-    "peak_allocated_GiB": 62.55,
-    "source": "results/G4_CONFIRM.md (certified packed champion, frozen corpus)",
+DENSE_PROVENANCE = {
+    "OLD_PACKED_CHAMPION": {
+        "label": "OLD_PACKED_CHAMPION",
+        "packed_tok_s": 69183.0,
+        "ms_per_update": 1894.56,
+        "peak_allocated_GiB": 62.55,
+        "geometry": "B16x4, global 64, T2048, frozen packed corpus",
+        "source": "results/G4_CONFIRM.md (certified packed champion, "
+                  "where-based packed state update)",
+        "role": "provenance only; never a G4 speedup denominator",
+    },
+    "FINAL_DENSE_PRODUCTION_CHAMPION": {
+        "label": "FINAL_DENSE_PRODUCTION_CHAMPION",
+        "packed_tok_s": 80444.6,
+        "packed_tok_s_first_update": 80477.0,
+        "ms_per_update": 1629.35,
+        "peak_allocated_GiB": 58.20,
+        "geometry": "B16x4, global 64, T2048, frozen packed corpus",
+        "source": "results/arm_a_2p5b_run_summary.json (2.5B production "
+                  "run, opt3c_all_b1024, 19074 updates; report rounds to "
+                  "~80.3k tok/s / ~1632.8 ms / ~58.2 GiB)",
+        "trainer_code_sha256":
+            "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
+        "role": "provenance only; the frozen production dense reference",
+    },
 }
 DENSE_ANCHOR_TOLERANCE = 0.10
 
@@ -1429,11 +1454,35 @@ def build_report(outdir: Path, contract, repo: Path):
     learned_b16 = next((r for r in learned_all
                         if int(r["microbatch"]) == HERO2_MICROBATCH), None)
 
-    anchor_ok = None
+    # Same-session dense production reference is the ONLY valid G4
+    # denominator. Historical anchors are provenance sanity checks.
+    dense_same_session = None
     if dense_b16:
-        rel = (abs(dense_b16["packed_tok_s"] - DENSE_ANCHOR["packed_tok_s"])
-               / DENSE_ANCHOR["packed_tok_s"])
-        anchor_ok = rel <= THRESHOLDS["dense_anchor_rel_tol"]
+        dense_same_session = {
+            "label": "CURRENT_G4_SAME_SESSION_DENSE",
+            "packed_tok_s": float(dense_b16["packed_tok_s"]),
+            "ms_per_update": float(dense_b16["median_ms"]),
+            "p10_ms": dense_b16.get("p10_ms"),
+            "p90_ms": dense_b16.get("p90_ms"),
+            "valid_pair_tok_s": dense_b16.get("valid_pair_tok_s"),
+            "peak_allocated_GiB": dense_b16.get("peak_allocated_GiB"),
+            "microbatch": int(dense_b16["microbatch"]),
+            "geometry": f"B{int(dense_b16['microbatch'])}x"
+                        f"{GLOBAL_SEQUENCES // int(dense_b16['microbatch'])}",
+            "corpus_sequence_range": dense_b16.get("corpus", {}).get(
+                "sequence_range"),
+            "role": "sole speedup denominator for all G4 hero claims",
+        }
+    provenance_compat = {}
+    if dense_same_session:
+        for key, anchor in DENSE_PROVENANCE.items():
+            rel = (abs(dense_same_session["packed_tok_s"]
+                       - anchor["packed_tok_s"]) / anchor["packed_tok_s"])
+            provenance_compat[key] = {
+                "anchor_packed_tok_s": anchor["packed_tok_s"],
+                "relative_difference": rel,
+                "within_10pct": rel <= THRESHOLDS["dense_anchor_rel_tol"],
+            }
 
     hero1 = {"claim": ("sparse Arm-A top1 (M8/Ke512 fixed cyclic window, "
                        "exact capacity, compiled) >= 350k packed tok/s at "
@@ -1444,32 +1493,42 @@ def build_report(outdir: Path, contract, repo: Path):
         status = ("PASS" if tok >= THRESHOLDS["hero1_tok_s_pass"]
                   else "HOLD" if tok >= THRESHOLDS["hero1_tok_s_hold"]
                   else "FAIL")
+        if dense_same_session is None:
+            status = "HOLD"
         hero1.update({
             "status": status,
             "measured": {
                 "packed_tok_s": tok,
                 "microbatch": int(sparse_best["microbatch"]),
                 "ms_per_update": float(sparse_best["median_ms"]),
+                "p10_ms": sparse_best.get("p10_ms"),
+                "p90_ms": sparse_best.get("p90_ms"),
                 "valid_pair_tok_s": float(sparse_best["valid_pair_tok_s"]),
                 "peak_allocated_GiB": float(sparse_best["peak_allocated_GiB"]),
             },
             "thresholds": {k: v for k, v in THRESHOLDS.items()
                            if k.startswith("hero1")},
+            "denominator": ("CURRENT_G4_SAME_SESSION_DENSE"
+                            if dense_same_session else None),
             "speedup_vs_dense_best_feasible": (
                 float(dense_best["median_ms"] / sparse_best["median_ms"])
                 if dense_best else None),
             "speedup_vs_dense_matched_b16": (
-                float(dense_b16["median_ms"] / sparse_b16["median_ms"])
-                if dense_b16 and sparse_b16 else None),
+                float(dense_same_session["ms_per_update"]
+                      / sparse_b16["median_ms"])
+                if dense_same_session and sparse_b16 else None),
+            "note": ("same-session dense denominator missing: status forced "
+                     "to HOLD" if dense_same_session is None else None),
         })
 
     hero2 = {"claim": ("learned top2 routing retains >=2x dense speedup with "
                        "<=5% overhead vs fixed top2 at matched geometry"),
              "measured": {}, "status": "FAIL"}
-    if learned_b16 and fixed_b16 and dense_b16:
+    if learned_b16 and fixed_b16 and dense_same_session:
         overhead = float(learned_b16["median_ms"]
                          / fixed_b16["median_ms"] - 1.0)
-        speedup = float(dense_b16["median_ms"] / learned_b16["median_ms"])
+        speedup = float(dense_same_session["ms_per_update"]
+                        / learned_b16["median_ms"])
         status = ("PASS"
                   if overhead <= THRESHOLDS["hero2_overhead_pass"]
                   and speedup >= THRESHOLDS["hero2_speedup_pass"]
@@ -1482,10 +1541,14 @@ def build_report(outdir: Path, contract, repo: Path):
             "measured": {
                 "learned_top2_ms": float(learned_b16["median_ms"]),
                 "fixed_top2_ms": float(fixed_b16["median_ms"]),
-                "dense_ms": float(dense_b16["median_ms"]),
+                "dense_ms": float(dense_same_session["ms_per_update"]),
                 "router_overhead": overhead,
                 "learned_speedup_vs_dense": speedup,
                 "learned_packed_tok_s": float(learned_b16["packed_tok_s"]),
+                "fixed_packed_tok_s": float(fixed_b16["packed_tok_s"]),
+                "learned_valid_pair_tok_s": learned_b16.get(
+                    "valid_pair_tok_s"),
+                "fixed_valid_pair_tok_s": fixed_b16.get("valid_pair_tok_s"),
                 "overflow_tokens_sampled": learned_b16.get(
                     "candidate_info", {}).get("overflow_audit", {}).get(
                         "overflow_tokens_sampled"),
@@ -1497,6 +1560,19 @@ def build_report(outdir: Path, contract, repo: Path):
             },
             "thresholds": {k: v for k, v in THRESHOLDS.items()
                            if k.startswith("hero2")},
+            "denominator": ("CURRENT_G4_SAME_SESSION_DENSE"
+                            if dense_same_session else None),
+        })
+    elif learned_b16 and fixed_b16 and dense_same_session is None:
+        hero2.update({
+            "status": "HOLD",
+            "measured": {
+                "learned_top2_ms": float(learned_b16["median_ms"]),
+                "fixed_top2_ms": float(fixed_b16["median_ms"]),
+                "router_overhead": float(learned_b16["median_ms"]
+                                         / fixed_b16["median_ms"] - 1.0),
+            },
+            "note": "same-session dense denominator missing",
         })
 
     best_record = None
@@ -1532,12 +1608,18 @@ def build_report(outdir: Path, contract, repo: Path):
                         if dense_best and sparse_best else None),
             "note": "actual training throughput comparison",
         },
-        "dense_anchor": {
-            "expected": DENSE_ANCHOR,
-            "measured": ({"packed_tok_s": dense_b16["packed_tok_s"],
-                          "ms_per_update": dense_b16["median_ms"]}
-                         if dense_b16 else None),
-            "compatible": anchor_ok,
+        "dense_references": {
+            "speedup_denominator": "CURRENT_G4_SAME_SESSION_DENSE",
+            "CURRENT_G4_SAME_SESSION_DENSE": dense_same_session,
+            "OLD_PACKED_CHAMPION": {
+                k: v for k, v in
+                DENSE_PROVENANCE["OLD_PACKED_CHAMPION"].items()},
+            "FINAL_DENSE_PRODUCTION_CHAMPION": {
+                k: v for k, v in
+                DENSE_PROVENANCE["FINAL_DENSE_PRODUCTION_CHAMPION"].items()},
+            "provenance_compatibility": provenance_compat,
+            "note": ("historical anchors are provenance only; only the "
+                     "same-session dense measurement determines G4 speedups"),
         },
         "session_stability": {
             "dense_b16_probe_ms": (dense_probe["median_ms"]
@@ -1562,6 +1644,15 @@ def build_report(outdir: Path, contract, repo: Path):
                              if g["name"] == "environment"), None),
         "rows": rows,
         "comparisons": comparisons,
+        "dense_same_session": dense_same_session,
+        "dense_provenance": DENSE_PROVENANCE,
+        "oom_attempts": [
+            {"arm": r.get("arm"), "microbatch": r.get("microbatch"),
+             "tag": r.get("tag"), "status": r.get("status"),
+             "error": (r.get("error") or "")[:200]}
+            for r in records if r.get("status") in ("OOM", "error",
+                                                    "nonfinite_loss")
+        ],
         "hero_claims": {"HERO_1": hero1, "HERO_2": hero2},
         "arm_b_status": ARM_B_STATUS,
         "arm_c_status": ARM_C_STATUS,
@@ -1622,6 +1713,12 @@ def print_report(payload):
     for candidate, semantic in legend.items():
         print(f"  semantic[{candidate}] = {semantic}")
     print("-" * 78)
+    dense = payload.get("dense_same_session")
+    print("DENSE_SAME_SESSION = "
+          f"{dense['packed_tok_s'] if dense else None} packed tok/s"
+          f" ({dense['ms_per_update'] if dense else None} ms/update, "
+          f"{dense['geometry'] if dense else None}) "
+          "[speedup denominator]")
     print(f"HERO_1_STATUS = {hero1['status']}   measured="
           f"{hero1['measured'].get('packed_tok_s')} packed tok/s")
     print(f"HERO_2_STATUS = {hero2['status']}   overhead="
@@ -1637,6 +1734,7 @@ def print_report(payload):
     stability = payload.get("comparisons", {}).get("session_stability", {})
     print(f"SESSION_STABLE = {payload.get('session_stable')} "
           f"(dense B16 drift {stability.get('relative_drift')})")
+    print(f"OOM_ATTEMPTS = {payload.get('oom_attempts')}")
     print(f"FINAL_G4_VALIDATION_PASS = "
           f"{str(payload['final_g4_validation_pass']).lower()}")
     print("=" * 78, flush=True)
@@ -1705,8 +1803,11 @@ def plan(args):
             "corpus_verification": "manifest + artifact digest, fast_verify "
                                    "(skips per-shard SHA-256; sizes checked)",
             "no_replay": True,
+            "speedup_denominator":
+                "CURRENT_G4_SAME_SESSION_DENSE (historical anchors are "
+                "provenance only)",
         },
-        "dense_anchor": DENSE_ANCHOR,
+        "dense_provenance": DENSE_PROVENANCE,
         "semantic_status": SEMANTIC_STATUS,
     }
     print(jdump(plan_payload))

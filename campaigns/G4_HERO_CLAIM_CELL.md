@@ -3,15 +3,28 @@
 Status: **prepared, not executed.** This file contains the single cell for the
 manual G4 run. Nothing here has been run on G4 by the authoring environment.
 
+**This is the ONE canonical G4 entrypoint and it supersedes
+`results/g4_sparse_350k_cell.py`** (kept as provenance). Do not run both
+cells; run only this one. It is a strict superset of that cell: frozen
+packed corpus instead of synthetic batches, 3+10 updates instead of 1+3,
+full correctness/graph gates, adaptive geometry, and both hero claims.
+
 ## What this validates
 
+- **DENSE:** the latest optimized production Arm-A (`opt3c_all_b1024`), fresh
+  **same-session** measurement at B16x4. This is the **only** speedup
+  denominator. Historical numbers are printed as provenance only:
+  - `OLD_PACKED_CHAMPION` 69,183 tok/s / 1894.56 ms / 62.55 GiB
+    (`results/G4_CONFIRM.md`)
+  - `FINAL_DENSE_PRODUCTION_CHAMPION` ~80.3k tok/s / ~1629 ms / ~58.2 GiB
+    (2.5B production run, `results/arm_a_2p5b_run_summary.json`)
 - **HERO 1 (sparse production speed):** sparse Arm-A top1, M8/Ke512 fixed
-  cyclic window G=128, exact capacity, compiled production stack —
-  **≥350k packed tok/s** target (preferred ≥380k, stretch ≥400k) at global
-  batch 64×T2048, same-session against dense `opt3c_all`.
+  cyclic window G=128, exact capacity, compiled production stack, adaptive
+  B8/B16/B32 (+B64 or B4 if the response surface warrants) — **≥350k packed
+  tok/s** target (preferred ≥380k, stretch ≥400k) at global batch 64×T2048.
 - **HERO 2 (learned conditional compute):** learned top2 hard routing
-  (straight-through proxy, inactive experts skipped) — overhead vs fixed
-  top2 and speedup vs dense at matched B16x4.
+  (straight-through proxy, inactive experts skipped) at matched B16x4 vs
+  fixed top2 and vs dense: router overhead and learned speedup.
 
 `ARM_B_STATUS` and `ARM_C_STATUS` are reported as
 `BLOCKED_BY_MISSING_CANONICAL_SPEC` (see `campaigns/ARM_BC_SEMANTICS.md`);
@@ -22,15 +35,14 @@ no B/C implementation is invented or benchmarked.
 1. Fresh G4 Colab runtime: RTX PRO 6000 Blackwell (sm_120), torch
    `2.11.0+cu128`, CUDA 12.8, ≥90 GiB free VRAM. The harness fails closed on
    any other environment.
-2. The repo copy on the machine must include the contract commit
-   (`results/g4_hero_claim_contract.json`; contract commit
-   `8d903e10c9fce5a1e4b5bbcb4f4b28fcca9bd79a`, or any descendant that keeps
-   the pinned fingerprints). The harness verifies every fingerprinted file
-   and its own SHA-256 at runtime; do not run against a stale or
-   concurrently-edited working tree. Sync it to `/content/iclr-oc` (or the
-   Drive copy) first, e.g.:
+2. The repo copy on the machine must contain the pinned candidate blobs
+   (`results/g4_hero_claim_contract.json`; candidate systems freeze
+   `0dcbb87`, contract commit `CONTRACT_COMMIT_PLACEHOLDER`). The harness
+   verifies every fingerprinted file and its own SHA-256 at runtime; do not
+   run against a stale or concurrently-edited working tree. Sync it to
+   `/content/iclr-oc` (or the Drive copy) first, e.g.:
    ```bash
-   !git -C /content/iclr-oc fetch origin && git -C /content/iclr-oc checkout 8d903e10c9fce5a1e4b5bbcb4f4b28fcca9bd79a
+   !git -C /content/iclr-oc fetch origin && git -C /content/iclr-oc checkout CONTRACT_COMMIT_PLACEHOLDER
    ```
    The cell verifies the harness SHA-256 before running and prints the
    expected value if the copy is stale.
@@ -45,9 +57,12 @@ no B/C implementation is invented or benchmarked.
   graph checks) + 8–9 benchmark processes (3 warmups + 10 measured updates
   each, one fresh process and compile per config) + report.
 - Output ends with the verdict table and machine-readable lines
-  (`HERO_1_STATUS`, `HERO_2_STATUS`, `ARM_B_STATUS`, `ARM_C_STATUS`,
-  `BEST_G4_CANDIDATE`, `BEST_PACKED_TOK_S`, `PROJECTED_2P5B_HOURS`,
-  `SESSION_STABLE`, `FINAL_G4_VALIDATION_PASS`).
+  (`DENSE_SAME_SESSION`, `HERO_1_STATUS`, `HERO_2_STATUS`, `ARM_B_STATUS`,
+  `ARM_C_STATUS`, `BEST_G4_CANDIDATE`, `BEST_PACKED_TOK_S`,
+  `PROJECTED_2P5B_HOURS`, `SESSION_STABLE`, `FINAL_G4_VALIDATION_PASS`),
+  plus legacy-compatible keys (`G4_DENSE_TOK_S_B16`, `G4_SPARSE_TOK_S_B*`,
+  `G4_SAME_SESSION_SPEEDUP_B*`, `G4_BEST_GEOMETRY`, `G4_RESULT_JSON`) so
+  existing readers of the superseded cell keep working.
 - Results JSON: `<drive runs root>/g4_hero_<utc>/g4_hero_claim_results.json`
   (plus `gates.json`, `plan.json`, one `bench_*.json` per config).
 - Evidence labels: MEASURED (G4), INFERRED (2.5B projection), SPECULATIVE
@@ -68,7 +83,7 @@ import time
 from pathlib import Path
 
 HARNESS_REL = "scripts/g4_hero_claim_validation.py"
-HARNESS_SHA256 = "99481652a882cec467fe855352abf3a22beaa2db94e9c24b6f320cbe96c5aceb"
+HARNESS_SHA256 = "b3b987b9977383f9fe84009aa9ab503ae36b61165551e86acce792e718083e04"
 CORPUS_ROOT = ("/content/drive/Shareddrives/ICLR PHASE BDH/"
                "phase_bdh/corpus/stage2/frozen_5b_v1")
 RUNS_ROOT = ("/content/drive/Shareddrives/ICLR PHASE BDH/"
@@ -150,7 +165,23 @@ if results_path.is_file():
         "final_g4_validation_pass",
     )
     print(json.dumps({k: results.get(k) for k in summary_keys}, indent=2))
-    print("RESULTS_JSON =", results_path)
+    hero1 = results.get("hero_claims", {}).get("HERO_1", {})
+    hero2 = results.get("hero_claims", {}).get("HERO_2", {})
+    dense = results.get("dense_same_session") or {}
+    print("G4_DENSE_TOK_S_B16={}".format(
+        round(dense.get("packed_tok_s", 0.0), 1)))
+    for row in results.get("rows", []):
+        if row.get("arm") == "sparse_top1" and row.get("status") == "ok":
+            print("G4_SPARSE_TOK_S_B{}={}".format(
+                row["microbatch"], round(row["packed_tok_s"], 1)))
+    best_mb = results.get("best_microbatch")
+    if best_mb is not None:
+        print("G4_BEST_GEOMETRY=B{}".format(best_mb))
+    print("G4_PROJECTED_2P5B_HOURS={}".format(
+        round(results.get("projected_2p5b_hours") or 0.0, 2)))
+    print("G4_HERO_1_STATUS={}".format(hero1.get("status")))
+    print("G4_HERO_2_STATUS={}".format(hero2.get("status")))
+    print("G4_RESULT_JSON={}".format(results_path))
 else:
     print("NO_RESULTS_JSON: gates likely failed before any benchmark; "
           "inspect", outdir)

@@ -2,11 +2,19 @@
   "contract_id": "g4_hero_claim_v1",
   "created_utc": "2026-09-16T09:05:00Z",
   "purpose": "Pre-registration for the single-cell G4 validation of the two currently testable ICLR hero claims (sparse Arm-A top1 production speed; learned top2 conditional compute). Frozen before the G4 run; the harness verifies these fingerprints and thresholds at runtime.",
-  "repo_commit": "8d903e10c9fce5a1e4b5bbcb4f4b28fcca9bd79a",
-  "repo_commit_note": "Commit containing the frozen harness (scripts/g4_hero_claim_validation.py), this contract, and the Colab cell. The harness records the actual HEAD it ran at; the contract commit must be an ancestor of (or equal to) HEAD. Fingerprints are of the git blobs at this commit.",
+  "repo_commit": "0dcbb878d24b99b5808359c889e97143c3cec00b",
+  "repo_commit_note": "Candidate systems freeze commit (350k mission). The harness/contract pin itself is the follow-up contract commit (see contract_commit). The harness records the actual HEAD at run time; the candidate blobs below are identical at 734d622, 0dcbb87 and the contract commit.",
+  "contract_commit": "TO_BE_FILLED_AFTER_COMMIT",
+  "systems_freeze_commit": "0dcbb878d24b99b5808359c889e97143c3cec00b",
+  "candidate_blob_audit": {
+    "compared": ["734d622", "0dcbb878d24b99b5808359c889e97143c3cec00b"],
+    "result": "ALL benchmark-relevant blobs are byte-identical between the two commits (git rev-parse of each path): opt/model_ref.py, opt/model_opt.py, opt/scan_attn.py, opt/routed_expert.py, opt/learned_router.py, opt/expert_moe.py, opt/onehour_microbatch.py, opt/bench_expert_moe.py, training/arm_a_2p5b_trainer.py, context/frozen_corpus_contract.json",
+    "interpretation": "0dcbb87 only adds provenance scripts (opt/onehour_b3_cache.py, opt/onehour_b4_writer.py, opt/onehour_reprofile.py) and results; the B3 gather-cache experiment was killed and reverted, so the frozen STACK0 candidate implementation is exactly the implementation pinned by these fingerprints.",
+    "note": "Never depend on the live dirty tree; the harness verifies the committed blobs."
+  },
   "harness": {
     "path": "scripts/g4_hero_claim_validation.py",
-    "sha256": "99481652a882cec467fe855352abf3a22beaa2db94e9c24b6f320cbe96c5aceb",
+    "sha256": "b3b987b9977383f9fe84009aa9ab503ae36b61165551e86acce792e718083e04",
     "hash_mode": "sha256 of text content with CRLF normalized to LF",
     "selftest": "SELFTEST_PASS=true locally (CPU/tiny, torch 2.10.0+cpu, py3.12): model construction for dense/routed/learned, tiny fwd+bwd finite grads for all arms, learned route R0-R6 gates, unselected-expert zero-grad gate, straight-through proxy, update-glue bitwise-equal to opt.model_ref.full_update, report/verdict logic"
   },
@@ -142,21 +150,38 @@
       "overhead": 0.0001,
       "label": "MEASURED local same-session (B1, not microbatched)"
     },
-    "dense_g4_anchor": {
-      "source": "README.md, results/G4_CONFIRM.md",
-      "packed_tok_s": 69183.0,
-      "ms_per_update": 1894.56,
-      "peak_allocated_GiB": 62.55,
-      "geometry": "B16x4, global 64 sequences, T=2048, frozen packed corpus",
-      "label": "MEASURED on G4 (direct)"
+    "dense_g4_references": {
+      "speedup_denominator_rule": "ONLY the fresh same-session dense production measurement (CURRENT_G4_SAME_SESSION_DENSE) may be used as the G4 speedup denominator. Historical numbers are provenance only and must never be used as the primary denominator.",
+      "OLD_PACKED_CHAMPION": {
+        "source": "results/G4_CONFIRM.md",
+        "packed_tok_s": 69183.0,
+        "ms_per_update": 1894.56,
+        "peak_allocated_GiB": 62.55,
+        "geometry": "B16x4, global 64 sequences, T=2048, frozen packed corpus",
+        "label": "MEASURED on G4 (provenance only)"
+      },
+      "FINAL_DENSE_PRODUCTION_CHAMPION": {
+        "source": "results/arm_a_2p5b_run_summary.json (2.5B production run, opt3c_all_b1024, 19074 updates); campaigns/350K_MISSION_REPORT.md rounds to ~80.3k / ~1632.8 ms / ~58.2 GiB",
+        "packed_tok_s_median": 80444.6,
+        "packed_tok_s_first_update": 80477.0,
+        "ms_per_update_median": 1629.35,
+        "peak_allocated_GiB": 58.20,
+        "geometry": "B16x4, global 64 sequences, T=2048, frozen packed corpus",
+        "trainer_code_sha256": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
+        "label": "MEASURED on G4 (frozen production reference; provenance only)"
+      },
+      "CURRENT_G4_SAME_SESSION_DENSE": {
+        "source": "measured by this cell",
+        "role": "the only G4 speedup denominator; if absent, hero statuses are forced to HOLD"
+      }
     }
   },
   "selected_hero_claims": [
     {
       "id": "HERO_1",
-      "claim": "Sparse Arm-A top1 (M8/Ke512, fixed cyclic window, G=128, exact capacity, compiled production stack) reaches >=350,000 packed input tokens/s at global batch 64 x T2048 on G4, measured in the same session as the dense opt3c_all reference over the same frozen-corpus sequence range.",
+      "claim": "Sparse Arm-A top1 (M8/Ke512, fixed cyclic window, G=128, exact capacity, compiled production stack) reaches >=350,000 packed input tokens/s at global batch 64 x T2048 on G4, with the speedup measured against the fresh same-session dense production measurement (CURRENT_G4_SAME_SESSION_DENSE) over the same frozen-corpus sequence range.",
       "falsified_if": "best sparse packed tok/s < 350,000, or any hard correctness gate fails, or the dense/session controls drift beyond 5%",
-      "does_not_claim": "It is not dense Arm-A. The executor is exact relative to the declared sparse architecture; all-active expertized execution recovers dense Arm-A. No 2.5B training run is executed.",
+      "does_not_claim": "It is not dense Arm-A. The executor is exact relative to the declared sparse architecture; all-active expertized execution recovers dense Arm-A. No 2.5B training run is executed. Historical dense anchors are not used as the denominator.",
       "thresholds": {
         "primary_pass_tok_s": 350000.0,
         "hold_floor_tok_s": 245000.0,
@@ -167,16 +192,16 @@
     },
     {
       "id": "HERO_2",
-      "claim": "Learned top2 hard routing (M8/Ke512 learned cyclic window, straight-through proxy, inactive experts physically skipped) retains a large production speedup on G4 while adding negligible overhead relative to fixed top2 at the same microbatch geometry (B16x4).",
+      "claim": "Learned top2 hard routing (M8/Ke512 learned cyclic window, straight-through proxy, inactive experts physically skipped) preserves the near-zero routing overhead observed locally (<=5% vs fixed top2, local 0.0%) while retaining a large dense speedup at the matched B16x4 geometry, against the same-session dense measurement.",
       "falsified_if": "router_overhead > 15% or learned speedup vs dense < 1.5x",
-      "measurements": ["learned_top2_ms", "fixed_top2_ms", "dense_ms", "router_overhead = learned/fixed - 1", "learned_speedup_vs_dense = dense/learned"],
+      "measurements": ["fixed_top2 tok/s", "learned_top2 tok/s", "learned/fixed overhead = learned_ms/fixed_ms - 1", "learned/dense speedup", "overflow tokens (learned)"],
       "thresholds": {
         "overhead_pass": 0.05,
         "overhead_hold": 0.15,
         "speedup_pass": 2.0,
         "speedup_hold": 1.5
       },
-      "evidence_grade_on_pass": "MEASURED (direct G4)"
+      "evidence_grade_on_pass": "MEASURED (direct G4); Hero 2 is not optimized for the absolute speed record"
     }
   ],
   "not_selected": {
@@ -187,8 +212,29 @@
     "cuda_graphs": "killed locally (B1 cudagraphs, ONE_HOUR_MISSION_REPORT.md)",
     "oscillator_flags_O1_O2": "not promoted: no learning-quality evidence in the current campaign; systems-only claims"
   },
+  "merged_entrypoint_audit": {
+    "superseded": "results/g4_sparse_350k_cell.py (committed at 0dcbb87, retained as provenance)",
+    "kept_from_it": [
+      "M8/Ke512/top1 fixed cyclic window champion",
+      "adaptive B8/B16/B32 probe then B64 or B4 if the response surface warrants",
+      "global batch 64x2048 (131,072 tokens/update)",
+      "OOM-safe geometry loop with explicit failed-geometry records",
+      "fresh same-session dense B16x4 reference",
+      "legacy machine-readable G4_* output keys (re-emitted by the canonical cell)"
+    ],
+    "deliberately_not_kept": [
+      "synthetic packed batches (replaced by the frozen packed corpus with document boundaries)",
+      "1 warmup + 3 measured updates (replaced by 3 warmups + 10 measured updates)",
+      "fixed dense-first order (replaced by a randomized probe order plus a dense drift control)",
+      "absence of correctness/graph/corpus gates (replaced by the full gate set)",
+      "learned top2 as an optional second pass (included in the same canonical run)"
+    ],
+    "why_one_run": "one human-run experiment; dense, top1 and learned top2 are measured in the same session and are directly comparable, and the legacy keys keep existing readers working"
+  },
   "benchmark_protocol": {
+    "canonical_cell": "campaigns/G4_HERO_CLAIM_CELL.md (ONE human-run G4 experiment). It supersedes results/g4_sparse_350k_cell.py, which is retained as provenance and must not be run alongside it.",
     "session": "one G4 Colab session, one process per config (compile-contamination rule), fresh model and fresh compile per config",
+    "speedup_denominator": "CURRENT_G4_SAME_SESSION_DENSE only; historical anchors are provenance",
     "randomized_order": "probe set {dense B16, sparse_top1 B8, sparse_top1 B16, sparse_top1 B32} shuffled with recorded seed; adaptive extras, Hero-2 pair, drift control and OOM census appended deterministically",
     "cold_start": "fresh runtime; no torch import in the cell before the harness subprocess",
     "global_batch": 64,
@@ -234,6 +280,7 @@
     "final_pass_rule": "all hard gates pass AND (HERO_1 PASS or HERO_2 PASS) AND session stable"
   },
   "verdict_lines_emitted_by_the_cell": [
+    "DENSE_SAME_SESSION",
     "HERO_1_STATUS",
     "HERO_2_STATUS",
     "ARM_B_STATUS",
@@ -241,7 +288,10 @@
     "BEST_G4_CANDIDATE",
     "BEST_PACKED_TOK_S",
     "PROJECTED_2P5B_HOURS (INFERRED)",
-    "FINAL_G4_VALIDATION_PASS"
+    "SESSION_STABLE",
+    "OOM_ATTEMPTS",
+    "FINAL_G4_VALIDATION_PASS",
+    "legacy-compatible: G4_DENSE_TOK_S_B16, G4_SPARSE_TOK_S_B<geom>, G4_BEST_GEOMETRY, G4_PROJECTED_2P5B_HOURS, G4_RESULT_JSON"
   ],
   "evidence_labels": {
     "MEASURED": "direct G4 result produced by the cell",
