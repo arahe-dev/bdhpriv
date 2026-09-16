@@ -1,0 +1,78 @@
+{
+  "env_PYTORCH_CUDA_ALLOC_CONF": "",
+  "baseline_arm_a_ms": 213.75272250043054,
+  "reference_wall_ms": 72.79379400097241,
+  "reference_wall_ms_r2": 72.38066350146255,
+  "speedup_same_session": 2.9364140918053416,
+  "profiler": {
+    "profiled_steps": 5,
+    "device_kernels_total": 12828,
+    "device_kernels_per_update": 2565.6,
+    "device_ms_total": 596.1099229999974,
+    "device_ms_per_update": 119.22198459999947,
+    "cuda_api_cpu_ms_per_update": 8.919338999999981,
+    "top_cpu_ops": [
+      {
+        "ms_per_update": 34.69,
+        "name": "ProfilerStep*"
+      },
+      {
+        "ms_per_update": 11.46,
+        "name": "## Call CompiledFxGraph fdezwuxrgitutbeioykazyeuffefjuneqbuo6y6phrmxwwbpbjvw ##"
+      },
+      {
+        "ms_per_update": 8.771,
+        "name": "## Call CompiledFxGraph fjv6gzullysrxcdlj3ugnsfydbjd2fwkbxt7feqoruwsfn57yesb ##"
+      },
+      {
+        "ms_per_update": 7.981,
+        "name": "cuLaunchKernel"
+      },
+      {
+        "ms_per_update": 5.574,
+        "name": "aten::bmm"
+      },
+      {
+        "ms_per_update": 5.533,
+        "name": "cudaLaunchKernel"
+      },
+      {
+        "ms_per_update": 4.734,
+        "name": "aten::mm"
+      },
+      {
+        "ms_per_update": 2.767,
+        "name": "cudaStreamSynchronize"
+      },
+      {
+        "ms_per_update": 0.528,
+        "name": "cuLaunchKernelEx"
+      },
+      {
+        "ms_per_update": 0.469,
+        "name": "cudaMemsetAsync"
+      }
+    ]
+  },
+  "allocator_delta_over_4_updates": {
+    "num_device_alloc": 0,
+    "num_alloc_retries": 0,
+    "num_ooms": 0,
+    "active_bytes_peak_GiB": 3.128249168395996,
+    "reserved_GiB": 3.533203125,
+    "segments": 273
+  },
+  "isolated": {
+    "ce_fwd_bwd_ms": 2.9598950004583457,
+    "clip_only_ms": 1.2294695006858092,
+    "optimizer_only_ms_prior": 4.73
+  },
+  "variant_fused_in_graph_boundary_ms": 110.59702999955334,
+  "variant_delta_ms": -37.80323599858093,
+  "budget_check": {
+    "wall_ms": 72.79379400097241,
+    "device_ms_per_update": 119.22198459999947,
+    "non_kernel_gap_ms": -46.42819059902706,
+    "target_one_hour_ms": 24.59755149602193
+  }
+}
