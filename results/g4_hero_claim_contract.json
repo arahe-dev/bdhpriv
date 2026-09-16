@@ -2,8 +2,8 @@
   "contract_id": "g4_hero_claim_v1",
   "created_utc": "2026-09-16T09:05:00Z",
   "purpose": "Pre-registration for the single-cell G4 validation of the two currently testable ICLR hero claims (sparse Arm-A top1 production speed; learned top2 conditional compute). Frozen before the G4 run; the harness verifies these fingerprints and thresholds at runtime.",
-  "repo_commit": "38ecc189ad68e9726a9fe1fc9dbc87e475591ff5",
-  "repo_commit_note": "Commit containing the frozen harness (scripts/g4_hero_claim_validation.py). The contract is written immediately after; a later contract commit is allowed and the harness records the actual HEAD it ran at.",
+  "repo_commit": "8d903e10c9fce5a1e4b5bbcb4f4b28fcca9bd79a",
+  "repo_commit_note": "Commit containing the frozen harness (scripts/g4_hero_claim_validation.py), this contract, and the Colab cell. The harness records the actual HEAD it ran at; the contract commit must be an ancestor of (or equal to) HEAD. Fingerprints are of the git blobs at this commit.",
   "harness": {
     "path": "scripts/g4_hero_claim_validation.py",
     "sha256": "99481652a882cec467fe855352abf3a22beaa2db94e9c24b6f320cbe96c5aceb",

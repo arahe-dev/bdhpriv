@@ -23,15 +23,14 @@ no B/C implementation is invented or benchmarked.
    `2.11.0+cu128`, CUDA 12.8, ≥90 GiB free VRAM. The harness fails closed on
    any other environment.
 2. The repo copy on the machine must include the contract commit
-   (`results/g4_hero_claim_contract.json`; harness commit
-   `38ecc189ad68e9726a9fe1fc9dbc87e475591ff5`, or any descendant that keeps
+   (`results/g4_hero_claim_contract.json`; contract commit
+   `8d903e10c9fce5a1e4b5bbcb4f4b28fcca9bd79a`, or any descendant that keeps
    the pinned fingerprints). The harness verifies every fingerprinted file
    and its own SHA-256 at runtime; do not run against a stale or
    concurrently-edited working tree. Sync it to `/content/iclr-oc` (or the
-   Drive copy) first, e.g. (use the final commit hash recorded in the
-   contract):
+   Drive copy) first, e.g.:
    ```bash
-   !git -C /content/iclr-oc fetch origin && git -C /content/iclr-oc checkout <contract_commit>
+   !git -C /content/iclr-oc fetch origin && git -C /content/iclr-oc checkout 8d903e10c9fce5a1e4b5bbcb4f4b28fcca9bd79a
    ```
    The cell verifies the harness SHA-256 before running and prints the
    expected value if the copy is stale.
