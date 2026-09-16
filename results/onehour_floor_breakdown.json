@@ -1,0 +1,78 @@
+{
+  "protocol": "one process; same-session Arm-A control; ablations are diagnostic (semantics-changing) and never promoted",
+  "baseline_arm_a_ms": 214.48779300044407,
+  "candidate_full_ms": 66.51222799973766,
+  "speedup_same_session": 3.2247873729517837,
+  "components": {
+    "forward_loss_ms": {
+      "estimated_ms": 30.580167500374955,
+      "fraction_of_total": 0.45976760093641084,
+      "method": "no_grad compiled forward + CE",
+      "confidence": "medium",
+      "semantics_preserving_optimization": "possible"
+    },
+    "backward_ms": {
+      "estimated_ms": 73.49421499930031,
+      "fraction_of_total": 1.1049729833075235,
+      "method": "fwd+bwd minus forward-only",
+      "confidence": "medium",
+      "semantics_preserving_optimization": "possible"
+    },
+    "optimizer_step_ms": {
+      "estimated_ms": 4.72899550004513,
+      "fraction_of_total": 0.0710996405061605,
+      "method": "zero_grad + clip + fused AdamW on 17.4M params (stale grads regenerated per rep)",
+      "confidence": "high",
+      "semantics_preserving_optimization": "maybe (param traversal)"
+    },
+    "levels_total_ms": {
+      "estimated_ms": 57.932738999625144,
+      "fraction_of_total": 0.8710088466718277,
+      "method": "candidate minus L-level-skeleton variant",
+      "confidence": "medium",
+      "semantics_preserving_optimization": "possible"
+    },
+    "per_level_ms": {
+      "estimated_ms": 7.241592374953143,
+      "fraction_of_total": 0.10887610583397846,
+      "method": "levels_total / 8",
+      "confidence": "low",
+      "semantics_preserving_optimization": "possible"
+    },
+    "skeleton_ms": {
+      "estimated_ms": 8.579489000112517,
+      "fraction_of_total": 0.12899115332817232,
+      "method": "identity levels + embedding/readout/CE/optimizer",
+      "confidence": "high",
+      "semantics_preserving_optimization": "n/a diagnostic"
+    },
+    "coordinator_ablation_ms": {
+      "estimated_ms": -1.9387140000617364,
+      "fraction_of_total": -0.02914823421746424,
+      "method": "coordinator returns ones (diagnostic)",
+      "confidence": "high",
+      "semantics_preserving_optimization": "systems only"
+    },
+    "writer_ablation_ms": {
+      "estimated_ms": 17.139090999990003,
+      "fraction_of_total": 0.2576833090008292,
+      "method": "writer returns zeros (diagnostic)",
+      "confidence": "high",
+      "semantics_preserving_optimization": "systems only"
+    }
+  },
+  "profiler": {
+    "category_cuda_ms": {
+      "other": 3.5233120000003204,
+      "copies": 40.9832650000001,
+      "gather_scatter": 18.196688000000417,
+      "pointwise": 2.689490000000136,
+      "layernorm": 15.788961999999794,
+      "gemm": 61.06622099999955,
+      "optimizer_elemwise": 10.233301999999952
+    },
+    "kernel_count": 14404,
+    "total_cuda_ms": 152.48124000000027
+  },
+  "unexplained_ms": -42.291149999982736
+}

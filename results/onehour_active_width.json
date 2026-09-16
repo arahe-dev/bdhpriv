@@ -1,0 +1,48 @@
+{
+  "mission": "one_hour_2p5b",
+  "protocol": "one fresh process per config; same-process compiled Arm-A control; static shapes; warmup before timing; capacity/padding recorded",
+  "target": "same-process ratio <= 1/8.69 = 0.115 (target speedup >= 8.69x)",
+  "pass": "A active-width frontier",
+  "points": [
+    {
+      "id": "A0_M8_Ke512_top1_G128",
+      "M": 8, "Ke": 512, "top_r": 1, "G": 128,
+      "active_K_per_head": 512, "stored_K_per_head": 4096,
+      "capacity_tokens": 256, "padding_fraction": 0.0,
+      "same_process_arm_a_ms": [219.1, 214.5],
+      "candidate_ms": [58.1, 69.4, 66.5],
+      "speedup": [3.67, 3.16, 3.22],
+      "sessions": ["frozen round-1 session", "pass-A rep session", "floor-autopsy session"],
+      "note": "best clean local reference; speedup range 3.16-3.67 across sessions"
+    },
+    {
+      "id": "A1_M16_Ke256_top1_G128",
+      "M": 16, "Ke": 256, "top_r": 1, "G": 128,
+      "active_K_per_head": 256, "stored_K_per_head": 4096,
+      "capacity_tokens": 128, "padding_fraction": 0.0,
+      "same_process_arm_a_ms": 216.6,
+      "candidate_ms": 132.5,
+      "speedup": 1.63,
+      "compile_s": 468.4,
+      "verdict": "KILL: halving active width is ~2x SLOWER; dispatch/launch and small-GEMM overhead dominate"
+    },
+    {
+      "id": "A2_M32_Ke128_top1_G64",
+      "M": 32, "Ke": 128, "top_r": 1, "G": 64,
+      "active_K_per_head": 128, "stored_K_per_head": 4096,
+      "capacity_tokens": 64, "padding_fraction": 0.0,
+      "same_process_arm_a_ms": 221.2,
+      "candidate_ms": 254.2,
+      "speedup": 0.87,
+      "compile_s": 1192.4,
+      "verdict": "KILL: slower than dense Arm-A; 32 unrolled expert streams x 8 levels defeats the GPU"
+    },
+    {
+      "id": "A3_M64_Ke64_top1_G32",
+      "M": 64, "Ke": 64, "top_r": 1, "G": 32,
+      "verdict": "KILLED BY EVIDENCE (never run): monotone degradation M8->M16->M32 plus >20 min projected compile"
+    }
+  ],
+  "conclusion": "Active-width subdivision at fixed stored K is saturated at M8 top1. The fitted width curve (T = 29.8 + 0.0575*Kactive) only holds when reducing active experts at fixed M (larger streams). Increasing M shrinks per-expert GEMMs and multiplies kernel/launch count; the overhead term grows faster than the arithmetic term shrinks.",
+  "pass_B_trigger": "Floor autopsy (results/onehour_floor_breakdown.json) shows 2,881 kernels/update, ~30.5 ms kernel time vs 66.5 ms wall; writer ablation 17.1 ms; copies 8.2 ms/step; optimizer 4.7 ms; skeleton (non-level) 8.6 ms"
+}
