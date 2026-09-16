@@ -1,0 +1,60 @@
+{
+  "mode": "learned",
+  "baseline": {
+    "ms": [
+      222.5704680004128,
+      223.41663599945605,
+      213.27100899907236,
+      218.1534230003308,
+      220.37831400120922,
+      222.84734399909212
+    ],
+    "median_ms": 221.474391000811,
+    "p10_ms": 213.27100899907236,
+    "p90_ms": 223.41663599945605,
+    "peak_mem_GiB": 3.128249168395996
+  },
+  "baseline_compile_s": 7.3623487439999735,
+  "candidate": {
+    "kind": "learned_cyclic_window",
+    "top_r": 2,
+    "G": 128,
+    "tau": 1.0,
+    "capacity_tokens": 512,
+    "capacity_required": 512,
+    "route_overflow_first_call": 896,
+    "router_build_ms_eager": 202.64249100000598,
+    "graph_info": {
+      "graph_count": 4,
+      "graph_break_count": 3
+    },
+    "ledger": {
+      "M": 8,
+      "Ke": 512,
+      "top_r": 2,
+      "stored_params": 17377545,
+      "stored_K_per_head": 4096,
+      "active_K_per_head": 1024,
+      "stored_N": 16384,
+      "active_N": 4096,
+      "active_fraction": 0.25,
+      "router_params": 2056,
+      "route_group": 128
+    },
+    "ms": [
+      7195.169884000279,
+      5416.588222000428,
+      105.78930799965747,
+      6090.966589001255,
+      5588.09643099994,
+      100.62559899961343
+    ],
+    "median_ms": 5502.342326500184,
+    "p10_ms": 100.62559899961343,
+    "p90_ms": 7195.169884000279,
+    "peak_mem_GiB": 1.9133110046386719
+  },
+  "candidate_compile_s": 159.90738436399988,
+  "speedup_same_session": 0.04025092912415754,
+  "telemetry": "1890 MHz, 54, 23.80 W"
+}
