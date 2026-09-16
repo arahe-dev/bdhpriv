@@ -42,7 +42,7 @@ no B/C implementation is invented or benchmarked.
    run against a stale or concurrently-edited working tree. Sync it to
    `/content/iclr-oc` (or the Drive copy) first, e.g.:
    ```bash
-   !git -C /content/iclr-oc fetch origin && git -C /content/iclr-oc checkout 9d32f7198bc578a834b8e9a6a226a77995a0a3a8
+   !git -C /content/iclr-oc fetch origin && git -C /content/iclr-oc checkout 2fc6833a9248543f8d44604f49686273daf71f8a
    ```
    The cell verifies the harness SHA-256 before running and prints the
    expected value if the copy is stale.
