@@ -120,7 +120,8 @@
       "stored_K_per_head": 4096,
       "active_K_per_head": 512,
       "active_fraction_per_token": 0.125,
-      "semantic_status": "declared sparse Arm-A executor; executor exact relative to the declared sparse architecture; all-active expertized execution recovers dense Arm-A"
+      "semantic_status": "declared sparse Arm-A executor; executor exact relative to the declared sparse architecture; all-active expertized execution recovers dense Arm-A",
+      "local_microbatch_contract": "mb2x32 on the 4060 (memory limit); the G4 run uses the adaptive sweep B8/B16/B32 then B64 or B4 if the response surface warrants."
     },
     "fixed_top2": {
       "id": "M8_Ke512_top2_fixed_cyclic_window_G128",
@@ -333,5 +334,18 @@
     "INFERRED": "2.5B runtime projection from measured full-update throughput; no 2.5B run executed",
     "SPECULATIVE": "expected training/quality consequences; not part of this contract"
   },
-  "contract_maintenance": "If any fingerprinted file changes, regenerate this contract (harness_sha256 and fingerprints) before the G4 run; the harness fails closed otherwise."
+  "contract_maintenance": "If any fingerprinted file changes, regenerate this contract (harness_sha256 and fingerprints) before the G4 run; the harness fails closed otherwise.",
+  "frozen_state_cross_reference": {
+    "manifest": "results/350k_frozen_state.json (committed 02e6251, frozen_at_commit 0dcbb87)",
+    "manifest_source_blob_sha1_prefixes": {
+      "opt/routed_expert.py": "ad974a4c1d94cc2663a9d0a87c73ded00d9c32e1",
+      "opt/model_opt.py": "6076ba04bd32f63f3c91d5028f3ff77db70ffb54",
+      "opt/model_ref.py": "4801c5a3ccc7b6fba0ef38c8152e4c2b6720635b",
+      "opt/scan_attn.py": "5185d0325b759f5cdc7725dbeefee52a8b6a55dc",
+      "opt/bench_expert_moe.py": "b7f69f4121ca1be9b6f14f7c704444744d6f1782",
+      "opt/onehour_microbatch.py": "549661bbe6d9a514ac2935d10ff44df589882c00"
+    },
+    "consistency": "The manifest git-blob prefixes correspond to the same committed files whose CRLF-normalized SHA-256 fingerprints are pinned above; the two independent records describe one frozen STACK0 implementation.",
+    "stack0": "M8/Ke512/top1 fixed cyclic contiguous window, head-shared, compact exact-capacity executor; global 64x2048; B3 killed and code reverted; B4 writer attribution permanently retracted (invalid ablation)."
+  }
 }
