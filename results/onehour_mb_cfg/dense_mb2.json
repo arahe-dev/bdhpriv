@@ -1,0 +1,23 @@
+{
+  "arm": "dense",
+  "microbatch": 2,
+  "accumulation_steps": 32,
+  "global_sequences": 64,
+  "tokens_per_update": 131072,
+  "median_ms": 44546.88304999945,
+  "p10_ms": 42003.22896599755,
+  "p90_ms": 45886.71191799949,
+  "ms": [
+    42003.22896599755,
+    44546.88304999945,
+    45886.71191799949
+  ],
+  "tok_per_s": 2942.338296775662,
+  "peak_mem_GiB": 7.792831897735596,
+  "compile_s": 85.9326660129991,
+  "kernels_per_update": 0,
+  "ledger": {
+    "stored_params": 17375489
+  },
+  "device": "NVIDIA GeForce RTX 4060 Laptop GPU"
+}

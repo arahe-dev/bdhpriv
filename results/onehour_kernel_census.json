@@ -1,0 +1,29 @@
+{
+  "mission": "one_hour_2p5b",
+  "purpose": "first-class kernel-count and dispatch census",
+  "measurement_state": "kernel counts via torch.profiler key_averages (device_time_total>0). The microbatch runner's inline profiler returned 0 (schedule misuse); the B2 gap autopsy count is the authoritative per-microbatch census and is scaled here by accumulation.",
+  "per_microbatch_m8_top1": {
+    "kernels_per_update": 2566,
+    "source": "results/onehour_gap_breakdown.json (profiler active window over 5 steps)",
+    "cuda_api_cpu_ms_per_update": 8.92,
+    "compiled_graph_cpu_ms_per_update": {"forward": 11.46, "backward": 8.77},
+    "stream_sync_cpu_ms_per_update": 2.77,
+    "category_kernel_ms_per_update": {
+      "gemm": 12.2,
+      "copies": 8.2,
+      "gather_scatter": 3.6,
+      "layernorm": 3.2,
+      "optimizer_elemwise": 2.0,
+      "other": 0.7,
+      "pointwise": 0.5
+    },
+    "note": "device-time totals are CUPTI-inflated; absolute device attribution is unusable, counts are valid"
+  },
+  "per_global_update_scaling": [
+    {"arm": "sparse", "microbatch": 1, "accum": 64, "kernels_per_global_update_estimate": 164224},
+    {"arm": "sparse", "microbatch": 2, "accum": 32, "kernels_per_global_update_estimate": 82112},
+    {"arm": "sparse", "microbatch": 4, "accum": 16, "kernels_per_global_update_estimate": 41056}
+  ],
+  "census_gap": "kernel count was not captured inside the microbatch runner; fix the profiler schedule there and re-census on the next stacked candidate",
+  "objective": "reduce launches per full update; kernel count and wall ms must both be reported for every promoted change"
+}

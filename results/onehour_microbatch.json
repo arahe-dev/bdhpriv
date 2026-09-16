@@ -1,0 +1,36 @@
+{
+  "mission": "one_hour_2p5b",
+  "experiment": "microbatch geometry at constant global batch 64 x 2048 = 131072 tokens",
+  "protocol": "one process per (arm, microbatch); accumulation 64/B steps; one clip + step per update; warmups before timing; peak memory recorded",
+  "results": [
+    {"arm": "dense", "microbatch": 1, "accum": 64, "update_ms": 11820, "tok_s": 11089, "peak_GiB": 3.45, "status": "ok"},
+    {"arm": "dense", "microbatch": 2, "accum": 32, "update_ms": 44547, "tok_s": 2942, "peak_GiB": 7.79, "status": "memory-thrash collapse on 8 GiB"},
+    {"arm": "dense", "microbatch": 4, "accum": 16, "status": "failed (OOM/thrash, killed)"},
+    {"arm": "sparse", "microbatch": 1, "accum": 64, "update_ms": 3465, "tok_s": 37827, "peak_GiB": 1.39, "status": "ok (clean repeat)"},
+    {"arm": "sparse", "microbatch": 1, "accum": 64, "update_ms": 10223, "tok_s": 12821, "peak_GiB": 1.39, "status": "contaminated by preceding dense-mb2 thrash; kept as provenance"},
+    {"arm": "sparse", "microbatch": 2, "accum": 32, "update_ms": 2804, "tok_s": 46744, "peak_GiB": 2.29, "status": "ok, local optimum"},
+    {"arm": "sparse", "microbatch": 4, "accum": 16, "update_ms": 3113, "tok_s": 42110, "peak_GiB": 4.28, "status": "ok"},
+    {"arm": "sparse", "microbatch": 8, "status": "not run: extrapolated ~8 GiB peak (thrash territory)"},
+    {"arm": "sparse", "microbatch": 16, "status": "not run: OOM expected"}
+  ],
+  "comparison_A_matched_geometry": [
+    {"microbatch": 1, "dense_ms": 11820, "sparse_ms": 3465, "speedup": 3.41},
+    {"microbatch": 2, "dense_ms": 44547, "sparse_ms": 2804, "speedup": 15.89, "note": "dense mb2 is unusable (memory thrash), so this ratio is not a fair matched-geometry claim"}
+  ],
+  "comparison_B_best_feasible": {
+    "dense": {"microbatch": 1, "tok_s": 11089},
+    "sparse": {"microbatch": 2, "tok_s": 46744},
+    "speedup": 4.22,
+    "note": "sparse memory headroom permits a geometry dense cannot fit on 8 GiB; directional only for G4"
+  },
+  "verified": {
+    "sparse_mb1_anomaly_resolved": "10.2 s -> 3.46 s in a clean process; the slow number followed a dense memory-thrash run and is clock/state contamination",
+    "dense_mb2_collapse": "7.79 GiB of 8.19 GiB triggers allocator slowdown; dense cannot use mb2 locally"
+  },
+  "inferred": {
+    "g4_projection": "cannot be projected reliably from local 8 GiB geometry-limited results; requires the G4 transfer package at production B16x4",
+    "local_vs_one_hour": "best local 46.7k tok/s = 6.7% of the 694k tok/s one-hour rate; the remaining gap is floor work (copies, writer, launch tax), not expert arithmetic"
+  },
+  "decision": "PROMOTE microbatch geometry as a real systems component; local optimum at sparse mb2",
+  "next": "B3 copy/materialization attack and B4 writer decomposition; then stack microbatch + floor wins and re-measure"
+}
