@@ -2,12 +2,15 @@
   "contract_id": "g4_hero_claim_v1",
   "created_utc": "2026-09-16T09:05:00Z",
   "purpose": "Pre-registration for the single-cell G4 validation of the two currently testable ICLR hero claims (sparse Arm-A top1 production speed; learned top2 conditional compute). Frozen before the G4 run; the harness verifies these fingerprints and thresholds at runtime.",
-  "repo_commit": "0dcbb878d24b99b5808359c889e97143c3cec00b",
-  "repo_commit_note": "Candidate systems freeze commit (350k mission). The harness/contract pin itself is the follow-up contract commit (see contract_commit). The harness records the actual HEAD at run time; the candidate blobs below are identical at 734d622, 0dcbb87 and the contract commit.",
-  "contract_commit": "TO_BE_FILLED_AFTER_COMMIT",
+  "repo_commit": "2fc6833a9248543f8d44604f49686273daf71f8a",
+  "repo_commit_note": "Candidate systems freeze 0dcbb87; harness/contract/cell pin is this commit (contract_commit). The harness records the actual HEAD at run time; the candidate blobs below are identical at 734d622, 0dcbb87 and this commit.",
+  "contract_commit": "2fc6833a9248543f8d44604f49686273daf71f8a",
   "systems_freeze_commit": "0dcbb878d24b99b5808359c889e97143c3cec00b",
   "candidate_blob_audit": {
-    "compared": ["734d622", "0dcbb878d24b99b5808359c889e97143c3cec00b"],
+    "compared": [
+      "734d622",
+      "0dcbb878d24b99b5808359c889e97143c3cec00b"
+    ],
     "result": "ALL benchmark-relevant blobs are byte-identical between the two commits (git rev-parse of each path): opt/model_ref.py, opt/model_opt.py, opt/scan_attn.py, opt/routed_expert.py, opt/learned_router.py, opt/expert_moe.py, opt/onehour_microbatch.py, opt/bench_expert_moe.py, training/arm_a_2p5b_trainer.py, context/frozen_corpus_contract.json",
     "interpretation": "0dcbb87 only adds provenance scripts (opt/onehour_b3_cache.py, opt/onehour_b4_writer.py, opt/onehour_reprofile.py) and results; the B3 gather-cache experiment was killed and reverted, so the frozen STACK0 candidate implementation is exactly the implementation pinned by these fingerprints.",
     "note": "Never depend on the live dirty tree; the harness verifies the committed blobs."
@@ -51,27 +54,43 @@
     "routed_expert_executor": {
       "commit": "a4aebf8",
       "summary": "Routed expert executor (E1, head-shared, compacted active experts); DOE round-0 top1 4.62x, cyclic-window top2 2.89x same-session vs Arm-A",
-      "paths": ["opt/routed_expert.py"]
+      "paths": [
+        "opt/routed_expert.py"
+      ]
     },
     "clean_doe_round1": {
       "commit": "2fef7a6",
       "summary": "Clean Round-1 DOE, per-config process isolation, capacity-padding intervention: top1 3.2-3.7x, top2 2.5-2.7x, top4 1.4x; residual runtime model T = 30 ms + 0.0575 ms/(Kactive/head)",
-      "paths": ["opt/doe_round1.py", "opt/doe_config.py", "results/doe_round1_sweep.json"]
+      "paths": [
+        "opt/doe_round1.py",
+        "opt/doe_config.py",
+        "results/doe_round1_sweep.json"
+      ]
     },
     "learned_router": {
       "commit": "1bf7f00",
       "summary": "Learned cyclic-window router, straight-through proxy (forward exactly hard), R0-R6 gates pass, graph_breaks=0, 2.38x same-session vs Arm-A at minimum capacity (fixed ref 2.40x)",
-      "paths": ["opt/learned_router.py"]
+      "paths": [
+        "opt/learned_router.py"
+      ]
     },
     "microbatch_geometry": {
       "commit": "d202cbd",
       "summary": "Microbatch geometry at constant global batch 64x2048: sparse mb2 46.7k tok/s (4.22x best-feasible), dense mb2 thrash, mb1 anomaly resolved",
-      "paths": ["opt/onehour_microbatch.py", "opt/onehour_microbatch_sweep.py", "results/onehour_microbatch.json"]
+      "paths": [
+        "opt/onehour_microbatch.py",
+        "opt/onehour_microbatch_sweep.py",
+        "results/onehour_microbatch.json"
+      ]
     },
     "dense_execution_stack": {
       "commit": "3d715e7 + 2fef7a6",
       "summary": "opt3c_all production execution (bitwise/exact, verified); certified packed anchor 69,183 tok/s / 1894.56 ms / 62.55 GiB on G4",
-      "paths": ["opt/model_opt.py", "opt/scan_attn.py", "reference/arm_a_timing_cell_colab.py"]
+      "paths": [
+        "opt/model_opt.py",
+        "opt/scan_attn.py",
+        "reference/arm_a_timing_cell_colab.py"
+      ]
     }
   },
   "candidate_configs": {
@@ -128,10 +147,20 @@
   "local_evidence": {
     "sparse_top1_same_session_speedups": {
       "source": "results/doe_round1_sweep.json, results/onehour_active_width.json",
-      "top1_G128": [3.177, 3.184],
-      "top1_G256": [3.209],
-      "top1_G512": [3.67],
-      "range_across_sessions": [3.16, 3.67],
+      "top1_G128": [
+        3.177,
+        3.184
+      ],
+      "top1_G256": [
+        3.209
+      ],
+      "top1_G512": [
+        3.67
+      ],
+      "range_across_sessions": [
+        3.16,
+        3.67
+      ],
       "label": "MEASURED on RTX 4060 Laptop 8GB (local ranking only; never extrapolated to G4)"
     },
     "sparse_best_feasible_microbatch": {
@@ -146,7 +175,7 @@
       "learned_ms": 91.7,
       "learned_speedup": 2.38,
       "fixed_ms": 91.69,
-      "fixed_speedup": 2.40,
+      "fixed_speedup": 2.4,
       "overhead": 0.0001,
       "label": "MEASURED local same-session (B1, not microbatched)"
     },
@@ -165,7 +194,7 @@
         "packed_tok_s_median": 80444.6,
         "packed_tok_s_first_update": 80477.0,
         "ms_per_update_median": 1629.35,
-        "peak_allocated_GiB": 58.20,
+        "peak_allocated_GiB": 58.2,
         "geometry": "B16x4, global 64 sequences, T=2048, frozen packed corpus",
         "trainer_code_sha256": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
         "label": "MEASURED on G4 (frozen production reference; provenance only)"
@@ -194,7 +223,13 @@
       "id": "HERO_2",
       "claim": "Learned top2 hard routing (M8/Ke512 learned cyclic window, straight-through proxy, inactive experts physically skipped) preserves the near-zero routing overhead observed locally (<=5% vs fixed top2, local 0.0%) while retaining a large dense speedup at the matched B16x4 geometry, against the same-session dense measurement.",
       "falsified_if": "router_overhead > 15% or learned speedup vs dense < 1.5x",
-      "measurements": ["fixed_top2 tok/s", "learned_top2 tok/s", "learned/fixed overhead = learned_ms/fixed_ms - 1", "learned/dense speedup", "overflow tokens (learned)"],
+      "measurements": [
+        "fixed_top2 tok/s",
+        "learned_top2 tok/s",
+        "learned/fixed overhead = learned_ms/fixed_ms - 1",
+        "learned/dense speedup",
+        "overflow tokens (learned)"
+      ],
       "thresholds": {
         "overhead_pass": 0.05,
         "overhead_hold": 0.15,

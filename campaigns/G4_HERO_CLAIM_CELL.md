@@ -37,12 +37,12 @@ no B/C implementation is invented or benchmarked.
    any other environment.
 2. The repo copy on the machine must contain the pinned candidate blobs
    (`results/g4_hero_claim_contract.json`; candidate systems freeze
-   `0dcbb87`, contract commit `CONTRACT_COMMIT_PLACEHOLDER`). The harness
+   `0dcbb87`, contract commit `2fc6833a9248543f8d44604f49686273daf71f8a`). The harness
    verifies every fingerprinted file and its own SHA-256 at runtime; do not
    run against a stale or concurrently-edited working tree. Sync it to
    `/content/iclr-oc` (or the Drive copy) first, e.g.:
    ```bash
-   !git -C /content/iclr-oc fetch origin && git -C /content/iclr-oc checkout CONTRACT_COMMIT_PLACEHOLDER
+   !git -C /content/iclr-oc fetch origin && git -C /content/iclr-oc checkout 2fc6833a9248543f8d44604f49686273daf71f8a
    ```
    The cell verifies the harness SHA-256 before running and prints the
    expected value if the copy is stale.
