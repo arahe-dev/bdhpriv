@@ -123,15 +123,14 @@ def jdump(obj) -> str:
     return json.dumps(obj, indent=2, default=str)
 
 
-def sha256_file(path: Path, chunk: int = 1 << 20) -> str:
-    h = hashlib.sha256()
-    with open(path, "rb") as fh:
-        while True:
-            block = fh.read(chunk)
-            if not block:
-                break
-            h.update(block)
-    return h.hexdigest()
+def sha256_file(path: Path) -> str:
+    """SHA-256 of text content with CRLF normalized to LF.
+
+    The harness and its fingerprint contract must verify identically on
+    Linux (Colab) and Windows checkouts of the same git blob.
+    """
+    data = Path(path).read_bytes()
+    return hashlib.sha256(data.replace(b"\r\n", b"\n")).hexdigest()
 
 
 def load_json(path: Path):
