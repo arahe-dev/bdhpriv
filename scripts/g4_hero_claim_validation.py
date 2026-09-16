@@ -197,7 +197,8 @@ def verify_repo(repo: Path, contract_path):
             report["files"][rel] = {"sha256": got, "match": ok}
             if not ok:
                 report["mismatches"].append(rel)
-        harness_want = contract.get("harness_sha256")
+        harness_want = ((contract.get("harness") or {}).get("sha256")
+                        or contract.get("harness_sha256"))
         if harness_want:
             harness_path = repo / "scripts" / "g4_hero_claim_validation.py"
             got = sha256_file(harness_path) if harness_path.is_file() else None
