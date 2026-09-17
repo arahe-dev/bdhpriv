@@ -1,0 +1,1401 @@
+{
+  "battery_sha256": "589866c68ad76ec017fe5d41bb2b67b86541be24899599fcb4d837e8d490beb3",
+  "checkpoint": "base",
+  "families": {
+    "arith_ood_add": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "1292",
+          "generated": "\u00a0Finding: 469 + 823",
+          "meta": {},
+          "prompt": "Calculate: 469 + 823 ="
+        },
+        {
+          "correct": false,
+          "expected": "1353",
+          "generated": "\u00a0Finding: Calculate: 8",
+          "meta": {},
+          "prompt": "Calculate: 847 + 506 ="
+        },
+        {
+          "correct": false,
+          "expected": "801",
+          "generated": "\u00a0Finding: Calculate: 17",
+          "meta": {},
+          "prompt": "Calculate: 179 + 622 ="
+        },
+        {
+          "correct": false,
+          "expected": "812",
+          "generated": "\u00a0Board:\n",
+          "meta": {},
+          "prompt": "Calculate: 617 + 195 ="
+        },
+        {
+          "correct": false,
+          "expected": "1090",
+          "generated": "\u00a0Finding:\n",
+          "meta": {},
+          "prompt": "Calculate: 502 + 588 ="
+        },
+        {
+          "correct": false,
+          "expected": "1128",
+          "generated": "\u00a0Finding:\n",
+          "meta": {},
+          "prompt": "Calculate: 786 + 342 ="
+        },
+        {
+          "correct": false,
+          "expected": "1466",
+          "generated": "\u00a0Finding:\n",
+          "meta": {},
+          "prompt": "Calculate: 578 + 888 ="
+        },
+        {
+          "correct": false,
+          "expected": "331",
+          "generated": "\u00a0January 16, 2016\n",
+          "meta": {},
+          "prompt": "Calculate: 101 + 230 ="
+        }
+      ]
+    },
+    "arith_ood_div": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "6",
+          "generated": "\u00a0Joined: 2011-10-20\n",
+          "meta": {},
+          "prompt": "What is 12 divided by 2?"
+        },
+        {
+          "correct": false,
+          "expected": "2",
+          "generated": "\u00a0Joe Barbara\n",
+          "meta": {},
+          "prompt": "What is 18 divided by 9?"
+        },
+        {
+          "correct": false,
+          "expected": "6",
+          "generated": "\u00a0Joined: 2011-10-20\n",
+          "meta": {},
+          "prompt": "What is 54 divided by 9?"
+        },
+        {
+          "correct": false,
+          "expected": "4",
+          "generated": "\u00a0Joined: 2011-10-20\n",
+          "meta": {},
+          "prompt": "What is 12 divided by 3?"
+        },
+        {
+          "correct": false,
+          "expected": "6",
+          "generated": "\u00a0February 16, 2011\n",
+          "meta": {},
+          "prompt": "What is 48 divided by 8?"
+        },
+        {
+          "correct": false,
+          "expected": "7",
+          "generated": "\u00a0Joined: 2011-10-20\n",
+          "meta": {},
+          "prompt": "What is 49 divided by 7?"
+        }
+      ]
+    },
+    "arith_ood_mul": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "24",
+          "generated": "\u00a0[\u00a0]\n",
+          "meta": {},
+          "prompt": "Calculate: 6 * 4 ="
+        },
+        {
+          "correct": false,
+          "expected": "16",
+          "generated": "\u00a0Find:\n",
+          "meta": {},
+          "prompt": "Calculate: 8 * 2 ="
+        },
+        {
+          "correct": false,
+          "expected": "21",
+          "generated": "\u00a0Joe Biden\n",
+          "meta": {},
+          "prompt": "Calculate: 7 * 3 ="
+        },
+        {
+          "correct": false,
+          "expected": "9",
+          "generated": "\u00a0Joe Biden\n",
+          "meta": {},
+          "prompt": "Calculate: 3 * 3 ="
+        },
+        {
+          "correct": false,
+          "expected": "36",
+          "generated": "\u00a0[\u00a0]\n",
+          "meta": {},
+          "prompt": "Calculate: 6 * 6 ="
+        },
+        {
+          "correct": false,
+          "expected": "40",
+          "generated": "\u00a0Finding:\n",
+          "meta": {},
+          "prompt": "Calculate: 5 * 8 ="
+        }
+      ]
+    },
+    "arith_ood_sub": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "49",
+          "generated": "\u00a0February 18, 2011",
+          "meta": {},
+          "prompt": "Calculate: 51 - 2 ="
+        },
+        {
+          "correct": false,
+          "expected": "18",
+          "generated": "\u00a0Joe Biden\n",
+          "meta": {},
+          "prompt": "Calculate: 20 - 2 ="
+        },
+        {
+          "correct": false,
+          "expected": "78",
+          "generated": "\u00a0Board:\n",
+          "meta": {},
+          "prompt": "Calculate: 87 - 9 ="
+        },
+        {
+          "correct": false,
+          "expected": "38",
+          "generated": "\u00a0February 18, 2011",
+          "meta": {},
+          "prompt": "Calculate: 44 - 6 ="
+        },
+        {
+          "correct": false,
+          "expected": "93",
+          "generated": "96\n",
+          "meta": {},
+          "prompt": "Calculate: 95 - 2 ="
+        },
+        {
+          "correct": false,
+          "expected": "38",
+          "generated": "\u00a0Joe Biden\n",
+          "meta": {},
+          "prompt": "Calculate: 49 - 11 ="
+        }
+      ]
+    },
+    "arith_train": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "105",
+          "generated": "\u00a0Joe Biden\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 74 + 31 ="
+        },
+        {
+          "correct": false,
+          "expected": "134",
+          "generated": "\u00a0Finding:\n",
+          "meta": {
+            "carry": true
+          },
+          "prompt": "Calculate: 48 + 86 ="
+        },
+        {
+          "correct": false,
+          "expected": "53",
+          "generated": "\u00a0Joined: Jul 2016\n",
+          "meta": {
+            "carry": true
+          },
+          "prompt": "Calculate: 17 + 36 ="
+        },
+        {
+          "correct": false,
+          "expected": "83",
+          "generated": "\u00a0Finding:\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 33 + 50 ="
+        },
+        {
+          "correct": false,
+          "expected": "104",
+          "generated": "\u00a0January 16, 2016\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 23 + 81 ="
+        },
+        {
+          "correct": false,
+          "expected": "149",
+          "generated": "\u00a0Board:\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 64 + 85 ="
+        },
+        {
+          "correct": false,
+          "expected": "104",
+          "generated": "\u00a0Finding:\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 52 + 52 ="
+        },
+        {
+          "correct": false,
+          "expected": "39",
+          "generated": "\u00a0Joined: 07/06/",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 29 + 10 ="
+        },
+        {
+          "correct": false,
+          "expected": "65",
+          "generated": "\u00a0February 18, 2016",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 20 + 45 ="
+        },
+        {
+          "correct": false,
+          "expected": "154",
+          "generated": "\u00a0Finding:\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 81 + 73 ="
+        },
+        {
+          "correct": false,
+          "expected": "44",
+          "generated": "\u00a0Joined: Jul 2016\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 33 + 11 ="
+        },
+        {
+          "correct": false,
+          "expected": "98",
+          "generated": "\u00a0January 28, 2016\n",
+          "meta": {
+            "carry": true
+          },
+          "prompt": "Calculate: 29 + 69 ="
+        },
+        {
+          "correct": false,
+          "expected": "104",
+          "generated": "\u00a0Finding:\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 32 + 72 ="
+        },
+        {
+          "correct": false,
+          "expected": "80",
+          "generated": "\u00a0Finding:\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 30 + 50 ="
+        },
+        {
+          "correct": false,
+          "expected": "88",
+          "generated": "\u00a0Finding:\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 54 + 34 ="
+        },
+        {
+          "correct": false,
+          "expected": "133",
+          "generated": "\u00a0Finding:\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 52 + 81 ="
+        },
+        {
+          "correct": false,
+          "expected": "59",
+          "generated": "\u00a0Joined: Jul 2016\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 29 + 30 ="
+        },
+        {
+          "correct": false,
+          "expected": "105",
+          "generated": "\u00a0Finding:\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 51 + 54 ="
+        },
+        {
+          "correct": false,
+          "expected": "81",
+          "generated": "\u00a0January 17, 2016\n",
+          "meta": {
+            "carry": true
+          },
+          "prompt": "Calculate: 17 + 64 ="
+        },
+        {
+          "correct": false,
+          "expected": "99",
+          "generated": "\u00a0Finding:\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 33 + 66 ="
+        }
+      ]
+    },
+    "completion": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": [
+            "mat",
+            "floor",
+            "couch",
+            "chair",
+            "bed",
+            "ground",
+            "table",
+            "lap",
+            "roof",
+            "windowsill"
+          ],
+          "generated": "\u00a0The cat sat on the\n",
+          "meta": {},
+          "prompt": "The cat sat on the"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "east",
+            "morning",
+            "sky"
+          ],
+          "generated": "\u00a0The Sun\n",
+          "meta": {},
+          "prompt": "The sun rises in the"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "cold",
+            "freezing",
+            "colder"
+          ],
+          "generated": "\u00a0Water freezes\n",
+          "meta": {},
+          "prompt": "Water freezes when it gets"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "woof",
+            "bark",
+            "ruff",
+            "bow"
+          ],
+          "generated": "\u00a0Dogs:\n",
+          "meta": {},
+          "prompt": "A dog says"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "book",
+            "story",
+            "novel",
+            "paper",
+            "magazine",
+            "poem",
+            "letter"
+          ],
+          "generated": "\u00a0Myth:\n",
+          "meta": {},
+          "prompt": "We read a"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "walked",
+            "went",
+            "entered",
+            "stepped",
+            "ran",
+            "saw",
+            "left",
+            "closed"
+          ],
+          "generated": "\u00a0She opened the door",
+          "meta": {},
+          "prompt": "She opened the door and"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "ball",
+            "can",
+            "stone",
+            "bucket",
+            "rock"
+          ],
+          "generated": "\u00a0The boy kicked the",
+          "meta": {},
+          "prompt": "The boy kicked the"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "cup",
+            "glass",
+            "bottle",
+            "mug",
+            "straw"
+          ],
+          "generated": "\u00a0I drink water from a\n",
+          "meta": {},
+          "prompt": "I drink water from a"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "water",
+            "pond",
+            "sea",
+            "lake",
+            "ocean",
+            "river"
+          ],
+          "generated": "\u00a0The fish swims in",
+          "meta": {},
+          "prompt": "The fish swims in the"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "pen",
+            "pencil",
+            "crayon",
+            "marker",
+            "stick",
+            "chalk"
+          ],
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "He wrote his name with a"
+        }
+      ]
+    },
+    "context_extract": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "happy",
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "The secret word is happy. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "bitter",
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "The secret word is bitter. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "moon",
+          "generated": "\u00a0May \u00a0May \u00a0May ",
+          "meta": {},
+          "prompt": "The secret word is moon. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "goat",
+          "generated": "\u00a0Samuel McGraw-Hill",
+          "meta": {},
+          "prompt": "The secret word is goat. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "cold",
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "The secret word is cold. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "dirty",
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "The secret word is dirty. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "fox",
+          "generated": "\u00a0Fox. Question: What is the sec",
+          "meta": {},
+          "prompt": "The secret word is fox. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "monkey",
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "The secret word is monkey. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "cold",
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "The secret word is cold. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "dream",
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "The secret word is dream. Question: What is the secret word?"
+        }
+      ]
+    },
+    "copy": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "rock read cold",
+          "generated": "\u00a0Myths: Manuals: Manuals\n",
+          "meta": {},
+          "prompt": "Copy this text: rock read cold"
+        },
+        {
+          "correct": false,
+          "expected": "tree leaf paint prince tree",
+          "generated": "\u00a0July 16, 2016\n",
+          "meta": {},
+          "prompt": "Copy this text: tree leaf paint prince tree"
+        },
+        {
+          "correct": false,
+          "expected": "soup sand bean queen",
+          "generated": "\u00e2\u20ac\u0153T\u00e2\u20ac\u0153T",
+          "meta": {},
+          "prompt": "Copy this text: soup sand bean queen"
+        },
+        {
+          "correct": false,
+          "expected": "bike soft open leaf",
+          "generated": "\u00a0Beautiful, Beautiful, Beau",
+          "meta": {},
+          "prompt": "Copy this text: bike soft open leaf"
+        },
+        {
+          "correct": false,
+          "expected": "new sad closed",
+          "generated": "\u00a0Joined: 2011-10-20\n",
+          "meta": {},
+          "prompt": "Copy this text: new sad closed"
+        },
+        {
+          "correct": false,
+          "expected": "laugh dirty train",
+          "generated": "\u00e2\u20ac\u0153Trojana\u2019s Best B",
+          "meta": {},
+          "prompt": "Copy this text: laugh dirty train"
+        },
+        {
+          "correct": false,
+          "expected": "road quiet plane wind",
+          "generated": "\u00e2\u20ac\u0153T\u00e2\u20ac\u0153T",
+          "meta": {},
+          "prompt": "Copy this text: road quiet plane wind"
+        },
+        {
+          "correct": false,
+          "expected": "write slow clean grass sleep",
+          "generated": "\u00a0Joe Brown\n",
+          "meta": {},
+          "prompt": "Copy this text: write slow clean grass sleep"
+        },
+        {
+          "correct": false,
+          "expected": "star king rose",
+          "generated": "\u00e2\u20ac\u0153\u0153\u0153\u0153\u0153\ufffd",
+          "meta": {},
+          "prompt": "Copy this text: star king rose"
+        },
+        {
+          "correct": false,
+          "expected": "laugh new fly sad",
+          "generated": "\u00e2\u20ac\u0153T\u00e2\u20ac\u0153T",
+          "meta": {},
+          "prompt": "Copy this text: laugh new fly sad"
+        }
+      ]
+    },
+    "count": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "5",
+          "generated": "\u00a0Joe Bennett\n",
+          "meta": {},
+          "prompt": "Count the words: prince leaf corn dream road"
+        },
+        {
+          "correct": false,
+          "expected": "5",
+          "generated": "\u00a0Joe Bennett\n",
+          "meta": {},
+          "prompt": "Count the words: apple house knight tree river"
+        },
+        {
+          "correct": false,
+          "expected": "5",
+          "generated": "\u00a0Beautiful, Beau",
+          "meta": {},
+          "prompt": "Count the words: bike deer hot whale fish"
+        },
+        {
+          "correct": false,
+          "expected": "6",
+          "generated": "\u00a0Milk robin sun queen fast",
+          "meta": {},
+          "prompt": "Count the words: milk robin sun queen fast monkey"
+        },
+        {
+          "correct": false,
+          "expected": "7",
+          "generated": "\u00e2\u20ac\u0153Abra",
+          "meta": {},
+          "prompt": "Count the words: deer mouse slow chair bean bike owl"
+        },
+        {
+          "correct": false,
+          "expected": "2",
+          "generated": "\u00a0Bird plane\n",
+          "meta": {},
+          "prompt": "Count the words: bird plane"
+        },
+        {
+          "correct": false,
+          "expected": "6",
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "Count the words: tiger sand shark old quiet write"
+        },
+        {
+          "correct": false,
+          "expected": "5",
+          "generated": "\u00a0Fish horse bitter deer",
+          "meta": {},
+          "prompt": "Count the words: fish horse bitter deer old"
+        },
+        {
+          "correct": false,
+          "expected": "4",
+          "generated": "\u00a0Duck Duck Duck Duck D",
+          "meta": {},
+          "prompt": "Count the words: duck duck smile hill"
+        },
+        {
+          "correct": false,
+          "expected": "5",
+          "generated": "\u00e2\u20ac\u0153\u0153\ufffd",
+          "meta": {},
+          "prompt": "Count the words: plane dance smile walk quiet"
+        }
+      ]
+    },
+    "facts": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": [
+            "paris"
+          ],
+          "generated": "\u00a0France\n",
+          "meta": {},
+          "prompt": "What is the capital of France?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "new delhi",
+            "delhi"
+          ],
+          "generated": "\u00a0Joe Barbara\n",
+          "meta": {},
+          "prompt": "What is the capital of India?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "washington",
+            "washington dc",
+            "washington d.c."
+          ],
+          "generated": "\u00a0Myths: The Most Popular\n",
+          "meta": {},
+          "prompt": "What is the capital of the United States?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "tokyo"
+          ],
+          "generated": "\u00a0Japan\n",
+          "meta": {},
+          "prompt": "What is the capital of Japan?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "blue"
+          ],
+          "generated": "\u00a0Joined: 2011-10-20\n",
+          "meta": {},
+          "prompt": "What color is the sky on a clear day?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "green"
+          ],
+          "generated": "\u00a0Google\n",
+          "meta": {},
+          "prompt": "What color is grass?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "7",
+            "seven"
+          ],
+          "generated": "\u00a0I have a lot of time in the week, but I have been",
+          "meta": {},
+          "prompt": "How many days are in a week?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "cat"
+          ],
+          "generated": "\u00a0I have a question about the problem of the problem.\n",
+          "meta": {},
+          "prompt": "Which animal says meow?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "apple"
+          ],
+          "generated": "\u00a0I have a brand new iPhone\n",
+          "meta": {},
+          "prompt": "Which company makes the iPhone?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "4",
+            "four"
+          ],
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "What is 2 plus 2?"
+        }
+      ]
+    },
+    "first_letter": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "g",
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "First letter of grass:"
+        },
+        {
+          "correct": false,
+          "expected": "w",
+          "generated": "\u00e2\u20ac\u0153\ufffd",
+          "meta": {},
+          "prompt": "First letter of whale:"
+        },
+        {
+          "correct": false,
+          "expected": "d",
+          "generated": "\u00e0 la de la de la de",
+          "meta": {},
+          "prompt": "First letter of deer:"
+        },
+        {
+          "correct": false,
+          "expected": "b",
+          "generated": "\u00e0 la Brooks\n",
+          "meta": {},
+          "prompt": "First letter of build:"
+        },
+        {
+          "correct": false,
+          "expected": "f",
+          "generated": "\u00e2\u20ac\u0153A",
+          "meta": {},
+          "prompt": "First letter of fox:"
+        },
+        {
+          "correct": false,
+          "expected": "r",
+          "generated": "\u00e2\u20ac\u0153A",
+          "meta": {},
+          "prompt": "First letter of read:"
+        },
+        {
+          "correct": false,
+          "expected": "t",
+          "generated": "\u00e0 la Los Los L",
+          "meta": {},
+          "prompt": "First letter of table:"
+        },
+        {
+          "correct": false,
+          "expected": "s",
+          "generated": "\u00a0February 16,",
+          "meta": {},
+          "prompt": "First letter of soup:"
+        },
+        {
+          "correct": false,
+          "expected": "t",
+          "generated": "\u00e0 la Los Los L",
+          "meta": {},
+          "prompt": "First letter of table:"
+        },
+        {
+          "correct": false,
+          "expected": "f",
+          "generated": "\u00e2\u20ac\u0153A",
+          "meta": {},
+          "prompt": "First letter of forest:"
+        }
+      ]
+    },
+    "format": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": [
+            "yes",
+            "no"
+          ],
+          "generated": "\u00a0July 16, 2016\n",
+          "meta": {},
+          "prompt": "Answer yes or no: Is the sky blue?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "yes",
+            "no"
+          ],
+          "generated": "\u00a0Fire cold?\n",
+          "meta": {},
+          "prompt": "Answer yes or no: Is fire cold?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "white",
+            "snow"
+          ],
+          "generated": "\u00a0Joe Bennett\n",
+          "meta": {},
+          "prompt": "Answer with one word: What color is snow?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "black"
+          ],
+          "generated": "\u00a0Joe Bennett\n",
+          "meta": {},
+          "prompt": "Answer with one word: What color is coal?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "3",
+            "three"
+          ],
+          "generated": "\u00a0Joe Biden\n",
+          "meta": {},
+          "prompt": "Reply with a single number: 3"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "8",
+            "eight"
+          ],
+          "generated": "96\n",
+          "meta": {},
+          "prompt": "Reply with a single number: 8"
+        }
+      ]
+    },
+    "listing": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "colors",
+          "generated": "\u00e2\u20ac\u0153\u00e2\u20ac\u009d\n",
+          "meta": {},
+          "prompt": "List three colors."
+        },
+        {
+          "correct": false,
+          "expected": "colors",
+          "generated": "\u00e2\u20ac\u0153\u00e2\u20ac\u0153\u00e2\u20ac\u0153\u00e2\ufffd",
+          "meta": {},
+          "prompt": "Name two colors."
+        },
+        {
+          "correct": false,
+          "expected": "colors",
+          "generated": "\u00a0Give me a color.\n",
+          "meta": {},
+          "prompt": "Give me a color."
+        },
+        {
+          "correct": false,
+          "expected": "animals",
+          "generated": "\u00e2\u20ac\u0153\u00e2\u20ac\u009d\n",
+          "meta": {},
+          "prompt": "List three animals."
+        },
+        {
+          "correct": false,
+          "expected": "animals",
+          "generated": "\u00e2\u20ac\u0153\u00e2\u20ac\u0153\u00e2\u20ac\u0153\u00e2\ufffd",
+          "meta": {},
+          "prompt": "Name two animals."
+        },
+        {
+          "correct": false,
+          "expected": "animals",
+          "generated": "\u00a0Hi, I'm a fan of the animal. I'm a fan of the animal.",
+          "meta": {},
+          "prompt": "Name an animal that lives in water."
+        },
+        {
+          "correct": false,
+          "expected": "fruits",
+          "generated": "\u00e2\u20ac\u0153Art\u00e2\u20ac\u009d\n",
+          "meta": {},
+          "prompt": "List three fruits."
+        },
+        {
+          "correct": false,
+          "expected": "numbers",
+          "generated": "\u00e2\u0080\u0093\u009d\n",
+          "meta": {},
+          "prompt": "Name two numbers."
+        }
+      ]
+    },
+    "nonsense": {
+      "accuracy": 0.6,
+      "items": [
+        {
+          "correct": true,
+          "expected": "nondegenerate",
+          "generated": "\u00e2\u0080\u0093\u009d\n",
+          "meta": {},
+          "prompt": "asdfgh qwerty zxcvb"
+        },
+        {
+          "correct": true,
+          "expected": "nondegenerate",
+          "generated": "???? ***************************************",
+          "meta": {},
+          "prompt": "???! ***"
+        },
+        {
+          "correct": false,
+          "expected": "nondegenerate",
+          "generated": "\u00e2\u20ac\u0153Amba\u00e2\u20ac\u0153Amba\u00e2",
+          "meta": {},
+          "prompt": "1234567890"
+        },
+        {
+          "correct": false,
+          "expected": "nondegenerate",
+          "generated": "\u00a0The Best Best Best Best Best Best Best Best Best Best Best",
+          "meta": {},
+          "prompt": "the the the the the"
+        },
+        {
+          "correct": true,
+          "expected": "nondegenerate",
+          "generated": "\u00e2\u0080\u0093\u009d\n",
+          "meta": {},
+          "prompt": "x"
+        }
+      ]
+    },
+    "reverse": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "rats",
+          "generated": "\u00e2\u20ac\u0153\u0153\u0153\ufffd",
+          "meta": {},
+          "prompt": "Reverse the word star:"
+        },
+        {
+          "correct": false,
+          "expected": "reed",
+          "generated": "\u00e0 la de la de la de la de la de",
+          "meta": {},
+          "prompt": "Reverse the word deer:"
+        },
+        {
+          "correct": false,
+          "expected": "tnaig",
+          "generated": "\u00e0 la Giant\n",
+          "meta": {},
+          "prompt": "Reverse the word giant:"
+        },
+        {
+          "correct": false,
+          "expected": "eert",
+          "generated": "\u00e0 la Telegrade\n",
+          "meta": {},
+          "prompt": "Reverse the word tree:"
+        },
+        {
+          "correct": false,
+          "expected": "elgae",
+          "generated": "\u00e0 la eagle:\n",
+          "meta": {},
+          "prompt": "Reverse the word eagle:"
+        },
+        {
+          "correct": false,
+          "expected": "das",
+          "generated": "\u00e0 la Sada:\n",
+          "meta": {},
+          "prompt": "Reverse the word sad:"
+        },
+        {
+          "correct": false,
+          "expected": "gib",
+          "generated": "\u00e2\u20ac\u0153\u0153\u0153\ufffd",
+          "meta": {},
+          "prompt": "Reverse the word big:"
+        },
+        {
+          "correct": false,
+          "expected": "nogard",
+          "generated": "\u00e0 la Dragon:\n",
+          "meta": {},
+          "prompt": "Reverse the word dragon:"
+        },
+        {
+          "correct": false,
+          "expected": "nibor",
+          "generated": "\u00e0 la Reverse the word robin:\n",
+          "meta": {},
+          "prompt": "Reverse the word robin:"
+        },
+        {
+          "correct": false,
+          "expected": "elahw",
+          "generated": "\u00e2\u20ac\u0153\u0153\u0153\ufffd",
+          "meta": {},
+          "prompt": "Reverse the word whale:"
+        }
+      ]
+    },
+    "sort": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "15 55 63",
+          "generated": "\u00a0Sorted by:\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 63 55 15"
+        },
+        {
+          "correct": false,
+          "expected": "73 75 81",
+          "generated": "\u00a0Sorted by:\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 75 73 81"
+        },
+        {
+          "correct": false,
+          "expected": "75 84 92",
+          "generated": "\u00a0Sorted by:\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 92 75 84"
+        },
+        {
+          "correct": false,
+          "expected": "9 14 90",
+          "generated": "\u00a0Sorted: \u00a0Sorted: \u00a0Sorted",
+          "meta": {},
+          "prompt": "Sort these numbers: 14 90 9"
+        },
+        {
+          "correct": false,
+          "expected": "13 25 41",
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 41 13 25"
+        },
+        {
+          "correct": false,
+          "expected": "12 16 59",
+          "generated": "\u00a0Sorted: \u00a0Sorted: \u00a0Sorted",
+          "meta": {},
+          "prompt": "Sort these numbers: 59 12 16"
+        },
+        {
+          "correct": false,
+          "expected": "52 55 87",
+          "generated": "\u00a0Sorted by:\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 55 52 87"
+        },
+        {
+          "correct": false,
+          "expected": "16 37 67",
+          "generated": "\u00a0Sorted by:\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 37 67 16"
+        },
+        {
+          "correct": false,
+          "expected": "19 48 50",
+          "generated": "\u00a0Sorted: \u00a0Sorted: \u00a0Sorted",
+          "meta": {},
+          "prompt": "Sort these numbers: 50 19 48"
+        },
+        {
+          "correct": false,
+          "expected": "13 33 39",
+          "generated": "\u00a0Joe Biden\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 33 39 13"
+        }
+      ]
+    },
+    "story": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "fluency",
+          "generated": "\u00a0Tell me a short story about a dog.\n",
+          "meta": {},
+          "prompt": "Tell me a short story about a dog."
+        },
+        {
+          "correct": false,
+          "expected": "fluency",
+          "generated": "\u00a0Tell me a short story about a cat.\n",
+          "meta": {},
+          "prompt": "Tell me a short story about a little cat."
+        },
+        {
+          "correct": false,
+          "expected": "fluency",
+          "generated": "\u00a0Tell me a short story about a child.\n",
+          "meta": {},
+          "prompt": "Tell me a short story about a happy child."
+        },
+        {
+          "correct": false,
+          "expected": "fluency",
+          "generated": "\u00a0Tell me a short story about a bird.\n",
+          "meta": {},
+          "prompt": "Tell me a short story about a bird."
+        },
+        {
+          "correct": false,
+          "expected": "fluency",
+          "generated": "\u00a0Tell me a short story about a small house.\n",
+          "meta": {},
+          "prompt": "Tell me a short story about a small house."
+        }
+      ]
+    },
+    "transfer": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "nus",
+          "generated": "\nDiscussion in 'The Best Best Best Best B",
+          "meta": {},
+          "prompt": "Spell sun backwards:"
+        },
+        {
+          "correct": false,
+          "expected": "llih",
+          "generated": "\nDiscussion in 'Man's Best Man' started by",
+          "meta": {},
+          "prompt": "Spell hill backwards:"
+        },
+        {
+          "correct": false,
+          "expected": "gnuoy",
+          "generated": "\nDiscussion in 'The Best Best Best Best B",
+          "meta": {},
+          "prompt": "Spell young backwards:"
+        },
+        {
+          "correct": false,
+          "expected": "56 68 86",
+          "generated": "968\n",
+          "meta": {},
+          "prompt": "Write the numbers in order: 86 56 68"
+        },
+        {
+          "correct": false,
+          "expected": "14 14 25",
+          "generated": "\u00e2\u20ac\u0153T\u00e2\u20ac\u0153T",
+          "meta": {},
+          "prompt": "Write the numbers in order: 14 14 25"
+        },
+        {
+          "correct": false,
+          "expected": "5 55 93",
+          "generated": "999\n",
+          "meta": {},
+          "prompt": "Write the numbers in order: 93 55 5"
+        },
+        {
+          "correct": false,
+          "expected": "6",
+          "generated": "\u00a0Walk fire swim road monkey soft\n",
+          "meta": {},
+          "prompt": "How many items are in the list: walk fire swim road monkey soft"
+        },
+        {
+          "correct": false,
+          "expected": "3",
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "How many items are in the list: robin giant stone"
+        },
+        {
+          "correct": false,
+          "expected": "2",
+          "generated": "\u00a0Joe Brown\n",
+          "meta": {},
+          "prompt": "How many items are in the list: panda bread"
+        },
+        {
+          "correct": false,
+          "expected": "l",
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "The word lion starts with which letter?"
+        },
+        {
+          "correct": false,
+          "expected": "f",
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "The word frog starts with which letter?"
+        },
+        {
+          "correct": false,
+          "expected": "e",
+          "generated": "\u00a0Joe Barry\n",
+          "meta": {},
+          "prompt": "The word eagle starts with which letter?"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "arith_ood_add": 0.0,
+    "arith_ood_div": 0.0,
+    "arith_ood_mul": 0.0,
+    "arith_ood_sub": 0.0,
+    "arith_train": 0.0,
+    "completion": 0.0,
+    "context_extract": 0.0,
+    "copy": 0.0,
+    "count": 0.0,
+    "facts": 0.0,
+    "first_letter": 0.0,
+    "format": 0.0,
+    "listing": 0.0,
+    "macro": 0.03333333333333333,
+    "nonsense": 0.6,
+    "reverse": 0.0,
+    "sort": 0.0,
+    "story": 0.0,
+    "transfer": 0.0
+  },
+  "tag": "pt_000_base"
+}

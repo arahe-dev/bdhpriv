@@ -1,0 +1,1003 @@
+{
+  "battery_sha256": "589866c68ad76ec017fe5d41bb2b67b86541be24899599fcb4d837e8d490beb3",
+  "created_at": "2026-09-17T14:49:02Z",
+  "families": {
+    "arith_ood_add": [
+      {
+        "expected": "1292",
+        "meta": {},
+        "prompt": "Calculate: 469 + 823 ="
+      },
+      {
+        "expected": "1353",
+        "meta": {},
+        "prompt": "Calculate: 847 + 506 ="
+      },
+      {
+        "expected": "801",
+        "meta": {},
+        "prompt": "Calculate: 179 + 622 ="
+      },
+      {
+        "expected": "812",
+        "meta": {},
+        "prompt": "Calculate: 617 + 195 ="
+      },
+      {
+        "expected": "1090",
+        "meta": {},
+        "prompt": "Calculate: 502 + 588 ="
+      },
+      {
+        "expected": "1128",
+        "meta": {},
+        "prompt": "Calculate: 786 + 342 ="
+      },
+      {
+        "expected": "1466",
+        "meta": {},
+        "prompt": "Calculate: 578 + 888 ="
+      },
+      {
+        "expected": "331",
+        "meta": {},
+        "prompt": "Calculate: 101 + 230 ="
+      }
+    ],
+    "arith_ood_div": [
+      {
+        "expected": "6",
+        "meta": {},
+        "prompt": "What is 12 divided by 2?"
+      },
+      {
+        "expected": "2",
+        "meta": {},
+        "prompt": "What is 18 divided by 9?"
+      },
+      {
+        "expected": "6",
+        "meta": {},
+        "prompt": "What is 54 divided by 9?"
+      },
+      {
+        "expected": "4",
+        "meta": {},
+        "prompt": "What is 12 divided by 3?"
+      },
+      {
+        "expected": "6",
+        "meta": {},
+        "prompt": "What is 48 divided by 8?"
+      },
+      {
+        "expected": "7",
+        "meta": {},
+        "prompt": "What is 49 divided by 7?"
+      }
+    ],
+    "arith_ood_mul": [
+      {
+        "expected": "24",
+        "meta": {},
+        "prompt": "Calculate: 6 * 4 ="
+      },
+      {
+        "expected": "16",
+        "meta": {},
+        "prompt": "Calculate: 8 * 2 ="
+      },
+      {
+        "expected": "21",
+        "meta": {},
+        "prompt": "Calculate: 7 * 3 ="
+      },
+      {
+        "expected": "9",
+        "meta": {},
+        "prompt": "Calculate: 3 * 3 ="
+      },
+      {
+        "expected": "36",
+        "meta": {},
+        "prompt": "Calculate: 6 * 6 ="
+      },
+      {
+        "expected": "40",
+        "meta": {},
+        "prompt": "Calculate: 5 * 8 ="
+      }
+    ],
+    "arith_ood_sub": [
+      {
+        "expected": "49",
+        "meta": {},
+        "prompt": "Calculate: 51 - 2 ="
+      },
+      {
+        "expected": "18",
+        "meta": {},
+        "prompt": "Calculate: 20 - 2 ="
+      },
+      {
+        "expected": "78",
+        "meta": {},
+        "prompt": "Calculate: 87 - 9 ="
+      },
+      {
+        "expected": "38",
+        "meta": {},
+        "prompt": "Calculate: 44 - 6 ="
+      },
+      {
+        "expected": "93",
+        "meta": {},
+        "prompt": "Calculate: 95 - 2 ="
+      },
+      {
+        "expected": "38",
+        "meta": {},
+        "prompt": "Calculate: 49 - 11 ="
+      }
+    ],
+    "arith_train": [
+      {
+        "expected": "105",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 74 + 31 ="
+      },
+      {
+        "expected": "134",
+        "meta": {
+          "carry": true
+        },
+        "prompt": "Calculate: 48 + 86 ="
+      },
+      {
+        "expected": "53",
+        "meta": {
+          "carry": true
+        },
+        "prompt": "Calculate: 17 + 36 ="
+      },
+      {
+        "expected": "83",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 33 + 50 ="
+      },
+      {
+        "expected": "104",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 23 + 81 ="
+      },
+      {
+        "expected": "149",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 64 + 85 ="
+      },
+      {
+        "expected": "104",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 52 + 52 ="
+      },
+      {
+        "expected": "39",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 29 + 10 ="
+      },
+      {
+        "expected": "65",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 20 + 45 ="
+      },
+      {
+        "expected": "154",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 81 + 73 ="
+      },
+      {
+        "expected": "44",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 33 + 11 ="
+      },
+      {
+        "expected": "98",
+        "meta": {
+          "carry": true
+        },
+        "prompt": "Calculate: 29 + 69 ="
+      },
+      {
+        "expected": "104",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 32 + 72 ="
+      },
+      {
+        "expected": "80",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 30 + 50 ="
+      },
+      {
+        "expected": "88",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 54 + 34 ="
+      },
+      {
+        "expected": "133",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 52 + 81 ="
+      },
+      {
+        "expected": "59",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 29 + 30 ="
+      },
+      {
+        "expected": "105",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 51 + 54 ="
+      },
+      {
+        "expected": "81",
+        "meta": {
+          "carry": true
+        },
+        "prompt": "Calculate: 17 + 64 ="
+      },
+      {
+        "expected": "99",
+        "meta": {
+          "carry": false
+        },
+        "prompt": "Calculate: 33 + 66 ="
+      }
+    ],
+    "completion": [
+      {
+        "expected": [
+          "mat",
+          "floor",
+          "couch",
+          "chair",
+          "bed",
+          "ground",
+          "table",
+          "lap",
+          "roof",
+          "windowsill"
+        ],
+        "meta": {},
+        "prompt": "The cat sat on the"
+      },
+      {
+        "expected": [
+          "east",
+          "morning",
+          "sky"
+        ],
+        "meta": {},
+        "prompt": "The sun rises in the"
+      },
+      {
+        "expected": [
+          "cold",
+          "freezing",
+          "colder"
+        ],
+        "meta": {},
+        "prompt": "Water freezes when it gets"
+      },
+      {
+        "expected": [
+          "woof",
+          "bark",
+          "ruff",
+          "bow"
+        ],
+        "meta": {},
+        "prompt": "A dog says"
+      },
+      {
+        "expected": [
+          "book",
+          "story",
+          "novel",
+          "paper",
+          "magazine",
+          "poem",
+          "letter"
+        ],
+        "meta": {},
+        "prompt": "We read a"
+      },
+      {
+        "expected": [
+          "walked",
+          "went",
+          "entered",
+          "stepped",
+          "ran",
+          "saw",
+          "left",
+          "closed"
+        ],
+        "meta": {},
+        "prompt": "She opened the door and"
+      },
+      {
+        "expected": [
+          "ball",
+          "can",
+          "stone",
+          "bucket",
+          "rock"
+        ],
+        "meta": {},
+        "prompt": "The boy kicked the"
+      },
+      {
+        "expected": [
+          "cup",
+          "glass",
+          "bottle",
+          "mug",
+          "straw"
+        ],
+        "meta": {},
+        "prompt": "I drink water from a"
+      },
+      {
+        "expected": [
+          "water",
+          "pond",
+          "sea",
+          "lake",
+          "ocean",
+          "river"
+        ],
+        "meta": {},
+        "prompt": "The fish swims in the"
+      },
+      {
+        "expected": [
+          "pen",
+          "pencil",
+          "crayon",
+          "marker",
+          "stick",
+          "chalk"
+        ],
+        "meta": {},
+        "prompt": "He wrote his name with a"
+      }
+    ],
+    "context_extract": [
+      {
+        "expected": "happy",
+        "meta": {},
+        "prompt": "The secret word is happy. Question: What is the secret word?"
+      },
+      {
+        "expected": "bitter",
+        "meta": {},
+        "prompt": "The secret word is bitter. Question: What is the secret word?"
+      },
+      {
+        "expected": "moon",
+        "meta": {},
+        "prompt": "The secret word is moon. Question: What is the secret word?"
+      },
+      {
+        "expected": "goat",
+        "meta": {},
+        "prompt": "The secret word is goat. Question: What is the secret word?"
+      },
+      {
+        "expected": "cold",
+        "meta": {},
+        "prompt": "The secret word is cold. Question: What is the secret word?"
+      },
+      {
+        "expected": "dirty",
+        "meta": {},
+        "prompt": "The secret word is dirty. Question: What is the secret word?"
+      },
+      {
+        "expected": "fox",
+        "meta": {},
+        "prompt": "The secret word is fox. Question: What is the secret word?"
+      },
+      {
+        "expected": "monkey",
+        "meta": {},
+        "prompt": "The secret word is monkey. Question: What is the secret word?"
+      },
+      {
+        "expected": "cold",
+        "meta": {},
+        "prompt": "The secret word is cold. Question: What is the secret word?"
+      },
+      {
+        "expected": "dream",
+        "meta": {},
+        "prompt": "The secret word is dream. Question: What is the secret word?"
+      }
+    ],
+    "copy": [
+      {
+        "expected": "rock read cold",
+        "meta": {},
+        "prompt": "Copy this text: rock read cold"
+      },
+      {
+        "expected": "tree leaf paint prince tree",
+        "meta": {},
+        "prompt": "Copy this text: tree leaf paint prince tree"
+      },
+      {
+        "expected": "soup sand bean queen",
+        "meta": {},
+        "prompt": "Copy this text: soup sand bean queen"
+      },
+      {
+        "expected": "bike soft open leaf",
+        "meta": {},
+        "prompt": "Copy this text: bike soft open leaf"
+      },
+      {
+        "expected": "new sad closed",
+        "meta": {},
+        "prompt": "Copy this text: new sad closed"
+      },
+      {
+        "expected": "laugh dirty train",
+        "meta": {},
+        "prompt": "Copy this text: laugh dirty train"
+      },
+      {
+        "expected": "road quiet plane wind",
+        "meta": {},
+        "prompt": "Copy this text: road quiet plane wind"
+      },
+      {
+        "expected": "write slow clean grass sleep",
+        "meta": {},
+        "prompt": "Copy this text: write slow clean grass sleep"
+      },
+      {
+        "expected": "star king rose",
+        "meta": {},
+        "prompt": "Copy this text: star king rose"
+      },
+      {
+        "expected": "laugh new fly sad",
+        "meta": {},
+        "prompt": "Copy this text: laugh new fly sad"
+      }
+    ],
+    "count": [
+      {
+        "expected": "5",
+        "meta": {},
+        "prompt": "Count the words: prince leaf corn dream road"
+      },
+      {
+        "expected": "5",
+        "meta": {},
+        "prompt": "Count the words: apple house knight tree river"
+      },
+      {
+        "expected": "5",
+        "meta": {},
+        "prompt": "Count the words: bike deer hot whale fish"
+      },
+      {
+        "expected": "6",
+        "meta": {},
+        "prompt": "Count the words: milk robin sun queen fast monkey"
+      },
+      {
+        "expected": "7",
+        "meta": {},
+        "prompt": "Count the words: deer mouse slow chair bean bike owl"
+      },
+      {
+        "expected": "2",
+        "meta": {},
+        "prompt": "Count the words: bird plane"
+      },
+      {
+        "expected": "6",
+        "meta": {},
+        "prompt": "Count the words: tiger sand shark old quiet write"
+      },
+      {
+        "expected": "5",
+        "meta": {},
+        "prompt": "Count the words: fish horse bitter deer old"
+      },
+      {
+        "expected": "4",
+        "meta": {},
+        "prompt": "Count the words: duck duck smile hill"
+      },
+      {
+        "expected": "5",
+        "meta": {},
+        "prompt": "Count the words: plane dance smile walk quiet"
+      }
+    ],
+    "facts": [
+      {
+        "expected": [
+          "paris"
+        ],
+        "meta": {},
+        "prompt": "What is the capital of France?"
+      },
+      {
+        "expected": [
+          "new delhi",
+          "delhi"
+        ],
+        "meta": {},
+        "prompt": "What is the capital of India?"
+      },
+      {
+        "expected": [
+          "washington",
+          "washington dc",
+          "washington d.c."
+        ],
+        "meta": {},
+        "prompt": "What is the capital of the United States?"
+      },
+      {
+        "expected": [
+          "tokyo"
+        ],
+        "meta": {},
+        "prompt": "What is the capital of Japan?"
+      },
+      {
+        "expected": [
+          "blue"
+        ],
+        "meta": {},
+        "prompt": "What color is the sky on a clear day?"
+      },
+      {
+        "expected": [
+          "green"
+        ],
+        "meta": {},
+        "prompt": "What color is grass?"
+      },
+      {
+        "expected": [
+          "7",
+          "seven"
+        ],
+        "meta": {},
+        "prompt": "How many days are in a week?"
+      },
+      {
+        "expected": [
+          "cat"
+        ],
+        "meta": {},
+        "prompt": "Which animal says meow?"
+      },
+      {
+        "expected": [
+          "apple"
+        ],
+        "meta": {},
+        "prompt": "Which company makes the iPhone?"
+      },
+      {
+        "expected": [
+          "4",
+          "four"
+        ],
+        "meta": {},
+        "prompt": "What is 2 plus 2?"
+      }
+    ],
+    "first_letter": [
+      {
+        "expected": "g",
+        "meta": {},
+        "prompt": "First letter of grass:"
+      },
+      {
+        "expected": "w",
+        "meta": {},
+        "prompt": "First letter of whale:"
+      },
+      {
+        "expected": "d",
+        "meta": {},
+        "prompt": "First letter of deer:"
+      },
+      {
+        "expected": "b",
+        "meta": {},
+        "prompt": "First letter of build:"
+      },
+      {
+        "expected": "f",
+        "meta": {},
+        "prompt": "First letter of fox:"
+      },
+      {
+        "expected": "r",
+        "meta": {},
+        "prompt": "First letter of read:"
+      },
+      {
+        "expected": "t",
+        "meta": {},
+        "prompt": "First letter of table:"
+      },
+      {
+        "expected": "s",
+        "meta": {},
+        "prompt": "First letter of soup:"
+      },
+      {
+        "expected": "t",
+        "meta": {},
+        "prompt": "First letter of table:"
+      },
+      {
+        "expected": "f",
+        "meta": {},
+        "prompt": "First letter of forest:"
+      }
+    ],
+    "format": [
+      {
+        "expected": [
+          "yes",
+          "no"
+        ],
+        "meta": {},
+        "prompt": "Answer yes or no: Is the sky blue?"
+      },
+      {
+        "expected": [
+          "yes",
+          "no"
+        ],
+        "meta": {},
+        "prompt": "Answer yes or no: Is fire cold?"
+      },
+      {
+        "expected": [
+          "white",
+          "snow"
+        ],
+        "meta": {},
+        "prompt": "Answer with one word: What color is snow?"
+      },
+      {
+        "expected": [
+          "black"
+        ],
+        "meta": {},
+        "prompt": "Answer with one word: What color is coal?"
+      },
+      {
+        "expected": [
+          "3",
+          "three"
+        ],
+        "meta": {},
+        "prompt": "Reply with a single number: 3"
+      },
+      {
+        "expected": [
+          "8",
+          "eight"
+        ],
+        "meta": {},
+        "prompt": "Reply with a single number: 8"
+      }
+    ],
+    "listing": [
+      {
+        "expected": "colors",
+        "meta": {},
+        "prompt": "List three colors."
+      },
+      {
+        "expected": "colors",
+        "meta": {},
+        "prompt": "Name two colors."
+      },
+      {
+        "expected": "colors",
+        "meta": {},
+        "prompt": "Give me a color."
+      },
+      {
+        "expected": "animals",
+        "meta": {},
+        "prompt": "List three animals."
+      },
+      {
+        "expected": "animals",
+        "meta": {},
+        "prompt": "Name two animals."
+      },
+      {
+        "expected": "animals",
+        "meta": {},
+        "prompt": "Name an animal that lives in water."
+      },
+      {
+        "expected": "fruits",
+        "meta": {},
+        "prompt": "List three fruits."
+      },
+      {
+        "expected": "numbers",
+        "meta": {},
+        "prompt": "Name two numbers."
+      }
+    ],
+    "nonsense": [
+      {
+        "expected": "nondegenerate",
+        "meta": {},
+        "prompt": "asdfgh qwerty zxcvb"
+      },
+      {
+        "expected": "nondegenerate",
+        "meta": {},
+        "prompt": "???! ***"
+      },
+      {
+        "expected": "nondegenerate",
+        "meta": {},
+        "prompt": "1234567890"
+      },
+      {
+        "expected": "nondegenerate",
+        "meta": {},
+        "prompt": "the the the the the"
+      },
+      {
+        "expected": "nondegenerate",
+        "meta": {},
+        "prompt": "x"
+      }
+    ],
+    "reverse": [
+      {
+        "expected": "rats",
+        "meta": {},
+        "prompt": "Reverse the word star:"
+      },
+      {
+        "expected": "reed",
+        "meta": {},
+        "prompt": "Reverse the word deer:"
+      },
+      {
+        "expected": "tnaig",
+        "meta": {},
+        "prompt": "Reverse the word giant:"
+      },
+      {
+        "expected": "eert",
+        "meta": {},
+        "prompt": "Reverse the word tree:"
+      },
+      {
+        "expected": "elgae",
+        "meta": {},
+        "prompt": "Reverse the word eagle:"
+      },
+      {
+        "expected": "das",
+        "meta": {},
+        "prompt": "Reverse the word sad:"
+      },
+      {
+        "expected": "gib",
+        "meta": {},
+        "prompt": "Reverse the word big:"
+      },
+      {
+        "expected": "nogard",
+        "meta": {},
+        "prompt": "Reverse the word dragon:"
+      },
+      {
+        "expected": "nibor",
+        "meta": {},
+        "prompt": "Reverse the word robin:"
+      },
+      {
+        "expected": "elahw",
+        "meta": {},
+        "prompt": "Reverse the word whale:"
+      }
+    ],
+    "sort": [
+      {
+        "expected": "15 55 63",
+        "meta": {},
+        "prompt": "Sort these numbers: 63 55 15"
+      },
+      {
+        "expected": "73 75 81",
+        "meta": {},
+        "prompt": "Sort these numbers: 75 73 81"
+      },
+      {
+        "expected": "75 84 92",
+        "meta": {},
+        "prompt": "Sort these numbers: 92 75 84"
+      },
+      {
+        "expected": "9 14 90",
+        "meta": {},
+        "prompt": "Sort these numbers: 14 90 9"
+      },
+      {
+        "expected": "13 25 41",
+        "meta": {},
+        "prompt": "Sort these numbers: 41 13 25"
+      },
+      {
+        "expected": "12 16 59",
+        "meta": {},
+        "prompt": "Sort these numbers: 59 12 16"
+      },
+      {
+        "expected": "52 55 87",
+        "meta": {},
+        "prompt": "Sort these numbers: 55 52 87"
+      },
+      {
+        "expected": "16 37 67",
+        "meta": {},
+        "prompt": "Sort these numbers: 37 67 16"
+      },
+      {
+        "expected": "19 48 50",
+        "meta": {},
+        "prompt": "Sort these numbers: 50 19 48"
+      },
+      {
+        "expected": "13 33 39",
+        "meta": {},
+        "prompt": "Sort these numbers: 33 39 13"
+      }
+    ],
+    "story": [
+      {
+        "expected": "fluency",
+        "meta": {},
+        "prompt": "Tell me a short story about a dog."
+      },
+      {
+        "expected": "fluency",
+        "meta": {},
+        "prompt": "Tell me a short story about a little cat."
+      },
+      {
+        "expected": "fluency",
+        "meta": {},
+        "prompt": "Tell me a short story about a happy child."
+      },
+      {
+        "expected": "fluency",
+        "meta": {},
+        "prompt": "Tell me a short story about a bird."
+      },
+      {
+        "expected": "fluency",
+        "meta": {},
+        "prompt": "Tell me a short story about a small house."
+      }
+    ],
+    "transfer": [
+      {
+        "expected": "nus",
+        "meta": {},
+        "prompt": "Spell sun backwards:"
+      },
+      {
+        "expected": "llih",
+        "meta": {},
+        "prompt": "Spell hill backwards:"
+      },
+      {
+        "expected": "gnuoy",
+        "meta": {},
+        "prompt": "Spell young backwards:"
+      },
+      {
+        "expected": "56 68 86",
+        "meta": {},
+        "prompt": "Write the numbers in order: 86 56 68"
+      },
+      {
+        "expected": "14 14 25",
+        "meta": {},
+        "prompt": "Write the numbers in order: 14 14 25"
+      },
+      {
+        "expected": "5 55 93",
+        "meta": {},
+        "prompt": "Write the numbers in order: 93 55 5"
+      },
+      {
+        "expected": "6",
+        "meta": {},
+        "prompt": "How many items are in the list: walk fire swim road monkey soft"
+      },
+      {
+        "expected": "3",
+        "meta": {},
+        "prompt": "How many items are in the list: robin giant stone"
+      },
+      {
+        "expected": "2",
+        "meta": {},
+        "prompt": "How many items are in the list: panda bread"
+      },
+      {
+        "expected": "l",
+        "meta": {},
+        "prompt": "The word lion starts with which letter?"
+      },
+      {
+        "expected": "f",
+        "meta": {},
+        "prompt": "The word frog starts with which letter?"
+      },
+      {
+        "expected": "e",
+        "meta": {},
+        "prompt": "The word eagle starts with which letter?"
+      }
+    ]
+  },
+  "format": "arm_a_capability_battery_v1",
+  "seed": 31337
+}

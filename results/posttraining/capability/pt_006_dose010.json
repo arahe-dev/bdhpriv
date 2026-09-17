@@ -1,0 +1,1401 @@
+{
+  "battery_sha256": "589866c68ad76ec017fe5d41bb2b67b86541be24899599fcb4d837e8d490beb3",
+  "checkpoint": "runs/posttraining/pt_006_mix50_lr3e4/dose_1737549.pt",
+  "families": {
+    "arith_ood_add": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "1292",
+          "generated": "138\n",
+          "meta": {},
+          "prompt": "Calculate: 469 + 823 ="
+        },
+        {
+          "correct": false,
+          "expected": "1353",
+          "generated": "1348\n",
+          "meta": {},
+          "prompt": "Calculate: 847 + 506 ="
+        },
+        {
+          "correct": false,
+          "expected": "801",
+          "generated": "123\n",
+          "meta": {},
+          "prompt": "Calculate: 179 + 622 ="
+        },
+        {
+          "correct": false,
+          "expected": "812",
+          "generated": "111\n",
+          "meta": {},
+          "prompt": "Calculate: 617 + 195 ="
+        },
+        {
+          "correct": false,
+          "expected": "1090",
+          "generated": "115\n",
+          "meta": {},
+          "prompt": "Calculate: 502 + 588 ="
+        },
+        {
+          "correct": false,
+          "expected": "1128",
+          "generated": "105\n",
+          "meta": {},
+          "prompt": "Calculate: 786 + 342 ="
+        },
+        {
+          "correct": false,
+          "expected": "1466",
+          "generated": "146\n",
+          "meta": {},
+          "prompt": "Calculate: 578 + 888 ="
+        },
+        {
+          "correct": false,
+          "expected": "331",
+          "generated": "101\n",
+          "meta": {},
+          "prompt": "Calculate: 101 + 230 ="
+        }
+      ]
+    },
+    "arith_ood_div": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "6",
+          "generated": "3\n",
+          "meta": {},
+          "prompt": "What is 12 divided by 2?"
+        },
+        {
+          "correct": false,
+          "expected": "2",
+          "generated": "49\n",
+          "meta": {},
+          "prompt": "What is 18 divided by 9?"
+        },
+        {
+          "correct": false,
+          "expected": "6",
+          "generated": "69\n",
+          "meta": {},
+          "prompt": "What is 54 divided by 9?"
+        },
+        {
+          "correct": false,
+          "expected": "4",
+          "generated": "3\n",
+          "meta": {},
+          "prompt": "What is 12 divided by 3?"
+        },
+        {
+          "correct": false,
+          "expected": "6",
+          "generated": "68\n",
+          "meta": {},
+          "prompt": "What is 48 divided by 8?"
+        },
+        {
+          "correct": false,
+          "expected": "7",
+          "generated": "69\n",
+          "meta": {},
+          "prompt": "What is 49 divided by 7?"
+        }
+      ]
+    },
+    "arith_ood_mul": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "24",
+          "generated": "25\n",
+          "meta": {},
+          "prompt": "Calculate: 6 * 4 ="
+        },
+        {
+          "correct": false,
+          "expected": "16",
+          "generated": "3\n",
+          "meta": {},
+          "prompt": "Calculate: 8 * 2 ="
+        },
+        {
+          "correct": false,
+          "expected": "21",
+          "generated": "32\n",
+          "meta": {},
+          "prompt": "Calculate: 7 * 3 ="
+        },
+        {
+          "correct": false,
+          "expected": "9",
+          "generated": "3\n",
+          "meta": {},
+          "prompt": "Calculate: 3 * 3 ="
+        },
+        {
+          "correct": false,
+          "expected": "36",
+          "generated": "13\n",
+          "meta": {},
+          "prompt": "Calculate: 6 * 6 ="
+        },
+        {
+          "correct": false,
+          "expected": "40",
+          "generated": "32\n",
+          "meta": {},
+          "prompt": "Calculate: 5 * 8 ="
+        }
+      ]
+    },
+    "arith_ood_sub": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": "49",
+          "generated": "55\n",
+          "meta": {},
+          "prompt": "Calculate: 51 - 2 ="
+        },
+        {
+          "correct": false,
+          "expected": "18",
+          "generated": "31\n",
+          "meta": {},
+          "prompt": "Calculate: 20 - 2 ="
+        },
+        {
+          "correct": false,
+          "expected": "78",
+          "generated": "102\n",
+          "meta": {},
+          "prompt": "Calculate: 87 - 9 ="
+        },
+        {
+          "correct": false,
+          "expected": "38",
+          "generated": "51\n",
+          "meta": {},
+          "prompt": "Calculate: 44 - 6 ="
+        },
+        {
+          "correct": false,
+          "expected": "93",
+          "generated": "102\n",
+          "meta": {},
+          "prompt": "Calculate: 95 - 2 ="
+        },
+        {
+          "correct": false,
+          "expected": "38",
+          "generated": "66\n",
+          "meta": {},
+          "prompt": "Calculate: 49 - 11 ="
+        }
+      ]
+    },
+    "arith_train": {
+      "accuracy": 0.25,
+      "items": [
+        {
+          "correct": true,
+          "expected": "105",
+          "generated": "105\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 74 + 31 ="
+        },
+        {
+          "correct": false,
+          "expected": "134",
+          "generated": "130\n",
+          "meta": {
+            "carry": true
+          },
+          "prompt": "Calculate: 48 + 86 ="
+        },
+        {
+          "correct": false,
+          "expected": "53",
+          "generated": "51\n",
+          "meta": {
+            "carry": true
+          },
+          "prompt": "Calculate: 17 + 36 ="
+        },
+        {
+          "correct": false,
+          "expected": "83",
+          "generated": "82\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 33 + 50 ="
+        },
+        {
+          "correct": false,
+          "expected": "104",
+          "generated": "103\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 23 + 81 ="
+        },
+        {
+          "correct": false,
+          "expected": "149",
+          "generated": "148\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 64 + 85 ="
+        },
+        {
+          "correct": false,
+          "expected": "104",
+          "generated": "103\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 52 + 52 ="
+        },
+        {
+          "correct": false,
+          "expected": "39",
+          "generated": "38\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 29 + 10 ="
+        },
+        {
+          "correct": false,
+          "expected": "65",
+          "generated": "66\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 20 + 45 ="
+        },
+        {
+          "correct": true,
+          "expected": "154",
+          "generated": "154\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 81 + 73 ="
+        },
+        {
+          "correct": false,
+          "expected": "44",
+          "generated": "48\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 33 + 11 ="
+        },
+        {
+          "correct": false,
+          "expected": "98",
+          "generated": "92\n",
+          "meta": {
+            "carry": true
+          },
+          "prompt": "Calculate: 29 + 69 ="
+        },
+        {
+          "correct": false,
+          "expected": "104",
+          "generated": "105\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 32 + 72 ="
+        },
+        {
+          "correct": false,
+          "expected": "80",
+          "generated": "81\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 30 + 50 ="
+        },
+        {
+          "correct": false,
+          "expected": "88",
+          "generated": "92\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 54 + 34 ="
+        },
+        {
+          "correct": true,
+          "expected": "133",
+          "generated": "133\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 52 + 81 ="
+        },
+        {
+          "correct": false,
+          "expected": "59",
+          "generated": "56\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 29 + 30 ="
+        },
+        {
+          "correct": true,
+          "expected": "105",
+          "generated": "105\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 51 + 54 ="
+        },
+        {
+          "correct": true,
+          "expected": "81",
+          "generated": "81\n",
+          "meta": {
+            "carry": true
+          },
+          "prompt": "Calculate: 17 + 64 ="
+        },
+        {
+          "correct": false,
+          "expected": "99",
+          "generated": "103\n",
+          "meta": {
+            "carry": false
+          },
+          "prompt": "Calculate: 33 + 66 ="
+        }
+      ]
+    },
+    "completion": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": [
+            "mat",
+            "floor",
+            "couch",
+            "chair",
+            "bed",
+            "ground",
+            "table",
+            "lap",
+            "roof",
+            "windowsill"
+          ],
+          "generated": "\nDid you see a big,",
+          "meta": {},
+          "prompt": "The cat sat on the"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "east",
+            "morning",
+            "sky"
+          ],
+          "generated": "Once upon a time, there was",
+          "meta": {},
+          "prompt": "The sun rises in the"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "cold",
+            "freezing",
+            "colder"
+          ],
+          "generated": "looking\n",
+          "meta": {},
+          "prompt": "Water freezes when it gets"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "woof",
+            "bark",
+            "ruff",
+            "bow"
+          ],
+          "generated": "dog\n",
+          "meta": {},
+          "prompt": "A dog says"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "book",
+            "story",
+            "novel",
+            "paper",
+            "magazine",
+            "poem",
+            "letter"
+          ],
+          "generated": "Once upon a time, there was",
+          "meta": {},
+          "prompt": "We read a"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "walked",
+            "went",
+            "entered",
+            "stepped",
+            "ran",
+            "saw",
+            "left",
+            "closed"
+          ],
+          "generated": "Once upon a time, there was",
+          "meta": {},
+          "prompt": "She opened the door and"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "ball",
+            "can",
+            "stone",
+            "bucket",
+            "rock"
+          ],
+          "generated": "Once upon a time, there was",
+          "meta": {},
+          "prompt": "The boy kicked the"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "cup",
+            "glass",
+            "bottle",
+            "mug",
+            "straw"
+          ],
+          "generated": "Lily and Ben are fri",
+          "meta": {},
+          "prompt": "I drink water from a"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "water",
+            "pond",
+            "sea",
+            "lake",
+            "ocean",
+            "river"
+          ],
+          "generated": "Anna and Ben are playing",
+          "meta": {},
+          "prompt": "The fish swims in the"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "pen",
+            "pencil",
+            "crayon",
+            "marker",
+            "stick",
+            "chalk"
+          ],
+          "generated": "Once upon a time, there was",
+          "meta": {},
+          "prompt": "He wrote his name with a"
+        }
+      ]
+    },
+    "context_extract": {
+      "accuracy": 0.2,
+      "items": [
+        {
+          "correct": false,
+          "expected": "happy",
+          "generated": "hgual\n",
+          "meta": {},
+          "prompt": "The secret word is happy. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "bitter",
+          "generated": "rats\n",
+          "meta": {},
+          "prompt": "The secret word is bitter. Question: What is the secret word?"
+        },
+        {
+          "correct": true,
+          "expected": "moon",
+          "generated": "moon\n",
+          "meta": {},
+          "prompt": "The secret word is moon. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "goat",
+          "generated": "girl\n",
+          "meta": {},
+          "prompt": "The secret word is goat. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "cold",
+          "generated": "lady\n",
+          "meta": {},
+          "prompt": "The secret word is cold. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "dirty",
+          "generated": "dloc\n",
+          "meta": {},
+          "prompt": "The secret word is dirty. Question: What is the secret word?"
+        },
+        {
+          "correct": true,
+          "expected": "fox",
+          "generated": "fox\n",
+          "meta": {},
+          "prompt": "The secret word is fox. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "monkey",
+          "generated": "5\n",
+          "meta": {},
+          "prompt": "The secret word is monkey. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "cold",
+          "generated": "lady\n",
+          "meta": {},
+          "prompt": "The secret word is cold. Question: What is the secret word?"
+        },
+        {
+          "correct": false,
+          "expected": "dream",
+          "generated": "d\n",
+          "meta": {},
+          "prompt": "The secret word is dream. Question: What is the secret word?"
+        }
+      ]
+    },
+    "copy": {
+      "accuracy": 1.0,
+      "items": [
+        {
+          "correct": true,
+          "expected": "rock read cold",
+          "generated": "rock read cold\n",
+          "meta": {},
+          "prompt": "Copy this text: rock read cold"
+        },
+        {
+          "correct": true,
+          "expected": "tree leaf paint prince tree",
+          "generated": "tree leaf paint prince tree\n",
+          "meta": {},
+          "prompt": "Copy this text: tree leaf paint prince tree"
+        },
+        {
+          "correct": true,
+          "expected": "soup sand bean queen",
+          "generated": "soup sand bean queen\n",
+          "meta": {},
+          "prompt": "Copy this text: soup sand bean queen"
+        },
+        {
+          "correct": true,
+          "expected": "bike soft open leaf",
+          "generated": "bike soft open leaf\n",
+          "meta": {},
+          "prompt": "Copy this text: bike soft open leaf"
+        },
+        {
+          "correct": true,
+          "expected": "new sad closed",
+          "generated": "new sad closed\n",
+          "meta": {},
+          "prompt": "Copy this text: new sad closed"
+        },
+        {
+          "correct": true,
+          "expected": "laugh dirty train",
+          "generated": "laugh dirty train\n",
+          "meta": {},
+          "prompt": "Copy this text: laugh dirty train"
+        },
+        {
+          "correct": true,
+          "expected": "road quiet plane wind",
+          "generated": "road quiet plane wind\n",
+          "meta": {},
+          "prompt": "Copy this text: road quiet plane wind"
+        },
+        {
+          "correct": true,
+          "expected": "write slow clean grass sleep",
+          "generated": "write slow clean grass sleep\n",
+          "meta": {},
+          "prompt": "Copy this text: write slow clean grass sleep"
+        },
+        {
+          "correct": true,
+          "expected": "star king rose",
+          "generated": "star king rose\n",
+          "meta": {},
+          "prompt": "Copy this text: star king rose"
+        },
+        {
+          "correct": true,
+          "expected": "laugh new fly sad",
+          "generated": "laugh new fly sad\n",
+          "meta": {},
+          "prompt": "Copy this text: laugh new fly sad"
+        }
+      ]
+    },
+    "count": {
+      "accuracy": 1.0,
+      "items": [
+        {
+          "correct": true,
+          "expected": "5",
+          "generated": "5\n",
+          "meta": {},
+          "prompt": "Count the words: prince leaf corn dream road"
+        },
+        {
+          "correct": true,
+          "expected": "5",
+          "generated": "5\n",
+          "meta": {},
+          "prompt": "Count the words: apple house knight tree river"
+        },
+        {
+          "correct": true,
+          "expected": "5",
+          "generated": "5\n",
+          "meta": {},
+          "prompt": "Count the words: bike deer hot whale fish"
+        },
+        {
+          "correct": true,
+          "expected": "6",
+          "generated": "6\n",
+          "meta": {},
+          "prompt": "Count the words: milk robin sun queen fast monkey"
+        },
+        {
+          "correct": true,
+          "expected": "7",
+          "generated": "7\n",
+          "meta": {},
+          "prompt": "Count the words: deer mouse slow chair bean bike owl"
+        },
+        {
+          "correct": true,
+          "expected": "2",
+          "generated": "2\n",
+          "meta": {},
+          "prompt": "Count the words: bird plane"
+        },
+        {
+          "correct": true,
+          "expected": "6",
+          "generated": "6\n",
+          "meta": {},
+          "prompt": "Count the words: tiger sand shark old quiet write"
+        },
+        {
+          "correct": true,
+          "expected": "5",
+          "generated": "5\n",
+          "meta": {},
+          "prompt": "Count the words: fish horse bitter deer old"
+        },
+        {
+          "correct": true,
+          "expected": "4",
+          "generated": "4\n",
+          "meta": {},
+          "prompt": "Count the words: duck duck smile hill"
+        },
+        {
+          "correct": true,
+          "expected": "5",
+          "generated": "5\n",
+          "meta": {},
+          "prompt": "Count the words: plane dance smile walk quiet"
+        }
+      ]
+    },
+    "facts": {
+      "accuracy": 0.0,
+      "items": [
+        {
+          "correct": false,
+          "expected": [
+            "paris"
+          ],
+          "generated": " France\n",
+          "meta": {},
+          "prompt": "What is the capital of France?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "new delhi",
+            "delhi"
+          ],
+          "generated": "nasirb\n",
+          "meta": {},
+          "prompt": "What is the capital of India?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "washington",
+            "washington dc",
+            "washington d.c."
+          ],
+          "generated": "lawy\n",
+          "meta": {},
+          "prompt": "What is the capital of the United States?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "tokyo"
+          ],
+          "generated": "hctiw\n",
+          "meta": {},
+          "prompt": "What is the capital of Japan?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "blue"
+          ],
+          "generated": "Once upon a time, there was a little girl named Lily",
+          "meta": {},
+          "prompt": "What color is the sky on a clear day?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "green"
+          ],
+          "generated": "grass\n",
+          "meta": {},
+          "prompt": "What color is grass?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "7",
+            "seven"
+          ],
+          "generated": "2\n",
+          "meta": {},
+          "prompt": "How many days are in a week?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "cat"
+          ],
+          "generated": "2\n",
+          "meta": {},
+          "prompt": "Which animal says meow?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "apple"
+          ],
+          "generated": "3\n",
+          "meta": {},
+          "prompt": "Which company makes the iPhone?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "4",
+            "four"
+          ],
+          "generated": "2\n",
+          "meta": {},
+          "prompt": "What is 2 plus 2?"
+        }
+      ]
+    },
+    "first_letter": {
+      "accuracy": 1.0,
+      "items": [
+        {
+          "correct": true,
+          "expected": "g",
+          "generated": "g\n",
+          "meta": {},
+          "prompt": "First letter of grass:"
+        },
+        {
+          "correct": true,
+          "expected": "w",
+          "generated": "w\n",
+          "meta": {},
+          "prompt": "First letter of whale:"
+        },
+        {
+          "correct": true,
+          "expected": "d",
+          "generated": "d\n",
+          "meta": {},
+          "prompt": "First letter of deer:"
+        },
+        {
+          "correct": true,
+          "expected": "b",
+          "generated": "b\n",
+          "meta": {},
+          "prompt": "First letter of build:"
+        },
+        {
+          "correct": true,
+          "expected": "f",
+          "generated": "f\n",
+          "meta": {},
+          "prompt": "First letter of fox:"
+        },
+        {
+          "correct": true,
+          "expected": "r",
+          "generated": "r\n",
+          "meta": {},
+          "prompt": "First letter of read:"
+        },
+        {
+          "correct": true,
+          "expected": "t",
+          "generated": "t\n",
+          "meta": {},
+          "prompt": "First letter of table:"
+        },
+        {
+          "correct": true,
+          "expected": "s",
+          "generated": "s\n",
+          "meta": {},
+          "prompt": "First letter of soup:"
+        },
+        {
+          "correct": true,
+          "expected": "t",
+          "generated": "t\n",
+          "meta": {},
+          "prompt": "First letter of table:"
+        },
+        {
+          "correct": true,
+          "expected": "f",
+          "generated": "f\n",
+          "meta": {},
+          "prompt": "First letter of forest:"
+        }
+      ]
+    },
+    "format": {
+      "accuracy": 0.3333333333333333,
+      "items": [
+        {
+          "correct": false,
+          "expected": [
+            "yes",
+            "no"
+          ],
+          "generated": "4\n",
+          "meta": {},
+          "prompt": "Answer yes or no: Is the sky blue?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "yes",
+            "no"
+          ],
+          "generated": "fire cold\n",
+          "meta": {},
+          "prompt": "Answer yes or no: Is fire cold?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "white",
+            "snow"
+          ],
+          "generated": "s\n",
+          "meta": {},
+          "prompt": "Answer with one word: What color is snow?"
+        },
+        {
+          "correct": false,
+          "expected": [
+            "black"
+          ],
+          "generated": "2\n",
+          "meta": {},
+          "prompt": "Answer with one word: What color is coal?"
+        },
+        {
+          "correct": true,
+          "expected": [
+            "3",
+            "three"
+          ],
+          "generated": "3 3\n",
+          "meta": {},
+          "prompt": "Reply with a single number: 3"
+        },
+        {
+          "correct": true,
+          "expected": [
+            "8",
+            "eight"
+          ],
+          "generated": "8\n",
+          "meta": {},
+          "prompt": "Reply with a single number: 8"
+        }
+      ]
+    },
+    "listing": {
+      "accuracy": 0.125,
+      "items": [
+        {
+          "correct": false,
+          "expected": "colors",
+          "generated": "2\n",
+          "meta": {},
+          "prompt": "List three colors."
+        },
+        {
+          "correct": false,
+          "expected": "colors",
+          "generated": "2\n",
+          "meta": {},
+          "prompt": "Name two colors."
+        },
+        {
+          "correct": false,
+          "expected": "colors",
+          "generated": "Once upon a time, there was a little girl named Lily. She loved to play with",
+          "meta": {},
+          "prompt": "Give me a color."
+        },
+        {
+          "correct": false,
+          "expected": "animals",
+          "generated": "4\n",
+          "meta": {},
+          "prompt": "List three animals."
+        },
+        {
+          "correct": false,
+          "expected": "animals",
+          "generated": "3\n",
+          "meta": {},
+          "prompt": "Name two animals."
+        },
+        {
+          "correct": false,
+          "expected": "animals",
+          "generated": "Once upon a time, there was a little girl named Lily. She loved to play with",
+          "meta": {},
+          "prompt": "Name an animal that lives in water."
+        },
+        {
+          "correct": false,
+          "expected": "fruits",
+          "generated": "4\n",
+          "meta": {},
+          "prompt": "List three fruits."
+        },
+        {
+          "correct": true,
+          "expected": "numbers",
+          "generated": "2\n",
+          "meta": {},
+          "prompt": "Name two numbers."
+        }
+      ]
+    },
+    "nonsense": {
+      "accuracy": 1.0,
+      "items": [
+        {
+          "correct": true,
+          "expected": "nondegenerate",
+          "generated": "qwdfqw zxcvb\n",
+          "meta": {},
+          "prompt": "asdfgh qwerty zxcvb"
+        },
+        {
+          "correct": true,
+          "expected": "nondegenerate",
+          "generated": "??? ***\n",
+          "meta": {},
+          "prompt": "???! ***"
+        },
+        {
+          "correct": true,
+          "expected": "nondegenerate",
+          "generated": "12345\n",
+          "meta": {},
+          "prompt": "1234567890"
+        },
+        {
+          "correct": true,
+          "expected": "nondegenerate",
+          "generated": " the animals\n",
+          "meta": {},
+          "prompt": "the the the the the"
+        },
+        {
+          "correct": true,
+          "expected": "nondegenerate",
+          "generated": "y\n",
+          "meta": {},
+          "prompt": "x"
+        }
+      ]
+    },
+    "reverse": {
+      "accuracy": 1.0,
+      "items": [
+        {
+          "correct": true,
+          "expected": "rats",
+          "generated": "rats\n",
+          "meta": {},
+          "prompt": "Reverse the word star:"
+        },
+        {
+          "correct": true,
+          "expected": "reed",
+          "generated": "reed\n",
+          "meta": {},
+          "prompt": "Reverse the word deer:"
+        },
+        {
+          "correct": true,
+          "expected": "tnaig",
+          "generated": "tnaig\n",
+          "meta": {},
+          "prompt": "Reverse the word giant:"
+        },
+        {
+          "correct": true,
+          "expected": "eert",
+          "generated": "eert\n",
+          "meta": {},
+          "prompt": "Reverse the word tree:"
+        },
+        {
+          "correct": true,
+          "expected": "elgae",
+          "generated": "elgae\n",
+          "meta": {},
+          "prompt": "Reverse the word eagle:"
+        },
+        {
+          "correct": true,
+          "expected": "das",
+          "generated": "das\n",
+          "meta": {},
+          "prompt": "Reverse the word sad:"
+        },
+        {
+          "correct": true,
+          "expected": "gib",
+          "generated": "gib\n",
+          "meta": {},
+          "prompt": "Reverse the word big:"
+        },
+        {
+          "correct": true,
+          "expected": "nogard",
+          "generated": "nogard\n",
+          "meta": {},
+          "prompt": "Reverse the word dragon:"
+        },
+        {
+          "correct": true,
+          "expected": "nibor",
+          "generated": "nibor\n",
+          "meta": {},
+          "prompt": "Reverse the word robin:"
+        },
+        {
+          "correct": true,
+          "expected": "elahw",
+          "generated": "elahw\n",
+          "meta": {},
+          "prompt": "Reverse the word whale:"
+        }
+      ]
+    },
+    "sort": {
+      "accuracy": 0.8,
+      "items": [
+        {
+          "correct": true,
+          "expected": "15 55 63",
+          "generated": "15 55 63\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 63 55 15"
+        },
+        {
+          "correct": false,
+          "expected": "73 75 81",
+          "generated": "73 73 81\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 75 73 81"
+        },
+        {
+          "correct": false,
+          "expected": "75 84 92",
+          "generated": "74 84 92\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 92 75 84"
+        },
+        {
+          "correct": true,
+          "expected": "9 14 90",
+          "generated": "9 14 90\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 14 90 9"
+        },
+        {
+          "correct": true,
+          "expected": "13 25 41",
+          "generated": "13 25 41\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 41 13 25"
+        },
+        {
+          "correct": true,
+          "expected": "12 16 59",
+          "generated": "12 16 59\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 59 12 16"
+        },
+        {
+          "correct": true,
+          "expected": "52 55 87",
+          "generated": "52 55 87\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 55 52 87"
+        },
+        {
+          "correct": true,
+          "expected": "16 37 67",
+          "generated": "16 37 67\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 37 67 16"
+        },
+        {
+          "correct": true,
+          "expected": "19 48 50",
+          "generated": "19 48 50\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 50 19 48"
+        },
+        {
+          "correct": true,
+          "expected": "13 33 39",
+          "generated": "13 33 39\n",
+          "meta": {},
+          "prompt": "Sort these numbers: 33 39 13"
+        }
+      ]
+    },
+    "story": {
+      "accuracy": 1.0,
+      "items": [
+        {
+          "correct": true,
+          "expected": "fluency",
+          "generated": "Once upon a time, there was a little girl named Lily. She loved to play outside and play with her friends. One day, she went to the park with her friend Tommy. Tommy was very excited to play with her friends.\n",
+          "meta": {},
+          "prompt": "Tell me a short story about a dog."
+        },
+        {
+          "correct": true,
+          "expected": "fluency",
+          "generated": "Once upon a time, there was a little girl named Lily. She loved to play outside and play with her friends. One day, she went to the park with her friend Tommy. Tommy was very excited to play with her friends.\n",
+          "meta": {},
+          "prompt": "Tell me a short story about a little cat."
+        },
+        {
+          "correct": true,
+          "expected": "fluency",
+          "generated": "Once upon a time, there was a little girl named Lily. She loved to play outside and play with her friends. One day, she went to the park with her friend Tommy. Tommy was very excited to play with her friends.\n",
+          "meta": {},
+          "prompt": "Tell me a short story about a happy child."
+        },
+        {
+          "correct": true,
+          "expected": "fluency",
+          "generated": "Once upon a time, there was a little girl named Lily. She loved to play outside and play with her friends. One day, she went to the park with her friend Tommy. Tommy was very excited to play with her friends.\n",
+          "meta": {},
+          "prompt": "Tell me a short story about a bird."
+        },
+        {
+          "correct": true,
+          "expected": "fluency",
+          "generated": "Once upon a time, there was a little girl named Lily. She loved to play outside and play with her friends. One day, she went to the park with her friend Tommy. Tommy was very excited to play with her friends.\n",
+          "meta": {},
+          "prompt": "Tell me a short story about a small house."
+        }
+      ]
+    },
+    "transfer": {
+      "accuracy": 0.5,
+      "items": [
+        {
+          "correct": false,
+          "expected": "nus",
+          "generated": "naeb\n",
+          "meta": {},
+          "prompt": "Spell sun backwards:"
+        },
+        {
+          "correct": true,
+          "expected": "llih",
+          "generated": "llih\n",
+          "meta": {},
+          "prompt": "Spell hill backwards:"
+        },
+        {
+          "correct": true,
+          "expected": "gnuoy",
+          "generated": "gnuoy\n",
+          "meta": {},
+          "prompt": "Spell young backwards:"
+        },
+        {
+          "correct": true,
+          "expected": "56 68 86",
+          "generated": "56 68 86\n",
+          "meta": {},
+          "prompt": "Write the numbers in order: 86 56 68"
+        },
+        {
+          "correct": true,
+          "expected": "14 14 25",
+          "generated": "14 14 25\n",
+          "meta": {},
+          "prompt": "Write the numbers in order: 14 14 25"
+        },
+        {
+          "correct": true,
+          "expected": "5 55 93",
+          "generated": "5 55 93\n",
+          "meta": {},
+          "prompt": "Write the numbers in order: 93 55 5"
+        },
+        {
+          "correct": false,
+          "expected": "6",
+          "generated": "7\n",
+          "meta": {},
+          "prompt": "How many items are in the list: walk fire swim road monkey soft"
+        },
+        {
+          "correct": false,
+          "expected": "3",
+          "generated": "4\n",
+          "meta": {},
+          "prompt": "How many items are in the list: robin giant stone"
+        },
+        {
+          "correct": false,
+          "expected": "2",
+          "generated": "3\n",
+          "meta": {},
+          "prompt": "How many items are in the list: panda bread"
+        },
+        {
+          "correct": true,
+          "expected": "l",
+          "generated": "l\n",
+          "meta": {},
+          "prompt": "The word lion starts with which letter?"
+        },
+        {
+          "correct": false,
+          "expected": "f",
+          "generated": "l\n",
+          "meta": {},
+          "prompt": "The word frog starts with which letter?"
+        },
+        {
+          "correct": false,
+          "expected": "e",
+          "generated": "l\n",
+          "meta": {},
+          "prompt": "The word eagle starts with which letter?"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "arith_ood_add": 0.0,
+    "arith_ood_div": 0.0,
+    "arith_ood_mul": 0.0,
+    "arith_ood_sub": 0.0,
+    "arith_train": 0.25,
+    "completion": 0.0,
+    "context_extract": 0.2,
+    "copy": 1.0,
+    "count": 1.0,
+    "facts": 0.0,
+    "first_letter": 1.0,
+    "format": 0.3333333333333333,
+    "listing": 0.125,
+    "macro": 0.45601851851851855,
+    "nonsense": 1.0,
+    "reverse": 1.0,
+    "sort": 0.8,
+    "story": 1.0,
+    "transfer": 0.5
+  },
+  "tag": "pt_006_dose010"
+}
