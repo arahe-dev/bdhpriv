@@ -39,8 +39,9 @@ STORY_TRAIN_NOUNS = (
 )
 
 
-def _story_instruction(rng, required_words) -> tuple:
-    mode = rng.randrange(6)
+def _story_instruction(rng, required_words, constrained_only=False) -> tuple:
+    modes = (3, 4, 5) if constrained_only else (0, 1, 2, 3, 4, 5)
+    mode = rng.choice(modes)
     if mode == 0:
         return STORY_TEMPLATES[0], None
     if mode == 1:
@@ -220,7 +221,8 @@ def iter_tinystories(limit: int):
             break
 
 
-def build_stories(name: str, n_stories: int, seed: int = 4242):
+def build_stories(name: str, n_stories: int, seed: int = 4242,
+                  constrained_only: bool = False):
     out_dir = DATA_ROOT / name
     tokenizer = common.load_tokenizer()
     rng = random.Random(seed)
@@ -233,7 +235,7 @@ def build_stories(name: str, n_stories: int, seed: int = 4242):
     train_tokens = []
     val_tokens = []
     for index, story in enumerate(iter_tinystories(n_stories + 400)):
-        instruction, _ = _story_instruction(rng, tasks.WORDS)
+        instruction, _ = _story_instruction(rng, tasks.WORDS, constrained_only)
         if instruction in suite_prompts:
             continue
         result = tokenize_story(story, instruction)
@@ -280,6 +282,7 @@ def main(argv=None) -> int:
     parser.add_argument("--per-task-train", type=int, default=25000)
     parser.add_argument("--per-task-dev", type=int, default=200)
     parser.add_argument("--n-stories", type=int, default=20000)
+    parser.add_argument("--constrained-only", action="store_true")
     parser.add_argument("--mix-tasks", default="pt_tasks")
     parser.add_argument("--mix-stories", default="pt_stories")
     parser.add_argument("--task-fraction", type=float, default=0.4)
@@ -288,7 +291,8 @@ def main(argv=None) -> int:
     if args.kind == "tasks":
         build_tasks(args.name, args.per_task_train, args.per_task_dev)
     elif args.kind == "stories":
-        build_stories(args.name, args.n_stories)
+        build_stories(args.name, args.n_stories,
+                      constrained_only=args.constrained_only)
     else:
         mix_datasets(args)
     return 0

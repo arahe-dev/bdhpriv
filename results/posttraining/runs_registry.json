@@ -400,5 +400,62 @@
       "tok_s": 11256.310275568245,
       "updates": 1607
     }
+  },
+  "pt_007_stories_con": {
+    "changed_variable": "constrained_share",
+    "config": {
+      "dose_tpp": 0.1,
+      "init_from": "pt_006_dose010",
+      "lr": 0.0001,
+      "replay_pct": 10,
+      "scheduler": "constant",
+      "warmup_frac": 0.02
+    },
+    "data": "pt_stories_con",
+    "evaluations": {
+      "pt_007_dose030": {
+        "blimp_macro_length_normalized": 0.7723333333333334,
+        "guards": {
+          "drift_ceiling": 0.25,
+          "drift_ok": true,
+          "hidden_cosine_ok": true,
+          "hidden_floor": 0.9
+        },
+        "hidden_cosine_vs_base": 0.9161630108479795,
+        "paths": {
+          "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_007_dose030.json"
+        },
+        "story_constraint_follow_rate": 0.0,
+        "story_fluency_pass_rate": 0.0,
+        "story_pass_rate": 0.0,
+        "task_details": {
+          "add": 0.1375,
+          "copy": 1.0,
+          "count_words": 0.725,
+          "first_letter": 0.45,
+          "reverse": 0.625,
+          "sort_asc": 0.825
+        },
+        "task_macro_accuracy": 0.6270833333333334,
+        "weight_drift": 0.24652329740735807,
+        "x_top64_overlap_vs_base": 0.70703125
+      }
+    },
+    "experiment_id": "pt_007_stories_con",
+    "hypothesis": "Continuing the best mixed model on 100% constrained story prompts (subject + required word) at lr 1e-4 teaches constraint following without destroying fluency.",
+    "new_value": "100% constrained story prompts",
+    "notes": "REVERTED: constraint following stayed 0.00 and story fluency collapsed to 0.00 (stories shortened below 40 words).",
+    "old_value": "50% constrained story prompts in mix",
+    "phase": "cycle3_constraints",
+    "training": {
+      "first_loss": 1.9818019270896912,
+      "instruction_target_tokens": 3478263,
+      "last_loss": 1.4731797277927399,
+      "replay_target_tokens": 679683,
+      "seconds": 198.3270698000706,
+      "sequence_tokens": 2071262,
+      "tok_s": 10443.667634922434,
+      "updates": 281
+    }
   }
 }

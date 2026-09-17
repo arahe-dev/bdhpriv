@@ -87,6 +87,7 @@ def main(argv=None) -> int:
     parser.add_argument("--tokens-per-update", type=int, default=8192)
     parser.add_argument("--microbatch-rows", type=int, default=1)
     parser.add_argument("--init-from", default=None)
+    parser.add_argument("--reset-data-cursor", action="store_true")
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--compile", action="store_true")
     parser.add_argument("--out-dir", required=True)
@@ -129,6 +130,8 @@ def main(argv=None) -> int:
     ]
     if args.init_from:
         inner += ["--init-from", args.init_from]
+    if args.reset_data_cursor:
+        inner += ["--reset-data-cursor"]
     if args.device:
         inner += ["--device", args.device]
     if args.compile:

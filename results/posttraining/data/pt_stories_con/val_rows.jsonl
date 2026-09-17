@@ -1,0 +1,63 @@
+{"row": 0, "examples": [0, 1, 2, 3, 4, 5, 6], "target_tokens": 1624, "sequence_tokens": 1807}
+{"row": 1, "examples": [7, 8, 9, 10, 11, 12, 13], "target_tokens": 1604, "sequence_tokens": 1791}
+{"row": 2, "examples": [14, 15, 16, 17, 18, 19, 20, 21], "target_tokens": 1835, "sequence_tokens": 2038}
+{"row": 3, "examples": [22, 23, 24, 25, 26, 27, 28, 29, 30], "target_tokens": 1732, "sequence_tokens": 1952}
+{"row": 4, "examples": [31, 32, 33, 34, 35, 36, 37], "target_tokens": 1649, "sequence_tokens": 1822}
+{"row": 5, "examples": [38, 39, 40, 41, 42, 43, 44], "target_tokens": 1816, "sequence_tokens": 1977}
+{"row": 6, "examples": [45, 46, 47, 48, 49, 50, 51], "target_tokens": 1685, "sequence_tokens": 1851}
+{"row": 7, "examples": [52, 53, 54, 55, 56, 57], "target_tokens": 1493, "sequence_tokens": 1653}
+{"row": 8, "examples": [58, 59, 60, 61, 62, 63], "target_tokens": 1769, "sequence_tokens": 1925}
+{"row": 9, "examples": [64, 65, 66, 67, 68, 69], "target_tokens": 1613, "sequence_tokens": 1759}
+{"row": 10, "examples": [70, 71, 72, 73, 74, 75, 76], "target_tokens": 1836, "sequence_tokens": 2007}
+{"row": 11, "examples": [77, 78, 79, 80, 81, 82], "target_tokens": 1777, "sequence_tokens": 1911}
+{"row": 12, "examples": [83, 84, 85, 86, 87, 88, 89], "target_tokens": 1758, "sequence_tokens": 1928}
+{"row": 13, "examples": [90, 91, 92, 93, 94, 95], "target_tokens": 1721, "sequence_tokens": 1866}
+{"row": 14, "examples": [96, 97, 98, 99, 100, 101], "target_tokens": 1887, "sequence_tokens": 2024}
+{"row": 15, "examples": [102, 103, 104, 105, 106, 107], "target_tokens": 1770, "sequence_tokens": 1913}
+{"row": 16, "examples": [108, 109, 110, 111, 112, 113, 114], "target_tokens": 1761, "sequence_tokens": 1935}
+{"row": 17, "examples": [115, 116, 117, 118, 119, 120], "target_tokens": 1761, "sequence_tokens": 1925}
+{"row": 18, "examples": [121, 122, 123, 124, 125, 126], "target_tokens": 1751, "sequence_tokens": 1891}
+{"row": 19, "examples": [127, 128, 129, 130, 131, 132], "target_tokens": 1666, "sequence_tokens": 1812}
+{"row": 20, "examples": [133, 134, 135, 136, 137, 138], "target_tokens": 1568, "sequence_tokens": 1724}
+{"row": 21, "examples": [139, 140, 141, 142, 143, 144], "target_tokens": 1782, "sequence_tokens": 1921}
+{"row": 22, "examples": [145, 146, 147, 148, 149, 150, 151], "target_tokens": 1778, "sequence_tokens": 1944}
+{"row": 23, "examples": [152, 153, 154, 155, 156, 157], "target_tokens": 1810, "sequence_tokens": 1959}
+{"row": 24, "examples": [158, 159, 160, 161, 162, 163, 164], "target_tokens": 1794, "sequence_tokens": 1975}
+{"row": 25, "examples": [165, 166, 167, 168, 169, 170], "target_tokens": 1622, "sequence_tokens": 1777}
+{"row": 26, "examples": [171, 172, 173, 174, 175, 176], "target_tokens": 1620, "sequence_tokens": 1772}
+{"row": 27, "examples": [177, 178, 179, 180, 181, 182], "target_tokens": 1684, "sequence_tokens": 1837}
+{"row": 28, "examples": [183, 184, 185, 186, 187, 188], "target_tokens": 1768, "sequence_tokens": 1897}
+{"row": 29, "examples": [189, 190, 191, 192, 193, 194, 195], "target_tokens": 1785, "sequence_tokens": 1976}
+{"row": 30, "examples": [196, 197, 198, 199, 200, 201], "target_tokens": 1745, "sequence_tokens": 1904}
+{"row": 31, "examples": [202, 203, 204, 205, 206, 207, 208], "target_tokens": 1706, "sequence_tokens": 1855}
+{"row": 32, "examples": [209, 210, 211, 212, 213, 214, 215], "target_tokens": 1660, "sequence_tokens": 1826}
+{"row": 33, "examples": [216, 217, 218, 219, 220, 221], "target_tokens": 1626, "sequence_tokens": 1776}
+{"row": 34, "examples": [222, 223, 224, 225, 226, 227], "target_tokens": 1656, "sequence_tokens": 1810}
+{"row": 35, "examples": [228, 229, 230, 231, 232, 233], "target_tokens": 1656, "sequence_tokens": 1814}
+{"row": 36, "examples": [234, 235, 236, 237, 238, 239], "target_tokens": 1725, "sequence_tokens": 1878}
+{"row": 37, "examples": [240, 241, 242, 243, 244, 245, 246], "target_tokens": 1762, "sequence_tokens": 1916}
+{"row": 38, "examples": [247, 248, 249, 250, 251], "target_tokens": 1584, "sequence_tokens": 1699}
+{"row": 39, "examples": [252, 253, 254, 255, 256, 257], "target_tokens": 1692, "sequence_tokens": 1856}
+{"row": 40, "examples": [258, 259, 260, 261, 262, 263], "target_tokens": 1845, "sequence_tokens": 2000}
+{"row": 41, "examples": [264, 265, 266, 267, 268, 269], "target_tokens": 1699, "sequence_tokens": 1849}
+{"row": 42, "examples": [270, 271, 272, 273, 274, 275], "target_tokens": 1869, "sequence_tokens": 2007}
+{"row": 43, "examples": [276, 277, 278, 279, 280, 281], "target_tokens": 1876, "sequence_tokens": 2017}
+{"row": 44, "examples": [282, 283, 284, 285, 286, 287], "target_tokens": 1803, "sequence_tokens": 1964}
+{"row": 45, "examples": [288, 289, 290, 291, 292, 293], "target_tokens": 1712, "sequence_tokens": 1853}
+{"row": 46, "examples": [294, 295, 296, 297, 298, 299], "target_tokens": 1712, "sequence_tokens": 1861}
+{"row": 47, "examples": [300, 301, 302, 303, 304, 305], "target_tokens": 1860, "sequence_tokens": 2006}
+{"row": 48, "examples": [306, 307, 308, 309, 310, 311], "target_tokens": 1829, "sequence_tokens": 1984}
+{"row": 49, "examples": [312, 313, 314, 315, 316, 317], "target_tokens": 1663, "sequence_tokens": 1821}
+{"row": 50, "examples": [318, 319, 320, 321, 322, 323], "target_tokens": 1673, "sequence_tokens": 1817}
+{"row": 51, "examples": [324, 325, 326, 327, 328, 329], "target_tokens": 1636, "sequence_tokens": 1765}
+{"row": 52, "examples": [330, 331, 332, 333, 334, 335], "target_tokens": 1682, "sequence_tokens": 1839}
+{"row": 53, "examples": [336, 337, 338, 339, 340, 341], "target_tokens": 1762, "sequence_tokens": 1913}
+{"row": 54, "examples": [342, 343, 344, 345, 346, 347], "target_tokens": 1645, "sequence_tokens": 1805}
+{"row": 55, "examples": [348, 349, 350, 351, 352, 353, 354], "target_tokens": 1640, "sequence_tokens": 1830}
+{"row": 56, "examples": [355, 356, 357, 358, 359, 360, 361], "target_tokens": 1842, "sequence_tokens": 2007}
+{"row": 57, "examples": [362, 363, 364, 365, 366, 367, 368], "target_tokens": 1666, "sequence_tokens": 1829}
+{"row": 58, "examples": [369, 370, 371, 372, 373, 374], "target_tokens": 1729, "sequence_tokens": 1878}
+{"row": 59, "examples": [375, 376, 377, 378, 379, 380, 381, 382], "target_tokens": 1691, "sequence_tokens": 1884}
+{"row": 60, "examples": [383, 384, 385, 386, 387, 388, 389], "target_tokens": 1739, "sequence_tokens": 1935}
+{"row": 61, "examples": [390, 391, 392, 393, 394, 395, 396], "target_tokens": 1703, "sequence_tokens": 1870}
+{"row": 62, "examples": [397, 398, 399], "target_tokens": 910, "sequence_tokens": 997}

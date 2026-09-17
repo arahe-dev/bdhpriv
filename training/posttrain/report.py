@@ -116,6 +116,27 @@ RUNS = [
         "config": {"lr": 3e-4, "replay_pct": 10, "dose_tpp": 0.20,
                    "scheduler": "constant", "warmup_frac": 0.02},
     },
+    {
+        "id": "pt_007_stories_con",
+        "phase": "cycle3_constraints",
+        "hypothesis": (
+            "Continuing the best mixed model on 100% constrained story "
+            "prompts (subject + required word) at lr 1e-4 teaches "
+            "constraint following without destroying fluency."
+        ),
+        "changed_variable": "constrained_share",
+        "old_value": "50% constrained story prompts in mix",
+        "new_value": "100% constrained story prompts",
+        "eval_tags": ["pt_007_dose030"],
+        "data": "pt_stories_con",
+        "config": {"lr": 1e-4, "replay_pct": 10, "dose_tpp": 0.10,
+                   "scheduler": "constant", "warmup_frac": 0.02,
+                   "init_from": "pt_006_dose010"},
+        "notes": (
+            "REVERTED: constraint following stayed 0.00 and story fluency "
+            "collapsed to 0.00 (stories shortened below 40 words)."
+        ),
+    },
 ]
 
 

@@ -151,5 +151,22 @@
     "task_macro_accuracy": 0.6895833333333332,
     "weight_drift": 0.34882530724121535,
     "x_top64_overlap_vs_base": 0.64453125
+  },
+  "pt_007_dose030": {
+    "blimp_macro_length_normalized": 0.7723333333333334,
+    "hidden_cosine_vs_base": 0.9161630108479795,
+    "seconds": 88.4333278999984,
+    "story_pass_rate": 0.0,
+    "task_details": {
+      "add": 0.1375,
+      "copy": 1.0,
+      "count_words": 0.725,
+      "first_letter": 0.45,
+      "reverse": 0.625,
+      "sort_asc": 0.825
+    },
+    "task_macro_accuracy": 0.6270833333333334,
+    "weight_drift": 0.24652329740735807,
+    "x_top64_overlap_vs_base": 0.70703125
   }
 }

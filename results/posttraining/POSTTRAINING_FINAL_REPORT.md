@@ -1,6 +1,6 @@
 # Arm-A / Akasha Post-Training Report
 
-Date: 2026-09-17T14:05:58Z  
+Date: 2026-09-17T14:22:12Z  
 Base checkpoint: frozen 2.5B Arm-A (sha256 `fe7e6c2c6ac0d126...`)
 
 This campaign followed a Karpathy-style autoresearch loop on top of the SFT calibration and optimization results: small controlled experiments, frozen verifiable evaluation, keep/revert records, no fitting to the test suite.
@@ -18,6 +18,7 @@ This campaign followed a Karpathy-style autoresearch loop on top of the SFT cali
 | pt_005_dose010 | 0.1 | 0.656 | 0.99 | 0.79 | 0.84 | 0.33 | 0.61 | 0.39 | 0.0000 | 0.6667 | 0.7337 | 0.8818 | 0.3183 | FAIL |
 | pt_006_dose010 | 0.2 | 0.656 | 0.97 | 0.75 | 0.85 | 0.16 | 0.78 | 0.42 | 1.0000 | 0.0000 | 0.7613 | 0.9062 | 0.2279 | PASS |
 | pt_006_dose020 | 0.2 | 0.690 | 0.99 | 0.86 | 0.89 | 0.42 | 0.65 | 0.33 | 0.2500 | 0.0000 | 0.7417 | 0.8815 | 0.3488 | FAIL |
+| pt_007_dose030 | 0.1 | 0.627 | 1.00 | 0.62 | 0.82 | 0.14 | 0.72 | 0.45 | 0.0000 | 0.0000 | 0.7723 | 0.9162 | 0.2465 | PASS |
 
 Dose is loss-bearing instruction target tokens; story fluency is the rule-verified fraction of 12 frozen constrained story prompts scored on fluency only (20-200 words, ends with punctuation, no heavy repeats, >=40 words); story constraint is the fraction that include the required word (constraint following is much harder at this scale and is reported separately).
 
@@ -31,6 +32,7 @@ Dose is loss-bearing instruction target tokens; story fluency is the rule-verifi
 | pt_004_tasks_lr1e4 | learning_rate | 3e-4 -> 1e-4 | Lowering the LR to 1e-4 reduces representation drift enough to keep the identity guards while retaining task learning. | pt_004_dose010: task=0.602, story=0.00, cos=0.9177, drift=0.1520 |
 | pt_005_tasks_lr2e4_r20 | learning_rate+replay | 3e-4 / 10% -> 2e-4 / 20% | lr 2e-4 with 20% replay recovers most of the 3e-4 task accuracy while staying inside the identity guards. | pt_005_dose003: task=0.585, story=0.00, cos=0.9207, drift=0.1344; pt_005_dose010: task=0.656, story=0.00, cos=0.8818, drift=0.3183 |
 | pt_006_mix50_lr3e4 | training_data | tasks only -> 50/50 tasks + TinyStories mix | Training on a 50/50 task+story token mix (TinyStories) at lr 3e-4 adds fluent constrained story generation while keeping verifiable task accuracy. | pt_006_dose010: task=0.656, story=0.00, cos=0.9062, drift=0.2279; pt_006_dose020: task=0.690, story=0.00, cos=0.8815, drift=0.3488 |
+| pt_007_stories_con | constrained_share | 50% constrained story prompts in mix -> 100% constrained story prompts | Continuing the best mixed model on 100% constrained story prompts (subject + required word) at lr 1e-4 teaches constraint following without destroying fluency. | pt_007_dose030: task=0.627, story=0.00, cos=0.9162, drift=0.2465 |
 
 ## 3. Best guard-compliant checkpoint
 

@@ -47,6 +47,14 @@ def parse_args(argv=None):
     parser.add_argument("--microbatch-rows", type=int, default=1)
     parser.add_argument("--warmup-steps", type=int, default=20)
     parser.add_argument("--init-from", default=None)
+    parser.add_argument(
+        "--reset-data-cursor",
+        action="store_true",
+        help=(
+            "when resuming from --init-from on a different dataset, start "
+            "the data plan at row 0 instead of the saved cursor"
+        ),
+    )
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--compile", action="store_true")
     parser.add_argument("--out-dir", default=None)
@@ -215,10 +223,16 @@ def main(argv=None) -> int:
         state = payload["model"]
         optimizer_state = payload.get("optimizer")
         meta = payload.get("sft", {})
-        start_row = int(meta.get("row_cursor", 0))
-        replay_cursor = int(meta.get("replay_cursor", 0))
-        instruction_counter = int(meta.get("instruction_counter", 0))
-        replay_counter = int(meta.get("replay_counter", 0))
+        if args.reset_data_cursor:
+            start_row = 0
+            replay_cursor = 0
+        else:
+            start_row = int(meta.get("row_cursor", 0))
+            replay_cursor = int(meta.get("replay_cursor", 0))
+        instruction_counter = int(meta.get("instruction_counter", 0)) \
+            if not args.reset_data_cursor else 0
+        replay_counter = int(meta.get("replay_counter", 0)) \
+            if not args.reset_data_cursor else 0
         updates_done = int(meta.get("updates_done", 0))
         instruction_target_done = int(
             meta.get("instruction_target_tokens", 0)

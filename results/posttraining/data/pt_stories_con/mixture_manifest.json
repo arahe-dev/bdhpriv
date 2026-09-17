@@ -1,0 +1,43 @@
+{
+  "created_at": "2026-09-17T14:10:12Z",
+  "dataset": "roneneldan/TinyStories",
+  "format": "arm_a_posttrain_data_v1",
+  "instruction_modes": 6,
+  "kind": "tinystories",
+  "license": "cdla-sharing-1.0",
+  "n_stories_requested": 15000,
+  "name": "pt_stories_con",
+  "revision": "f54c09fd2331",
+  "seed": 4242,
+  "suite_prompt_overlap_filtered": true,
+  "templates": [
+    "Tell me a short story.",
+    "Write a short story.",
+    "Write a story for children."
+  ],
+  "train_examples": 15000,
+  "train_nouns": [
+    "a small bird",
+    "a red ball",
+    "a happy dog",
+    "a quiet pond",
+    "a brave rabbit",
+    "a shiny rock",
+    "a green frog",
+    "a tall tower",
+    "a sleepy cat",
+    "a warm fire",
+    "a kind farmer",
+    "a wooden boat",
+    "a little star",
+    "a busy bee",
+    "a soft cloud",
+    "a silver bell"
+  ],
+  "train_rows": 2618,
+  "train_sequence_tokens": 4849594,
+  "train_target_tokens": 4478256,
+  "val_examples": 400,
+  "val_rows": 63,
+  "val_target_tokens": 107717
+}
