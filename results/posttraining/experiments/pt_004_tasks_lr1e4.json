@@ -1,0 +1,56 @@
+{
+  "changed_variable": "learning_rate",
+  "config": {
+    "dose_tpp": 0.1,
+    "lr": 0.0001,
+    "replay_pct": 10,
+    "scheduler": "constant",
+    "warmup_frac": 0.02
+  },
+  "data": "pt_tasks_big",
+  "evaluations": {
+    "pt_004_dose010": {
+      "blimp_macro_length_normalized": 0.764,
+      "guards": {
+        "drift_ceiling": 0.25,
+        "drift_ok": true,
+        "hidden_cosine_ok": true,
+        "hidden_floor": 0.9
+      },
+      "hidden_cosine_vs_base": 0.9177103038727301,
+      "paths": {
+        "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_004_dose010.json"
+      },
+      "story_constraint_follow_rate": 0.4166666666666667,
+      "story_fluency_pass_rate": 0.0,
+      "story_pass_rate": 0.0,
+      "task_details": {
+        "add": 0.1875,
+        "copy": 0.975,
+        "count_words": 0.6125,
+        "first_letter": 0.45,
+        "reverse": 0.6125,
+        "sort_asc": 0.775
+      },
+      "task_macro_accuracy": 0.6020833333333333,
+      "weight_drift": 0.15201794698151624,
+      "x_top64_overlap_vs_base": 0.6884765625
+    }
+  },
+  "experiment_id": "pt_004_tasks_lr1e4",
+  "hypothesis": "Lowering the LR to 1e-4 reduces representation drift enough to keep the identity guards while retaining task learning.",
+  "new_value": "1e-4",
+  "notes": "",
+  "old_value": "3e-4",
+  "phase": "cycle1_tasks",
+  "training": {
+    "first_loss": 4.557175278663635,
+    "instruction_target_tokens": 1738954,
+    "last_loss": 0.12285149469971657,
+    "replay_target_tokens": 843069,
+    "seconds": 929.0572222000192,
+    "sequence_tokens": 10601648,
+    "tok_s": 11411.189479691213,
+    "updates": 1331
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "changed_variable": "training_data_size",
+  "config": {
+    "dose_tpp": 0.1,
+    "lr": 0.0003,
+    "replay_pct": 10,
+    "scheduler": "constant",
+    "warmup_frac": 0.02
+  },
+  "data": "pt_tasks_big",
+  "evaluations": {
+    "pt_003_dose003": {
+      "blimp_macro_length_normalized": 0.739,
+      "guards": {
+        "drift_ceiling": 0.25,
+        "drift_ok": true,
+        "hidden_cosine_ok": true,
+        "hidden_floor": 0.9
+      },
+      "hidden_cosine_vs_base": 0.9025782621370101,
+      "paths": {
+        "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_003_dose003.json"
+      },
+      "story_constraint_follow_rate": 1.0,
+      "story_fluency_pass_rate": 0.0,
+      "story_pass_rate": 0.0,
+      "task_details": {
+        "add": 0.1,
+        "copy": 0.9625,
+        "count_words": 0.6,
+        "first_letter": 0.5375,
+        "reverse": 0.7625,
+        "sort_asc": 0.8
+      },
+      "task_macro_accuracy": 0.6270833333333334,
+      "weight_drift": 0.14133292409585163,
+      "x_top64_overlap_vs_base": 0.68212890625
+    },
+    "pt_003_dose010": {
+      "blimp_macro_length_normalized": 0.7270000000000001,
+      "guards": {
+        "drift_ceiling": 0.25,
+        "drift_ok": false,
+        "hidden_cosine_ok": false,
+        "hidden_floor": 0.9
+      },
+      "hidden_cosine_vs_base": 0.8654542775520441,
+      "paths": {
+        "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_003_dose010.json"
+      },
+      "story_constraint_follow_rate": 0.8333333333333334,
+      "story_fluency_pass_rate": 0.0,
+      "story_pass_rate": 0.0,
+      "task_details": {
+        "add": 0.75,
+        "copy": 0.9875,
+        "count_words": 0.6125,
+        "first_letter": 0.525,
+        "reverse": 0.8125,
+        "sort_asc": 0.5875
+      },
+      "task_macro_accuracy": 0.7125,
+      "weight_drift": 0.3266174114679516,
+      "x_top64_overlap_vs_base": 0.609375
+    }
+  },
+  "experiment_id": "pt_003_tasks_big_r10",
+  "hypothesis": "A 3x larger task corpus lets 0.03 and 0.10 TPP be reached without repeating data; task accuracy should keep rising.",
+  "new_value": "450k examples",
+  "notes": "",
+  "old_value": "150k examples",
+  "phase": "cycle1_tasks",
+  "training": {
+    "first_loss": 4.557175278663635,
+    "instruction_target_tokens": 1738954,
+    "last_loss": 0.0705440528690815,
+    "replay_target_tokens": 843069,
+    "seconds": 929.1024522004736,
+    "sequence_tokens": 10601648,
+    "tok_s": 11410.633967105781,
+    "updates": 1331
+  }
+}

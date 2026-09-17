@@ -1,0 +1,83 @@
+{
+  "changed_variable": "training_data",
+  "config": {
+    "dose_tpp": 0.2,
+    "lr": 0.0003,
+    "replay_pct": 10,
+    "scheduler": "constant",
+    "warmup_frac": 0.02
+  },
+  "data": "pt_mix_50",
+  "evaluations": {
+    "pt_006_dose010": {
+      "blimp_macro_length_normalized": 0.7613333333333333,
+      "guards": {
+        "drift_ceiling": 0.25,
+        "drift_ok": true,
+        "hidden_cosine_ok": true,
+        "hidden_floor": 0.9
+      },
+      "hidden_cosine_vs_base": 0.9061762483999889,
+      "paths": {
+        "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_006_dose010.json"
+      },
+      "story_constraint_follow_rate": 0.0,
+      "story_fluency_pass_rate": 1.0,
+      "story_pass_rate": 0.0,
+      "task_details": {
+        "add": 0.1625,
+        "copy": 0.975,
+        "count_words": 0.775,
+        "first_letter": 0.425,
+        "reverse": 0.75,
+        "sort_asc": 0.85
+      },
+      "task_macro_accuracy": 0.65625,
+      "weight_drift": 0.22785899656999728,
+      "x_top64_overlap_vs_base": 0.6728515625
+    },
+    "pt_006_dose020": {
+      "blimp_macro_length_normalized": 0.7416666666666667,
+      "guards": {
+        "drift_ceiling": 0.25,
+        "drift_ok": false,
+        "hidden_cosine_ok": false,
+        "hidden_floor": 0.9
+      },
+      "hidden_cosine_vs_base": 0.881486053430402,
+      "paths": {
+        "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_006_dose020.json"
+      },
+      "story_constraint_follow_rate": 0.0,
+      "story_fluency_pass_rate": 0.25,
+      "story_pass_rate": 0.0,
+      "task_details": {
+        "add": 0.425,
+        "copy": 0.9875,
+        "count_words": 0.65,
+        "first_letter": 0.325,
+        "reverse": 0.8625,
+        "sort_asc": 0.8875
+      },
+      "task_macro_accuracy": 0.6895833333333332,
+      "weight_drift": 0.34882530724121535,
+      "x_top64_overlap_vs_base": 0.64453125
+    }
+  },
+  "experiment_id": "pt_006_mix50_lr3e4",
+  "hypothesis": "Training on a 50/50 task+story token mix (TinyStories) at lr 3e-4 adds fluent constrained story generation while keeping verifiable task accuracy.",
+  "new_value": "50/50 tasks + TinyStories mix",
+  "notes": "",
+  "old_value": "tasks only",
+  "phase": "cycle2_mix",
+  "training": {
+    "first_loss": 3.245447665452957,
+    "instruction_target_tokens": 3476141,
+    "last_loss": 0.7533196769654751,
+    "replay_target_tokens": 1011849,
+    "seconds": 1121.00072680015,
+    "sequence_tokens": 12618332,
+    "tok_s": 11256.310275568245,
+    "updates": 1607
+  }
+}

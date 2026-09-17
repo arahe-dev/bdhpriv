@@ -1,0 +1,404 @@
+{
+  "pt_000_base": {
+    "changed_variable": "none",
+    "config": {},
+    "data": null,
+    "evaluations": {
+      "pt_000_base": {
+        "blimp_macro_length_normalized": 0.755,
+        "guards": {
+          "drift_ceiling": 0.25,
+          "drift_ok": true,
+          "hidden_cosine_ok": true,
+          "hidden_floor": 0.9
+        },
+        "hidden_cosine_vs_base": 1.0,
+        "paths": {
+          "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_000_base.json"
+        },
+        "story_constraint_follow_rate": 0.0,
+        "story_fluency_pass_rate": 0.0,
+        "story_pass_rate": 0.0,
+        "task_details": {
+          "add": 0.0,
+          "copy": 0.1375,
+          "count_words": 0.0,
+          "first_letter": 0.0,
+          "reverse": 0.0,
+          "sort_asc": 0.0
+        },
+        "task_macro_accuracy": 0.02291666666666667,
+        "weight_drift": 0.0,
+        "x_top64_overlap_vs_base": 1.0
+      }
+    },
+    "experiment_id": "pt_000_base",
+    "hypothesis": "Untouched frozen 2.5B reference on the frozen verifiable suite.",
+    "new_value": "none",
+    "notes": "",
+    "old_value": "none",
+    "phase": "baseline",
+    "training": {}
+  },
+  "pt_001_tasks_r1": {
+    "changed_variable": "training_data",
+    "config": {
+      "dose_tpp": 0.03,
+      "lr": 0.0003,
+      "replay_pct": 10,
+      "scheduler": "constant",
+      "warmup_frac": 0.02
+    },
+    "data": "pt_tasks",
+    "evaluations": {
+      "pt_001_tasks_r1_dose003": {
+        "blimp_macro_length_normalized": 0.7383333333333333,
+        "guards": {
+          "drift_ceiling": 0.25,
+          "drift_ok": true,
+          "hidden_cosine_ok": true,
+          "hidden_floor": 0.9
+        },
+        "hidden_cosine_vs_base": 0.9036780577838521,
+        "paths": {
+          "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_001_tasks_r1_dose003.json"
+        },
+        "story_constraint_follow_rate": null,
+        "story_fluency_pass_rate": null,
+        "story_pass_rate": 0.0,
+        "task_details": {
+          "add": 0.1125,
+          "copy": 0.8875,
+          "count_words": 0.65,
+          "first_letter": 0.55,
+          "reverse": 0.725,
+          "sort_asc": 0.7125
+        },
+        "task_macro_accuracy": 0.6062499999999998,
+        "weight_drift": 0.14492735630410192,
+        "x_top64_overlap_vs_base": 0.66162109375
+      }
+    },
+    "experiment_id": "pt_001_tasks_r1",
+    "hypothesis": "Programmatic verifiable tasks (25k/task, train wording only) are learnable by a 17M BDH at 0.03 TPP with lr 3e-4 and 10% replay.",
+    "new_value": "programmatic tasks, 150k examples",
+    "notes": "",
+    "old_value": "instruction mixture (previous campaign)",
+    "phase": "cycle1_tasks",
+    "training": {
+      "first_loss": 4.333305478096008,
+      "instruction_target_tokens": 522011,
+      "last_loss": 1.4796411180868745,
+      "replay_target_tokens": 247589,
+      "seconds": 335.9125339999591,
+      "sequence_tokens": 3180241,
+      "tok_s": 9467.46750450338,
+      "updates": 400
+    }
+  },
+  "pt_003_tasks_big_r10": {
+    "changed_variable": "training_data_size",
+    "config": {
+      "dose_tpp": 0.1,
+      "lr": 0.0003,
+      "replay_pct": 10,
+      "scheduler": "constant",
+      "warmup_frac": 0.02
+    },
+    "data": "pt_tasks_big",
+    "evaluations": {
+      "pt_003_dose003": {
+        "blimp_macro_length_normalized": 0.739,
+        "guards": {
+          "drift_ceiling": 0.25,
+          "drift_ok": true,
+          "hidden_cosine_ok": true,
+          "hidden_floor": 0.9
+        },
+        "hidden_cosine_vs_base": 0.9025782621370101,
+        "paths": {
+          "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_003_dose003.json"
+        },
+        "story_constraint_follow_rate": 1.0,
+        "story_fluency_pass_rate": 0.0,
+        "story_pass_rate": 0.0,
+        "task_details": {
+          "add": 0.1,
+          "copy": 0.9625,
+          "count_words": 0.6,
+          "first_letter": 0.5375,
+          "reverse": 0.7625,
+          "sort_asc": 0.8
+        },
+        "task_macro_accuracy": 0.6270833333333334,
+        "weight_drift": 0.14133292409585163,
+        "x_top64_overlap_vs_base": 0.68212890625
+      },
+      "pt_003_dose010": {
+        "blimp_macro_length_normalized": 0.7270000000000001,
+        "guards": {
+          "drift_ceiling": 0.25,
+          "drift_ok": false,
+          "hidden_cosine_ok": false,
+          "hidden_floor": 0.9
+        },
+        "hidden_cosine_vs_base": 0.8654542775520441,
+        "paths": {
+          "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_003_dose010.json"
+        },
+        "story_constraint_follow_rate": 0.8333333333333334,
+        "story_fluency_pass_rate": 0.0,
+        "story_pass_rate": 0.0,
+        "task_details": {
+          "add": 0.75,
+          "copy": 0.9875,
+          "count_words": 0.6125,
+          "first_letter": 0.525,
+          "reverse": 0.8125,
+          "sort_asc": 0.5875
+        },
+        "task_macro_accuracy": 0.7125,
+        "weight_drift": 0.3266174114679516,
+        "x_top64_overlap_vs_base": 0.609375
+      }
+    },
+    "experiment_id": "pt_003_tasks_big_r10",
+    "hypothesis": "A 3x larger task corpus lets 0.03 and 0.10 TPP be reached without repeating data; task accuracy should keep rising.",
+    "new_value": "450k examples",
+    "notes": "",
+    "old_value": "150k examples",
+    "phase": "cycle1_tasks",
+    "training": {
+      "first_loss": 4.557175278663635,
+      "instruction_target_tokens": 1738954,
+      "last_loss": 0.0705440528690815,
+      "replay_target_tokens": 843069,
+      "seconds": 929.1024522004736,
+      "sequence_tokens": 10601648,
+      "tok_s": 11410.633967105781,
+      "updates": 1331
+    }
+  },
+  "pt_004_tasks_lr1e4": {
+    "changed_variable": "learning_rate",
+    "config": {
+      "dose_tpp": 0.1,
+      "lr": 0.0001,
+      "replay_pct": 10,
+      "scheduler": "constant",
+      "warmup_frac": 0.02
+    },
+    "data": "pt_tasks_big",
+    "evaluations": {
+      "pt_004_dose010": {
+        "blimp_macro_length_normalized": 0.764,
+        "guards": {
+          "drift_ceiling": 0.25,
+          "drift_ok": true,
+          "hidden_cosine_ok": true,
+          "hidden_floor": 0.9
+        },
+        "hidden_cosine_vs_base": 0.9177103038727301,
+        "paths": {
+          "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_004_dose010.json"
+        },
+        "story_constraint_follow_rate": 0.4166666666666667,
+        "story_fluency_pass_rate": 0.0,
+        "story_pass_rate": 0.0,
+        "task_details": {
+          "add": 0.1875,
+          "copy": 0.975,
+          "count_words": 0.6125,
+          "first_letter": 0.45,
+          "reverse": 0.6125,
+          "sort_asc": 0.775
+        },
+        "task_macro_accuracy": 0.6020833333333333,
+        "weight_drift": 0.15201794698151624,
+        "x_top64_overlap_vs_base": 0.6884765625
+      }
+    },
+    "experiment_id": "pt_004_tasks_lr1e4",
+    "hypothesis": "Lowering the LR to 1e-4 reduces representation drift enough to keep the identity guards while retaining task learning.",
+    "new_value": "1e-4",
+    "notes": "",
+    "old_value": "3e-4",
+    "phase": "cycle1_tasks",
+    "training": {
+      "first_loss": 4.557175278663635,
+      "instruction_target_tokens": 1738954,
+      "last_loss": 0.12285149469971657,
+      "replay_target_tokens": 843069,
+      "seconds": 929.0572222000192,
+      "sequence_tokens": 10601648,
+      "tok_s": 11411.189479691213,
+      "updates": 1331
+    }
+  },
+  "pt_005_tasks_lr2e4_r20": {
+    "changed_variable": "learning_rate+replay",
+    "config": {
+      "dose_tpp": 0.1,
+      "lr": 0.0002,
+      "replay_pct": 20,
+      "scheduler": "constant",
+      "warmup_frac": 0.02
+    },
+    "data": "pt_tasks_big",
+    "evaluations": {
+      "pt_005_dose003": {
+        "blimp_macro_length_normalized": 0.7606666666666667,
+        "guards": {
+          "drift_ceiling": 0.25,
+          "drift_ok": true,
+          "hidden_cosine_ok": true,
+          "hidden_floor": 0.9
+        },
+        "hidden_cosine_vs_base": 0.9206688827834719,
+        "paths": {
+          "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_005_dose003.json"
+        },
+        "story_constraint_follow_rate": 0.8333333333333334,
+        "story_fluency_pass_rate": 0.0,
+        "story_pass_rate": 0.0,
+        "task_details": {
+          "add": 0.05,
+          "copy": 0.9875,
+          "count_words": 0.625,
+          "first_letter": 0.3875,
+          "reverse": 0.725,
+          "sort_asc": 0.7375
+        },
+        "task_macro_accuracy": 0.5854166666666667,
+        "weight_drift": 0.13435760042342604,
+        "x_top64_overlap_vs_base": 0.70703125
+      },
+      "pt_005_dose010": {
+        "blimp_macro_length_normalized": 0.7336666666666666,
+        "guards": {
+          "drift_ceiling": 0.25,
+          "drift_ok": false,
+          "hidden_cosine_ok": false,
+          "hidden_floor": 0.9
+        },
+        "hidden_cosine_vs_base": 0.8817618407033848,
+        "paths": {
+          "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_005_dose010.json"
+        },
+        "story_constraint_follow_rate": 0.6666666666666666,
+        "story_fluency_pass_rate": 0.0,
+        "story_pass_rate": 0.0,
+        "task_details": {
+          "add": 0.325,
+          "copy": 0.9875,
+          "count_words": 0.6125,
+          "first_letter": 0.3875,
+          "reverse": 0.7875,
+          "sort_asc": 0.8375
+        },
+        "task_macro_accuracy": 0.65625,
+        "weight_drift": 0.3183246166557019,
+        "x_top64_overlap_vs_base": 0.6650390625
+      }
+    },
+    "experiment_id": "pt_005_tasks_lr2e4_r20",
+    "hypothesis": "lr 2e-4 with 20% replay recovers most of the 3e-4 task accuracy while staying inside the identity guards.",
+    "new_value": "2e-4 / 20%",
+    "notes": "",
+    "old_value": "3e-4 / 10%",
+    "phase": "cycle1_tasks",
+    "training": {
+      "first_loss": 4.557175278663635,
+      "instruction_target_tokens": 1738610,
+      "last_loss": 0.6168222245760262,
+      "replay_target_tokens": 1884922,
+      "seconds": 1044.2828246997524,
+      "sequence_tokens": 11642137,
+      "tok_s": 11148.452052103123,
+      "updates": 1497
+    }
+  },
+  "pt_006_mix50_lr3e4": {
+    "changed_variable": "training_data",
+    "config": {
+      "dose_tpp": 0.2,
+      "lr": 0.0003,
+      "replay_pct": 10,
+      "scheduler": "constant",
+      "warmup_frac": 0.02
+    },
+    "data": "pt_mix_50",
+    "evaluations": {
+      "pt_006_dose010": {
+        "blimp_macro_length_normalized": 0.7613333333333333,
+        "guards": {
+          "drift_ceiling": 0.25,
+          "drift_ok": true,
+          "hidden_cosine_ok": true,
+          "hidden_floor": 0.9
+        },
+        "hidden_cosine_vs_base": 0.9061762483999889,
+        "paths": {
+          "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_006_dose010.json"
+        },
+        "story_constraint_follow_rate": 0.0,
+        "story_fluency_pass_rate": 1.0,
+        "story_pass_rate": 0.0,
+        "task_details": {
+          "add": 0.1625,
+          "copy": 0.975,
+          "count_words": 0.775,
+          "first_letter": 0.425,
+          "reverse": 0.75,
+          "sort_asc": 0.85
+        },
+        "task_macro_accuracy": 0.65625,
+        "weight_drift": 0.22785899656999728,
+        "x_top64_overlap_vs_base": 0.6728515625
+      },
+      "pt_006_dose020": {
+        "blimp_macro_length_normalized": 0.7416666666666667,
+        "guards": {
+          "drift_ceiling": 0.25,
+          "drift_ok": false,
+          "hidden_cosine_ok": false,
+          "hidden_floor": 0.9
+        },
+        "hidden_cosine_vs_base": 0.881486053430402,
+        "paths": {
+          "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_006_dose020.json"
+        },
+        "story_constraint_follow_rate": 0.0,
+        "story_fluency_pass_rate": 0.25,
+        "story_pass_rate": 0.0,
+        "task_details": {
+          "add": 0.425,
+          "copy": 0.9875,
+          "count_words": 0.65,
+          "first_letter": 0.325,
+          "reverse": 0.8625,
+          "sort_asc": 0.8875
+        },
+        "task_macro_accuracy": 0.6895833333333332,
+        "weight_drift": 0.34882530724121535,
+        "x_top64_overlap_vs_base": 0.64453125
+      }
+    },
+    "experiment_id": "pt_006_mix50_lr3e4",
+    "hypothesis": "Training on a 50/50 task+story token mix (TinyStories) at lr 3e-4 adds fluent constrained story generation while keeping verifiable task accuracy.",
+    "new_value": "50/50 tasks + TinyStories mix",
+    "notes": "",
+    "old_value": "tasks only",
+    "phase": "cycle2_mix",
+    "training": {
+      "first_loss": 3.245447665452957,
+      "instruction_target_tokens": 3476141,
+      "last_loss": 0.7533196769654751,
+      "replay_target_tokens": 1011849,
+      "seconds": 1121.00072680015,
+      "sequence_tokens": 12618332,
+      "tok_s": 11256.310275568245,
+      "updates": 1607
+    }
+  }
+}

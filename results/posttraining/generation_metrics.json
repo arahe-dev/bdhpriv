@@ -1,0 +1,31 @@
+{
+  "pt_006_dose010": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "runs/posttraining/pt_006_mix50_lr3e4/dose_1737549.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.553968253968254,
+      "mean_distinct_3": 0.6173387096774194,
+      "mean_longest_repeated_substring": 18.55,
+      "mean_repeated_bigram_fraction": 0.44603174603174606,
+      "mean_repeated_trigram_fraction": 0.38266129032258067,
+      "mean_repeated_unigram_fraction": 0.582421875,
+      "mean_token_entropy_bits": 4.30611864579605,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.775984251968504,
+      "mean_distinct_3": 0.8688492063492064,
+      "mean_longest_repeated_substring": 7.35,
+      "mean_repeated_bigram_fraction": 0.22401574803149607,
+      "mean_repeated_trigram_fraction": 0.13115079365079366,
+      "mean_repeated_unigram_fraction": 0.4748046875,
+      "mean_token_entropy_bits": 5.644889382756778,
+      "prompt_count": 40
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "pt_000_base": {
+    "blimp_macro_length_normalized": 0.755,
+    "hidden_cosine_vs_base": 1.0,
+    "seconds": 110.59044839999115,
+    "story_pass_rate": 0.0,
+    "task_details": {
+      "add": 0.0,
+      "copy": 0.1375,
+      "count_words": 0.0,
+      "first_letter": 0.0,
+      "reverse": 0.0,
+      "sort_asc": 0.0
+    },
+    "task_macro_accuracy": 0.02291666666666667,
+    "weight_drift": 0.0,
+    "x_top64_overlap_vs_base": 1.0
+  },
+  "pt_001_tasks_r1_dose003": {
+    "blimp_macro_length_normalized": 0.7383333333333333,
+    "hidden_cosine_vs_base": 0.9036780577838521,
+    "seconds": 84.60994839998602,
+    "story_pass_rate": 0.0,
+    "task_details": {
+      "add": 0.1125,
+      "copy": 0.8875,
+      "count_words": 0.65,
+      "first_letter": 0.55,
+      "reverse": 0.725,
+      "sort_asc": 0.7125
+    },
+    "task_macro_accuracy": 0.6062499999999998,
+    "weight_drift": 0.14492735630410192,
+    "x_top64_overlap_vs_base": 0.66162109375
+  },
+  "pt_003_dose003": {
+    "blimp_macro_length_normalized": 0.739,
+    "hidden_cosine_vs_base": 0.9025782621370101,
+    "seconds": 85.0114934000012,
+    "story_pass_rate": 0.0,
+    "task_details": {
+      "add": 0.1,
+      "copy": 0.9625,
+      "count_words": 0.6,
+      "first_letter": 0.5375,
+      "reverse": 0.7625,
+      "sort_asc": 0.8
+    },
+    "task_macro_accuracy": 0.6270833333333334,
+    "weight_drift": 0.14133292409585163,
+    "x_top64_overlap_vs_base": 0.68212890625
+  },
+  "pt_003_dose010": {
+    "blimp_macro_length_normalized": 0.7270000000000001,
+    "hidden_cosine_vs_base": 0.8654542775520441,
+    "seconds": 85.98796759999823,
+    "story_pass_rate": 0.0,
+    "task_details": {
+      "add": 0.75,
+      "copy": 0.9875,
+      "count_words": 0.6125,
+      "first_letter": 0.525,
+      "reverse": 0.8125,
+      "sort_asc": 0.5875
+    },
+    "task_macro_accuracy": 0.7125,
+    "weight_drift": 0.3266174114679516,
+    "x_top64_overlap_vs_base": 0.609375
+  },
+  "pt_004_dose010": {
+    "blimp_macro_length_normalized": 0.764,
+    "hidden_cosine_vs_base": 0.9177103038727301,
+    "seconds": 84.21944090000761,
+    "story_pass_rate": 0.0,
+    "task_details": {
+      "add": 0.1875,
+      "copy": 0.975,
+      "count_words": 0.6125,
+      "first_letter": 0.45,
+      "reverse": 0.6125,
+      "sort_asc": 0.775
+    },
+    "task_macro_accuracy": 0.6020833333333333,
+    "weight_drift": 0.15201794698151624,
+    "x_top64_overlap_vs_base": 0.6884765625
+  },
+  "pt_005_dose003": {
+    "blimp_macro_length_normalized": 0.7606666666666667,
+    "hidden_cosine_vs_base": 0.9206688827834719,
+    "seconds": 85.15199479999137,
+    "story_pass_rate": 0.0,
+    "task_details": {
+      "add": 0.05,
+      "copy": 0.9875,
+      "count_words": 0.625,
+      "first_letter": 0.3875,
+      "reverse": 0.725,
+      "sort_asc": 0.7375
+    },
+    "task_macro_accuracy": 0.5854166666666667,
+    "weight_drift": 0.13435760042342604,
+    "x_top64_overlap_vs_base": 0.70703125
+  },
+  "pt_005_dose010": {
+    "blimp_macro_length_normalized": 0.7336666666666666,
+    "hidden_cosine_vs_base": 0.8817618407033848,
+    "seconds": 85.81420550000621,
+    "story_pass_rate": 0.0,
+    "task_details": {
+      "add": 0.325,
+      "copy": 0.9875,
+      "count_words": 0.6125,
+      "first_letter": 0.3875,
+      "reverse": 0.7875,
+      "sort_asc": 0.8375
+    },
+    "task_macro_accuracy": 0.65625,
+    "weight_drift": 0.3183246166557019,
+    "x_top64_overlap_vs_base": 0.6650390625
+  },
+  "pt_006_dose010": {
+    "blimp_macro_length_normalized": 0.7613333333333333,
+    "hidden_cosine_vs_base": 0.9061762483999889,
+    "seconds": 89.29336900000635,
+    "story_pass_rate": 0.0,
+    "task_details": {
+      "add": 0.1625,
+      "copy": 0.975,
+      "count_words": 0.775,
+      "first_letter": 0.425,
+      "reverse": 0.75,
+      "sort_asc": 0.85
+    },
+    "task_macro_accuracy": 0.65625,
+    "weight_drift": 0.22785899656999728,
+    "x_top64_overlap_vs_base": 0.6728515625
+  },
+  "pt_006_dose020": {
+    "blimp_macro_length_normalized": 0.7416666666666667,
+    "hidden_cosine_vs_base": 0.881486053430402,
+    "seconds": 91.39252019999549,
+    "story_pass_rate": 0.0,
+    "task_details": {
+      "add": 0.425,
+      "copy": 0.9875,
+      "count_words": 0.65,
+      "first_letter": 0.325,
+      "reverse": 0.8625,
+      "sort_asc": 0.8875
+    },
+    "task_macro_accuracy": 0.6895833333333332,
+    "weight_drift": 0.34882530724121535,
+    "x_top64_overlap_vs_base": 0.64453125
+  }
+}

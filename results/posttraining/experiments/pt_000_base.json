@@ -1,0 +1,41 @@
+{
+  "changed_variable": "none",
+  "config": {},
+  "data": null,
+  "evaluations": {
+    "pt_000_base": {
+      "blimp_macro_length_normalized": 0.755,
+      "guards": {
+        "drift_ceiling": 0.25,
+        "drift_ok": true,
+        "hidden_cosine_ok": true,
+        "hidden_floor": 0.9
+      },
+      "hidden_cosine_vs_base": 1.0,
+      "paths": {
+        "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_000_base.json"
+      },
+      "story_constraint_follow_rate": 0.0,
+      "story_fluency_pass_rate": 0.0,
+      "story_pass_rate": 0.0,
+      "task_details": {
+        "add": 0.0,
+        "copy": 0.1375,
+        "count_words": 0.0,
+        "first_letter": 0.0,
+        "reverse": 0.0,
+        "sort_asc": 0.0
+      },
+      "task_macro_accuracy": 0.02291666666666667,
+      "weight_drift": 0.0,
+      "x_top64_overlap_vs_base": 1.0
+    }
+  },
+  "experiment_id": "pt_000_base",
+  "hypothesis": "Untouched frozen 2.5B reference on the frozen verifiable suite.",
+  "new_value": "none",
+  "notes": "",
+  "old_value": "none",
+  "phase": "baseline",
+  "training": {}
+}

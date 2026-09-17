@@ -1,0 +1,83 @@
+{
+  "changed_variable": "learning_rate+replay",
+  "config": {
+    "dose_tpp": 0.1,
+    "lr": 0.0002,
+    "replay_pct": 20,
+    "scheduler": "constant",
+    "warmup_frac": 0.02
+  },
+  "data": "pt_tasks_big",
+  "evaluations": {
+    "pt_005_dose003": {
+      "blimp_macro_length_normalized": 0.7606666666666667,
+      "guards": {
+        "drift_ceiling": 0.25,
+        "drift_ok": true,
+        "hidden_cosine_ok": true,
+        "hidden_floor": 0.9
+      },
+      "hidden_cosine_vs_base": 0.9206688827834719,
+      "paths": {
+        "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_005_dose003.json"
+      },
+      "story_constraint_follow_rate": 0.8333333333333334,
+      "story_fluency_pass_rate": 0.0,
+      "story_pass_rate": 0.0,
+      "task_details": {
+        "add": 0.05,
+        "copy": 0.9875,
+        "count_words": 0.625,
+        "first_letter": 0.3875,
+        "reverse": 0.725,
+        "sort_asc": 0.7375
+      },
+      "task_macro_accuracy": 0.5854166666666667,
+      "weight_drift": 0.13435760042342604,
+      "x_top64_overlap_vs_base": 0.70703125
+    },
+    "pt_005_dose010": {
+      "blimp_macro_length_normalized": 0.7336666666666666,
+      "guards": {
+        "drift_ceiling": 0.25,
+        "drift_ok": false,
+        "hidden_cosine_ok": false,
+        "hidden_floor": 0.9
+      },
+      "hidden_cosine_vs_base": 0.8817618407033848,
+      "paths": {
+        "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_005_dose010.json"
+      },
+      "story_constraint_follow_rate": 0.6666666666666666,
+      "story_fluency_pass_rate": 0.0,
+      "story_pass_rate": 0.0,
+      "task_details": {
+        "add": 0.325,
+        "copy": 0.9875,
+        "count_words": 0.6125,
+        "first_letter": 0.3875,
+        "reverse": 0.7875,
+        "sort_asc": 0.8375
+      },
+      "task_macro_accuracy": 0.65625,
+      "weight_drift": 0.3183246166557019,
+      "x_top64_overlap_vs_base": 0.6650390625
+    }
+  },
+  "experiment_id": "pt_005_tasks_lr2e4_r20",
+  "hypothesis": "lr 2e-4 with 20% replay recovers most of the 3e-4 task accuracy while staying inside the identity guards.",
+  "new_value": "2e-4 / 20%",
+  "notes": "",
+  "old_value": "3e-4 / 10%",
+  "phase": "cycle1_tasks",
+  "training": {
+    "first_loss": 4.557175278663635,
+    "instruction_target_tokens": 1738610,
+    "last_loss": 0.6168222245760262,
+    "replay_target_tokens": 1884922,
+    "seconds": 1044.2828246997524,
+    "sequence_tokens": 11642137,
+    "tok_s": 11148.452052103123,
+    "updates": 1497
+  }
+}

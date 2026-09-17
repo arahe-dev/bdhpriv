@@ -1,0 +1,56 @@
+{
+  "changed_variable": "training_data",
+  "config": {
+    "dose_tpp": 0.03,
+    "lr": 0.0003,
+    "replay_pct": 10,
+    "scheduler": "constant",
+    "warmup_frac": 0.02
+  },
+  "data": "pt_tasks",
+  "evaluations": {
+    "pt_001_tasks_r1_dose003": {
+      "blimp_macro_length_normalized": 0.7383333333333333,
+      "guards": {
+        "drift_ceiling": 0.25,
+        "drift_ok": true,
+        "hidden_cosine_ok": true,
+        "hidden_floor": 0.9
+      },
+      "hidden_cosine_vs_base": 0.9036780577838521,
+      "paths": {
+        "eval_json": "C:\\iclr-oc\\results\\posttraining\\eval\\pt_001_tasks_r1_dose003.json"
+      },
+      "story_constraint_follow_rate": null,
+      "story_fluency_pass_rate": null,
+      "story_pass_rate": 0.0,
+      "task_details": {
+        "add": 0.1125,
+        "copy": 0.8875,
+        "count_words": 0.65,
+        "first_letter": 0.55,
+        "reverse": 0.725,
+        "sort_asc": 0.7125
+      },
+      "task_macro_accuracy": 0.6062499999999998,
+      "weight_drift": 0.14492735630410192,
+      "x_top64_overlap_vs_base": 0.66162109375
+    }
+  },
+  "experiment_id": "pt_001_tasks_r1",
+  "hypothesis": "Programmatic verifiable tasks (25k/task, train wording only) are learnable by a 17M BDH at 0.03 TPP with lr 3e-4 and 10% replay.",
+  "new_value": "programmatic tasks, 150k examples",
+  "notes": "",
+  "old_value": "instruction mixture (previous campaign)",
+  "phase": "cycle1_tasks",
+  "training": {
+    "first_loss": 4.333305478096008,
+    "instruction_target_tokens": 522011,
+    "last_loss": 1.4796411180868745,
+    "replay_target_tokens": 247589,
+    "seconds": 335.9125339999591,
+    "sequence_tokens": 3180241,
+    "tok_s": 9467.46750450338,
+    "updates": 400
+  }
+}

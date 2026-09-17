@@ -1,0 +1,25 @@
+{
+  "created_at": "2026-09-17T12:20:22Z",
+  "format": "arm_a_posttrain_data_v1",
+  "kind": "programmatic_tasks",
+  "name": "pt_tasks_big",
+  "note": "train wording templates only; dev/test templates are disjoint and defined in training/posttrain/tasks.py",
+  "per_task_dev": 200,
+  "per_task_train": 75000,
+  "tasks": [
+    "copy",
+    "reverse",
+    "sort_asc",
+    "add",
+    "count_words",
+    "first_letter"
+  ],
+  "train_examples": 450000,
+  "train_rows": 5171,
+  "train_seed": 4242,
+  "train_sequence_tokens": 10527553,
+  "train_target_tokens": 1876400,
+  "val_examples": 1200,
+  "val_rows": 14,
+  "val_target_tokens": 4973
+}

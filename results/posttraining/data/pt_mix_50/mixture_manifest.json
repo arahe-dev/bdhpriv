@@ -1,0 +1,17 @@
+{
+  "format": "arm_a_posttrain_data_v1",
+  "kind": "mix",
+  "name": "pt_mix_50",
+  "story_source": "pt_stories",
+  "story_target_tokens": 1876574,
+  "task_fraction_by_target_tokens": 0.5,
+  "task_source": "pt_tasks_big",
+  "task_target_tokens": 1876400,
+  "train_examples": 456326,
+  "train_rows": 6249,
+  "train_sequence_tokens": 12533690,
+  "train_target_tokens": 3752974,
+  "val_examples": 1600,
+  "val_rows": 74,
+  "val_target_tokens": 112690
+}
