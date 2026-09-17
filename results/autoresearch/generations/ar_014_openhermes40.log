@@ -1,0 +1,30 @@
+
+$ C:\Users\arahe\AppData\Local\Programs\Python\Python312\python.exe -m training.sft_probe.generation_eval --tag ar_014_openhermes40 --out-dir C:\iclr-oc\results\autoresearch\generations --metrics C:\iclr-oc\results\autoresearch\generation_metrics.json --checkpoint C:\iclr-oc\runs\autoresearch\ar_014_openhermes40\dose_521265.pt
+{
+ "tag": "ar_014_openhermes40",
+ "greedy": {
+  "prompt_count": 40,
+  "mean_repeated_unigram_fraction": 0.784765625,
+  "mean_repeated_bigram_fraction": 0.7130952380952381,
+  "mean_repeated_trigram_fraction": 0.6721774193548387,
+  "mean_distinct_2": 0.2869047619047619,
+  "mean_distinct_3": 0.3278225806451613,
+  "mean_token_entropy_bits": 3.2917872302059754,
+  "mean_longest_repeated_substring": 32.925,
+  "constant_token_rate": 0.0,
+  "loop_run_ge_8_rate": 0.0
+ },
+ "sampled": {
+  "prompt_count": 40,
+  "mean_repeated_unigram_fraction": 0.496875,
+  "mean_repeated_bigram_fraction": 0.26161417322834646,
+  "mean_repeated_trigram_fraction": 0.1658730158730159,
+  "mean_distinct_2": 0.7383858267716535,
+  "mean_distinct_3": 0.8341269841269842,
+  "mean_token_entropy_bits": 5.485594798446975,
+  "mean_longest_repeated_substring": 8.05,
+  "constant_token_rate": 0.0,
+  "loop_run_ge_8_rate": 0.0
+ },
+ "parity": true
+}

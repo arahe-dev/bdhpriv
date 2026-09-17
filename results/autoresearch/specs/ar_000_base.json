@@ -1,0 +1,14 @@
+{
+  "experiment_id": "ar_000_base",
+  "phase": "baseline",
+  "hypothesis": "Reference point: the untouched frozen 2.5B checkpoint evaluated on the frozen four-source mixture validation split (dose 0).",
+  "changed_variable": "none",
+  "old_value": "none",
+  "new_value": "none",
+  "train": null,
+  "eval": {
+    "checkpoint": "base",
+    "generation": false
+  },
+  "notes": "No training. Establishes BASE validation NLL on the mixture val set so all later experiments are comparable."
+}

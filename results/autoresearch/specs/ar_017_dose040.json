@@ -1,0 +1,24 @@
+{
+  "experiment_id": "ar_017_dose040",
+  "phase": "phase4_duration",
+  "hypothesis": "Extending training to 0.40 TPP at the selected recipe further improves instruction adaptation; monitor saturation and drift.",
+  "changed_variable": "training_dose",
+  "old_value": "0.03",
+  "new_value": "0.40",
+  "train": {
+    "mix": "mix_base",
+    "lr": 0.0003,
+    "replay_pct": 10.0,
+    "scheduler": "constant",
+    "warmup_frac": 0.02,
+    "tokens_per_update": 8192,
+    "microbatch_rows": 1,
+    "dose_tpp": "0.40",
+    "checkpoint_at": 6950196
+  },
+  "eval": {
+    "native": true,
+    "params": true
+  },
+  "notes": "Data-limited ceiling: the frozen 4-source pool holds ~7.2M instruction target tokens (~0.41 TPP); 0.50/1.0 TPP are not runnable without repeating data. 0.40 TPP is the maximum single-epoch dose."
+}

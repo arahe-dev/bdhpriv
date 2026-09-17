@@ -1,0 +1,29 @@
+
+$ C:\Users\arahe\AppData\Local\Programs\Python\Python312\python.exe -m training.sft_probe.evaluate --tag ar_000_base --data-dir C:\iclr-oc\results\autoresearch\data\mix_base --out-dir C:\iclr-oc\results\autoresearch\eval --native
+C:\iclr-oc\training\arm_a_2p5b_trainer.py:760: UserWarning: expandable_segments not supported on this platform (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\c10/cuda/CUDAAllocatorConfig.h:39.)
+  / (cfg.THETA ** ((2.0 * torch.arange(cfg.K // 2, dtype=torch.float32,
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\iclr-oc\training\sft_probe\evaluate.py", line 234, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "C:\iclr-oc\training\sft_probe\evaluate.py", line 193, in main
+    eval_proxy(model, device, data_dir, autocast=args.autocast)
+  File "C:\iclr-oc\training\sft_probe\evaluate.py", line 127, in eval_proxy
+    rows = load_proxy_rows(data_dir, limit=limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\iclr-oc\training\sft_probe\evaluate.py", line 102, in load_proxy_rows
+    with open(data_dir / "proxy_rows.jsonl", "r", encoding="utf-8") as handle:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\iclr-oc\\results\\autoresearch\\data\\mix_base\\proxy_rows.jsonl'
+
+$ C:\Users\arahe\AppData\Local\Programs\Python\Python312\python.exe -m training.sft_probe.evaluate --tag ar_000_base --data-dir C:\iclr-oc\results\autoresearch\data\mix_base --out-dir C:\iclr-oc\results\autoresearch\eval --native
+C:\iclr-oc\training\arm_a_2p5b_trainer.py:760: UserWarning: expandable_segments not supported on this platform (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\c10/cuda/CUDAAllocatorConfig.h:39.)
+  / (cfg.THETA ** ((2.0 * torch.arange(cfg.K // 2, dtype=torch.float32,
+{
+ "tag": "ar_000_base",
+ "sft_val_nll": 2.7623015702211644,
+ "proxy_nll": 3.7699046243295213,
+ "total_relative_weight_drift": null
+}

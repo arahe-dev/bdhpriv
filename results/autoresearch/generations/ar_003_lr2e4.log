@@ -1,0 +1,30 @@
+
+$ C:\Users\arahe\AppData\Local\Programs\Python\Python312\python.exe -m training.sft_probe.generation_eval --tag ar_003_lr2e4 --out-dir C:\iclr-oc\results\autoresearch\generations --metrics C:\iclr-oc\results\autoresearch\generation_metrics.json --checkpoint C:\iclr-oc\runs\autoresearch\ar_003_lr2e4\dose_521265.pt
+{
+ "tag": "ar_003_lr2e4",
+ "greedy": {
+  "prompt_count": 40,
+  "mean_repeated_unigram_fraction": 0.79296875,
+  "mean_repeated_bigram_fraction": 0.7329365079365079,
+  "mean_repeated_trigram_fraction": 0.6955645161290323,
+  "mean_distinct_2": 0.26706349206349206,
+  "mean_distinct_3": 0.30443548387096775,
+  "mean_token_entropy_bits": 3.1763420709540227,
+  "mean_longest_repeated_substring": 35.175,
+  "constant_token_rate": 0.0,
+  "loop_run_ge_8_rate": 0.0
+ },
+ "sampled": {
+  "prompt_count": 40,
+  "mean_repeated_unigram_fraction": 0.560546875,
+  "mean_repeated_bigram_fraction": 0.337992125984252,
+  "mean_repeated_trigram_fraction": 0.24047619047619045,
+  "mean_distinct_2": 0.662007874015748,
+  "mean_distinct_3": 0.7595238095238095,
+  "mean_token_entropy_bits": 5.175550810664096,
+  "mean_longest_repeated_substring": 11.8,
+  "constant_token_rate": 0.0,
+  "loop_run_ge_8_rate": 0.0
+ },
+ "parity": true
+}

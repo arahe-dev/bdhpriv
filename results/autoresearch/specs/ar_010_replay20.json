@@ -1,0 +1,24 @@
+{
+  "experiment_id": "ar_010_replay20",
+  "phase": "phase2_replay",
+  "hypothesis": "Replay ratio 20% changes the instruction-adaptation vs base-retention trade-off at fixed 3e-4, constant, warmup 2% (one-variable test vs 10%).",
+  "changed_variable": "replay_pct",
+  "old_value": "10.0",
+  "new_value": "20.0",
+  "train": {
+    "mix": "mix_base",
+    "lr": 0.0003,
+    "scheduler": "constant",
+    "warmup_frac": 0.02,
+    "dose_tpp": "0.03",
+    "checkpoint_at": 521265,
+    "tokens_per_update": 8192,
+    "microbatch_rows": 1,
+    "replay_pct": 20.0
+  },
+  "eval": {
+    "native": true,
+    "params": true
+  },
+  "notes": "Only the replay ratio differs from ar_001_baseline_mix."
+}

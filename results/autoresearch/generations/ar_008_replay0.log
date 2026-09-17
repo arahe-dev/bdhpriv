@@ -1,0 +1,30 @@
+
+$ C:\Users\arahe\AppData\Local\Programs\Python\Python312\python.exe -m training.sft_probe.generation_eval --tag ar_008_replay0 --out-dir C:\iclr-oc\results\autoresearch\generations --metrics C:\iclr-oc\results\autoresearch\generation_metrics.json --checkpoint C:\iclr-oc\runs\autoresearch\ar_008_replay0\dose_521265.pt
+{
+ "tag": "ar_008_replay0",
+ "greedy": {
+  "prompt_count": 40,
+  "mean_repeated_unigram_fraction": 0.76875,
+  "mean_repeated_bigram_fraction": 0.6976190476190476,
+  "mean_repeated_trigram_fraction": 0.6528225806451613,
+  "mean_distinct_2": 0.30238095238095236,
+  "mean_distinct_3": 0.3471774193548387,
+  "mean_token_entropy_bits": 3.367313740418896,
+  "mean_longest_repeated_substring": 32.7,
+  "constant_token_rate": 0.0,
+  "loop_run_ge_8_rate": 0.0
+ },
+ "sampled": {
+  "prompt_count": 40,
+  "mean_repeated_unigram_fraction": 0.5078125,
+  "mean_repeated_bigram_fraction": 0.28464566929133855,
+  "mean_repeated_trigram_fraction": 0.19662698412698415,
+  "mean_distinct_2": 0.7153543307086614,
+  "mean_distinct_3": 0.8033730158730158,
+  "mean_token_entropy_bits": 5.393278254498684,
+  "mean_longest_repeated_substring": 10.25,
+  "constant_token_rate": 0.0,
+  "loop_run_ge_8_rate": 0.0
+ },
+ "parity": true
+}

@@ -1,0 +1,67 @@
+{
+  "akasha_parity": true,
+  "changed_variable": "learning_rate",
+  "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_003_lr2e4\\dose_521265.pt",
+  "config": {
+    "checkpoint_at": 521265,
+    "dose_tpp": "0.03",
+    "lr": 0.0002,
+    "microbatch_rows": 1,
+    "mix": "mix_base",
+    "replay_pct": 10.0,
+    "scheduler": "constant",
+    "tokens_per_update": 8192,
+    "warmup_frac": 0.02
+  },
+  "decision": "REVERT",
+  "decision_reasons": [
+    "no improvement over best 2.393066 (delta threshold 0.002)"
+  ],
+  "eval": {
+    "native": true,
+    "params": true
+  },
+  "experiment_id": "ar_003_lr2e4",
+  "generation": {
+    "first_divergence": null,
+    "greedy": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.26706349206349206,
+      "mean_distinct_3": 0.30443548387096775,
+      "mean_longest_repeated_substring": 35.175,
+      "mean_repeated_bigram_fraction": 0.7329365079365079,
+      "mean_repeated_trigram_fraction": 0.6955645161290323,
+      "mean_repeated_unigram_fraction": 0.79296875,
+      "mean_token_entropy_bits": 3.1763420709540227,
+      "prompt_count": 40
+    },
+    "parity": true,
+    "sampled": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.662007874015748,
+      "mean_distinct_3": 0.7595238095238095,
+      "mean_longest_repeated_substring": 11.8,
+      "mean_repeated_bigram_fraction": 0.337992125984252,
+      "mean_repeated_trigram_fraction": 0.24047619047619045,
+      "mean_repeated_unigram_fraction": 0.560546875,
+      "mean_token_entropy_bits": 5.175550810664096,
+      "prompt_count": 40
+    }
+  },
+  "hidden_cosine": 0.9646976828861901,
+  "hypothesis": "Learning rate 0.0002 changes the adaptation/drift trade-off at fixed mixture, replay and schedule (one-variable test vs baseline lr 3e-4).",
+  "instruction_score": -2.4018815419588906,
+  "new_value": "0.0002",
+  "notes": "Only the peak LR differs from ar_001_baseline_mix.",
+  "old_value": "0.0003",
+  "phase": "phase1_dynamics",
+  "proxy_nll": 3.7002427445636528,
+  "tokens_trained": 523041,
+  "top64_overlap": 0.81591796875,
+  "u_top64_overlap": 0.7607421875,
+  "validation_nll": 2.4018815419588906,
+  "wall_seconds": 270.0872522999998,
+  "weight_drift": 0.0374287294718587
+}

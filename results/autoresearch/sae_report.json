@@ -1,0 +1,22 @@
+{
+  "SAE_COSINE_VS_BASE": null,
+  "SAE_STATUS": "UNAVAILABLE",
+  "created_at": "2026-09-17T09:15:37Z",
+  "diagnostic_substitute": {
+    "instrument": "native BDH sparse-neuron probes",
+    "metrics": [
+      "x/u zero fraction",
+      "x/u RMS",
+      "top-64/256 mass share",
+      "global top-64/256 index overlap vs base",
+      "coordinator g statistics",
+      "writer delta norms",
+      "hidden-state cosine vs base"
+    ],
+    "note": "Feature activation drift, feature survival and new-feature formation could not be measured without an SAE; native population overlap (top-64/256) is the closest available substitute and is reported per experiment.",
+    "probe_set": "fixed 4x2048 proxy-text windows, stride-4 sampling"
+  },
+  "format": "arm_a_autoresearch_sae_report_v1",
+  "policy_followed": "No SAE was trained or updated during this mission.",
+  "reason": "No frozen SAE / sparse dictionary trained on the Arm-A or Akasha representation exists in the repository or local caches. Local SAE assets are Gemma Scope 2 and Anthropic public-feature resources only."
+}

@@ -1,0 +1,24 @@
+{
+  "experiment_id": "ar_006_warmup0",
+  "phase": "phase1_dynamics",
+  "hypothesis": "Warmup fraction 0% changes early adaptation/stability at fixed 3e-4, replay 10%, constant schedule (one-variable test vs 2%).",
+  "changed_variable": "warmup_frac",
+  "old_value": "0.02",
+  "new_value": "0.0",
+  "train": {
+    "mix": "mix_base",
+    "lr": 0.0003,
+    "replay_pct": 10.0,
+    "scheduler": "constant",
+    "dose_tpp": "0.03",
+    "checkpoint_at": 521265,
+    "tokens_per_update": 8192,
+    "microbatch_rows": 1,
+    "warmup_frac": 0.0
+  },
+  "eval": {
+    "native": true,
+    "params": true
+  },
+  "notes": "Only the warmup fraction differs from ar_001_baseline_mix."
+}

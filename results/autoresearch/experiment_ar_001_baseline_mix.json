@@ -1,0 +1,67 @@
+{
+  "akasha_parity": true,
+  "changed_variable": "dataset_mixture",
+  "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_001_baseline_mix\\dose_521265.pt",
+  "config": {
+    "checkpoint_at": 521265,
+    "dose_tpp": "0.03",
+    "lr": 0.0003,
+    "microbatch_rows": 1,
+    "mix": "mix_base",
+    "replay_pct": 10.0,
+    "scheduler": "constant",
+    "tokens_per_update": 8192,
+    "warmup_frac": 0.02
+  },
+  "decision": "KEEP",
+  "decision_reasons": [
+    "all keep criteria met"
+  ],
+  "eval": {
+    "native": true,
+    "params": true
+  },
+  "experiment_id": "ar_001_baseline_mix",
+  "generation": {
+    "first_divergence": null,
+    "greedy": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.294047619047619,
+      "mean_distinct_3": 0.3342741935483871,
+      "mean_longest_repeated_substring": 34.925,
+      "mean_repeated_bigram_fraction": 0.7059523809523809,
+      "mean_repeated_trigram_fraction": 0.665725806451613,
+      "mean_repeated_unigram_fraction": 0.771875,
+      "mean_token_entropy_bits": 3.360680330432829,
+      "prompt_count": 40
+    },
+    "parity": true,
+    "sampled": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.6759842519685039,
+      "mean_distinct_3": 0.7684523809523809,
+      "mean_longest_repeated_substring": 11.425,
+      "mean_repeated_bigram_fraction": 0.3240157480314961,
+      "mean_repeated_trigram_fraction": 0.23154761904761906,
+      "mean_repeated_unigram_fraction": 0.542578125,
+      "mean_token_entropy_bits": 5.250419854896408,
+      "prompt_count": 40
+    }
+  },
+  "hidden_cosine": 0.9519213256542096,
+  "hypothesis": "The previous campaign's selected SFT recipe (lr 3e-4, constant, 10% replay) transfers to the 4-source mixture and forms the new reference baseline at 0.03 TPP.",
+  "instruction_score": -2.3930660427459776,
+  "new_value": "bespoke/oasst/tulu/openhermes 25/25/25/25",
+  "notes": "Training dynamics are held at the previously validated values; only the instruction mixture changed.",
+  "old_value": "Alpaca-GPT4 100% instruction",
+  "phase": "phase1_dynamics",
+  "proxy_nll": 3.7271622869167906,
+  "tokens_trained": 523041,
+  "top64_overlap": 0.79296875,
+  "u_top64_overlap": 0.7138671875,
+  "validation_nll": 2.3930660427459776,
+  "wall_seconds": 270.79280599999765,
+  "weight_drift": 0.05269464882060793
+}

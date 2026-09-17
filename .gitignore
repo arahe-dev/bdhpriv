@@ -26,3 +26,8 @@ results/autoresearch/data/raw/
 # Large raw science captures (regenerable via analysis/arm_a_science/collect.py)
 results/arm_a_science/raw/
 
+
+# Autoresearch derived data (rebuildable from pinned dataset manifests)
+results/autoresearch/raw/
+results/autoresearch/data/**/*.jsonl
+

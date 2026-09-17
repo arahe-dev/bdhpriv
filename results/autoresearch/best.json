@@ -1,0 +1,21 @@
+{
+  "akasha_parity": true,
+  "best_experiment": "ar_015_dose010",
+  "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_015_dose010\\dose_1737549.pt",
+  "config": {
+    "checkpoint_at": 1737549,
+    "dose_tpp": "0.10",
+    "lr": 0.0003,
+    "microbatch_rows": 1,
+    "mix": "mix_base",
+    "replay_pct": 10.0,
+    "scheduler": "constant",
+    "tokens_per_update": 8192,
+    "warmup_frac": 0.02
+  },
+  "hidden_cosine": 0.9404089745946932,
+  "proxy_nll": 3.5581087013345662,
+  "updated_at": "2026-09-17T08:36:03Z",
+  "validation_nll": 2.265564870818943,
+  "weight_drift": 0.10584093766116918
+}

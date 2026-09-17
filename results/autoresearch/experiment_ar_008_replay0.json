@@ -1,0 +1,67 @@
+{
+  "akasha_parity": true,
+  "changed_variable": "replay_pct",
+  "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_008_replay0\\dose_521265.pt",
+  "config": {
+    "checkpoint_at": 521265,
+    "dose_tpp": "0.03",
+    "lr": 0.0003,
+    "microbatch_rows": 1,
+    "mix": "mix_base",
+    "replay_pct": 0.0,
+    "scheduler": "constant",
+    "tokens_per_update": 8192,
+    "warmup_frac": 0.02
+  },
+  "decision": "REVERT",
+  "decision_reasons": [
+    "no improvement over best 2.393066 (delta threshold 0.002)"
+  ],
+  "eval": {
+    "native": true,
+    "params": true
+  },
+  "experiment_id": "ar_008_replay0",
+  "generation": {
+    "first_divergence": null,
+    "greedy": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.30238095238095236,
+      "mean_distinct_3": 0.3471774193548387,
+      "mean_longest_repeated_substring": 32.7,
+      "mean_repeated_bigram_fraction": 0.6976190476190476,
+      "mean_repeated_trigram_fraction": 0.6528225806451613,
+      "mean_repeated_unigram_fraction": 0.76875,
+      "mean_token_entropy_bits": 3.367313740418896,
+      "prompt_count": 40
+    },
+    "parity": true,
+    "sampled": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7153543307086614,
+      "mean_distinct_3": 0.8033730158730158,
+      "mean_longest_repeated_substring": 10.25,
+      "mean_repeated_bigram_fraction": 0.28464566929133855,
+      "mean_repeated_trigram_fraction": 0.19662698412698415,
+      "mean_repeated_unigram_fraction": 0.5078125,
+      "mean_token_entropy_bits": 5.393278254498684,
+      "prompt_count": 40
+    }
+  },
+  "hidden_cosine": 0.9554722253408231,
+  "hypothesis": "Replay ratio 0% changes the instruction-adaptation vs base-retention trade-off at fixed 3e-4, constant, warmup 2% (one-variable test vs 10%).",
+  "instruction_score": -2.392953084074474,
+  "new_value": "0.0",
+  "notes": "Only the replay ratio differs from ar_001_baseline_mix.",
+  "old_value": "10.0",
+  "phase": "phase2_replay",
+  "proxy_nll": 3.8356288097981723,
+  "tokens_trained": 523041,
+  "top64_overlap": 0.79345703125,
+  "u_top64_overlap": 0.7275390625,
+  "validation_nll": 2.392953084074474,
+  "wall_seconds": 263.89534419999836,
+  "weight_drift": 0.049480066004175954
+}

@@ -1,0 +1,30 @@
+{
+  "akasha_parity": true,
+  "changed_variable": "none",
+  "checkpoint": "base",
+  "config": null,
+  "decision": "KEEP",
+  "decision_reasons": [
+    "all keep criteria met"
+  ],
+  "eval": {
+    "checkpoint": "base",
+    "generation": false
+  },
+  "experiment_id": "ar_000_base",
+  "generation": null,
+  "hidden_cosine": 1.0,
+  "hypothesis": "Reference point: the untouched frozen 2.5B checkpoint evaluated on the frozen four-source mixture validation split (dose 0).",
+  "instruction_score": -2.7623015702211644,
+  "new_value": "none",
+  "notes": "No training. Establishes BASE validation NLL on the mixture val set so all later experiments are comparable.",
+  "old_value": "none",
+  "phase": "baseline",
+  "proxy_nll": 3.7699046243295213,
+  "tokens_trained": null,
+  "top64_overlap": null,
+  "u_top64_overlap": null,
+  "validation_nll": 2.7623015702211644,
+  "wall_seconds": 115.74190680000174,
+  "weight_drift": 0.0
+}

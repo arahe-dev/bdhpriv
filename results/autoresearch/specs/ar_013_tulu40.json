@@ -1,0 +1,24 @@
+{
+  "experiment_id": "ar_013_tulu40",
+  "phase": "phase3_mixture",
+  "hypothesis": "Raising the tulu share from 25% to 40% (others 20%) changes instruction adaptation at fixed hyperparameters and dose (one component changed).",
+  "changed_variable": "mixture_weights",
+  "old_value": "bespoke:25,oasst:25,tulu:25,openhermes:25",
+  "new_value": "bespoke:20,oasst:20,tulu:40,openhermes:20",
+  "train": {
+    "lr": 0.0003,
+    "replay_pct": 10.0,
+    "scheduler": "constant",
+    "warmup_frac": 0.02,
+    "dose_tpp": "0.03",
+    "checkpoint_at": 521265,
+    "tokens_per_update": 8192,
+    "microbatch_rows": 1,
+    "mix": "mix_tulu40"
+  },
+  "eval": {
+    "native": true,
+    "params": true
+  },
+  "notes": "Only the tulu mixture weight differs from ar_001_baseline_mix."
+}

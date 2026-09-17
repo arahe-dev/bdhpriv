@@ -1,0 +1,495 @@
+{
+  "ar_001_baseline_mix": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_001_baseline_mix\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.294047619047619,
+      "mean_distinct_3": 0.3342741935483871,
+      "mean_longest_repeated_substring": 34.925,
+      "mean_repeated_bigram_fraction": 0.7059523809523809,
+      "mean_repeated_trigram_fraction": 0.665725806451613,
+      "mean_repeated_unigram_fraction": 0.771875,
+      "mean_token_entropy_bits": 3.360680330432829,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.6759842519685039,
+      "mean_distinct_3": 0.7684523809523809,
+      "mean_longest_repeated_substring": 11.425,
+      "mean_repeated_bigram_fraction": 0.3240157480314961,
+      "mean_repeated_trigram_fraction": 0.23154761904761906,
+      "mean_repeated_unigram_fraction": 0.542578125,
+      "mean_token_entropy_bits": 5.250419854896408,
+      "prompt_count": 40
+    }
+  },
+  "ar_002_lr1e4": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_002_lr1e4\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.2376984126984127,
+      "mean_distinct_3": 0.27056451612903226,
+      "mean_longest_repeated_substring": 38.425,
+      "mean_repeated_bigram_fraction": 0.7623015873015874,
+      "mean_repeated_trigram_fraction": 0.7294354838709677,
+      "mean_repeated_unigram_fraction": 0.815234375,
+      "mean_token_entropy_bits": 3.0572345520591133,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.675984251968504,
+      "mean_distinct_3": 0.7748015873015872,
+      "mean_longest_repeated_substring": 11.6,
+      "mean_repeated_bigram_fraction": 0.3240157480314961,
+      "mean_repeated_trigram_fraction": 0.2251984126984127,
+      "mean_repeated_unigram_fraction": 0.5482421875,
+      "mean_token_entropy_bits": 5.308605665775465,
+      "prompt_count": 40
+    }
+  },
+  "ar_003_lr2e4": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_003_lr2e4\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.26706349206349206,
+      "mean_distinct_3": 0.30443548387096775,
+      "mean_longest_repeated_substring": 35.175,
+      "mean_repeated_bigram_fraction": 0.7329365079365079,
+      "mean_repeated_trigram_fraction": 0.6955645161290323,
+      "mean_repeated_unigram_fraction": 0.79296875,
+      "mean_token_entropy_bits": 3.1763420709540227,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.662007874015748,
+      "mean_distinct_3": 0.7595238095238095,
+      "mean_longest_repeated_substring": 11.8,
+      "mean_repeated_bigram_fraction": 0.337992125984252,
+      "mean_repeated_trigram_fraction": 0.24047619047619045,
+      "mean_repeated_unigram_fraction": 0.560546875,
+      "mean_token_entropy_bits": 5.175550810664096,
+      "prompt_count": 40
+    }
+  },
+  "ar_004_lr5e4": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_004_lr5e4\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.27380952380952384,
+      "mean_distinct_3": 0.3133064516129032,
+      "mean_longest_repeated_substring": 34.45,
+      "mean_repeated_bigram_fraction": 0.7261904761904762,
+      "mean_repeated_trigram_fraction": 0.6866935483870968,
+      "mean_repeated_unigram_fraction": 0.7921875,
+      "mean_token_entropy_bits": 3.209683757502971,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.6511811023622047,
+      "mean_distinct_3": 0.741468253968254,
+      "mean_longest_repeated_substring": 13.8,
+      "mean_repeated_bigram_fraction": 0.3488188976377953,
+      "mean_repeated_trigram_fraction": 0.25853174603174606,
+      "mean_repeated_unigram_fraction": 0.5560546875,
+      "mean_token_entropy_bits": 5.229988972633647,
+      "prompt_count": 40
+    }
+  },
+  "ar_005_cosine": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_005_cosine\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.3123015873015873,
+      "mean_distinct_3": 0.3536290322580645,
+      "mean_longest_repeated_substring": 32.4,
+      "mean_repeated_bigram_fraction": 0.6876984126984127,
+      "mean_repeated_trigram_fraction": 0.6463709677419355,
+      "mean_repeated_unigram_fraction": 0.758203125,
+      "mean_token_entropy_bits": 3.3037748076814224,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.6679133858267716,
+      "mean_distinct_3": 0.7626984126984127,
+      "mean_longest_repeated_substring": 13.075,
+      "mean_repeated_bigram_fraction": 0.3320866141732284,
+      "mean_repeated_trigram_fraction": 0.2373015873015873,
+      "mean_repeated_unigram_fraction": 0.555078125,
+      "mean_token_entropy_bits": 5.220789274336157,
+      "prompt_count": 40
+    }
+  },
+  "ar_006_warmup0": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_006_warmup0\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.28134920634920635,
+      "mean_distinct_3": 0.31733870967741934,
+      "mean_longest_repeated_substring": 33.875,
+      "mean_repeated_bigram_fraction": 0.7186507936507937,
+      "mean_repeated_trigram_fraction": 0.6826612903225806,
+      "mean_repeated_unigram_fraction": 0.780859375,
+      "mean_token_entropy_bits": 3.289616701230789,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.6663385826771654,
+      "mean_distinct_3": 0.7628968253968254,
+      "mean_longest_repeated_substring": 9.875,
+      "mean_repeated_bigram_fraction": 0.3336614173228346,
+      "mean_repeated_trigram_fraction": 0.2371031746031746,
+      "mean_repeated_unigram_fraction": 0.5517578125,
+      "mean_token_entropy_bits": 5.2185129464353786,
+      "prompt_count": 40
+    }
+  },
+  "ar_007_warmup5": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_007_warmup5\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.2984126984126984,
+      "mean_distinct_3": 0.34475806451612906,
+      "mean_longest_repeated_substring": 31.55,
+      "mean_repeated_bigram_fraction": 0.7015873015873015,
+      "mean_repeated_trigram_fraction": 0.655241935483871,
+      "mean_repeated_unigram_fraction": 0.772265625,
+      "mean_token_entropy_bits": 3.357654207252554,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7025590551181102,
+      "mean_distinct_3": 0.8041666666666666,
+      "mean_longest_repeated_substring": 11.0,
+      "mean_repeated_bigram_fraction": 0.29744094488188977,
+      "mean_repeated_trigram_fraction": 0.19583333333333336,
+      "mean_repeated_unigram_fraction": 0.5296875,
+      "mean_token_entropy_bits": 5.3515368538685735,
+      "prompt_count": 40
+    }
+  },
+  "ar_008_replay0": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_008_replay0\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.30238095238095236,
+      "mean_distinct_3": 0.3471774193548387,
+      "mean_longest_repeated_substring": 32.7,
+      "mean_repeated_bigram_fraction": 0.6976190476190476,
+      "mean_repeated_trigram_fraction": 0.6528225806451613,
+      "mean_repeated_unigram_fraction": 0.76875,
+      "mean_token_entropy_bits": 3.367313740418896,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7153543307086614,
+      "mean_distinct_3": 0.8033730158730158,
+      "mean_longest_repeated_substring": 10.25,
+      "mean_repeated_bigram_fraction": 0.28464566929133855,
+      "mean_repeated_trigram_fraction": 0.19662698412698415,
+      "mean_repeated_unigram_fraction": 0.5078125,
+      "mean_token_entropy_bits": 5.393278254498684,
+      "prompt_count": 40
+    }
+  },
+  "ar_009_replay5": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_009_replay5\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.3007936507936508,
+      "mean_distinct_3": 0.34153225806451615,
+      "mean_longest_repeated_substring": 32.625,
+      "mean_repeated_bigram_fraction": 0.6992063492063492,
+      "mean_repeated_trigram_fraction": 0.6584677419354839,
+      "mean_repeated_unigram_fraction": 0.767578125,
+      "mean_token_entropy_bits": 3.344233053369057,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.6553149606299213,
+      "mean_distinct_3": 0.748015873015873,
+      "mean_longest_repeated_substring": 12.075,
+      "mean_repeated_bigram_fraction": 0.34468503937007877,
+      "mean_repeated_trigram_fraction": 0.251984126984127,
+      "mean_repeated_unigram_fraction": 0.559375,
+      "mean_token_entropy_bits": 5.246438199446697,
+      "prompt_count": 40
+    }
+  },
+  "ar_010_replay20": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_010_replay20\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.28293650793650793,
+      "mean_distinct_3": 0.3217741935483871,
+      "mean_longest_repeated_substring": 37.125,
+      "mean_repeated_bigram_fraction": 0.7170634920634921,
+      "mean_repeated_trigram_fraction": 0.6782258064516129,
+      "mean_repeated_unigram_fraction": 0.781640625,
+      "mean_token_entropy_bits": 3.297594001056441,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.6840551181102362,
+      "mean_distinct_3": 0.7694444444444445,
+      "mean_longest_repeated_substring": 11.425,
+      "mean_repeated_bigram_fraction": 0.3159448818897638,
+      "mean_repeated_trigram_fraction": 0.23055555555555557,
+      "mean_repeated_unigram_fraction": 0.52890625,
+      "mean_token_entropy_bits": 5.371279175837562,
+      "prompt_count": 40
+    }
+  },
+  "ar_011_bespoke40": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_011_bespoke40\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.3281746031746032,
+      "mean_distinct_3": 0.3842741935483871,
+      "mean_longest_repeated_substring": 30.0,
+      "mean_repeated_bigram_fraction": 0.6718253968253969,
+      "mean_repeated_trigram_fraction": 0.6157258064516129,
+      "mean_repeated_unigram_fraction": 0.75625,
+      "mean_token_entropy_bits": 3.5012100167150733,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.678740157480315,
+      "mean_distinct_3": 0.7740079365079364,
+      "mean_longest_repeated_substring": 12.5,
+      "mean_repeated_bigram_fraction": 0.32125984251968503,
+      "mean_repeated_trigram_fraction": 0.2259920634920635,
+      "mean_repeated_unigram_fraction": 0.537109375,
+      "mean_token_entropy_bits": 5.269441822387022,
+      "prompt_count": 40
+    }
+  },
+  "ar_012_oasst40": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_012_oasst40\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.33611111111111114,
+      "mean_distinct_3": 0.3915322580645161,
+      "mean_longest_repeated_substring": 27.825,
+      "mean_repeated_bigram_fraction": 0.663888888888889,
+      "mean_repeated_trigram_fraction": 0.6084677419354839,
+      "mean_repeated_unigram_fraction": 0.75234375,
+      "mean_token_entropy_bits": 3.5027292207619025,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7147637795275591,
+      "mean_distinct_3": 0.8041666666666666,
+      "mean_longest_repeated_substring": 10.0,
+      "mean_repeated_bigram_fraction": 0.2852362204724409,
+      "mean_repeated_trigram_fraction": 0.19583333333333336,
+      "mean_repeated_unigram_fraction": 0.5130859375,
+      "mean_token_entropy_bits": 5.444241588428502,
+      "prompt_count": 40
+    }
+  },
+  "ar_013_tulu40": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_013_tulu40\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.3079365079365079,
+      "mean_distinct_3": 0.3548387096774194,
+      "mean_longest_repeated_substring": 30.525,
+      "mean_repeated_bigram_fraction": 0.692063492063492,
+      "mean_repeated_trigram_fraction": 0.6451612903225806,
+      "mean_repeated_unigram_fraction": 0.769140625,
+      "mean_token_entropy_bits": 3.4099005150257775,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.6988188976377953,
+      "mean_distinct_3": 0.7960317460317461,
+      "mean_longest_repeated_substring": 10.15,
+      "mean_repeated_bigram_fraction": 0.30118110236220474,
+      "mean_repeated_trigram_fraction": 0.20396825396825397,
+      "mean_repeated_unigram_fraction": 0.5240234375,
+      "mean_token_entropy_bits": 5.359523642288905,
+      "prompt_count": 40
+    }
+  },
+  "ar_014_openhermes40": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_014_openhermes40\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.2869047619047619,
+      "mean_distinct_3": 0.3278225806451613,
+      "mean_longest_repeated_substring": 32.925,
+      "mean_repeated_bigram_fraction": 0.7130952380952381,
+      "mean_repeated_trigram_fraction": 0.6721774193548387,
+      "mean_repeated_unigram_fraction": 0.784765625,
+      "mean_token_entropy_bits": 3.2917872302059754,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7383858267716535,
+      "mean_distinct_3": 0.8341269841269842,
+      "mean_longest_repeated_substring": 8.05,
+      "mean_repeated_bigram_fraction": 0.26161417322834646,
+      "mean_repeated_trigram_fraction": 0.1658730158730159,
+      "mean_repeated_unigram_fraction": 0.496875,
+      "mean_token_entropy_bits": 5.485594798446975,
+      "prompt_count": 40
+    }
+  },
+  "ar_015_dose010": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_015_dose010\\dose_1737549.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.31666666666666665,
+      "mean_distinct_3": 0.35846774193548386,
+      "mean_longest_repeated_substring": 31.925,
+      "mean_repeated_bigram_fraction": 0.6833333333333333,
+      "mean_repeated_trigram_fraction": 0.6415322580645161,
+      "mean_repeated_unigram_fraction": 0.756640625,
+      "mean_token_entropy_bits": 3.521498167000055,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7450787401574803,
+      "mean_distinct_3": 0.8323412698412698,
+      "mean_longest_repeated_substring": 9.825,
+      "mean_repeated_bigram_fraction": 0.2549212598425197,
+      "mean_repeated_trigram_fraction": 0.16765873015873017,
+      "mean_repeated_unigram_fraction": 0.4943359375,
+      "mean_token_entropy_bits": 5.523336969792874,
+      "prompt_count": 40
+    }
+  },
+  "ar_016_dose030": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_016_dose030\\dose_5212647.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.45595238095238094,
+      "mean_distinct_3": 0.5181451612903226,
+      "mean_longest_repeated_substring": 22.0,
+      "mean_repeated_bigram_fraction": 0.5440476190476191,
+      "mean_repeated_trigram_fraction": 0.4818548387096774,
+      "mean_repeated_unigram_fraction": 0.66015625,
+      "mean_token_entropy_bits": 3.9776466570705757,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7494094488188977,
+      "mean_distinct_3": 0.840079365079365,
+      "mean_longest_repeated_substring": 10.3,
+      "mean_repeated_bigram_fraction": 0.25059055118110235,
+      "mean_repeated_trigram_fraction": 0.15992063492063494,
+      "mean_repeated_unigram_fraction": 0.481640625,
+      "mean_token_entropy_bits": 5.558265887018744,
+      "prompt_count": 40
+    }
+  },
+  "ar_017_dose040": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\autoresearch\\ar_017_dose040\\dose_6950196.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.3817460317460317,
+      "mean_distinct_3": 0.4370967741935484,
+      "mean_longest_repeated_substring": 25.65,
+      "mean_repeated_bigram_fraction": 0.6182539682539683,
+      "mean_repeated_trigram_fraction": 0.5629032258064516,
+      "mean_repeated_unigram_fraction": 0.71171875,
+      "mean_token_entropy_bits": 3.756999986399861,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7348425196850393,
+      "mean_distinct_3": 0.8220238095238095,
+      "mean_longest_repeated_substring": 11.525,
+      "mean_repeated_bigram_fraction": 0.26515748031496067,
+      "mean_repeated_trigram_fraction": 0.17797619047619045,
+      "mean_repeated_unigram_fraction": 0.4982421875,
+      "mean_token_entropy_bits": 5.478937010955632,
+      "prompt_count": 40
+    }
+  }
+}

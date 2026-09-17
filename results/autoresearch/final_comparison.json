@@ -1,0 +1,67 @@
+{
+  "best_config": {
+    "checkpoint_at": 1737549,
+    "dose_tpp": "0.10",
+    "lr": 0.0003,
+    "microbatch_rows": 1,
+    "mix": "mix_base",
+    "replay_pct": 10.0,
+    "scheduler": "constant",
+    "tokens_per_update": 8192,
+    "warmup_frac": 0.02
+  },
+  "best_experiment": "ar_015_dose010",
+  "format": "arm_a_autoresearch_final_comparison_v1",
+  "rows": [
+    {
+      "base": "2.7623",
+      "final": "2.2656",
+      "metric": "validation NLL (mixture val)"
+    },
+    {
+      "base": "3.7699",
+      "final": "3.5581",
+      "metric": "proxy (base-text) NLL"
+    },
+    {
+      "base": "1.0000",
+      "final": "0.9404",
+      "metric": "hidden cosine vs base"
+    },
+    {
+      "base": "0.0000",
+      "final": "0.1058",
+      "metric": "weight relative drift"
+    },
+    {
+      "base": "1.0000",
+      "final": "0.7344",
+      "metric": "x top-64 overlap vs base"
+    },
+    {
+      "base": "1.0000",
+      "final": "0.8517",
+      "metric": "x top-256 overlap vs base"
+    },
+    {
+      "base": "0.2044",
+      "final": "0.1677",
+      "metric": "sampled repeat-3gram"
+    },
+    {
+      "base": "0.7156",
+      "final": "0.7451",
+      "metric": "sampled distinct-2"
+    },
+    {
+      "base": "5.38",
+      "final": "5.52",
+      "metric": "sampled token entropy (bits)"
+    },
+    {
+      "base": "True",
+      "final": "True",
+      "metric": "Akasha greedy parity"
+    }
+  ]
+}
