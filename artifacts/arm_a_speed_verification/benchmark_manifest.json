@@ -1,0 +1,192 @@
+{
+  "purpose": "Arm-A sparse speed verification (cold/warm/long-run)",
+  "commit_head_at_run": "error: FileNotFoundError: [Errno 2] No such file or directory: 'git'",
+  "frozen_commit": "0dcbb878d24b99b5808359c889e97143c3cec00b",
+  "candidate_config": {
+    "architecture": "M8/Ke512/top1 fixed cyclic window, compact exact-capacity executor",
+    "source": "opt/routed_expert.py RoutedExpertArmA",
+    "microbatch_modes": {
+      "sparse_mb1": 1,
+      "sparse_mb2": 2
+    },
+    "dense_baseline": "opt/model_opt.py OptArmA opt3c flags, mb1",
+    "seed": 1337,
+    "global_sequences": 64,
+    "T": 2048,
+    "global_tokens_per_update": 131072,
+    "metric": "packed input tokens / elapsed wall of a full optimizer update (131072 tokens), CUDA-synchronized"
+  },
+  "protocol": {
+    "cold_runs": 5,
+    "warm_processes_per_path": 3,
+    "warm_windows": {
+      "dense_mb1": 10,
+      "sparse_mb1": 12,
+      "sparse_mb2": 12
+    },
+    "longrun_minutes": 12,
+    "sample_s": 30
+  },
+  "records": [
+    {
+      "run_id": "correctness",
+      "kind": "correctness",
+      "path": "sparse",
+      "microbatch": 1,
+      "label": "correctness",
+      "external_wall_s": 111.98960322199997,
+      "returncode": 0,
+      "timestamp": "2026-09-17T19:44:35.014615+00:00"
+    },
+    {
+      "run_id": "warm_dense_mb1_rep0",
+      "kind": "warm",
+      "path": "dense",
+      "microbatch": 1,
+      "label": "warm_dense_mb1_rep0",
+      "external_wall_s": 277.04260834,
+      "returncode": 0,
+      "timestamp": "2026-09-17T19:49:12.049237+00:00"
+    },
+    {
+      "run_id": "warm_sparse_mb1_rep0",
+      "kind": "warm",
+      "path": "sparse",
+      "microbatch": 1,
+      "label": "warm_sparse_mb1_rep0",
+      "external_wall_s": 95.24202826300007,
+      "returncode": 0,
+      "timestamp": "2026-09-17T19:50:47.305072+00:00"
+    },
+    {
+      "run_id": "warm_sparse_mb2_rep0",
+      "kind": "warm",
+      "path": "sparse",
+      "microbatch": 2,
+      "label": "warm_sparse_mb2_rep0",
+      "external_wall_s": 81.879650782,
+      "returncode": 0,
+      "timestamp": "2026-09-17T19:52:09.200486+00:00"
+    },
+    {
+      "run_id": "warm_dense_mb1_rep1",
+      "kind": "warm",
+      "path": "dense",
+      "microbatch": 1,
+      "label": "warm_dense_mb1_rep1",
+      "external_wall_s": 275.5127269640001,
+      "returncode": 0,
+      "timestamp": "2026-09-17T19:56:44.721929+00:00"
+    },
+    {
+      "run_id": "warm_sparse_mb1_rep1",
+      "kind": "warm",
+      "path": "sparse",
+      "microbatch": 1,
+      "label": "warm_sparse_mb1_rep1",
+      "external_wall_s": 107.98085979300004,
+      "returncode": 0,
+      "timestamp": "2026-09-17T19:58:32.716083+00:00"
+    },
+    {
+      "run_id": "warm_sparse_mb2_rep1",
+      "kind": "warm",
+      "path": "sparse",
+      "microbatch": 2,
+      "label": "warm_sparse_mb2_rep1",
+      "external_wall_s": 87.50722054900007,
+      "returncode": 0,
+      "timestamp": "2026-09-17T20:00:00.258048+00:00"
+    },
+    {
+      "run_id": "warm_sparse_mb1_rep2",
+      "kind": "warm",
+      "path": "sparse",
+      "microbatch": 1,
+      "label": "warm_sparse_mb1_rep2",
+      "external_wall_s": 107.58732057199995,
+      "returncode": 0,
+      "timestamp": "2026-09-17T20:01:47.857423+00:00"
+    },
+    {
+      "run_id": "warm_dense_mb1_rep2",
+      "kind": "warm",
+      "path": "dense",
+      "microbatch": 1,
+      "label": "warm_dense_mb1_rep2",
+      "external_wall_s": 275.532990124,
+      "returncode": 0,
+      "timestamp": "2026-09-17T20:06:23.385839+00:00"
+    },
+    {
+      "run_id": "warm_sparse_mb2_rep2",
+      "kind": "warm",
+      "path": "sparse",
+      "microbatch": 2,
+      "label": "warm_sparse_mb2_rep2",
+      "external_wall_s": 82.61432571199998,
+      "returncode": 0,
+      "timestamp": "2026-09-17T20:07:46.016768+00:00"
+    },
+    {
+      "run_id": "cold_sparse_0",
+      "kind": "cold",
+      "path": "sparse",
+      "microbatch": 2,
+      "label": "cold_sparse_0",
+      "external_wall_s": 23.31789121299994,
+      "returncode": 0,
+      "timestamp": "2026-09-17T20:08:09.354732+00:00"
+    },
+    {
+      "run_id": "cold_sparse_1",
+      "kind": "cold",
+      "path": "sparse",
+      "microbatch": 2,
+      "label": "cold_sparse_1",
+      "external_wall_s": 22.176238909000176,
+      "returncode": 0,
+      "timestamp": "2026-09-17T20:08:31.553735+00:00"
+    },
+    {
+      "run_id": "cold_sparse_2",
+      "kind": "cold",
+      "path": "sparse",
+      "microbatch": 2,
+      "label": "cold_sparse_2",
+      "external_wall_s": 21.515013012000054,
+      "returncode": 0,
+      "timestamp": "2026-09-17T20:08:53.096654+00:00"
+    },
+    {
+      "run_id": "cold_sparse_3",
+      "kind": "cold",
+      "path": "sparse",
+      "microbatch": 2,
+      "label": "cold_sparse_3",
+      "external_wall_s": 21.272217253999997,
+      "returncode": 0,
+      "timestamp": "2026-09-17T20:09:14.397004+00:00"
+    },
+    {
+      "run_id": "cold_sparse_4",
+      "kind": "cold",
+      "path": "sparse",
+      "microbatch": 2,
+      "label": "cold_sparse_4",
+      "external_wall_s": 21.404587330999902,
+      "returncode": 0,
+      "timestamp": "2026-09-17T20:09:35.821102+00:00"
+    },
+    {
+      "run_id": "longrun_sparse",
+      "kind": "longrun",
+      "path": "sparse",
+      "microbatch": 2,
+      "label": "longrun_sparse",
+      "external_wall_s": 749.083247901,
+      "returncode": 0,
+      "timestamp": "2026-09-17T20:22:04.886066+00:00"
+    }
+  ]
+}

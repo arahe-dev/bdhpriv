@@ -1,0 +1,15 @@
+{"window": 0, "tok_s": 37199.499260206605, "elapsed_s": 3.5234882889999426, "telemetry": "56, 1815 MHz, 7001 MHz, 34.28 W, 86 %, 63 %, 2709 MiB"}
+{"window": 1, "tok_s": 37246.29742493178, "elapsed_s": 3.519061197000042, "telemetry": "56, 1680 MHz, 7001 MHz, 34.88 W, 98 %, 70 %, 2709 MiB"}
+{"window": 2, "tok_s": 37300.90916136686, "elapsed_s": 3.513908989000015, "telemetry": "56, 1815 MHz, 7001 MHz, 34.97 W, 99 %, 72 %, 2709 MiB"}
+{"window": 3, "tok_s": 37196.10017880474, "elapsed_s": 3.52381027499996, "telemetry": "56, 1770 MHz, 7001 MHz, 34.57 W, 98 %, 70 %, 2709 MiB"}
+{"window": 4, "tok_s": 37204.332439515885, "elapsed_s": 3.5230305560000943, "telemetry": "56, 1770 MHz, 7001 MHz, 34.99 W, 98 %, 70 %, 2709 MiB"}
+{"window": 5, "tok_s": 37143.159209546924, "elapsed_s": 3.5288328400000637, "telemetry": "56, 1740 MHz, 7001 MHz, 34.92 W, 98 %, 72 %, 2709 MiB"}
+{"window": 6, "tok_s": 37198.049455207656, "elapsed_s": 3.5236256179999828, "telemetry": "56, 1845 MHz, 7001 MHz, 34.48 W, 97 %, 71 %, 2709 MiB"}
+{"window": 7, "tok_s": 37209.77206388291, "elapsed_s": 3.5225155310000673, "telemetry": "56, 1770 MHz, 7001 MHz, 33.98 W, 98 %, 71 %, 2709 MiB"}
+{"window": 8, "tok_s": 37228.134357264404, "elapsed_s": 3.520778095999958, "telemetry": "56, 1770 MHz, 7001 MHz, 34.92 W, 99 %, 70 %, 2709 MiB"}
+{"window": 9, "tok_s": 37095.46168899544, "elapsed_s": 3.533370229999946, "telemetry": "56, 1755 MHz, 7001 MHz, 34.92 W, 96 %, 69 %, 2709 MiB"}
+{"window": 10, "tok_s": 37230.65537305186, "elapsed_s": 3.520539691999943, "telemetry": "56, 1770 MHz, 7001 MHz, 34.90 W, 98 %, 73 %, 2709 MiB"}
+{"window": 11, "tok_s": 37201.64260351604, "elapsed_s": 3.523285286000032, "telemetry": "56, 1815 MHz, 7001 MHz, 34.86 W, 95 %, 70 %, 2709 MiB"}
+{"out": "/workspace/iclr-oc/artifacts/arm_a_speed_verification/runs/warm_sparse_mb2_rep0.json", "kind": "warm", "path": "sparse", "windows": 12, "samples": 0, "pass": null}
+
+--- STDERR ---

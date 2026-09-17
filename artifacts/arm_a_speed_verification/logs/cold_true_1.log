@@ -1,0 +1,2 @@
+W0917 20:33:52.242000 4176 site-packages/torch/_inductor/utils.py:1731] [0/0] Not enough SMs to use max_autotune_gemm mode
+{"out": "artifacts/arm_a_speed_verification/runs/cold_true_1.json", "kind": "cold", "path": "sparse", "windows": 0, "samples": 0, "pass": null}

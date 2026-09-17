@@ -1,0 +1,3 @@
+docker start iclr-arm-a
+docker exec -w /workspace/iclr-oc iclr-arm-a python opt/verify_speed_orchestrate.py
+host: py -3.12 opt/verify_speed_report.py

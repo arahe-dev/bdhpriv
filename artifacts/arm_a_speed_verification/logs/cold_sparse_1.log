@@ -1,0 +1,3 @@
+{"out": "/workspace/iclr-oc/artifacts/arm_a_speed_verification/runs/cold_sparse_1.json", "kind": "cold", "path": "sparse", "windows": 0, "samples": 0, "pass": null}
+
+--- STDERR ---

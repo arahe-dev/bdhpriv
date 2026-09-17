@@ -1,0 +1,3 @@
+{"out": "/workspace/iclr-oc/artifacts/arm_a_speed_verification/runs/warm_dense_mb1_rep0.json", "kind": "warm", "path": "dense", "windows": 10, "samples": 0, "pass": null}
+
+--- STDERR ---

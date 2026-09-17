@@ -1,0 +1,20 @@
+{
+  "diagnostic": "B=2 cross-row packed-document isolation test (CPU, fp32, exact code path)",
+  "config": {
+    "T": 64,
+    "D": 32,
+    "N": 128,
+    "H": 4,
+    "K": 32,
+    "M": 8,
+    "Ke": 4,
+    "B": 2
+  },
+  "max_abs_diff": {
+    "routed_B2_vs_per_row_reference": 0.0027788206934928894,
+    "dense_B2_vs_per_row_reference": 7.450580596923828e-08,
+    "routed_B2_seg_offset_vs_per_row_reference": 7.450580596923828e-08
+  },
+  "conclusion": "routed executor concatenates rows into expert streams without offsetting segment_start, so identical segment values from different rows are treated as the same document (cross-row attention leakage). Dense path is per-row exact. B=1 routed is exact; B>1 routed violates declared packed-document semantics.",
+  "impact": "all sparse measured configurations with microbatch>1 (mb2, mb4, planned G4 B8/B16/B32) are numerically invalid as declared semantics; mb1 (B=1) measurements remain valid"
+}
