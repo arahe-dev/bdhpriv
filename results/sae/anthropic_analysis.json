@@ -1,0 +1,244 @@
+{
+  "note": "public feature-level data; not SAE weights",
+  "monosemantic_2023": {
+    "rows": 2149712,
+    "columns": [
+      "model",
+      "run",
+      "feature_index",
+      "concept",
+      "autointerp",
+      "density",
+      "max_activation",
+      "top_positive_logits",
+      "top_negative_logits"
+    ],
+    "density": {
+      "p0.1": 9.99999993922529e-09,
+      "p1": 9.99999993922529e-09,
+      "p5": 1.0000000116860974e-07,
+      "p10": 7.401000061690866e-07,
+      "p25": 4.0499999158782884e-06,
+      "p50": 4.329000148572959e-05,
+      "p75": 0.0003189000126440078,
+      "p90": 0.001339999958872795,
+      "p95": 0.0031900000758469105,
+      "p99": 0.028219999745488167,
+      "p99.9": 0.10040000081062317,
+      "mean": 0.001293948213650768,
+      "std": 0.011747728861171272,
+      "min": 9.99999993922529e-09,
+      "max": 0.9948999881744385,
+      "n": 2149712
+    },
+    "max_activation": {
+      "p0.1": 0.0028111329849343754,
+      "p1": 0.03911000117659569,
+      "p5": 0.7760000228881836,
+      "p10": 1.9600000381469727,
+      "p25": 3.8320000171661377,
+      "p50": 5.918000221252441,
+      "p75": 8.26099967956543,
+      "p90": 10.4399995803833,
+      "p95": 11.890000343322754,
+      "p99": 14.770000457763672,
+      "p99.9": 18.40999984741211,
+      "mean": 6.138843098991688,
+      "std": 3.297676775609861,
+      "min": 7.153000183279801e-07,
+      "max": 29.010000228881836,
+      "n": 2149712
+    },
+    "density_gini": 0.925867334687108,
+    "density_lorenz_top_share": {
+      "0.001": 0.20176163763108806,
+      "0.01": 0.5355634705423377,
+      "0.05": 0.8129531366639144,
+      "0.1": 0.8912017083045024,
+      "0.25": 0.9697959949479725,
+      "0.5": 0.9963677653494261
+    },
+    "density_fraction_zero": 0.0,
+    "non_null": {
+      "model": 2149712,
+      "run": 2149712,
+      "feature_index": 2149712,
+      "concept": 2149712,
+      "autointerp": 2149712,
+      "density": 2149712,
+      "max_activation": 2149712,
+      "top_positive_logits": 2149712,
+      "top_negative_logits": 2149712
+    },
+    "by_model": {
+      "claude-1-sae": {
+        "n": 2149712,
+        "density_median": 4.329000148572959e-05,
+        "density_mean": 0.001293948213650768,
+        "density_p90": 0.001339999958872795,
+        "gini": 0.925867334687108
+      }
+    },
+    "spearman_density_vs_max_activation": 0.0393214387413045,
+    "rank_frequency": {
+      "loglog_slope_top10k": -0.59442145789762,
+      "effective_number_exp_entropy": 6869.485568813065
+    }
+  },
+  "anthropic_concepts": {
+    "rows": 2999,
+    "columns": [
+      "model",
+      "feature_index",
+      "concept",
+      "group",
+      "top_activation_text",
+      "top_activation_token",
+      "top_activation_value"
+    ],
+    "by_model": {
+      "claude-3-sonnet-34m": 1047,
+      "claude-3-sonnet-1m": 982,
+      "claude-3-sonnet-4m": 970
+    },
+    "by_group": {
+      "random": 2866,
+      "safety": 83,
+      "paper": 50
+    },
+    "top_activation_value": {
+      "p0.1": 0.5037599905729294,
+      "p1": 0.9100000262260437,
+      "p5": 1.0,
+      "p10": 1.0,
+      "p25": 1.0,
+      "p50": 1.0,
+      "p75": 1.0,
+      "p90": 1.0,
+      "p95": 1.0,
+      "p99": 1.0,
+      "p99.9": 1.0,
+      "mean": 0.99703517592133,
+      "std": 0.03570238654337391,
+      "min": 0.07000000029802322,
+      "max": 1.0,
+      "n": 2985
+    },
+    "non_null": {
+      "model": 2999,
+      "feature_index": 2999,
+      "concept": 2999,
+      "group": 2999,
+      "top_activation_text": 2985,
+      "top_activation_token": 2985,
+      "top_activation_value": 2985
+    },
+    "top_tokens": {
+      ",": 96,
+      ".": 91,
+      " of": 54,
+      " to": 52,
+      " the": 51,
+      " and": 47,
+      "\n": 39,
+      " in": 34,
+      " \"": 31,
+      "-": 29,
+      " is": 25,
+      "/": 25,
+      " a": 24,
+      ".\"": 23,
+      " for": 23,
+      " that": 17,
+      " it": 16,
+      " you": 14,
+      "'s": 13,
+      " on": 13,
+      " are": 13,
+      "\"": 13,
+      " (": 12,
+      ")": 12,
+      ":": 11,
+      " or": 11,
+      " at": 10,
+      " from": 10,
+      " be": 9,
+      " but": 9,
+      "_": 9,
+      " was": 8,
+      " I": 8,
+      " The": 8,
+      " with": 8,
+      "1": 8,
+      "4": 7,
+      " they": 7,
+      "=": 7,
+      " by": 7,
+      " have": 7,
+      " as": 6,
+      " not": 6,
+      "'t": 6,
+      "]": 6,
+      " so": 6,
+      " their": 6,
+      " 8": 6,
+      " do": 5,
+      " an": 5
+    },
+    "group_x_model": [
+      {
+        "group": "paper",
+        "model": "claude-3-sonnet-1m",
+        "n": 22
+      },
+      {
+        "group": "paper",
+        "model": "claude-3-sonnet-34m",
+        "n": 22
+      },
+      {
+        "group": "paper",
+        "model": "claude-3-sonnet-4m",
+        "n": 6
+      },
+      {
+        "group": "random",
+        "model": "claude-3-sonnet-1m",
+        "n": 938
+      },
+      {
+        "group": "random",
+        "model": "claude-3-sonnet-34m",
+        "n": 964
+      },
+      {
+        "group": "random",
+        "model": "claude-3-sonnet-4m",
+        "n": 964
+      },
+      {
+        "group": "safety",
+        "model": "claude-3-sonnet-1m",
+        "n": 22
+      },
+      {
+        "group": "safety",
+        "model": "claude-3-sonnet-34m",
+        "n": 61
+      }
+    ]
+  },
+  "cross_file": {
+    "concept_feature_indices_digit_int": 2998,
+    "monosemantic_first_200k_distinct": 128559,
+    "intersection": 147,
+    "models_in_monosemantic": [
+      "claude-1-sae"
+    ],
+    "models_in_concepts": [
+      "claude-3-sonnet-1m",
+      "claude-3-sonnet-34m",
+      "claude-3-sonnet-4m"
+    ]
+  }
+}

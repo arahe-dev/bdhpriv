@@ -1,0 +1,40 @@
+{
+  "created_at": "2026-09-17",
+  "est_total_hours": 0.98,
+  "est_total_seconds": 3518.5,
+  "eval_overhead_note": "eval+generation ~3.5 min per checkpoint; 12 checkpoints ~42 min",
+  "format": "arm_a_sft_probe_runtime_estimate_v1",
+  "measured_target_tok_s": 9021.485762256736,
+  "measured_total_tok_s": 10600.0,
+  "measurement_source": "bench_eager/bench_compile runs on the local RTX 4060 Laptop",
+  "phase_a_seconds": 173.4,
+  "phase_b_seconds": 403.4,
+  "phase_c_seconds": 421.7,
+  "segments": {
+    "a1_3e5": {
+      "seconds": 57.8,
+      "sequence_tokens": 612471
+    },
+    "a2_1e4": {
+      "seconds": 57.8,
+      "sequence_tokens": 612471
+    },
+    "a3_3e4": {
+      "seconds": 57.8,
+      "sequence_tokens": 612471
+    },
+    "b1": {
+      "seconds": 192.6,
+      "sequence_tokens": 2041572
+    },
+    "b2": {
+      "seconds": 210.8,
+      "sequence_tokens": 2234764
+    },
+    "c": {
+      "seconds": 421.7,
+      "sequence_tokens": 4469528
+    }
+  },
+  "sequence_target_ratio": 1.1749727571867714
+}

@@ -1,0 +1,802 @@
+{
+  "base_checkpoint": "C:\\iclr-oc\\runs\\arm_a_2p5b_opt3c_all\\ckpt\\latest.pt",
+  "base_checkpoint_sha256": "fe7e6c2c6ac0d12630018812f735486c45003678adbfcb4a88a476d886c47efb",
+  "created_at": "2026-09-17T06:10:44Z",
+  "format": "arm_a_sft_probe_parameter_drift_v1",
+  "points": {
+    "a1_3e5_dose003": {
+      "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\a1_3e5\\dose_521265.pt",
+      "groups": {
+        "TOTAL": {
+          "base_norm": 335.79454780034905,
+          "cosine_base_vs_sft": 0.9999848561190765,
+          "delta_norm": 1.8487438654490178,
+          "param_count": 17375489,
+          "relative_update_norm": 0.0055055803542951275
+        },
+        "coordinator.Wc": {
+          "base_norm": 15.202032959486642,
+          "cosine_base_vs_sft": 0.9999702396502264,
+          "delta_norm": 0.11730954701507544,
+          "param_count": 65536,
+          "relative_update_norm": 0.007716701268028093,
+          "sft_norm": 15.199052036768077
+        },
+        "coordinator.alpha": {
+          "base_norm": 1.534350037574768,
+          "cosine_base_vs_sft": 1.0,
+          "delta_norm": 0.0005513429641723633,
+          "param_count": 1,
+          "relative_update_norm": 0.0003593332360090594,
+          "sft_norm": 1.5337986946105957
+        },
+        "coordinator.bc": {
+          "base_norm": 1.5681331231361226,
+          "cosine_base_vs_sft": 0.9999972358272327,
+          "delta_norm": 0.0036874957182173426,
+          "param_count": 256,
+          "relative_update_norm": 0.0023515195641315764,
+          "sft_norm": 1.5680721104347266
+        },
+        "decoder_x": {
+          "base_norm": 153.32804075971958,
+          "cosine_base_vs_sft": 0.9999860330094775,
+          "delta_norm": 0.8108777320974644,
+          "param_count": 4194304,
+          "relative_update_norm": 0.0052885155779704455,
+          "sft_norm": 153.29737401014214
+        },
+        "decoder_y": {
+          "base_norm": 142.63681814976368,
+          "cosine_base_vs_sft": 0.9999835026880218,
+          "delta_norm": 0.8197549274763135,
+          "param_count": 4194304,
+          "relative_update_norm": 0.005747148163495903,
+          "sft_norm": 142.60764315212168
+        },
+        "embedding": {
+          "base_norm": 92.12324276583752,
+          "cosine_base_vs_sft": 0.999994062687713,
+          "delta_norm": 0.31803368946099814,
+          "param_count": 2097152,
+          "relative_update_norm": 0.0034522632933079514,
+          "sft_norm": 92.10347479418452
+        },
+        "encoder": {
+          "base_norm": 132.96296194928797,
+          "cosine_base_vs_sft": 0.9999804168439719,
+          "delta_norm": 0.8325436007186222,
+          "param_count": 4194304,
+          "relative_update_norm": 0.006261470025285342,
+          "sft_norm": 132.93373950061448
+        },
+        "readout": {
+          "base_norm": 202.67338161180885,
+          "cosine_base_vs_sft": 0.9999857843989673,
+          "delta_norm": 1.0808259811679397,
+          "param_count": 2097152,
+          "relative_update_norm": 0.005332846240450576,
+          "sft_norm": 202.65209283239932
+        },
+        "writer.W1": {
+          "base_norm": 29.7259920011666,
+          "cosine_base_vs_sft": 0.9999660184637235,
+          "delta_norm": 0.2450731812984146,
+          "param_count": 266240,
+          "relative_update_norm": 0.008244407160198277,
+          "sft_norm": 29.722268546753757
+        },
+        "writer.W2": {
+          "base_norm": 23.26667052387143,
+          "cosine_base_vs_sft": 0.9999519422476202,
+          "delta_norm": 0.22811766829525848,
+          "param_count": 266240,
+          "relative_update_norm": 0.009804482685273402,
+          "sft_norm": 23.26273283636397
+        }
+      },
+      "sft_meta": {
+        "arm": "a1_3e5",
+        "instruction_target_tokens": 522619,
+        "lr": 3e-05,
+        "replay_pct": 0.0,
+        "updates_done": 83
+      }
+    },
+    "a2_1e4_dose003": {
+      "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\a2_1e4\\dose_521265.pt",
+      "groups": {
+        "TOTAL": {
+          "base_norm": 335.79454780034905,
+          "cosine_base_vs_sft": 0.9998815749939256,
+          "delta_norm": 5.169127581564412,
+          "param_count": 17375489,
+          "relative_update_norm": 0.015393720998227115
+        },
+        "coordinator.Wc": {
+          "base_norm": 15.202032959486642,
+          "cosine_base_vs_sft": 0.9998229235424788,
+          "delta_norm": 0.2861436612279962,
+          "param_count": 65536,
+          "relative_update_norm": 0.01882272338117987,
+          "sft_norm": 15.193011503125074
+        },
+        "coordinator.alpha": {
+          "base_norm": 1.534350037574768,
+          "cosine_base_vs_sft": 1.0,
+          "delta_norm": 0.0011057853698730469,
+          "param_count": 1,
+          "relative_update_norm": 0.0007206865075070346,
+          "sft_norm": 1.533244252204895
+        },
+        "coordinator.bc": {
+          "base_norm": 1.5681331231361226,
+          "cosine_base_vs_sft": 0.9999661578750852,
+          "delta_norm": 0.012902441879588961,
+          "param_count": 256,
+          "relative_update_norm": 0.00822789958915303,
+          "sft_norm": 1.5678865494210665
+        },
+        "decoder_x": {
+          "base_norm": 153.32804075971958,
+          "cosine_base_vs_sft": 0.999902738659274,
+          "delta_norm": 2.1399771174066946,
+          "param_count": 4194304,
+          "relative_update_norm": 0.013956854250555862,
+          "sft_norm": 153.23191336387757
+        },
+        "decoder_y": {
+          "base_norm": 142.63681814976368,
+          "cosine_base_vs_sft": 0.9998889363102498,
+          "delta_norm": 2.1271696047171127,
+          "param_count": 4194304,
+          "relative_update_norm": 0.014913187438629336,
+          "sft_norm": 142.5444141184564
+        },
+        "embedding": {
+          "base_norm": 92.12324276583752,
+          "cosine_base_vs_sft": 0.999940926012504,
+          "delta_norm": 1.0029471654341044,
+          "param_count": 2097152,
+          "relative_update_norm": 0.010887015429791536,
+          "sft_norm": 92.06081668431871
+        },
+        "encoder": {
+          "base_norm": 132.96296194928797,
+          "cosine_base_vs_sft": 0.9998704160938489,
+          "delta_norm": 2.1416475801201265,
+          "param_count": 4194304,
+          "relative_update_norm": 0.016107098914786136,
+          "sft_norm": 132.874424369332
+        },
+        "readout": {
+          "base_norm": 202.67338161180885,
+          "cosine_base_vs_sft": 0.9998614567681258,
+          "delta_norm": 3.3735837628567635,
+          "param_count": 2097152,
+          "relative_update_norm": 0.016645421002144074,
+          "sft_norm": 202.634634153626
+        },
+        "writer.W1": {
+          "base_norm": 29.7259920011666,
+          "cosine_base_vs_sft": 0.9998161897095034,
+          "delta_norm": 0.5699890537805996,
+          "param_count": 266240,
+          "relative_update_norm": 0.019174769802744695,
+          "sft_norm": 29.711861403439272
+        },
+        "writer.W2": {
+          "base_norm": 23.26667052387143,
+          "cosine_base_vs_sft": 0.9997829846359848,
+          "delta_norm": 0.4847361891559379,
+          "param_count": 266240,
+          "relative_update_norm": 0.020833930177444265,
+          "sft_norm": 23.25550901227667
+        }
+      },
+      "sft_meta": {
+        "arm": "a2_1e4",
+        "instruction_target_tokens": 522619,
+        "lr": 0.0001,
+        "replay_pct": 0.0,
+        "updates_done": 83
+      }
+    },
+    "a3_3e4_dose003": {
+      "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\a3_3e4\\dose_521265.pt",
+      "groups": {
+        "TOTAL": {
+          "base_norm": 335.79454780034905,
+          "cosine_base_vs_sft": 0.9992162086201947,
+          "delta_norm": 13.292435985047444,
+          "param_count": 17375489,
+          "relative_update_norm": 0.03958502623738439
+        },
+        "coordinator.Wc": {
+          "base_norm": 15.202032959486642,
+          "cosine_base_vs_sft": 0.9989599821032005,
+          "delta_norm": 0.6931557223972618,
+          "param_count": 65536,
+          "relative_update_norm": 0.04559625178056902,
+          "sft_norm": 15.182376126431096
+        },
+        "coordinator.alpha": {
+          "base_norm": 1.534350037574768,
+          "cosine_base_vs_sft": 1.0,
+          "delta_norm": 0.001122117042541504,
+          "param_count": 1,
+          "relative_update_norm": 0.0007313305406601678,
+          "sft_norm": 1.5332279205322266
+        },
+        "coordinator.bc": {
+          "base_norm": 1.5681331231361226,
+          "cosine_base_vs_sft": 0.9997354412951641,
+          "delta_norm": 0.036146145343325935,
+          "param_count": 256,
+          "relative_update_norm": 0.02305043163110856,
+          "sft_norm": 1.5700834808420148
+        },
+        "decoder_x": {
+          "base_norm": 153.32804075971958,
+          "cosine_base_vs_sft": 0.9993865226000946,
+          "delta_norm": 5.37160696280304,
+          "param_count": 4194304,
+          "relative_update_norm": 0.035033428563930366,
+          "sft_norm": 153.10007444676026
+        },
+        "decoder_y": {
+          "base_norm": 142.63681814976368,
+          "cosine_base_vs_sft": 0.9993108993279664,
+          "delta_norm": 5.295698356511994,
+          "param_count": 4194304,
+          "relative_update_norm": 0.037127148692784884,
+          "sft_norm": 142.41930058228388
+        },
+        "embedding": {
+          "base_norm": 92.12324276583752,
+          "cosine_base_vs_sft": 0.9995297866554422,
+          "delta_norm": 2.827205957117975,
+          "param_count": 2097152,
+          "relative_update_norm": 0.030689388174320764,
+          "sft_norm": 91.96220343418416
+        },
+        "encoder": {
+          "base_norm": 132.96296194928797,
+          "cosine_base_vs_sft": 0.9992113256202388,
+          "delta_norm": 5.280571616840285,
+          "param_count": 4194304,
+          "relative_update_norm": 0.03971460577761717,
+          "sft_norm": 132.76192563893028
+        },
+        "readout": {
+          "base_norm": 202.67338161180885,
+          "cosine_base_vs_sft": 0.9990172115709066,
+          "delta_norm": 8.987000816388695,
+          "param_count": 2097152,
+          "relative_update_norm": 0.04434228483739408,
+          "sft_norm": 202.73273340806892
+        },
+        "writer.W1": {
+          "base_norm": 29.7259920011666,
+          "cosine_base_vs_sft": 0.9990713425847365,
+          "delta_norm": 1.2807935483316972,
+          "param_count": 266240,
+          "relative_update_norm": 0.043086654543990736,
+          "sft_norm": 29.695834132050038
+        },
+        "writer.W2": {
+          "base_norm": 23.26667052387143,
+          "cosine_base_vs_sft": 0.9990534647346054,
+          "delta_norm": 1.0121034533893358,
+          "param_count": 266240,
+          "relative_update_norm": 0.043500141214916216,
+          "sft_norm": 23.251537403729863
+        }
+      },
+      "sft_meta": {
+        "arm": "a3_3e4",
+        "instruction_target_tokens": 522619,
+        "lr": 0.0003,
+        "replay_pct": 0.0,
+        "updates_done": 83
+      }
+    },
+    "b1_rep0_dose010": {
+      "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\b1_rep0\\dose_1737549.pt",
+      "groups": {
+        "TOTAL": {
+          "base_norm": 335.79454780034905,
+          "cosine_base_vs_sft": 0.9961367844741362,
+          "delta_norm": 29.508479536851386,
+          "param_count": 17375489,
+          "relative_update_norm": 0.08787658921250868
+        },
+        "coordinator.Wc": {
+          "base_norm": 15.202032959486642,
+          "cosine_base_vs_sft": 0.9962321108909729,
+          "delta_norm": 1.3185554023810035,
+          "param_count": 65536,
+          "relative_update_norm": 0.0867354653088142,
+          "sft_norm": 15.126386506642444
+        },
+        "coordinator.alpha": {
+          "base_norm": 1.534350037574768,
+          "cosine_base_vs_sft": 1.0,
+          "delta_norm": 0.00027120113372802734,
+          "param_count": 1,
+          "relative_update_norm": 0.00017675310528013192,
+          "sft_norm": 1.534621238708496
+        },
+        "coordinator.bc": {
+          "base_norm": 1.5681331231361226,
+          "cosine_base_vs_sft": 0.9989078675620467,
+          "delta_norm": 0.0734628650400114,
+          "param_count": 256,
+          "relative_update_norm": 0.046847339652575155,
+          "sft_norm": 1.5717616385498616
+        },
+        "decoder_x": {
+          "base_norm": 153.32804075971958,
+          "cosine_base_vs_sft": 0.9978270725036642,
+          "delta_norm": 10.113459674800952,
+          "param_count": 4194304,
+          "relative_update_norm": 0.06595962241929222,
+          "sft_norm": 152.52132684843377
+        },
+        "decoder_y": {
+          "base_norm": 142.63681814976368,
+          "cosine_base_vs_sft": 0.9975842344975812,
+          "delta_norm": 9.91784589039669,
+          "param_count": 4194304,
+          "relative_update_norm": 0.06953215880056507,
+          "sft_norm": 141.86371233600565
+        },
+        "embedding": {
+          "base_norm": 92.12324276583752,
+          "cosine_base_vs_sft": 0.9981810830412365,
+          "delta_norm": 5.568996629301644,
+          "param_count": 2097152,
+          "relative_update_norm": 0.060451591391079654,
+          "sft_norm": 91.54503746860908
+        },
+        "encoder": {
+          "base_norm": 132.96296194928797,
+          "cosine_base_vs_sft": 0.9971518528507715,
+          "delta_norm": 10.033260814361286,
+          "param_count": 4194304,
+          "relative_update_norm": 0.07545906519582475,
+          "sft_norm": 132.26162207097178
+        },
+        "readout": {
+          "base_norm": 202.67338161180885,
+          "cosine_base_vs_sft": 0.993646119988043,
+          "delta_norm": 22.989563813942052,
+          "param_count": 2097152,
+          "relative_update_norm": 0.11343158944263924,
+          "sft_norm": 204.24710078609192
+        },
+        "writer.W1": {
+          "base_norm": 29.7259920011666,
+          "cosine_base_vs_sft": 0.9971160389312936,
+          "delta_norm": 2.2561580225256286,
+          "param_count": 266240,
+          "relative_update_norm": 0.0758984938984403,
+          "sft_norm": 29.610889212364608
+        },
+        "writer.W2": {
+          "base_norm": 23.26667052387143,
+          "cosine_base_vs_sft": 0.9971601419252999,
+          "delta_norm": 1.7522289399402622,
+          "param_count": 266240,
+          "relative_update_norm": 0.07531068693917715,
+          "sft_norm": 23.205705184291176
+        }
+      },
+      "sft_meta": {
+        "arm": "b1_rep0",
+        "instruction_target_tokens": 1739241,
+        "lr": 0.0003,
+        "replay_pct": 0.0,
+        "updates_done": 275
+      }
+    },
+    "b2_rep10_dose010": {
+      "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\b2_rep10\\dose_1737549.pt",
+      "groups": {
+        "TOTAL": {
+          "base_norm": 335.79454780034905,
+          "cosine_base_vs_sft": 0.9957846400346846,
+          "delta_norm": 30.808480267408136,
+          "param_count": 17375489,
+          "relative_update_norm": 0.091748006241381
+        },
+        "coordinator.Wc": {
+          "base_norm": 15.202032959486642,
+          "cosine_base_vs_sft": 0.9956383227956691,
+          "delta_norm": 1.418403222720916,
+          "param_count": 65536,
+          "relative_update_norm": 0.09330352239736324,
+          "sft_norm": 15.118955296594175
+        },
+        "coordinator.alpha": {
+          "base_norm": 1.534350037574768,
+          "cosine_base_vs_sft": 1.0,
+          "delta_norm": 0.0037113428115844727,
+          "param_count": 1,
+          "relative_update_norm": 0.0024188371106313613,
+          "sft_norm": 1.5306386947631836
+        },
+        "coordinator.bc": {
+          "base_norm": 1.5681331231361226,
+          "cosine_base_vs_sft": 0.9986708842940485,
+          "delta_norm": 0.08158219652895257,
+          "param_count": 256,
+          "relative_update_norm": 0.052025045147822434,
+          "sft_norm": 1.5771528321558688
+        },
+        "decoder_x": {
+          "base_norm": 153.32804075971958,
+          "cosine_base_vs_sft": 0.9974841020008428,
+          "delta_norm": 10.881668310430236,
+          "param_count": 4194304,
+          "relative_update_norm": 0.07096985167561687,
+          "sft_norm": 152.42792308700908
+        },
+        "decoder_y": {
+          "base_norm": 142.63681814976368,
+          "cosine_base_vs_sft": 0.9971981649991801,
+          "delta_norm": 10.679580815500424,
+          "param_count": 4194304,
+          "relative_update_norm": 0.07487253960115148,
+          "sft_norm": 141.7843724308447
+        },
+        "embedding": {
+          "base_norm": 92.12324276583752,
+          "cosine_base_vs_sft": 0.9978949527182448,
+          "delta_norm": 5.991285043869304,
+          "param_count": 2097152,
+          "relative_update_norm": 0.06503554221488043,
+          "sft_norm": 91.4784003020748
+        },
+        "encoder": {
+          "base_norm": 132.96296194928797,
+          "cosine_base_vs_sft": 0.9966045653271521,
+          "delta_norm": 10.952101867551644,
+          "param_count": 4194304,
+          "relative_update_norm": 0.08236956899116592,
+          "sft_norm": 132.20235882201854
+        },
+        "readout": {
+          "base_norm": 202.67338161180885,
+          "cosine_base_vs_sft": 0.9933525688517956,
+          "delta_norm": 23.444318850965473,
+          "param_count": 2097152,
+          "relative_update_norm": 0.11567537219006702,
+          "sft_norm": 203.63800288470605
+        },
+        "writer.W1": {
+          "base_norm": 29.7259920011666,
+          "cosine_base_vs_sft": 0.9967242789701309,
+          "delta_norm": 2.4042497207786555,
+          "param_count": 266240,
+          "relative_update_norm": 0.08088038645385831,
+          "sft_norm": 29.600025287353557
+        },
+        "writer.W2": {
+          "base_norm": 23.26667052387143,
+          "cosine_base_vs_sft": 0.996836914760864,
+          "delta_norm": 1.8491167468414822,
+          "param_count": 266240,
+          "relative_update_norm": 0.07947491863712525,
+          "sft_norm": 23.20033445515278
+        }
+      },
+      "sft_meta": {
+        "arm": "b2_rep10",
+        "instruction_target_tokens": 1742478,
+        "lr": 0.0003,
+        "replay_pct": 10.0,
+        "updates_done": 306
+      }
+    },
+    "c_dose030": {
+      "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\c_dose030_from_b2_rep10\\dose_5212647.pt",
+      "groups": {
+        "TOTAL": {
+          "base_norm": 335.79454780034905,
+          "cosine_base_vs_sft": 0.9835622363450915,
+          "delta_norm": 60.85425403608075,
+          "param_count": 17375489,
+          "relative_update_norm": 0.18122466381515648
+        },
+        "coordinator.Wc": {
+          "base_norm": 15.202032959486642,
+          "cosine_base_vs_sft": 0.986082179876869,
+          "delta_norm": 2.5277895911041086,
+          "param_count": 65536,
+          "relative_update_norm": 0.16627970731550562,
+          "sft_norm": 14.950214228642306
+        },
+        "coordinator.alpha": {
+          "base_norm": 1.534350037574768,
+          "cosine_base_vs_sft": 1.0,
+          "delta_norm": 0.012967824935913086,
+          "param_count": 1,
+          "relative_update_norm": 0.008451673098278378,
+          "sft_norm": 1.521382212638855
+        },
+        "coordinator.bc": {
+          "base_norm": 1.5681331231361226,
+          "cosine_base_vs_sft": 0.9958978892621713,
+          "delta_norm": 0.14406420198786715,
+          "param_count": 256,
+          "relative_update_norm": 0.09186988009012395,
+          "sft_norm": 1.5866274073952584
+        },
+        "decoder_x": {
+          "base_norm": 153.32804075971958,
+          "cosine_base_vs_sft": 0.992430814586064,
+          "delta_norm": 18.891342056752816,
+          "param_count": 4194304,
+          "relative_update_norm": 0.12320865748462438,
+          "sft_norm": 150.63960620849068
+        },
+        "decoder_y": {
+          "base_norm": 142.63681814976368,
+          "cosine_base_vs_sft": 0.9913841101874876,
+          "delta_norm": 18.72705118093865,
+          "param_count": 4194304,
+          "relative_update_norm": 0.13129184612962902,
+          "sft_norm": 140.13207029036803
+        },
+        "embedding": {
+          "base_norm": 92.12324276583752,
+          "cosine_base_vs_sft": 0.9932239640169287,
+          "delta_norm": 10.78667970020662,
+          "param_count": 2097152,
+          "relative_update_norm": 0.11708966571687697,
+          "sft_norm": 90.18376951081858
+        },
+        "encoder": {
+          "base_norm": 132.96296194928797,
+          "cosine_base_vs_sft": 0.9893472314978923,
+          "delta_norm": 19.37278202753621,
+          "param_count": 4194304,
+          "relative_update_norm": 0.1457005901758189,
+          "sft_norm": 130.74206897101763
+        },
+        "readout": {
+          "base_norm": 202.67338161180885,
+          "cosine_base_vs_sft": 0.9710444172467322,
+          "delta_norm": 49.741041951785164,
+          "param_count": 2097152,
+          "relative_update_norm": 0.2454246411453125,
+          "sft_norm": 208.19884023924578
+        },
+        "writer.W1": {
+          "base_norm": 29.7259920011666,
+          "cosine_base_vs_sft": 0.9916196025168372,
+          "delta_norm": 3.843020611439645,
+          "param_count": 266240,
+          "relative_update_norm": 0.12928149248270082,
+          "sft_norm": 29.33388108252672
+        },
+        "writer.W2": {
+          "base_norm": 23.26667052387143,
+          "cosine_base_vs_sft": 0.991981368293724,
+          "delta_norm": 2.940601377773374,
+          "param_count": 266240,
+          "relative_update_norm": 0.12638685774813974,
+          "sft_norm": 23.06101856167214
+        }
+      },
+      "sft_meta": {
+        "arm": "c_dose030_from_b2_rep10",
+        "instruction_target_tokens": 5213863,
+        "lr": 0.0003,
+        "replay_pct": 10.0,
+        "updates_done": 912
+      }
+    }
+  },
+  "training_gradient_stats": {
+    "a1_3e5": {
+      "first_probe": {
+        "grad_group_rms": {
+          "coordinator.Wc": 7.67240771508188e-05,
+          "coordinator.alpha": 0.00011078628449467942,
+          "coordinator.bc": 1.0343269138633475e-07,
+          "decoder_x": 0.00013022592156019502,
+          "decoder_y": 0.00013391719366095516,
+          "embedding": 0.00010729527112510778,
+          "encoder": 9.263624008770545e-05,
+          "readout": 9.643970008739131e-05,
+          "writer.W1": 0.0014048805037609501,
+          "writer.W2": 0.000965422895029001
+        },
+        "update": 10
+      },
+      "last_probe": {
+        "grad_group_rms": {
+          "coordinator.Wc": 0.00010030072464107525,
+          "coordinator.alpha": 0.002137259114533663,
+          "coordinator.bc": 1.5397003968924255e-07,
+          "decoder_x": 0.00017388716061458856,
+          "decoder_y": 0.00015103140556037466,
+          "embedding": 0.00013943515953321667,
+          "encoder": 0.00011497399321805935,
+          "readout": 0.00012001136448326226,
+          "writer.W1": 0.0011520668271734428,
+          "writer.W2": 0.0010562713493330218
+        },
+        "update": 80
+      },
+      "probe_count": 8
+    },
+    "a2_1e4": {
+      "first_probe": {
+        "grad_group_rms": {
+          "coordinator.Wc": 9.549259956560096e-05,
+          "coordinator.alpha": 0.0006915334961377084,
+          "coordinator.bc": 1.2680394850144972e-07,
+          "decoder_x": 0.00016016835399597788,
+          "decoder_y": 0.0001527987548582834,
+          "embedding": 0.00013796122676577727,
+          "encoder": 0.00011025479687906201,
+          "readout": 0.00011221346212369266,
+          "writer.W1": 0.0012049267360011982,
+          "writer.W2": 0.001043711518590995
+        },
+        "update": 10
+      },
+      "last_probe": {
+        "grad_group_rms": {
+          "coordinator.Wc": 9.520402538346647e-05,
+          "coordinator.alpha": 0.0012793467612937093,
+          "coordinator.bc": 1.4630531340634376e-07,
+          "decoder_x": 0.00016752380553564713,
+          "decoder_y": 0.00014491235789866475,
+          "embedding": 0.00012992598920256453,
+          "encoder": 0.00011252970822267759,
+          "readout": 0.0001132621193382217,
+          "writer.W1": 0.0011709046134842306,
+          "writer.W2": 0.0010845732463595366
+        },
+        "update": 80
+      },
+      "probe_count": 8
+    },
+    "a3_3e4": {
+      "first_probe": {
+        "grad_group_rms": {
+          "coordinator.Wc": 8.939992921182317e-05,
+          "coordinator.alpha": 0.0007114406325854361,
+          "coordinator.bc": 1.2609255411888974e-07,
+          "decoder_x": 0.00015589738458626805,
+          "decoder_y": 0.00014507220170034395,
+          "embedding": 0.00012436789846226169,
+          "encoder": 0.00010753019719748279,
+          "readout": 0.00011214005279691549,
+          "writer.W1": 0.0012461459040111606,
+          "writer.W2": 0.001040994923314979
+        },
+        "update": 10
+      },
+      "last_probe": {
+        "grad_group_rms": {
+          "coordinator.Wc": 9.680759908293923e-05,
+          "coordinator.alpha": 0.0011110795894637704,
+          "coordinator.bc": 1.9977154811839874e-07,
+          "decoder_x": 0.00015941122884694179,
+          "decoder_y": 0.00014213338468429875,
+          "embedding": 0.00012868565141551758,
+          "encoder": 0.00011100018120878723,
+          "readout": 0.00011251092261109326,
+          "writer.W1": 0.0011874964158569497,
+          "writer.W2": 0.0010957614366421417
+        },
+        "update": 80
+      },
+      "probe_count": 8
+    },
+    "b1_rep0": {
+      "first_probe": {
+        "grad_group_rms": {
+          "coordinator.Wc": 8.96474860465199e-05,
+          "coordinator.alpha": 0.0006641811924055219,
+          "coordinator.bc": 1.279058195338653e-07,
+          "decoder_x": 0.0001560982890777856,
+          "decoder_y": 0.00014521766897071045,
+          "embedding": 0.00012465305363232082,
+          "encoder": 0.00010780295351593614,
+          "readout": 0.00011234027254927481,
+          "writer.W1": 0.0012436137515248382,
+          "writer.W2": 0.001042340070123471
+        },
+        "update": 10
+      },
+      "last_probe": {
+        "grad_group_rms": {
+          "coordinator.Wc": 8.878675455091624e-05,
+          "coordinator.alpha": 0.0018111071549355984,
+          "coordinator.bc": 1.5577554317914814e-07,
+          "decoder_x": 0.00015552177243652397,
+          "decoder_y": 0.00014126744193799723,
+          "embedding": 0.00012304815339535916,
+          "encoder": 0.00010597587523295164,
+          "readout": 0.00010310976062012563,
+          "writer.W1": 0.001274155608313338,
+          "writer.W2": 0.0010272346310681918
+        },
+        "update": 270
+      },
+      "probe_count": 27
+    },
+    "b2_rep10": {
+      "first_probe": {
+        "grad_group_rms": {
+          "coordinator.Wc": 8.937551806408315e-05,
+          "coordinator.alpha": 0.0004142751276958734,
+          "coordinator.bc": 1.3945951537081095e-07,
+          "decoder_x": 0.00016596294709874654,
+          "decoder_y": 0.000144772625291966,
+          "embedding": 0.00014239275309323282,
+          "encoder": 9.869231807006524e-05,
+          "readout": 8.530482316227385e-05,
+          "writer.W1": 0.00118093848770858,
+          "writer.W2": 0.0011067258482783256
+        },
+        "update": 10
+      },
+      "last_probe": {
+        "grad_group_rms": {
+          "coordinator.Wc": 9.15930844373194e-05,
+          "coordinator.alpha": 0.001301618991419673,
+          "coordinator.bc": 2.5988778721588673e-07,
+          "decoder_x": 0.00016428058786661026,
+          "decoder_y": 0.00014644698314018043,
+          "embedding": 0.00012585155061973314,
+          "encoder": 0.00011046074103114656,
+          "readout": 0.00011126046898999308,
+          "writer.W1": 0.0011945750883996392,
+          "writer.W2": 0.0010721004466785922
+        },
+        "update": 300
+      },
+      "probe_count": 30
+    },
+    "c_dose030_from_b2_rep10": {
+      "first_probe": {
+        "grad_group_rms": {
+          "coordinator.Wc": 9.722046585595134e-05,
+          "coordinator.alpha": 2.925469379988499e-05,
+          "coordinator.bc": 1.6384801618362674e-07,
+          "decoder_x": 0.00016771414710201838,
+          "decoder_y": 0.00014874142405666815,
+          "embedding": 0.00013071670597065453,
+          "encoder": 0.00011126218374923178,
+          "readout": 0.00010666485737500455,
+          "writer.W1": 0.0011775842479452101,
+          "writer.W2": 0.00107521040646709
+        },
+        "update": 310
+      },
+      "last_probe": {
+        "grad_group_rms": {
+          "coordinator.Wc": 0.0001261904639812042,
+          "coordinator.alpha": 0.0009545867214910686,
+          "coordinator.bc": 1.426207176899256e-07,
+          "decoder_x": 0.00019208926781280074,
+          "decoder_y": 0.00015758998613701325,
+          "embedding": 0.00018909503773702002,
+          "encoder": 0.00011448186825047982,
+          "readout": 8.45481753593614e-05,
+          "writer.W1": 0.0011557971563805117,
+          "writer.W2": 0.0009482878645168241
+        },
+        "update": 910
+      },
+      "probe_count": 61
+    }
+  }
+}

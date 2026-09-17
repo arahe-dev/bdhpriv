@@ -1,0 +1,133 @@
+{
+  "arms": {
+    "a1_3e5": {
+      "first_loss": 2.7435051798820496,
+      "last_instruction_target_tokens": 522619,
+      "last_loss": 2.4364654421806335,
+      "last_replay_target_tokens": 0,
+      "max_peak_mem_gib": 3.2032041549682617,
+      "phase": "phase_a",
+      "seconds": 60.48353219998535,
+      "sequence_tok_s": 10238.009876019609,
+      "sequence_tokens": 619231,
+      "target_tok_s": 8640.682529452646,
+      "updates": 83
+    },
+    "a2_1e4": {
+      "first_loss": 2.7435051798820496,
+      "last_instruction_target_tokens": 522619,
+      "last_loss": 2.3875423669815063,
+      "last_replay_target_tokens": 0,
+      "max_peak_mem_gib": 3.2032041549682617,
+      "phase": "phase_a",
+      "seconds": 60.48128450001968,
+      "sequence_tok_s": 10238.390356934276,
+      "sequence_tokens": 619231,
+      "target_tok_s": 8641.003647993453,
+      "updates": 83
+    },
+    "a3_3e4": {
+      "first_loss": 2.7435051798820496,
+      "last_instruction_target_tokens": 522619,
+      "last_loss": 2.356276750564575,
+      "last_replay_target_tokens": 0,
+      "max_peak_mem_gib": 3.2032041549682617,
+      "phase": "phase_a",
+      "seconds": 60.473517799975525,
+      "sequence_tok_s": 10239.705287993856,
+      "sequence_tokens": 619231,
+      "target_tok_s": 8642.113424402301,
+      "updates": 83
+    },
+    "b1_rep0": {
+      "first_loss": 2.7435051798820496,
+      "last_instruction_target_tokens": 1739241,
+      "last_loss": 2.356599599123001,
+      "last_replay_target_tokens": 0,
+      "max_peak_mem_gib": 3.2032041549682617,
+      "phase": "phase_b",
+      "seconds": 193.86921789990447,
+      "sequence_tok_s": 10561.294991436642,
+      "sequence_tokens": 2047510,
+      "target_tok_s": 8971.207594688796,
+      "updates": 275
+    },
+    "b2_rep10": {
+      "first_loss": 2.7435051798820496,
+      "last_instruction_target_tokens": 1742478,
+      "last_loss": 2.289461851119995,
+      "last_replay_target_tokens": 192291,
+      "max_peak_mem_gib": 3.2032041549682617,
+      "phase": "phase_b",
+      "seconds": 215.39760670004762,
+      "sequence_tok_s": 10417.729492811044,
+      "sequence_tokens": 2243954,
+      "target_tok_s": 8982.314286779734,
+      "updates": 306
+    },
+    "c_dose030_from_b2_rep10": {
+      "first_loss": 2.2990792989730835,
+      "last_instruction_target_tokens": 5213863,
+      "last_loss": 2.209344297647476,
+      "last_replay_target_tokens": 573674,
+      "max_peak_mem_gib": 3.2021050453186035,
+      "phase": "phase_c",
+      "seconds": 423.49962459988456,
+      "sequence_tok_s": 10540.34228298869,
+      "sequence_tokens": 4463831,
+      "target_tok_s": 13665.979055986105,
+      "updates": 606
+    }
+  },
+  "created_at": "2026-09-17T06:10:44Z",
+  "eval_wall_seconds_not_included": true,
+  "format": "arm_a_sft_probe_runtime_v1",
+  "grad_accum_rows": 4,
+  "measured_total_tok_s": 10464.344253321147,
+  "microbatch_rows": 1,
+  "pre_campaign_estimate": {
+    "created_at": "2026-09-17",
+    "est_total_hours": 0.98,
+    "est_total_seconds": 3518.5,
+    "eval_overhead_note": "eval+generation ~3.5 min per checkpoint; 12 checkpoints ~42 min",
+    "format": "arm_a_sft_probe_runtime_estimate_v1",
+    "measured_target_tok_s": 9021.485762256736,
+    "measured_total_tok_s": 10600.0,
+    "measurement_source": "bench_eager/bench_compile runs on the local RTX 4060 Laptop",
+    "phase_a_seconds": 173.4,
+    "phase_b_seconds": 403.4,
+    "phase_c_seconds": 421.7,
+    "segments": {
+      "a1_3e5": {
+        "seconds": 57.8,
+        "sequence_tokens": 612471
+      },
+      "a2_1e4": {
+        "seconds": 57.8,
+        "sequence_tokens": 612471
+      },
+      "a3_3e4": {
+        "seconds": 57.8,
+        "sequence_tokens": 612471
+      },
+      "b1": {
+        "seconds": 192.6,
+        "sequence_tokens": 2041572
+      },
+      "b2": {
+        "seconds": 210.8,
+        "sequence_tokens": 2234764
+      },
+      "c": {
+        "seconds": 421.7,
+        "sequence_tokens": 4469528
+      }
+    },
+    "sequence_target_ratio": 1.1749727571867714
+  },
+  "sequence_tokens_per_update": 8192,
+  "target_tokens_per_update_approx": 6973,
+  "torch_compile": true,
+  "total_campaign_gpu_hours": 0.281723551027727,
+  "total_campaign_gpu_seconds": 1014.2047836998172
+}

@@ -1,0 +1,101 @@
+{
+  "contract_version": "1.0",
+  "status": "FROZEN",
+  "prepared": "2026-09-16 by the CPU analysis agent",
+  "executor": "human, on the G4/Colab machine, after or alongside the G4 systems validation",
+  "evidence_class_upon_completion": "E3 (representative frozen-corpus evidence)",
+  "do_not_redesign": "Primary statistics and outcome bands below are predeclared. If a metric is changed after seeing results, it must be reported as exploratory and the predeclared value must still be published.",
+  "corpus": {
+    "corpus_id": "phase_bdh_stage2_5b_v1",
+    "root": "/content/drive/Shareddrives/ICLR PHASE BDH/phase_bdh/corpus/stage2/frozen_5b_v1",
+    "contract_file": "context/frozen_corpus_contract.json",
+    "tokenizer_sha256": "9a05bca4c065d9952a01ee1e3f4b6e23e39200e1f33da65e5dad1819419f71c3",
+    "verify": "index digest always; per-file SHA-256 unless --fast-verify is passed"
+  },
+  "checkpoint": {
+    "preferred": "runs/arm_a_2p5b_opt3c_all/ckpt/latest.pt (step 19,074, 2.50B tokens)",
+    "latest_sha256": "fe7e6c2c6ac0d12630018812f735486c45003678adbfcb4a88a476d886c47efb",
+    "also_valid": {
+      "step2000": "39ad780b0bf68efa55ebb17ed8a3506f8ee74a20c67f6e1ef80b105af91a15ad",
+      "step18000": "0fe610a8bba96880bdcb1d7e9b2b11bcb7f5cd553d9c252ee75dbdaad2c98e06",
+      "step19000": "3bd98125f883aabf0c21f1f2db27236e10a03ae5dae3048129a6ed144c133dd1"
+    },
+    "maturing_comparison": "run step2000 and latest with identical sampling if the first run reproduces E3-A/B; report the ordering of conditional gap, global concentration and band structure across the two"
+  },
+  "sampling": {
+    "native_window": 2048,
+    "design": "stream 8 corpus batches x GLOBAL_BATCH=64 packed rows (512 windows, 1,048,576 tokens) at start_sequence=0; microbatch 8 rows",
+    "sampled_per_batch": "2 chunks x 128 tokens per row for per-token statistics; all tokens for population mass/counts",
+    "context_strata": "T=2048 (native, tag v1), T=1024 (tag ctx1024), T=512 (tag ctx512): truncated windows, same start_sequence; T>2048 is a separate length-extrapolation experiment, not ordinary evaluation",
+    "position_strata": "document-relative position bins and sequence-position quartiles are predeclared in the analyzer",
+    "corpus_region_strata": "repeat the census at start_sequence=1,000,000 if the first run completes cheaply; otherwise document as untested"
+  },
+  "primary_quantities": {
+    "A_delta_u_64": {
+      "definition": "per-token fraction of u=x*y mass in the token's own top-64 coordinates minus the fraction captured by a cross-fitted frozen global top-64 ranking; mean over 32 (level,head) cells",
+      "E2_reference": {"per_cell_mean": 0.421, "cell_min": 0.190, "cell_max": 0.516, "pooled_heads_mean": 0.220},
+      "outcome_bands": {"E3-A": ">= 0.30", "E3-B": "0.15 to <0.30", "E3-C": "< 0.15"}
+    },
+    "B_topn_curves": {
+      "definition": "local and global top-N mass curves for N=16..4096 per key x,y,u, pooled over heads; report delta(N) with document-block bootstrap CIs",
+      "E2_reference": "pooled x delta: 0.008(64), 0.019(256), 0.063(1024), 0.134(4096); pooled u delta: 0.220(64), 0.416(256), 0.374(1024), 0.112(4096)"
+    },
+    "C_core_ladder": {
+      "definition": "cross-fitted global mass-top core at 1/3.125/6.25/12.5/25% of K; per-token core mass fraction, core active rate, residual coordinates for 50/80/90% of the residual, and total active width for 90% of u mass",
+      "E2_reference": "u core mass 0.294/0.480/0.614/0.753/0.879; u 90%-coverage width 15.0/5.6/8.3/14.1/26.1% of K",
+      "outcome_support": {"E3-A": "core top-6.25% u mass >= 0.50", "E3-B": "0.35 to <0.50", "E3-C": "< 0.35"}
+    },
+    "D_content_stability": {
+      "definition": "(i) same-document lag curve 1..127 (top-64 Jaccard, support Jaccard, Spearman, RBO) vs cross-document control; (ii) long-range same-document bins inter_128_256, inter_256_512, inter_512_plus from the two sampled chunks (sampler extended for this contract); (iii) level-0 x excluded from interpretation (token identity)",
+      "E2_synthetic_reference": "random-token lag1 top-64 Jaccard u=0.133 vs cross 0.097 (ratio 1.37); repeated-content probe u=0.542/0.466/0.404 at lags 256/512/1024 vs matched shuffled 0.096/0.092/0.089",
+      "outcome_support": {"E3-A": "same-doc lag1/cross ratio >= 1.5 OR a long-range bin exceeds cross-doc by >= 0.05", "E3-B": "same-doc > cross-doc but below the A threshold", "E3-C": "same-doc <= cross-doc (no persistence signal)"}
+    },
+    "E_frequency_band": {
+      "definition": "per-(level,head) 16-band mass-share non-uniformity and frequency trend vs a pair-preserving permutation null (5000 draws, RoPE pairs kept intact); pooled x and per-cell z values",
+      "E2_reference": "x pooled max-share z=+13.2, 32/32 cells z>3; u pooled z=+0.26, 12/32 cells; canonical init z=-0.2",
+      "outcome_support": {"E3-A": ">= 24/32 x cells z>3 and pooled z>5", "E3-B": "12-23 cells or pooled 2<z<=5", "E3-C": "<12 cells and pooled z<=2"}
+    }
+  },
+  "secondary_quantities": [
+    "Delta_x(16) and Delta_x(1024); x local/global ladder",
+    "Gini, N_eff/K, participation ratio of global coordinate mass",
+    "zero fractions x/y/u and pair zero fractions",
+    "level/head/position/document-length strata of Delta_u(64)",
+    "document-level between-vs-within variance of the conditional gap",
+    "cross-checkpoint global ranking overlap (step2000 vs latest)"
+  ],
+  "nulls_and_controls": {
+    "conditionality": "cross-fitted global top-N ranking (ranking from the other batch split)",
+    "frequency": "pair-preserving permutation, 5000 draws, fixed seed 20260916",
+    "stability": "cross-document pairs as the unrelated-context control",
+    "position": "stratified deltas with bootstrap CIs",
+    "units": "document/block bootstrap; tokens are not independent replicates"
+  },
+  "final_outcome_rule": {
+    "label_from": "A_delta_u_64 primary band",
+    "must_report": "B, C, D, E support bands and any position/context stratum that contradicts the primary label",
+    "accepted_outcomes": "E3-A strong reproduction, E3-B partial reproduction (magnitude shift), E3-C synthetic result fails on natural text; all three are scientifically acceptable"
+  },
+  "outputs": [
+    "results/arm_a_science/raw_frozen/pass1_frozen_<tag>.npz",
+    "results/arm_a_science/raw_frozen/pass2_frozen_<tag>.npz",
+    "results/arm_a_science/raw_frozen/ranks_frozen_<tag>.npz",
+    "results/arm_a_science/raw_frozen/meta_frozen_<tag>.json",
+    "results/arm_a_science/e3_topn_global_local.json",
+    "results/arm_a_science/e3_population_stability.json",
+    "results/arm_a_science/e3_core_tail.json",
+    "results/arm_a_science/e3_frequency_bands.json",
+    "results/arm_a_science/e3_frequency.json",
+    "results/arm_a_science/e3_summary_<tag>.json"
+  ],
+  "commands": [
+    "python analysis/arm_a_science/e3_census.py --ckpt-file <latest.pt> --corpus-root <frozen_5b_v1> --batches 8 --microbatch 8 --tag v1 [--fast-verify]",
+    "python analysis/arm_a_science/e3_census.py --ckpt-file <latest.pt> --corpus-root <frozen_5b_v1> --batches 8 --context 1024 --tag ctx1024 [--fast-verify]",
+    "python analysis/arm_a_science/e3_census.py --ckpt-file <latest.pt> --corpus-root <frozen_5b_v1> --batches 8 --context 512 --tag ctx512 [--fast-verify]",
+    "python analysis/arm_a_science/e3_finalize.py --tag v1",
+    "python analysis/arm_a_science/e3_finalize.py --tag ctx1024",
+    "python analysis/arm_a_science/e3_finalize.py --tag ctx512"
+  ],
+  "single_cell": "campaigns/E3_G4_SCIENCE_CELL.md",
+  "do_not_run_locally": true
+}

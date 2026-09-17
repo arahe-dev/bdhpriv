@@ -1,0 +1,14 @@
+{
+  "SAE_COSINE_VS_BASE": null,
+  "SAE_STATUS": "UNAVAILABLE",
+  "created_at": "2026-09-17T06:10:44Z",
+  "format": "arm_a_sft_probe_sae_drift_v1",
+  "policy_followed": "No SAE was trained or updated during this campaign. Native BDH sparse-neuron probes carry the representation-drift evidence.",
+  "reason": "No frozen SAE / sparse dictionary trained on the Arm-A or Akasha representation exists in the repository or local caches. The local SAE assets (data/sae, results/sae) are Gemma Scope 2 and Anthropic public-feature resources used for external calibration only.",
+  "searched": [
+    "results/sae/*.json",
+    "data/sae/**",
+    "analysis/sae/*.py",
+    "repository-wide grep for Arm-A/Akasha SAE training artifacts"
+  ]
+}

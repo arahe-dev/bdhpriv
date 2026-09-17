@@ -1,0 +1,79 @@
+{
+  "base_checkpoint": {
+    "path": "C:\\iclr-oc\\runs\\arm_a_2p5b_opt3c_all\\ckpt\\latest.pt",
+    "sha256": "fe7e6c2c6ac0d12630018812f735486c45003678adbfcb4a88a476d886c47efb",
+    "training_tokens": 2500067328,
+    "updates": 19074,
+    "weights_fingerprint": "dbc2acc115e795f27b1ded7624cbffb9e90f6c49dcb54fad0cb2705f9627a934"
+  },
+  "base_corpus_status": "BLOCKED_ARTIFACT_NOT_LOCAL",
+  "created_at": "2026-09-17T06:10:40Z",
+  "cuda_available": true,
+  "dose_landmarks": {
+    "0.01_tpp": 173755,
+    "0.03_tpp": 521265,
+    "0.10_tpp": 1737549,
+    "0.30_tpp": 5212647
+  },
+  "format": "arm_a_sft_probe_environment_v1",
+  "frozen_assets": {
+    "base_checkpoint_path": "C:\\iclr-oc\\runs\\arm_a_2p5b_opt3c_all\\ckpt\\latest.pt",
+    "base_checkpoint_pin_match": true,
+    "base_checkpoint_sha256": "fe7e6c2c6ac0d12630018812f735486c45003678adbfcb4a88a476d886c47efb",
+    "tokenizer_identity": "bytelevel-bpe-8192-9a05bca4c065d995",
+    "tokenizer_path": "C:\\Users\\arahe\\OneDrive\\Documents\\ChatGPT\\icrl\\phase_bdh_corpus_stage1\\tokenizer\\tokenizer.json",
+    "tokenizer_pin_match": true,
+    "tokenizer_sha256": "9a05bca4c065d9952a01ee1e3f4b6e23e39200e1f33da65e5dad1819419f71c3",
+    "trainer_path": "C:\\iclr-oc\\training\\arm_a_2p5b_trainer.py",
+    "trainer_pin_match": true,
+    "trainer_sha256": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49"
+  },
+  "git_head": "2080aa6bbf06e08400e7abafa8bb11fba74b0365",
+  "git_status_porcelain": [
+    " M akasha/sampling/sampler.py",
+    "?? akasha/bench/profile_v05.py",
+    "?? akasha/bench/real_generation.py",
+    "?? akasha/bench/recurrent_batched.py",
+    "?? analysis/",
+    "?? campaigns/AKASHA_REAL_GENERATION_REPORT.md",
+    "?? campaigns/ARM_A_SFT_CALIBRATION_REPORT.md",
+    "?? campaigns/E3_G4_SCIENCE_CELL.md",
+    "?? campaigns/SAE_SCIENCE_MISSION.md",
+    "?? campaigns/sae_science.jsonl",
+    "?? data/",
+    "?? figures/arm_a_science/",
+    "?? figures/sae/",
+    "?? results/akasha/real_checkpoint_package/",
+    "?? results/akasha/real_generation_greedy.json",
+    "?? results/akasha/real_generation_sampled.json",
+    "?? results/akasha/real_generation_validation.json",
+    "?? results/akasha/stages/",
+    "?? results/akasha/v05_decode.json",
+    "?? results/akasha/v05_decode_partial_36configs.json",
+    "?? results/akasha/v05_partial_last100.log",
+    "?? results/arm_a_science/",
+    "?? results/bench_routed_smoke.json",
+    "?? results/sae/",
+    "?? results/sft_probe/",
+    "?? tests/akasha/test_batched_recurrent.py",
+    "?? training/sft_probe/"
+  ],
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "gpu_total_memory_gib": 7.99560546875,
+  "parameter_count": 17375489,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10",
+  "sae_search": {
+    "arm_a_sae_found": false,
+    "conclusion": "no frozen Arm-A/Akasha SAE exists locally; native BDH sparse-neuron probes are used instead",
+    "searched": [
+      "results/sae (Gemma Scope 2 + Anthropic external only)",
+      "data/sae (external SAE bundles only)",
+      "analysis/sae (external comparisons only)",
+      "repository-wide grep for BDH/Arm-A SAE training"
+    ]
+  },
+  "source_commit": "0dcbb87",
+  "torch": "2.10.0+cu128",
+  "torch_cuda": "12.8"
+}

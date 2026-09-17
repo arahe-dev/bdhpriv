@@ -1,0 +1,60 @@
+
+$ C:\Users\arahe\AppData\Local\Programs\Python\Python312\python.exe -m training.sft_probe.generation_eval --tag b2_rep10_dose003 --out-dir C:\iclr-oc\results\sft_probe\generations --metrics C:\iclr-oc\results\sft_probe\generation_metrics.json --checkpoint C:\iclr-oc\runs\sft_probe\b2_rep10\dose_521265.pt
+{
+ "tag": "b2_rep10_dose003",
+ "greedy": {
+  "prompt_count": 40,
+  "mean_repeated_unigram_fraction": 0.757421875,
+  "mean_repeated_bigram_fraction": 0.6718253968253969,
+  "mean_repeated_trigram_fraction": 0.6237903225806452,
+  "mean_distinct_2": 0.3281746031746032,
+  "mean_distinct_3": 0.37620967741935485,
+  "mean_token_entropy_bits": 3.4314526818927504,
+  "mean_longest_repeated_substring": 30.55,
+  "constant_token_rate": 0.0,
+  "loop_run_ge_8_rate": 0.0
+ },
+ "sampled": {
+  "prompt_count": 40,
+  "mean_repeated_unigram_fraction": 0.5234375,
+  "mean_repeated_bigram_fraction": 0.2992125984251969,
+  "mean_repeated_trigram_fraction": 0.20515873015873015,
+  "mean_distinct_2": 0.7007874015748031,
+  "mean_distinct_3": 0.7948412698412699,
+  "mean_token_entropy_bits": 5.386498444771922,
+  "mean_longest_repeated_substring": 9.575,
+  "constant_token_rate": 0.0,
+  "loop_run_ge_8_rate": 0.0
+ },
+ "parity": true
+}
+
+$ C:\Users\arahe\AppData\Local\Programs\Python\Python312\python.exe -m training.sft_probe.generation_eval --tag b2_rep10_dose003 --out-dir C:\iclr-oc\results\sft_probe\generations --metrics C:\iclr-oc\results\sft_probe\generation_metrics.json --checkpoint C:\iclr-oc\runs\sft_probe\b2_rep10\dose_521265.pt
+{
+ "tag": "b2_rep10_dose003",
+ "greedy": {
+  "prompt_count": 40,
+  "mean_repeated_unigram_fraction": 0.775,
+  "mean_repeated_bigram_fraction": 0.7003968253968254,
+  "mean_repeated_trigram_fraction": 0.655241935483871,
+  "mean_distinct_2": 0.2996031746031746,
+  "mean_distinct_3": 0.34475806451612906,
+  "mean_token_entropy_bits": 3.360233367031595,
+  "mean_longest_repeated_substring": 31.6,
+  "constant_token_rate": 0.0,
+  "loop_run_ge_8_rate": 0.0
+ },
+ "sampled": {
+  "prompt_count": 40,
+  "mean_repeated_unigram_fraction": 0.5314453125,
+  "mean_repeated_bigram_fraction": 0.2996062992125984,
+  "mean_repeated_trigram_fraction": 0.21329365079365079,
+  "mean_distinct_2": 0.7003937007874016,
+  "mean_distinct_3": 0.7867063492063492,
+  "mean_token_entropy_bits": 5.307907970873186,
+  "mean_longest_repeated_substring": 16.7,
+  "constant_token_rate": 0.0,
+  "loop_run_ge_8_rate": 0.0
+ },
+ "parity": true
+}

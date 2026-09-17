@@ -17,3 +17,12 @@ data/sae/**/*.parquet
 data/sae/**/.cache/
 data/sae/_dryrun-current/
 runs/
+
+# Downloaded datasets (hash-verified; re-download via the recorded manifests)
+results/sft_probe/data/raw/
+results/autoresearch/data/raw/
+
+
+# Large raw science captures (regenerable via analysis/arm_a_science/collect.py)
+results/arm_a_science/raw/
+

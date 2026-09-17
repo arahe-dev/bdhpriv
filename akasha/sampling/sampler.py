@@ -24,6 +24,7 @@ class Sampler:
     method: SamplerMethod | str = SamplerMethod.GREEDY
     temperature: float = 1.0
     top_p: float = 1.0
+    top_k: int = 0
     seed: Optional[int] = None
     generator: Optional[torch.Generator] = None
 
@@ -41,6 +42,11 @@ class Sampler:
         if self.temperature <= 0:
             raise ValueError("temperature must be positive for multinomial")
         scaled = logits.to(torch.float32) / float(self.temperature)
+        if self.top_k and self.top_k > 0:
+            k = min(int(self.top_k), scaled.numel())
+            top_values, _ = torch.topk(scaled, k)
+            threshold = top_values[..., -1].unsqueeze(-1)
+            scaled = scaled.masked_fill(scaled < threshold, float("-inf"))
         if self.top_p < 1.0:
             sorted_logits, sorted_idx = torch.sort(scaled, descending=True)
             probs = torch.softmax(sorted_logits, dim=-1)
@@ -60,6 +66,7 @@ class Sampler:
             method=self.method,
             temperature=self.temperature,
             top_p=self.top_p,
+            top_k=self.top_k,
             seed=self.seed,
         )
         if self.generator is not None:
@@ -85,5 +92,6 @@ class Sampler:
             "method": self.method.value,
             "temperature": float(self.temperature),
             "top_p": float(self.top_p),
+            "top_k": int(self.top_k),
             "seed": None if self.seed is None else int(self.seed),
         }

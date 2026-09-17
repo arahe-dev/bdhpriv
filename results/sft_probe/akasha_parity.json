@@ -1,0 +1,44 @@
+{
+  "ALL_MAJOR_ARMS_MATCH": true,
+  "created_at": "2026-09-17T06:10:44Z",
+  "decoding": "greedy, 64 new tokens, canonical five prompts",
+  "engine": "akasha reference_recurrent vs reference_full dense",
+  "format": "arm_a_sft_probe_akasha_parity_v1",
+  "points": {
+    "a1_3e5_dose003": {
+      "FIRST_DIVERGENCE_TOKEN": null,
+      "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+      "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\a1_3e5\\dose_521265.pt"
+    },
+    "a2_1e4_dose003": {
+      "FIRST_DIVERGENCE_TOKEN": null,
+      "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+      "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\a2_1e4\\dose_521265.pt"
+    },
+    "a3_3e4_dose003": {
+      "FIRST_DIVERGENCE_TOKEN": null,
+      "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+      "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\a3_3e4\\dose_521265.pt"
+    },
+    "b1_rep0_dose010": {
+      "FIRST_DIVERGENCE_TOKEN": null,
+      "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+      "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\b1_rep0\\dose_1737549.pt"
+    },
+    "b2_rep10_dose010": {
+      "FIRST_DIVERGENCE_TOKEN": null,
+      "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+      "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\b2_rep10\\dose_1737549.pt"
+    },
+    "base": {
+      "FIRST_DIVERGENCE_TOKEN": null,
+      "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+      "checkpoint": "C:\\iclr-oc\\runs\\arm_a_2p5b_opt3c_all\\ckpt\\latest.pt"
+    },
+    "c_dose030": {
+      "FIRST_DIVERGENCE_TOKEN": null,
+      "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+      "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\c_dose030_from_b2_rep10\\dose_5212647.pt"
+    }
+  }
+}

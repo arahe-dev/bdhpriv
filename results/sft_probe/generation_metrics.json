@@ -1,0 +1,350 @@
+{
+  "a1_3e5_dose001": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\a1_3e5\\dose_173755.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.2757936507936508,
+      "mean_distinct_3": 0.31129032258064515,
+      "mean_longest_repeated_substring": 35.05,
+      "mean_repeated_bigram_fraction": 0.7242063492063492,
+      "mean_repeated_trigram_fraction": 0.6887096774193548,
+      "mean_repeated_unigram_fraction": 0.78359375,
+      "mean_token_entropy_bits": 3.345177227193255,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.6988188976377953,
+      "mean_distinct_3": 0.7841269841269841,
+      "mean_longest_repeated_substring": 12.15,
+      "mean_repeated_bigram_fraction": 0.30118110236220474,
+      "mean_repeated_trigram_fraction": 0.21587301587301586,
+      "mean_repeated_unigram_fraction": 0.5255859375,
+      "mean_token_entropy_bits": 5.3319759670886615,
+      "prompt_count": 40
+    }
+  },
+  "a1_3e5_dose003": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\a1_3e5\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.3119047619047619,
+      "mean_distinct_3": 0.3524193548387097,
+      "mean_longest_repeated_substring": 33.25,
+      "mean_repeated_bigram_fraction": 0.6880952380952381,
+      "mean_repeated_trigram_fraction": 0.6475806451612903,
+      "mean_repeated_unigram_fraction": 0.758203125,
+      "mean_token_entropy_bits": 3.4579214074893194,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7098425196850393,
+      "mean_distinct_3": 0.798611111111111,
+      "mean_longest_repeated_substring": 10.775,
+      "mean_repeated_bigram_fraction": 0.29015748031496064,
+      "mean_repeated_trigram_fraction": 0.2013888888888889,
+      "mean_repeated_unigram_fraction": 0.5162109375,
+      "mean_token_entropy_bits": 5.343973234709345,
+      "prompt_count": 40
+    }
+  },
+  "a2_1e4_dose001": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\a2_1e4\\dose_173755.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.2567460317460317,
+      "mean_distinct_3": 0.28951612903225804,
+      "mean_longest_repeated_substring": 38.325,
+      "mean_repeated_bigram_fraction": 0.7432539682539683,
+      "mean_repeated_trigram_fraction": 0.7104838709677419,
+      "mean_repeated_unigram_fraction": 0.801171875,
+      "mean_token_entropy_bits": 3.1214802875178878,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7555118110236221,
+      "mean_distinct_3": 0.8539682539682539,
+      "mean_longest_repeated_substring": 7.825,
+      "mean_repeated_bigram_fraction": 0.24448818897637797,
+      "mean_repeated_trigram_fraction": 0.14603174603174604,
+      "mean_repeated_unigram_fraction": 0.49140625,
+      "mean_token_entropy_bits": 5.518877289512605,
+      "prompt_count": 40
+    }
+  },
+  "a2_1e4_dose003": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\a2_1e4\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.3123015873015873,
+      "mean_distinct_3": 0.3568548387096774,
+      "mean_longest_repeated_substring": 30.025,
+      "mean_repeated_bigram_fraction": 0.6876984126984127,
+      "mean_repeated_trigram_fraction": 0.6431451612903226,
+      "mean_repeated_unigram_fraction": 0.761328125,
+      "mean_token_entropy_bits": 3.434106692067727,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7374015748031496,
+      "mean_distinct_3": 0.827579365079365,
+      "mean_longest_repeated_substring": 8.5,
+      "mean_repeated_bigram_fraction": 0.2625984251968504,
+      "mean_repeated_trigram_fraction": 0.17242063492063492,
+      "mean_repeated_unigram_fraction": 0.500390625,
+      "mean_token_entropy_bits": 5.48239486209963,
+      "prompt_count": 40
+    }
+  },
+  "a3_3e4_dose001": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\a3_3e4\\dose_173755.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.31825396825396823,
+      "mean_distinct_3": 0.3625,
+      "mean_longest_repeated_substring": 30.775,
+      "mean_repeated_bigram_fraction": 0.6817460317460318,
+      "mean_repeated_trigram_fraction": 0.6375,
+      "mean_repeated_unigram_fraction": 0.7625,
+      "mean_token_entropy_bits": 3.387760099562687,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.738976377952756,
+      "mean_distinct_3": 0.8259920634920634,
+      "mean_longest_repeated_substring": 10.825,
+      "mean_repeated_bigram_fraction": 0.2610236220472441,
+      "mean_repeated_trigram_fraction": 0.1740079365079365,
+      "mean_repeated_unigram_fraction": 0.4892578125,
+      "mean_token_entropy_bits": 5.46013899665631,
+      "prompt_count": 40
+    }
+  },
+  "a3_3e4_dose003": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\a3_3e4\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.025,
+      "mean_distinct_2": 0.30357142857142855,
+      "mean_distinct_3": 0.34798387096774197,
+      "mean_longest_repeated_substring": 31.35,
+      "mean_repeated_bigram_fraction": 0.6964285714285714,
+      "mean_repeated_trigram_fraction": 0.6520161290322581,
+      "mean_repeated_unigram_fraction": 0.77109375,
+      "mean_token_entropy_bits": 3.3166337259380634,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7125984251968503,
+      "mean_distinct_3": 0.8037698412698413,
+      "mean_longest_repeated_substring": 12.525,
+      "mean_repeated_bigram_fraction": 0.28740157480314965,
+      "mean_repeated_trigram_fraction": 0.19623015873015875,
+      "mean_repeated_unigram_fraction": 0.5119140625,
+      "mean_token_entropy_bits": 5.412234833753314,
+      "prompt_count": 40
+    }
+  },
+  "b1_rep0_dose003": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\b1_rep0\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.025,
+      "mean_distinct_2": 0.30515873015873013,
+      "mean_distinct_3": 0.35846774193548386,
+      "mean_longest_repeated_substring": 30.225,
+      "mean_repeated_bigram_fraction": 0.6948412698412698,
+      "mean_repeated_trigram_fraction": 0.6415322580645161,
+      "mean_repeated_unigram_fraction": 0.776953125,
+      "mean_token_entropy_bits": 3.332311570127623,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7478346456692913,
+      "mean_distinct_3": 0.836111111111111,
+      "mean_longest_repeated_substring": 9.85,
+      "mean_repeated_bigram_fraction": 0.25216535433070864,
+      "mean_repeated_trigram_fraction": 0.1638888888888889,
+      "mean_repeated_unigram_fraction": 0.4841796875,
+      "mean_token_entropy_bits": 5.535346970547961,
+      "prompt_count": 40
+    }
+  },
+  "b1_rep0_dose010": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\b1_rep0\\dose_1737549.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.42023809523809524,
+      "mean_distinct_3": 0.4790322580645161,
+      "mean_longest_repeated_substring": 24.8,
+      "mean_repeated_bigram_fraction": 0.5797619047619047,
+      "mean_repeated_trigram_fraction": 0.5209677419354839,
+      "mean_repeated_unigram_fraction": 0.691015625,
+      "mean_token_entropy_bits": 3.794479704133039,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7336614173228346,
+      "mean_distinct_3": 0.8192460317460318,
+      "mean_longest_repeated_substring": 11.45,
+      "mean_repeated_bigram_fraction": 0.26633858267716537,
+      "mean_repeated_trigram_fraction": 0.18075396825396825,
+      "mean_repeated_unigram_fraction": 0.4990234375,
+      "mean_token_entropy_bits": 5.449825692382291,
+      "prompt_count": 40
+    }
+  },
+  "b2_rep10_dose003": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\b2_rep10\\dose_521265.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.2996031746031746,
+      "mean_distinct_3": 0.34475806451612906,
+      "mean_longest_repeated_substring": 31.6,
+      "mean_repeated_bigram_fraction": 0.7003968253968254,
+      "mean_repeated_trigram_fraction": 0.655241935483871,
+      "mean_repeated_unigram_fraction": 0.775,
+      "mean_token_entropy_bits": 3.360233367031595,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7003937007874016,
+      "mean_distinct_3": 0.7867063492063492,
+      "mean_longest_repeated_substring": 16.7,
+      "mean_repeated_bigram_fraction": 0.2996062992125984,
+      "mean_repeated_trigram_fraction": 0.21329365079365079,
+      "mean_repeated_unigram_fraction": 0.5314453125,
+      "mean_token_entropy_bits": 5.307907970873186,
+      "prompt_count": 40
+    }
+  },
+  "b2_rep10_dose010": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\b2_rep10\\dose_1737549.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.45634920634920634,
+      "mean_distinct_3": 0.5133064516129032,
+      "mean_longest_repeated_substring": 23.3,
+      "mean_repeated_bigram_fraction": 0.5436507936507937,
+      "mean_repeated_trigram_fraction": 0.4866935483870968,
+      "mean_repeated_unigram_fraction": 0.661328125,
+      "mean_token_entropy_bits": 3.9894530096323892,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.738976377952756,
+      "mean_distinct_3": 0.827579365079365,
+      "mean_longest_repeated_substring": 9.7,
+      "mean_repeated_bigram_fraction": 0.26102362204724405,
+      "mean_repeated_trigram_fraction": 0.17242063492063492,
+      "mean_repeated_unigram_fraction": 0.4931640625,
+      "mean_token_entropy_bits": 5.511322769183413,
+      "prompt_count": 40
+    }
+  },
+  "base": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\arm_a_2p5b_opt3c_all\\ckpt\\latest.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.24801587301587302,
+      "mean_distinct_3": 0.2814516129032258,
+      "mean_longest_repeated_substring": 38.825,
+      "mean_repeated_bigram_fraction": 0.751984126984127,
+      "mean_repeated_trigram_fraction": 0.7185483870967742,
+      "mean_repeated_unigram_fraction": 0.807421875,
+      "mean_token_entropy_bits": 3.164252256224878,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.025,
+      "mean_distinct_2": 0.7155511811023623,
+      "mean_distinct_3": 0.7956349206349207,
+      "mean_longest_repeated_substring": 11.95,
+      "mean_repeated_bigram_fraction": 0.2844488188976378,
+      "mean_repeated_trigram_fraction": 0.2043650793650794,
+      "mean_repeated_unigram_fraction": 0.5013671875,
+      "mean_token_entropy_bits": 5.378676505190297,
+      "prompt_count": 40
+    }
+  },
+  "c_dose030": {
+    "FIRST_DIVERGENCE_TOKEN": null,
+    "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+    "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\c_dose030_from_b2_rep10\\dose_5212647.pt",
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.025,
+      "mean_distinct_2": 0.47738095238095235,
+      "mean_distinct_3": 0.532258064516129,
+      "mean_longest_repeated_substring": 24.725,
+      "mean_repeated_bigram_fraction": 0.5226190476190476,
+      "mean_repeated_trigram_fraction": 0.467741935483871,
+      "mean_repeated_unigram_fraction": 0.64375,
+      "mean_token_entropy_bits": 4.087968768263133,
+      "prompt_count": 40
+    },
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7423228346456693,
+      "mean_distinct_3": 0.8289682539682539,
+      "mean_longest_repeated_substring": 9.975,
+      "mean_repeated_bigram_fraction": 0.2576771653543307,
+      "mean_repeated_trigram_fraction": 0.17103174603174603,
+      "mean_repeated_unigram_fraction": 0.5013671875,
+      "mean_token_entropy_bits": 5.485569501249975,
+      "prompt_count": 40
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{"row": 0, "examples": [2871, 19057, 19264, 34160, 18403, 1026, 41475, 20834, 18840, 3630, 40781, 9681, 17767, 43327, 46768, 5663, 51533], "target_tokens": 1474, "sequence_tokens": 2032}
+{"row": 1, "examples": [6445, 38115, 37582, 6148, 697, 49325, 6439, 14407, 1169, 43452, 46168], "target_tokens": 1407, "sequence_tokens": 1789}
+{"row": 2, "examples": [48953, 27367, 38294, 18747, 31434, 31640, 2487, 34135, 49991], "target_tokens": 1629, "sequence_tokens": 1986}
+{"row": 3, "examples": [6167, 40683, 24964, 11098, 38274, 913, 18321, 26959, 33135], "target_tokens": 1714, "sequence_tokens": 2001}
+{"row": 4, "examples": [44612, 27535, 36588, 22642, 37777, 5885, 24517, 10949, 48602], "target_tokens": 1695, "sequence_tokens": 1947}
+{"row": 5, "examples": [10428, 41924, 51078, 16868, 12259], "target_tokens": 1606, "sequence_tokens": 1733}
+{"row": 6, "examples": [5882, 30973, 13164, 9386, 14225, 5357, 16058, 10258, 10114, 26495, 25376], "target_tokens": 1480, "sequence_tokens": 1875}
+{"row": 7, "examples": [43171, 41712, 2210, 43757, 24784, 10956, 27470, 25300, 41160], "target_tokens": 1600, "sequence_tokens": 1841}
+{"row": 8, "examples": [14942, 7363, 37044, 7154, 6258, 23360], "target_tokens": 1524, "sequence_tokens": 1763}
+{"row": 9, "examples": [42148, 51270, 25801, 44379, 9982, 4985, 3899], "target_tokens": 1654, "sequence_tokens": 1929}
+{"row": 10, "examples": [17968, 50919, 28676, 22498, 51114, 15024, 33430], "target_tokens": 1355, "sequence_tokens": 1534}
+{"row": 11, "examples": [17394, 33103, 5600, 35105, 9479, 7499, 17588, 31008, 38330], "target_tokens": 1677, "sequence_tokens": 2048}
+{"row": 12, "examples": [38168, 23508, 34780, 42597, 5959, 46930, 41318], "target_tokens": 1643, "sequence_tokens": 1972}
+{"row": 13, "examples": [17446, 40823, 29180, 45693, 11157, 7300, 21405, 7579, 30599, 34123], "target_tokens": 1623, "sequence_tokens": 2024}
+{"row": 14, "examples": [38773, 25193, 18631, 50482, 20510, 12821], "target_tokens": 1811, "sequence_tokens": 2007}
+{"row": 15, "examples": [37007, 25392, 526, 22240, 30885, 39762, 3090, 33578, 38125, 9734], "target_tokens": 1695, "sequence_tokens": 2003}
+{"row": 16, "examples": [28332, 21580, 15390, 51407, 49744, 10606, 31561, 31395], "target_tokens": 1635, "sequence_tokens": 1952}
+{"row": 17, "examples": [50168, 12433, 48635, 44380, 28699, 41970, 29248, 44528, 15896, 25858, 27962, 37436], "target_tokens": 1528, "sequence_tokens": 2014}
+{"row": 18, "examples": [6922, 40741, 19912, 6163, 7676, 12938, 5742, 34934, 35669, 35903], "target_tokens": 1601, "sequence_tokens": 2022}
+{"row": 19, "examples": [17059, 24488, 17821, 20679], "target_tokens": 1701, "sequence_tokens": 1804}
+{"row": 20, "examples": [1120, 25659, 29729, 35423, 48426, 20942, 19860], "target_tokens": 1754, "sequence_tokens": 1938}
+{"row": 21, "examples": [7659, 38498, 40512, 47, 20721, 1902, 26013, 29686, 2413, 19868], "target_tokens": 1637, "sequence_tokens": 1914}
+{"row": 22, "examples": [41613, 45728, 46684, 43199, 18356, 2064, 21882, 30658], "target_tokens": 1618, "sequence_tokens": 1859}
+{"row": 23, "examples": [30084, 20965, 44961, 47309, 18804, 31501, 19566, 46810, 27093, 41986, 13198], "target_tokens": 1373, "sequence_tokens": 1659}
+{"row": 24, "examples": [9242, 24979, 12101, 47001, 16239, 13884, 45194], "target_tokens": 1591, "sequence_tokens": 1815}
+{"row": 25, "examples": [19271, 30162, 35051, 47189, 27664, 49780, 43227, 15916], "target_tokens": 1744, "sequence_tokens": 2001}
+{"row": 26, "examples": [4796, 20780, 50490, 31102, 42586, 3284, 37787, 41177, 41159], "target_tokens": 1435, "sequence_tokens": 1727}
+{"row": 27, "examples": [44715, 23404, 25983, 4469, 36377, 49877, 21339, 49850, 18029], "target_tokens": 1796, "sequence_tokens": 2046}
+{"row": 28, "examples": [24358, 48270, 9146, 18487, 28896, 34790, 4233], "target_tokens": 1709, "sequence_tokens": 1939}
+{"row": 29, "examples": [15348, 31799, 4319, 50449, 16242, 15929, 4298, 27406, 46485], "target_tokens": 1806, "sequence_tokens": 2035}
+{"row": 30, "examples": [50918, 15674, 16309, 41430, 49841, 38308, 45786, 3264, 8609, 6124], "target_tokens": 1623, "sequence_tokens": 1961}
+{"row": 31, "examples": [36243, 42667, 28306, 49040, 40387, 19577], "target_tokens": 1577, "sequence_tokens": 1739}
+{"row": 32, "examples": [19757, 26103, 49412, 12511, 19685], "target_tokens": 1704, "sequence_tokens": 1879}
+{"row": 33, "examples": [1672, 31189, 47255, 38478, 6540, 43307, 23983, 23281, 20793], "target_tokens": 1776, "sequence_tokens": 2031}
+{"row": 34, "examples": [50949, 1013, 44807, 31942, 51775, 33651, 20597, 26249, 43314, 27891, 22313, 12480], "target_tokens": 1601, "sequence_tokens": 1979}
+{"row": 35, "examples": [41418, 11743, 35476, 34810, 43767, 39755], "target_tokens": 1710, "sequence_tokens": 1869}
+{"row": 36, "examples": [37089, 48052, 34974, 14643, 48442, 15822], "target_tokens": 1825, "sequence_tokens": 2012}
+{"row": 37, "examples": [49238, 23162, 16573, 39557, 3724, 21157, 47158, 28428, 51054, 500], "target_tokens": 1730, "sequence_tokens": 2031}
+{"row": 38, "examples": [5294, 15661, 9839, 29613, 33701, 4053, 7360, 46520, 5772, 44039, 16020, 11445], "target_tokens": 1471, "sequence_tokens": 1818}
+{"row": 39, "examples": [35249, 18545, 32706, 11187, 48113, 14046, 127, 36747, 37778, 25957, 26010], "target_tokens": 1647, "sequence_tokens": 1953}
+{"row": 40, "examples": [39542, 40826, 41680, 39782, 31922, 49796, 33746, 23513, 29912, 892, 36523, 38513, 23192, 11591], "target_tokens": 1575, "sequence_tokens": 1992}
+{"row": 41, "examples": [6583, 44442, 17346, 22692, 4301, 35360, 48435, 42889], "target_tokens": 1462, "sequence_tokens": 1758}
+{"row": 42, "examples": [1750, 15870, 17615, 33605, 29318], "target_tokens": 1553, "sequence_tokens": 1698}
+{"row": 43, "examples": [25343, 27440, 35438, 22788, 968, 8667], "target_tokens": 1511, "sequence_tokens": 1704}
+{"row": 44, "examples": [23507, 31078, 47105, 19493, 23454, 47792, 20219, 6965], "target_tokens": 1737, "sequence_tokens": 2020}
+{"row": 45, "examples": [8303, 738, 46352, 47986, 40415, 27399, 27134, 1496], "target_tokens": 1807, "sequence_tokens": 2016}
+{"row": 46, "examples": [41852, 36450, 29385, 19979, 36383, 8267, 20879, 11300, 34431], "target_tokens": 1548, "sequence_tokens": 1923}
+{"row": 47, "examples": [39935, 13533, 43489, 1664, 2792, 23611, 42945], "target_tokens": 1680, "sequence_tokens": 1929}
+{"row": 48, "examples": [13891, 769, 35535, 28348, 24248, 32577, 11210, 31892], "target_tokens": 1326, "sequence_tokens": 1607}
+{"row": 49, "examples": [14708, 20962, 46163, 8514, 24355, 25912, 23363, 21127, 930], "target_tokens": 1682, "sequence_tokens": 1954}
+{"row": 50, "examples": [18184, 13863, 36002, 40612, 12441, 30614, 47430, 30078, 17589, 43231, 16382], "target_tokens": 1492, "sequence_tokens": 1816}
+{"row": 51, "examples": [27779, 26317, 26360, 6490, 5813, 24649, 20120, 10415], "target_tokens": 1710, "sequence_tokens": 1920}
+{"row": 52, "examples": [43032, 11766, 7164], "target_tokens": 1205, "sequence_tokens": 1278}
+{"row": 53, "examples": [36283, 19152, 50627, 35367, 26132], "target_tokens": 1871, "sequence_tokens": 2016}
+{"row": 54, "examples": [20990, 18063, 44419, 31796, 25394, 22322, 50532, 42959], "target_tokens": 1766, "sequence_tokens": 2027}
+{"row": 55, "examples": [37253, 25251, 47545, 17134, 30838, 6785, 49732, 40707, 48125, 14082], "target_tokens": 1634, "sequence_tokens": 2021}
+{"row": 56, "examples": [2687, 24781, 42698, 33216, 4655, 35595], "target_tokens": 1407, "sequence_tokens": 1619}
+{"row": 57, "examples": [30154, 490, 29753, 26550, 12107, 6354, 11878, 17217, 724, 10066, 10166], "target_tokens": 1583, "sequence_tokens": 1901}
+{"row": 58, "examples": [7345, 16197, 40465, 29172, 19934, 51304, 4916, 33228], "target_tokens": 1472, "sequence_tokens": 1773}
+{"row": 59, "examples": [35527, 1272, 18386, 38822], "target_tokens": 1660, "sequence_tokens": 1741}
+{"row": 60, "examples": [5149, 11096, 19545, 3459, 442, 36424], "target_tokens": 1781, "sequence_tokens": 1964}
+{"row": 61, "examples": [15758, 3252, 10843, 43676, 17585], "target_tokens": 1740, "sequence_tokens": 1899}
+{"row": 62, "examples": [10437, 30251, 32402, 11357, 16948], "target_tokens": 1790, "sequence_tokens": 1983}
+{"row": 63, "examples": [16424, 9077, 15780, 29458, 28530, 44292, 14944], "target_tokens": 1723, "sequence_tokens": 1932}
+{"row": 64, "examples": [5031, 17774, 47390, 50225, 31386, 16806, 12006, 50269, 34995], "target_tokens": 1652, "sequence_tokens": 2011}
+{"row": 65, "examples": [38185, 40083, 43421, 44215], "target_tokens": 1653, "sequence_tokens": 1780}
+{"row": 66, "examples": [6173, 40737, 19897, 43362, 29810, 5745, 22119, 19130, 33776, 37377, 14870], "target_tokens": 1456, "sequence_tokens": 1847}
+{"row": 67, "examples": [43483, 6079, 47286, 15021, 14285, 36090, 23054], "target_tokens": 1524, "sequence_tokens": 1741}
+{"row": 68, "examples": [29622, 37427, 47333, 2117, 28576, 37107, 7292], "target_tokens": 1445, "sequence_tokens": 1690}
+{"row": 69, "examples": [47566, 51083, 38468, 48758, 877, 36604, 15899, 32587], "target_tokens": 1807, "sequence_tokens": 2045}
+{"row": 70, "examples": [19540, 39107, 3947, 33851, 29214, 19787, 30559, 29279, 10289, 35019, 28091, 43448], "target_tokens": 1373, "sequence_tokens": 1976}
+{"row": 71, "examples": [43402, 47629, 51615, 37311, 32333], "target_tokens": 1462, "sequence_tokens": 1610}
+{"row": 72, "examples": [35099, 3126, 35283, 23012, 40369], "target_tokens": 1535, "sequence_tokens": 1686}
+{"row": 73, "examples": [46058, 44189, 3528, 29891, 38839], "target_tokens": 1686, "sequence_tokens": 1813}
+{"row": 74, "examples": [23799, 25538, 33439, 29354, 34000, 8898, 50611, 21309], "target_tokens": 1750, "sequence_tokens": 2003}
+{"row": 75, "examples": [47249, 48547, 14233, 3924], "target_tokens": 1615, "sequence_tokens": 1718}
+{"row": 76, "examples": [44464, 43469, 39376, 33579, 37378, 29253], "target_tokens": 1607, "sequence_tokens": 1805}
+{"row": 77, "examples": [32066, 30277, 24610, 14071, 33587, 34922, 5541, 47883, 46877], "target_tokens": 1709, "sequence_tokens": 1992}
+{"row": 78, "examples": [45427, 20363, 44237, 32347, 46879, 30721, 352, 17564, 10759, 9609], "target_tokens": 1410, "sequence_tokens": 1787}
+{"row": 79, "examples": [40397, 25406, 46973, 36324, 7531, 22305, 6816, 19067, 9442, 37629], "target_tokens": 1702, "sequence_tokens": 2032}
+{"row": 80, "examples": [51654, 51639, 51147, 51606, 37309], "target_tokens": 1289, "sequence_tokens": 1767}
+{"row": 81, "examples": [34393, 6070, 5190, 5496, 185, 18780], "target_tokens": 1693, "sequence_tokens": 1904}
+{"row": 82, "examples": [21068, 42854, 29159, 37610, 20132, 27143, 36858], "target_tokens": 1566, "sequence_tokens": 1781}
+{"row": 83, "examples": [20189, 9502, 45557, 21379, 12327, 26738, 40271, 9957], "target_tokens": 1300, "sequence_tokens": 1555}
+{"row": 84, "examples": [36607, 26289, 51573, 28914, 51953, 29866, 45943], "target_tokens": 1830, "sequence_tokens": 2026}
+{"row": 85, "examples": [40890, 19249, 35072, 851], "target_tokens": 1792, "sequence_tokens": 1903}
+{"row": 86, "examples": [1797, 48257, 4381, 50159, 7774, 24201, 1490], "target_tokens": 1805, "sequence_tokens": 2038}
+{"row": 87, "examples": [49171, 16612, 31465, 629, 50564, 13998, 1299, 38411, 26980], "target_tokens": 1649, "sequence_tokens": 1980}
+{"row": 88, "examples": [42325, 2924, 15429, 2914, 18509, 20536, 40703, 23663, 20683], "target_tokens": 1385, "sequence_tokens": 1675}
+{"row": 89, "examples": [13, 26169, 37516, 14999, 3467, 21759, 45080, 19218, 43554, 19795, 5411], "target_tokens": 1633, "sequence_tokens": 2035}
+{"row": 90, "examples": [6126, 2376, 26987, 37980, 16231, 42616, 51868, 106, 32634], "target_tokens": 1561, "sequence_tokens": 1983}
+{"row": 91, "examples": [50212, 10498, 32283, 13230, 51119, 30974, 24652, 49010, 43782], "target_tokens": 1695, "sequence_tokens": 1969}
+{"row": 92, "examples": [32448, 26468, 49961, 33107, 2787, 15527, 618, 4568, 50041, 37715, 29427, 38395, 47686], "target_tokens": 1520, "sequence_tokens": 1978}
+{"row": 93, "examples": [26049, 42110, 34749, 36746, 21340, 44540, 39998, 46006, 27144, 25359, 23362, 47435], "target_tokens": 1652, "sequence_tokens": 2047}
+{"row": 94, "examples": [25097, 1333, 37450, 49179, 14415, 36510, 28032, 33932, 22706, 40068], "target_tokens": 1646, "sequence_tokens": 1938}
+{"row": 95, "examples": [49109, 21523, 41741, 22005, 33590, 5608, 28730, 47780, 17916], "target_tokens": 1402, "sequence_tokens": 1655}
+{"row": 96, "examples": [5220, 22961, 9124, 23484, 13888, 19043, 50421, 24325, 2444, 3119], "target_tokens": 1352, "sequence_tokens": 1659}
+{"row": 97, "examples": [25893, 45465, 9986, 27230, 22447, 6086, 12448, 50518, 6401, 42168], "target_tokens": 1513, "sequence_tokens": 1835}
+{"row": 98, "examples": [45895, 47851, 46286, 48667, 17018, 27055, 24752, 28999, 8807], "target_tokens": 1729, "sequence_tokens": 2010}
+{"row": 99, "examples": [4235, 24913, 35847, 6376, 16148, 31569], "target_tokens": 1687, "sequence_tokens": 1858}
+{"row": 100, "examples": [50884, 2048, 9999, 37067, 24737, 6114], "target_tokens": 1853, "sequence_tokens": 2006}
+{"row": 101, "examples": [1095, 45461, 19318, 7364, 34823, 12195, 25552, 24989, 39566], "target_tokens": 1438, "sequence_tokens": 1796}
+{"row": 102, "examples": [12289, 30771, 44676, 2367, 39955, 35803, 32696, 20728, 35854], "target_tokens": 1576, "sequence_tokens": 1856}
+{"row": 103, "examples": [21428, 15936, 2491, 22086, 18773, 7708, 10371, 41731, 21597, 9906], "target_tokens": 1629, "sequence_tokens": 1952}
+{"row": 104, "examples": [32208, 44747, 25859, 34641, 46778, 48530, 15540, 1246], "target_tokens": 1698, "sequence_tokens": 1945}
+{"row": 105, "examples": [28360, 40695, 25051, 29375, 27020, 26875, 43809, 14528, 2058, 7621], "target_tokens": 1733, "sequence_tokens": 2047}
+{"row": 106, "examples": [40471, 42907, 14571, 41293, 34334, 28123, 20214, 39826, 39939], "target_tokens": 1321, "sequence_tokens": 1785}
+{"row": 107, "examples": [49393, 15770, 47196, 28808, 2347, 24985, 49131, 12251, 44584, 47409, 6695, 49543, 20083], "target_tokens": 1487, "sequence_tokens": 2036}
+{"row": 108, "examples": [7321, 36768, 11888, 32123, 11041, 17652, 50368, 50392, 4627, 42605, 45610], "target_tokens": 1453, "sequence_tokens": 1852}
+{"row": 109, "examples": [27850, 33293, 4162, 14886, 51320, 35991, 1310, 13446, 38419], "target_tokens": 1542, "sequence_tokens": 1837}
+{"row": 110, "examples": [25249, 32770, 37934, 14208, 44263, 33598, 37270, 27633, 22889, 28487, 31302], "target_tokens": 1693, "sequence_tokens": 1989}
+{"row": 111, "examples": [17327, 9307, 47731, 2445, 4210, 19426, 34702, 23232, 47670], "target_tokens": 1666, "sequence_tokens": 1933}
+{"row": 112, "examples": [15755, 37833, 45818, 40565, 11706, 28635, 19765, 35552, 49745], "target_tokens": 1742, "sequence_tokens": 1985}
+{"row": 113, "examples": [20513, 36047, 17448, 12432, 12451, 18679, 14164], "target_tokens": 1751, "sequence_tokens": 1941}
+{"row": 114, "examples": [21823, 21140, 40998], "target_tokens": 1326, "sequence_tokens": 1395}
+{"row": 115, "examples": [21417, 25604, 42765, 6526, 8259, 7878], "target_tokens": 1739, "sequence_tokens": 1901}
+{"row": 116, "examples": [40655, 36765, 4626, 4451, 26501, 39920, 24156, 27148, 38799, 48086, 48698, 22903], "target_tokens": 1451, "sequence_tokens": 2002}
+{"row": 117, "examples": [39870, 12097, 13672, 50064, 8779, 5209, 9117, 47804, 25494], "target_tokens": 1683, "sequence_tokens": 1972}
+{"row": 118, "examples": [28612, 17724, 32400, 17047, 47803, 22131], "target_tokens": 1396, "sequence_tokens": 1574}
+{"row": 119, "examples": [32033, 1517, 49327, 12541, 5635, 37788, 7716], "target_tokens": 1640, "sequence_tokens": 1828}
+{"row": 120, "examples": [23287, 51884, 32286, 40104, 33914, 39543, 28257, 31774], "target_tokens": 1172, "sequence_tokens": 1461}
+{"row": 121, "examples": [30907, 27083], "target_tokens": 698, "sequence_tokens": 784}

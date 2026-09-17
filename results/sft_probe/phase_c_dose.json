@@ -1,0 +1,71 @@
+{
+  "base": {
+    "proxy_nll": 3.7699046243295213,
+    "sft_val_nll": 2.6641999606306843
+  },
+  "continued_from": "runs/sft_probe/b2_rep10/dose_1737549.pt",
+  "created_at": "2026-09-17T06:05:20Z",
+  "dose_target": {
+    "0.10_tpp": 1737549,
+    "0.30_tpp": 5212647
+  },
+  "format": "arm_a_sft_probe_phase_c_v1",
+  "lr": 0.0003,
+  "point": {
+    "akasha_parity": true,
+    "arm": "c_dose030_from_b2_rep10",
+    "base_lm_delta_pct": -6.718169641239348,
+    "base_sft_val_nll": 2.6641999606306843,
+    "checkpoint": "C:\\iclr-oc\\runs\\sft_probe\\c_dose030_from_b2_rep10\\dose_5212647.pt",
+    "constant_token_rate": 0.0,
+    "distinct_2": 0.7423228346456693,
+    "distinct_3": 0.8289682539682539,
+    "greedy_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.025,
+      "mean_distinct_2": 0.47738095238095235,
+      "mean_distinct_3": 0.532258064516129,
+      "mean_longest_repeated_substring": 24.725,
+      "mean_repeated_bigram_fraction": 0.5226190476190476,
+      "mean_repeated_trigram_fraction": 0.467741935483871,
+      "mean_repeated_unigram_fraction": 0.64375,
+      "mean_token_entropy_bits": 4.087968768263133,
+      "prompt_count": 40
+    },
+    "hidden_cosine_vs_base": 0.9180700301161442,
+    "instruction_target_tokens": 5213863,
+    "loop_run_ge_8_rate": 0.0,
+    "loss_first": 2.2990792989730835,
+    "loss_last": 2.209344297647476,
+    "lr": 0.0003,
+    "max_peak_mem_gib": 3.2021050453186035,
+    "optimizer_steps": 912,
+    "proxy_nll": 3.516636036354137,
+    "repeat_3gram": 0.17103174603174603,
+    "repeat_3gram_greedy": 0.467741935483871,
+    "replay_pct": 10.0,
+    "replay_target_tokens": 573674,
+    "sampled_summary": {
+      "constant_token_rate": 0.0,
+      "loop_run_ge_8_rate": 0.0,
+      "mean_distinct_2": 0.7423228346456693,
+      "mean_distinct_3": 0.8289682539682539,
+      "mean_longest_repeated_substring": 9.975,
+      "mean_repeated_bigram_fraction": 0.2576771653543307,
+      "mean_repeated_trigram_fraction": 0.17103174603174603,
+      "mean_repeated_unigram_fraction": 0.5013671875,
+      "mean_token_entropy_bits": 5.485569501249975,
+      "prompt_count": 40
+    },
+    "sft_tpp": 0.30007000090760033,
+    "sft_val_nll": 2.195177578398706,
+    "tag": "c_dose030",
+    "top256_overlap_vs_base": 0.8297119140625,
+    "top64_overlap_vs_base": 0.71044921875,
+    "total_relative_weight_drift": 0.18122466381515648,
+    "total_sequence_tokens": 4463831,
+    "u_top64_overlap_vs_base": 0.62646484375,
+    "wall_seconds": 638.8972312999322
+  },
+  "replay_pct": 10.0
+}

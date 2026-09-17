@@ -1,0 +1,10 @@
+
+$ C:\Users\arahe\AppData\Local\Programs\Python\Python312\python.exe -m training.sft_probe.evaluate --tag a3_3e4_dose001 --out-dir C:\iclr-oc\results\sft_probe\eval --checkpoint C:\iclr-oc\runs\sft_probe\a3_3e4\dose_173755.pt --native
+C:\iclr-oc\training\arm_a_2p5b_trainer.py:760: UserWarning: expandable_segments not supported on this platform (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\c10/cuda/CUDAAllocatorConfig.h:39.)
+  / (cfg.THETA ** ((2.0 * torch.arange(cfg.K // 2, dtype=torch.float32,
+{
+ "tag": "a3_3e4_dose001",
+ "sft_val_nll": 2.475775897532906,
+ "proxy_nll": 3.8211114986047923,
+ "total_relative_weight_drift": null
+}

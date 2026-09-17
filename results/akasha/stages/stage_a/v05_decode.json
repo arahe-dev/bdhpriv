@@ -1,0 +1,200 @@
+{
+  "env": {
+    "capability": [
+      8,
+      9
+    ],
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "note": "Local laptop RTX 4060 (sm_89, 8 GiB). Not the production G4 RTX PRO 6000 Blackwell Server Edition; do not conflate.",
+    "nvidia_smi": "NVIDIA GeForce RTX 4060 Laptop GPU, 595.79, 3105 MHz, 8001 MHz",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.10",
+    "sm_count": 24,
+    "torch": "2.10.0+cu128",
+    "total_memory_bytes": 8585216000,
+    "total_memory_gib": 7.99560546875,
+    "trainer_sha256": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
+    "v0_commit": "0dcbb87",
+    "v0_commit_full": "0dcbb878d24b99b5808359c889e97143c3cec00b"
+  },
+  "format": "akasha_v05_decode_v1",
+  "protocol": {
+    "measured_steps": 20,
+    "modes": [
+      "RECURRENT_EAGER",
+      "RECURRENT_COMPILED"
+    ],
+    "precisions": [
+      "P0_FP32"
+    ],
+    "prompt_len": 32,
+    "sampling": "argmax per step (included in step timing)",
+    "warmup_steps": 20,
+    "weights_fingerprint_synthetic": "ba989cbfe2668c7841a41c01d07954bc0ed20153439be921fdac832d04bef9f4"
+  },
+  "results": [
+    {
+      "batch": 1,
+      "clock_after": {
+        "sm_clock_mhz": 1890
+      },
+      "clock_before": {
+        "sm_clock_mhz": 1890
+      },
+      "max_ms": 25.825056076049805,
+      "mean_ms": 21.273735809326173,
+      "median_ms": 21.203439712524414,
+      "min_ms": 16.45484733581543,
+      "mode": "RECURRENT_EAGER",
+      "p10_ms": 17.543167114257812,
+      "p90_ms": 24.38755226135254,
+      "peak_allocated_bytes": 233553408,
+      "peak_reserved_bytes": 245366784,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 20,
+      "single_session_ms": 21.203439712524414,
+      "single_session_tokens_per_s": 47.162159232557045,
+      "status": "OK",
+      "tokens_per_s": 47.162159232557045
+    },
+    {
+      "batch": 8,
+      "clock_after": {
+        "sm_clock_mhz": 2625
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "max_ms": 39.23353576660156,
+      "mean_ms": 37.18815879821777,
+      "median_ms": 37.09132957458496,
+      "min_ms": 36.47385787963867,
+      "mode": "RECURRENT_EAGER",
+      "p10_ms": 36.60492706298828,
+      "p90_ms": 37.614593505859375,
+      "peak_allocated_bytes": 1305450496,
+      "peak_reserved_bytes": 1323302912,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 20,
+      "single_session_ms": 4.63641619682312,
+      "single_session_tokens_per_s": 215.68382939504042,
+      "status": "OK",
+      "tokens_per_s": 215.68382939504042
+    },
+    {
+      "batch": 32,
+      "clock_after": {
+        "sm_clock_mhz": 2625
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "max_ms": 135.4639434814453,
+      "mean_ms": 134.37296676635742,
+      "median_ms": 134.30528259277344,
+      "min_ms": 133.7855987548828,
+      "mode": "RECURRENT_EAGER",
+      "p10_ms": 133.79788208007812,
+      "p90_ms": 135.04409790039062,
+      "peak_allocated_bytes": 4937371648,
+      "peak_reserved_bytes": 5486149632,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 20,
+      "single_session_ms": 4.19704008102417,
+      "single_session_tokens_per_s": 238.26315229183564,
+      "status": "OK",
+      "tokens_per_s": 238.26315229183564
+    },
+    {
+      "batch": 1,
+      "clock_after": {
+        "sm_clock_mhz": 1740
+      },
+      "clock_before": {
+        "sm_clock_mhz": 1695
+      },
+      "compile_seconds": 4.821703499997966,
+      "compiled_vs_eager_max_abs": 4.172325134277344e-07,
+      "graph_breaks": 0,
+      "layout": "buffers",
+      "max_ms": 13.531135559082031,
+      "mean_ms": 10.293031978607178,
+      "median_ms": 10.403327941894531,
+      "min_ms": 7.386112213134766,
+      "mode": "RECURRENT_COMPILED",
+      "p10_ms": 7.531519889831543,
+      "p90_ms": 11.866975784301758,
+      "peak_allocated_bytes": 317070336,
+      "peak_reserved_bytes": 325058560,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 20,
+      "single_session_ms": 10.403327941894531,
+      "single_session_tokens_per_s": 96.12308730295508,
+      "status": "OK",
+      "tokens_per_s": 96.12308730295507
+    },
+    {
+      "batch": 8,
+      "clock_after": {
+        "sm_clock_mhz": 2625
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "compile_seconds": 0.8593987000058405,
+      "compiled_vs_eager_max_abs": 4.470348358154297e-07,
+      "graph_breaks": 0,
+      "layout": "buffers",
+      "max_ms": 16.41881561279297,
+      "mean_ms": 16.145104122161865,
+      "median_ms": 16.13004779815674,
+      "min_ms": 16.039936065673828,
+      "mode": "RECURRENT_COMPILED",
+      "p10_ms": 16.060415267944336,
+      "p90_ms": 16.236608505249023,
+      "peak_allocated_bytes": 1262037504,
+      "peak_reserved_bytes": 1275068416,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 20,
+      "single_session_ms": 2.0162559747695923,
+      "single_session_tokens_per_s": 495.96877207730284,
+      "status": "OK",
+      "tokens_per_s": 495.9687720773029
+    },
+    {
+      "batch": 32,
+      "clock_after": {
+        "sm_clock_mhz": 2625
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "compile_seconds": 1.0495914000202902,
+      "compiled_vs_eager_max_abs": 8.344650268554688e-07,
+      "graph_breaks": 0,
+      "layout": "buffers",
+      "max_ms": 60.14361572265625,
+      "mean_ms": 59.544217109680176,
+      "median_ms": 59.50720024108887,
+      "min_ms": 59.1912956237793,
+      "mode": "RECURRENT_COMPILED",
+      "p10_ms": 59.227134704589844,
+      "p90_ms": 59.800575256347656,
+      "peak_allocated_bytes": 4502778880,
+      "peak_reserved_bytes": 4517265408,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 20,
+      "single_session_ms": 1.859600007534027,
+      "single_session_tokens_per_s": 537.7500515963521,
+      "status": "OK",
+      "tokens_per_s": 537.7500515963521
+    }
+  ]
+}

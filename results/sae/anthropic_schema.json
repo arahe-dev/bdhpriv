@@ -1,0 +1,208 @@
+{
+  "files": {
+    "anthropic_concepts.parquet": {
+      "rows": 2999,
+      "row_groups": 1,
+      "columns": [
+        {
+          "name": "model",
+          "type": "string",
+          "nullable": true,
+          "sample": [
+            "claude-3-sonnet-34m",
+            "claude-3-sonnet-34m",
+            "claude-3-sonnet-1m",
+            "claude-3-sonnet-1m",
+            "claude-3-sonnet-1m"
+          ]
+        },
+        {
+          "name": "feature_index",
+          "type": "string",
+          "nullable": true,
+          "sample": [
+            "31164353",
+            "9493533",
+            "887839",
+            "3",
+            "1013764"
+          ]
+        },
+        {
+          "name": "concept",
+          "type": "string",
+          "nullable": true,
+          "sample": [
+            "Golden Gate Bridge",
+            "Brain sciences",
+            "Monuments and popular tourist attractions",
+            "Transit infrastructure",
+            "Code error"
+          ]
+        },
+        {
+          "name": "group",
+          "type": "string",
+          "nullable": true,
+          "sample": [
+            "paper",
+            "paper",
+            "paper",
+            "paper",
+            "paper"
+          ]
+        },
+        {
+          "name": "top_activation_text",
+          "type": "string",
+          "nullable": true,
+          "sample": [
+            " right next to the Golden Gate bridge), perfect. But",
+            " enjoy books on neuroscience that change the way I think",
+            " The blue lagoon is stunning to look\nat",
+            " has to cross one particular bridge,\nwhich is a",
+            "_assert(5<4) and gdb\n<"
+          ]
+        },
+        {
+          "name": "top_activation_token",
+          "type": "string",
+          "nullable": true,
+          "sample": [
+            " Gate",
+            " that",
+            " is",
+            " bridge",
+            "4"
+          ]
+        },
+        {
+          "name": "top_activation_value",
+          "type": "float",
+          "nullable": true,
+          "sample": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ]
+    },
+    "monosemantic_2023.parquet": {
+      "rows": 2149712,
+      "row_groups": 3,
+      "columns": [
+        {
+          "name": "model",
+          "type": "string",
+          "nullable": true,
+          "sample": [
+            "claude-1-sae",
+            "claude-1-sae",
+            "claude-1-sae",
+            "claude-1-sae",
+            "claude-1-sae"
+          ]
+        },
+        {
+          "name": "run",
+          "type": "string",
+          "nullable": true,
+          "sample": [
+            "a-neurons",
+            "a-neurons",
+            "a-neurons",
+            "a-neurons",
+            "a-neurons"
+          ]
+        },
+        {
+          "name": "feature_index",
+          "type": "int32",
+          "nullable": true,
+          "sample": [
+            244,
+            49,
+            388,
+            138,
+            408
+          ]
+        },
+        {
+          "name": "concept",
+          "type": "string",
+          "nullable": true,
+          "sample": [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "name": "autointerp",
+          "type": "string",
+          "nullable": true,
+          "sample": [
+            "The neuron primarily activates on Chinese and Japanese characters, especially in the higher quantiles. There are some exceptions for non-CJK tokens in code and filenames.",
+            "The neuron fires on English words containing \"brill\", \"mer\", \"phant\", and \"ling\", French words, medical terms, and some programming related words, particularly proper nouns and upper case words.",
+            "The neuron fires on opening quotation marks and other opening delimiter symbols.",
+            "This neuron attends to measurement units and numbers, particularly abbreviations and symbols.",
+            "The neuron fires on words related to physics and engineering."
+          ]
+        },
+        {
+          "name": "density",
+          "type": "float",
+          "nullable": true,
+          "sample": [
+            0.013100000098347664,
+            0.8618000149726868,
+            0.9009000062942505,
+            0.9567999839782715,
+            0.31139999628067017
+          ]
+        },
+        {
+          "name": "max_activation",
+          "type": "float",
+          "nullable": true,
+          "sample": [
+            11.880000114440918,
+            11.75,
+            9.875,
+            9.687999725341797,
+            7.906000137329102
+          ]
+        },
+        {
+          "name": "top_positive_logits",
+          "type": "string",
+          "nullable": true,
+          "sample": [
+            "[[\"\\u5b50\", 0.5352], [\"gebras\", 0.5306], [\"uxe\", 0.5233], [\"\\u5229\", 0.4855], [\"\\u3061\", 0.4847]]",
+            "[[\"\\u00fbt\", 0.3839], [\"ThreadPool\", 0.3293], [\"irect\", 0.3154], [\" lymph\", 0.3135], [\" bladder\", 0.31]]",
+            "[[\" meditation\", 0.3009], [\"mask\", 0.3002], [\"\\u201f\", 0.2888], [\"creen\", 0.2874], [\" awake\", 0.2833]]",
+            "[[\" Legislature\", 0.317], [\"uses\", 0.2703], [\"marks\", 0.2682], [\"cit\", 0.2608], [\" legislature\", 0.259]]",
+            "[[\"diameter\", 0.2775], [\" Engineers\", 0.2545], [\"wavelength\", 0.2545], [\" geometry\", 0.254], [\" beam\", 0.2519]]"
+          ]
+        },
+        {
+          "name": "top_negative_logits",
+          "type": "string",
+          "nullable": true,
+          "sample": [
+            "[[\"in\", -0.7529], [\"o\", -0.7569], [\"or\", -0.7586], [\"am\", -0.7624], [\"ies\", -0.7804]]",
+            "[[\"\\u201d,\", -0.8315], [\"\\\"?\", -0.8376], [\".\\u201d\", -0.8756], [\"\\u201d.\", -0.8884], [\"\\u201d\", -0.9077]]",
+            "[[\"}$\", -0.5597], [\"}$.\", -0.5761], [\")$,\", -0.6098], [\"$,\", -0.6129], [\"($\", -0.6196]]",
+            "[[\" Palestinians\", -0.3251], [\" Israeli\", -0.3255], [\" films\", -0.3276], [\" Israelis\", -0.3326], [\" Palestinian\", -0.3346]]",
+            "[[\"ASE\", -0.2219], [\"otle\", -0.2256], [\"pone\", -0.2268], [\"ENTITY\", -0.2321], [\"opath\", -0.2399]]"
+          ]
+        }
+      ]
+    }
+  }
+}

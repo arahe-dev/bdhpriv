@@ -1,0 +1,148 @@
+{
+  "architecture_manifest_format": "akasha_arma_manifest_v1",
+  "config": {
+    "D": 256,
+    "H": 4,
+    "HIDDEN": 1040,
+    "INIT_STD": 0.02,
+    "K": 4096,
+    "L": 8,
+    "N": 16384,
+    "READ_BLOCK": 256,
+    "SEED": 1337,
+    "T": 2048,
+    "THETA": 65536,
+    "V": 8192
+  },
+  "created_at": "2026-09-16T14:16:00Z",
+  "format": "akasha_arma_package_v1",
+  "layernorm": {
+    "affine": false,
+    "eps": 1e-05,
+    "normalized_dims": "last"
+  },
+  "model": "arm-a",
+  "provenance": {
+    "corpus": {
+      "artifact_hashes_sha256": "2fe45d14ff8ae36ded7f1b57af9e7e200233fcd3726354e1a6186af7ee0ea6a3",
+      "corpus_id": "phase_bdh_stage2_5b_v1",
+      "logical_replay_sha256": "c60bd7df4a8ef7329d20ec5b0f022f4579fca20c95657a90f79a2e9e67edb043",
+      "total_sequences": 2441407
+    },
+    "cuda": "12.8",
+    "progress": {
+      "next_sequence": 1220736,
+      "target_tokens": 2500000000,
+      "tokens_consumed": 2500067328,
+      "updates_done": 19074
+    },
+    "saved_at": "2026-09-15T23:12:38Z",
+    "source_checkpoint": "C:\\iclr-oc\\runs\\arm_a_2p5b_opt3c_all\\ckpt\\latest.pt",
+    "source_checkpoint_sha256": "fe7e6c2c6ac0d12630018812f735486c45003678adbfcb4a88a476d886c47efb",
+    "torch": "2.11.0+cu128",
+    "trainer_code_sha256": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
+    "trainer_format": "arm_a_2p5b_ckpt_v1",
+    "trainer_implementation": "arm_a_2p5b_trainer_v1_opt3c_all_b1024"
+  },
+  "rope": {
+    "cache": "phase cached per position tensor; replayed for all L levels",
+    "freq": "freq_i = THETA ** (-2i/K) / (2*pi), i in [0, K/2)",
+    "pairing": "adjacent (x[2i], x[2i+1]) -> (q[2i], q[2i+1])",
+    "phase": "phase_i = remainder(pos * freq_i, 1) * (2*pi)",
+    "rotate": "q[2i] = x[2i]*cos(phase_i) - x[2i+1]*sin(phase_i); q[2i+1] = x[2i+1]*cos(phase_i) + x[2i]*sin(phase_i)",
+    "style": "interleaved_pairs",
+    "theta": 65536
+  },
+  "source": {
+    "repo_commit": "0dcbb87",
+    "repo_commit_full": "0dcbb878d24b99b5808359c889e97143c3cec00b",
+    "trainer_path": "training/arm_a_2p5b_trainer.py",
+    "trainer_sha256": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49"
+  },
+  "source_commit": "0dcbb87",
+  "source_commit_full": "0dcbb878d24b99b5808359c889e97143c3cec00b",
+  "tensors": {
+    "coord_Wc": {
+      "role": "coordinator projection",
+      "shape": [
+        256,
+        256
+      ],
+      "source_name": "coordinator.Wc"
+    },
+    "coord_alpha": {
+      "role": "coordinator gate logit; rho = sigmoid(alpha)",
+      "shape": [],
+      "source_name": "coordinator.alpha"
+    },
+    "coord_bc": {
+      "role": "coordinator bias",
+      "shape": [
+        256
+      ],
+      "source_name": "coordinator.bc"
+    },
+    "decoder_x": {
+      "role": "wide positive projection D -> H*K",
+      "shape": [
+        4,
+        256,
+        4096
+      ],
+      "source_name": "decoder_x"
+    },
+    "decoder_y": {
+      "role": "second positive projection D -> H*K",
+      "shape": [
+        4,
+        256,
+        4096
+      ],
+      "source_name": "decoder_y"
+    },
+    "embedding": {
+      "role": "token embedding",
+      "shape": [
+        8192,
+        256
+      ],
+      "source_name": "embedding.weight"
+    },
+    "encoder": {
+      "role": "neuronal collapse N -> D",
+      "shape": [
+        16384,
+        256
+      ],
+      "source_name": "encoder"
+    },
+    "readout": {
+      "role": "logits",
+      "shape": [
+        256,
+        8192
+      ],
+      "source_name": "readout"
+    },
+    "writer_W1": {
+      "role": "writer up-projection, ReLU",
+      "shape": [
+        256,
+        1040
+      ],
+      "source_name": "writer.W1"
+    },
+    "writer_W2": {
+      "role": "writer down-projection",
+      "shape": [
+        1040,
+        256
+      ],
+      "source_name": "writer.W2"
+    }
+  },
+  "trainer_implementation_version": "arm_a_2p5b_trainer_v1_opt3c_all_b1024",
+  "trainer_path": "training/arm_a_2p5b_trainer.py",
+  "trainer_sha256": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
+  "weights_fingerprint": "dbc2acc115e795f27b1ded7624cbffb9e90f6c49dcb54fad0cb2705f9627a934"
+}

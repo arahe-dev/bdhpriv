@@ -1,0 +1,29 @@
+{
+  "blockers": [
+    {
+      "effect": "BASE-LM retention and Phase B replay use a clearly labelled BASE_TEXT_PROXY (repository prose), not the frozen phase_bdh_stage2_5b_v1 corpus. Replay conclusions are mechanical only and may not transfer to the original corpus mixture.",
+      "id": "BASE_CORPUS_NOT_LOCAL",
+      "status": "BLOCKED_ARTIFACT_NOT_LOCAL"
+    },
+    {
+      "effect": "No frozen Arm-A SAE; section 11 latent-drift metrics are N/A and native BDH sparse-neuron probes are the substitute.",
+      "id": "SAE_UNAVAILABLE",
+      "status": "UNAVAILABLE"
+    }
+  ],
+  "created_at": "2026-09-17T06:10:44Z",
+  "format": "arm_a_sft_probe_blockers_v1",
+  "notes": [
+    {
+      "effect": "The first Phase B 10%-replay run replayed the same text used as the retention proxy, which artificially collapsed its proxy NLL (-35%). That run was moved to results/sft_probe/_invalidated and runs/sft_probe/_invalidated, and B2 was re-run with disjoint replay text (repository .py sources, replay label BASE_TEXT_PROXY_REPLAY). Only the clean re-run is reported.",
+      "id": "INVALIDATED_RUN_B2_REPLAY_PROXY_OVERLAP",
+      "status": "RE-RUN_CLEAN"
+    },
+    {
+      "dataset_file_sha256": "bdd9b3f1aa3688ee2015550974c3a14b27fec20e4cfb459fd6800dc14030b9e6",
+      "dataset_revision": "f7e3ded725cb81e8e564e32feb12860f376f2b51",
+      "id": "ALPACA_GPT4",
+      "status": "OBTAINED"
+    }
+  ]
+}

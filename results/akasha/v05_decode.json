@@ -1,0 +1,916 @@
+{
+  "env": {
+    "capability": [
+      8,
+      9
+    ],
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "note": "Local laptop RTX 4060 (sm_89, 8 GiB). Not the production G4 RTX PRO 6000 Blackwell Server Edition; do not conflate.",
+    "nvidia_smi": "NVIDIA GeForce RTX 4060 Laptop GPU, 595.79, 3105 MHz, 8001 MHz",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.10",
+    "sm_count": 24,
+    "torch": "2.10.0+cu128",
+    "total_memory_bytes": 8585216000,
+    "total_memory_gib": 7.99560546875,
+    "trainer_sha256": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
+    "v0_commit": "0dcbb87",
+    "v0_commit_full": "0dcbb878d24b99b5808359c889e97143c3cec00b"
+  },
+  "format": "akasha_v05_decode_v1",
+  "protocol": {
+    "measured_steps": 50,
+    "modes": [
+      "FULL_RECOMPUTE_EAGER",
+      "RECURRENT_EAGER",
+      "RECURRENT_COMPILED"
+    ],
+    "precisions": [
+      "P0_FP32",
+      "P1_BF16_AUTOCAST_FP32_STATE"
+    ],
+    "prompt_len": 32,
+    "sampling": "argmax per step (included in step timing)",
+    "warmup_steps": 10,
+    "weights_fingerprint_synthetic": "ba989cbfe2668c7841a41c01d07954bc0ed20153439be921fdac832d04bef9f4"
+  },
+  "results": [
+    {
+      "batch": 1,
+      "final_context": 92,
+      "max_ms": 71.41683197021484,
+      "mean_ms": 44.24983871459961,
+      "median_ms": 42.4597282409668,
+      "min_ms": 32.41164779663086,
+      "mode": "FULL_RECOMPUTE_EAGER",
+      "p10_ms": 35.68025588989258,
+      "p90_ms": 52.20249557495117,
+      "peak_allocated_bytes": 142196736,
+      "peak_reserved_bytes": 182452224,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 42.4597282409668,
+      "status": "OK",
+      "tokens_per_s": 23.551728695125306
+    },
+    {
+      "batch": 2,
+      "final_context": 92,
+      "max_ms": 81.71417236328125,
+      "mean_ms": 47.130184936523435,
+      "median_ms": 45.8428955078125,
+      "min_ms": 34.18521499633789,
+      "mode": "FULL_RECOMPUTE_EAGER",
+      "p10_ms": 38.97340774536133,
+      "p90_ms": 56.02406311035156,
+      "peak_allocated_bytes": 213082112,
+      "peak_reserved_bytes": 272629760,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 45.8428955078125,
+      "status": "OK",
+      "tokens_per_s": 43.62726171297714
+    },
+    {
+      "batch": 4,
+      "final_context": 92,
+      "max_ms": 66.32345581054688,
+      "mean_ms": 42.02880119323731,
+      "median_ms": 40.7459831237793,
+      "min_ms": 32.63385772705078,
+      "mode": "FULL_RECOMPUTE_EAGER",
+      "p10_ms": 35.86163330078125,
+      "p90_ms": 47.633216857910156,
+      "peak_allocated_bytes": 330952192,
+      "peak_reserved_bytes": 509607936,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 40.7459831237793,
+      "status": "OK",
+      "tokens_per_s": 98.16918609740466
+    },
+    {
+      "batch": 8,
+      "final_context": 92,
+      "max_ms": 91.30086517333984,
+      "mean_ms": 69.18267768859863,
+      "median_ms": 68.14413070678711,
+      "min_ms": 50.84364700317383,
+      "mode": "FULL_RECOMPUTE_EAGER",
+      "p10_ms": 53.85011291503906,
+      "p90_ms": 84.63359832763672,
+      "peak_allocated_bytes": 564158464,
+      "peak_reserved_bytes": 910163968,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 68.14413070678711,
+      "status": "OK",
+      "tokens_per_s": 117.39822515929761
+    },
+    {
+      "batch": 16,
+      "final_context": 92,
+      "max_ms": 164.5148162841797,
+      "mean_ms": 133.0422396850586,
+      "median_ms": 133.05907440185547,
+      "min_ms": 102.03135681152344,
+      "mode": "FULL_RECOMPUTE_EAGER",
+      "p10_ms": 106.37926483154297,
+      "p90_ms": 159.2473602294922,
+      "peak_allocated_bytes": 1034938368,
+      "peak_reserved_bytes": 1725956096,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 133.05907440185547,
+      "status": "OK",
+      "tokens_per_s": 120.24734180607591
+    },
+    {
+      "batch": 32,
+      "final_context": 92,
+      "max_ms": 323.0494689941406,
+      "mean_ms": 259.59378814697266,
+      "median_ms": 259.73606872558594,
+      "min_ms": 203.87225341796875,
+      "mode": "FULL_RECOMPUTE_EAGER",
+      "p10_ms": 209.47251892089844,
+      "p90_ms": 307.6751403808594,
+      "peak_allocated_bytes": 1969763328,
+      "peak_reserved_bytes": 3342860288,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 259.73606872558594,
+      "status": "OK",
+      "tokens_per_s": 123.2019879141559
+    },
+    {
+      "batch": 1,
+      "clock_after": {
+        "sm_clock_mhz": 1350
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2610
+      },
+      "max_ms": 26.353439331054688,
+      "mean_ms": 19.0058638381958,
+      "median_ms": 18.80615997314453,
+      "min_ms": 14.335904121398926,
+      "mode": "RECURRENT_EAGER",
+      "p10_ms": 15.736991882324219,
+      "p90_ms": 22.172832489013672,
+      "peak_allocated_bytes": 233553408,
+      "peak_reserved_bytes": 245366784,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 18.80615997314453,
+      "single_session_tokens_per_s": 53.17406644567602,
+      "status": "OK",
+      "tokens_per_s": 53.17406644567602
+    },
+    {
+      "batch": 2,
+      "clock_after": {
+        "sm_clock_mhz": 2340
+      },
+      "clock_before": {
+        "sm_clock_mhz": 1725
+      },
+      "max_ms": 28.53376007080078,
+      "mean_ms": 22.673016204833985,
+      "median_ms": 22.658512115478516,
+      "min_ms": 17.56175994873047,
+      "mode": "RECURRENT_EAGER",
+      "p10_ms": 20.305919647216797,
+      "p90_ms": 25.39308738708496,
+      "peak_allocated_bytes": 397470208,
+      "peak_reserved_bytes": 413138944,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 11.329256057739258,
+      "single_session_tokens_per_s": 88.26704903689405,
+      "status": "OK",
+      "tokens_per_s": 88.26704903689405
+    },
+    {
+      "batch": 4,
+      "clock_after": {
+        "sm_clock_mhz": 2610
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2610
+      },
+      "max_ms": 31.069183349609375,
+      "mean_ms": 22.129961013793945,
+      "median_ms": 21.996736526489258,
+      "min_ms": 16.681983947753906,
+      "mode": "RECURRENT_EAGER",
+      "p10_ms": 17.476608276367188,
+      "p90_ms": 25.473024368286133,
+      "peak_allocated_bytes": 700130304,
+      "peak_reserved_bytes": 717225984,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 5.4991841316223145,
+      "single_session_tokens_per_s": 181.8451566750848,
+      "status": "OK",
+      "tokens_per_s": 181.8451566750848
+    },
+    {
+      "batch": 8,
+      "clock_after": {
+        "sm_clock_mhz": 2610
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2610
+      },
+      "max_ms": 38.833152770996094,
+      "mean_ms": 37.26562866210938,
+      "median_ms": 37.12870407104492,
+      "min_ms": 36.59980773925781,
+      "mode": "RECURRENT_EAGER",
+      "p10_ms": 36.661598205566406,
+      "p90_ms": 37.894142150878906,
+      "peak_allocated_bytes": 1305450496,
+      "peak_reserved_bytes": 1323302912,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 4.641088008880615,
+      "single_session_tokens_per_s": 215.46671773655726,
+      "status": "OK",
+      "tokens_per_s": 215.46671773655726
+    },
+    {
+      "batch": 16,
+      "clock_after": {
+        "sm_clock_mhz": 2610
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2610
+      },
+      "max_ms": 71.1905288696289,
+      "mean_ms": 69.70193786621094,
+      "median_ms": 69.6806411743164,
+      "min_ms": 69.02476501464844,
+      "mode": "RECURRENT_EAGER",
+      "p10_ms": 69.17938995361328,
+      "p90_ms": 70.13471984863281,
+      "peak_allocated_bytes": 2516090880,
+      "peak_reserved_bytes": 2535456768,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 4.355040073394775,
+      "single_session_tokens_per_s": 229.6190122587081,
+      "status": "OK",
+      "tokens_per_s": 229.6190122587081
+    },
+    {
+      "batch": 32,
+      "clock_after": {
+        "sm_clock_mhz": 2610
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2610
+      },
+      "max_ms": 138.09458923339844,
+      "mean_ms": 135.27880798339845,
+      "median_ms": 135.10041046142578,
+      "min_ms": 134.39385986328125,
+      "mode": "RECURRENT_EAGER",
+      "p10_ms": 134.6641845703125,
+      "p90_ms": 135.99436950683594,
+      "peak_allocated_bytes": 4937371648,
+      "peak_reserved_bytes": 5486149632,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 4.221887826919556,
+      "single_session_tokens_per_s": 236.86086438010284,
+      "status": "OK",
+      "tokens_per_s": 236.86086438010284
+    },
+    {
+      "batch": 1,
+      "clock_after": {
+        "sm_clock_mhz": 1635
+      },
+      "clock_before": {
+        "sm_clock_mhz": 1875
+      },
+      "compile_seconds": 4.60190199999488,
+      "compiled_vs_eager_max_abs": 4.172325134277344e-07,
+      "graph_breaks": 0,
+      "layout": "buffers",
+      "max_ms": 17.725215911865234,
+      "mean_ms": 10.36828992843628,
+      "median_ms": 10.216880321502686,
+      "min_ms": 7.7066240310668945,
+      "mode": "RECURRENT_COMPILED",
+      "p10_ms": 8.380415916442871,
+      "p90_ms": 12.390591621398926,
+      "peak_allocated_bytes": 317971456,
+      "peak_reserved_bytes": 325058560,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 10.216880321502686,
+      "single_session_tokens_per_s": 97.87723537246262,
+      "status": "OK",
+      "tokens_per_s": 97.87723537246264
+    },
+    {
+      "batch": 2,
+      "clock_after": {
+        "sm_clock_mhz": 2625
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "compile_seconds": 39.91264299998875,
+      "compiled_vs_eager_max_abs": 4.172325134277344e-07,
+      "graph_breaks": 0,
+      "layout": "buffers",
+      "max_ms": 17.22470474243164,
+      "mean_ms": 11.84358404159546,
+      "median_ms": 11.407359600067139,
+      "min_ms": 8.580096244812012,
+      "mode": "RECURRENT_COMPILED",
+      "p10_ms": 9.902079582214355,
+      "p90_ms": 14.08512020111084,
+      "peak_allocated_bytes": 452978688,
+      "peak_reserved_bytes": 520093696,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 5.703679800033569,
+      "single_session_tokens_per_s": 175.32541009649847,
+      "status": "OK",
+      "tokens_per_s": 175.32541009649847
+    },
+    {
+      "batch": 4,
+      "clock_after": {
+        "sm_clock_mhz": 2625
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "compile_seconds": 33.77430049999384,
+      "compiled_vs_eager_max_abs": 4.76837158203125e-07,
+      "graph_breaks": 0,
+      "layout": "buffers",
+      "max_ms": 17.767488479614258,
+      "mean_ms": 12.773971157073975,
+      "median_ms": 12.65561580657959,
+      "min_ms": 9.430015563964844,
+      "mode": "RECURRENT_COMPILED",
+      "p10_ms": 10.290176391601562,
+      "p90_ms": 15.98259162902832,
+      "peak_allocated_bytes": 722964992,
+      "peak_reserved_bytes": 843055104,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 3.1639039516448975,
+      "single_session_tokens_per_s": 316.0652204628731,
+      "status": "OK",
+      "tokens_per_s": 316.0652204628731
+    },
+    {
+      "batch": 8,
+      "clock_after": {
+        "sm_clock_mhz": 2625
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "compile_seconds": 1.9038437999843154,
+      "compiled_vs_eager_max_abs": 4.470348358154297e-07,
+      "graph_breaks": 0,
+      "layout": "buffers",
+      "max_ms": 21.906431198120117,
+      "mean_ms": 16.230727729797362,
+      "median_ms": 16.106496810913086,
+      "min_ms": 16.02560043334961,
+      "mode": "RECURRENT_COMPILED",
+      "p10_ms": 16.060415267944336,
+      "p90_ms": 16.18739128112793,
+      "peak_allocated_bytes": 1262938624,
+      "peak_reserved_bytes": 1275068416,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 2.0133121013641357,
+      "single_session_tokens_per_s": 496.6939796976544,
+      "status": "OK",
+      "tokens_per_s": 496.69397969765447
+    },
+    {
+      "batch": 16,
+      "clock_after": {
+        "sm_clock_mhz": 2625
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "compile_seconds": 41.17061990001821,
+      "compiled_vs_eager_max_abs": 5.960464477539062e-07,
+      "graph_breaks": 0,
+      "layout": "buffers",
+      "max_ms": 31.341440200805664,
+      "mean_ms": 30.791251792907715,
+      "median_ms": 30.732800483703613,
+      "min_ms": 30.56844711303711,
+      "mode": "RECURRENT_COMPILED",
+      "p10_ms": 30.658559799194336,
+      "p90_ms": 31.024127960205078,
+      "peak_allocated_bytes": 2342884352,
+      "peak_reserved_bytes": 2355101696,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 1.9208000302314758,
+      "single_session_tokens_per_s": 520.616401635255,
+      "status": "OK",
+      "tokens_per_s": 520.616401635255
+    },
+    {
+      "batch": 32,
+      "clock_after": {
+        "sm_clock_mhz": 2625
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "compile_seconds": 36.70511420001276,
+      "compiled_vs_eager_max_abs": 8.344650268554688e-07,
+      "graph_breaks": 0,
+      "layout": "buffers",
+      "max_ms": 238.5848388671875,
+      "mean_ms": 91.8633031463623,
+      "median_ms": 59.439104080200195,
+      "min_ms": 59.10630416870117,
+      "mode": "RECURRENT_COMPILED",
+      "p10_ms": 59.242496490478516,
+      "p90_ms": 233.42489624023438,
+      "peak_allocated_bytes": 4502778368,
+      "peak_reserved_bytes": 4517265408,
+      "precision": "P0_FP32",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 1.857472002506256,
+      "single_session_tokens_per_s": 538.3661226929486,
+      "status": "OK",
+      "tokens_per_s": 538.3661226929486
+    },
+    {
+      "batch": 1,
+      "final_context": 92,
+      "max_ms": 57.523040771484375,
+      "mean_ms": 45.67031929016113,
+      "median_ms": 44.99148750305176,
+      "min_ms": 37.72108840942383,
+      "mode": "FULL_RECOMPUTE_EAGER",
+      "p10_ms": 40.43059158325195,
+      "p90_ms": 50.69209671020508,
+      "peak_allocated_bytes": 123922944,
+      "peak_reserved_bytes": 8852078592,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 44.99148750305176,
+      "status": "OK",
+      "tokens_per_s": 22.226426719769385
+    },
+    {
+      "batch": 2,
+      "final_context": 92,
+      "max_ms": 72.79718780517578,
+      "mean_ms": 48.75016082763672,
+      "median_ms": 47.410688400268555,
+      "min_ms": 36.28441619873047,
+      "mode": "FULL_RECOMPUTE_EAGER",
+      "p10_ms": 40.55654525756836,
+      "p90_ms": 58.22566223144531,
+      "peak_allocated_bytes": 160103424,
+      "peak_reserved_bytes": 201326592,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 47.410688400268555,
+      "status": "OK",
+      "tokens_per_s": 42.18458047086005
+    },
+    {
+      "batch": 4,
+      "final_context": 92,
+      "max_ms": 92.4920654296875,
+      "mean_ms": 50.283284454345704,
+      "median_ms": 48.138240814208984,
+      "min_ms": 38.43904113769531,
+      "mode": "FULL_RECOMPUTE_EAGER",
+      "p10_ms": 40.253440856933594,
+      "p90_ms": 58.60319900512695,
+      "peak_allocated_bytes": 217190912,
+      "peak_reserved_bytes": 272629760,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 48.138240814208984,
+      "status": "OK",
+      "tokens_per_s": 83.09402114294377
+    },
+    {
+      "batch": 8,
+      "final_context": 92,
+      "max_ms": 67.11500549316406,
+      "mean_ms": 52.18238380432129,
+      "median_ms": 50.54863929748535,
+      "min_ms": 42.3639030456543,
+      "mode": "FULL_RECOMPUTE_EAGER",
+      "p10_ms": 43.061248779296875,
+      "p90_ms": 62.6228141784668,
+      "peak_allocated_bytes": 339580928,
+      "peak_reserved_bytes": 501219328,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 50.54863929748535,
+      "status": "OK",
+      "tokens_per_s": 158.2634094840606
+    },
+    {
+      "batch": 16,
+      "final_context": 92,
+      "max_ms": 79.75833892822266,
+      "mean_ms": 62.32013168334961,
+      "median_ms": 62.61350440979004,
+      "min_ms": 43.7022705078125,
+      "mode": "FULL_RECOMPUTE_EAGER",
+      "p10_ms": 46.53055953979492,
+      "p90_ms": 76.6904296875,
+      "peak_allocated_bytes": 583870464,
+      "peak_reserved_bytes": 905969664,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 62.61350440979004,
+      "status": "OK",
+      "tokens_per_s": 255.5359287236811
+    },
+    {
+      "batch": 32,
+      "final_context": 92,
+      "max_ms": 151.96365356445312,
+      "mean_ms": 118.15012634277343,
+      "median_ms": 118.4563217163086,
+      "min_ms": 88.12032318115234,
+      "mode": "FULL_RECOMPUTE_EAGER",
+      "p10_ms": 91.64083099365234,
+      "p90_ms": 143.03948974609375,
+      "peak_allocated_bytes": 1071219200,
+      "peak_reserved_bytes": 1742733312,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 118.4563217163086,
+      "status": "OK",
+      "tokens_per_s": 270.1417664870339
+    },
+    {
+      "batch": 1,
+      "clock_after": {
+        "sm_clock_mhz": 1035
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2610
+      },
+      "max_ms": 38.133758544921875,
+      "mean_ms": 27.38019660949707,
+      "median_ms": 26.384384155273438,
+      "min_ms": 21.07494354248047,
+      "mode": "RECURRENT_EAGER",
+      "p10_ms": 21.995519638061523,
+      "p90_ms": 32.95743942260742,
+      "peak_allocated_bytes": 237634560,
+      "peak_reserved_bytes": 245366784,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 26.384384155273438,
+      "single_session_tokens_per_s": 37.901206793948624,
+      "status": "OK",
+      "tokens_per_s": 37.901206793948624
+    },
+    {
+      "batch": 2,
+      "clock_after": {
+        "sm_clock_mhz": 1665
+      },
+      "clock_before": {
+        "sm_clock_mhz": 1605
+      },
+      "max_ms": 45.28947067260742,
+      "mean_ms": 30.212473068237305,
+      "median_ms": 29.783024787902832,
+      "min_ms": 23.94806480407715,
+      "mode": "RECURRENT_EAGER",
+      "p10_ms": 24.569759368896484,
+      "p90_ms": 33.498111724853516,
+      "peak_allocated_bytes": 380392960,
+      "peak_reserved_bytes": 396361728,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 14.891512393951416,
+      "single_session_tokens_per_s": 67.15234648739752,
+      "status": "OK",
+      "tokens_per_s": 67.15234648739752
+    },
+    {
+      "batch": 4,
+      "clock_after": {
+        "sm_clock_mhz": 2625
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "max_ms": 42.539329528808594,
+      "mean_ms": 28.788381538391114,
+      "median_ms": 28.44924831390381,
+      "min_ms": 22.10304069519043,
+      "mode": "RECURRENT_EAGER",
+      "p10_ms": 25.136127471923828,
+      "p90_ms": 32.52531051635742,
+      "peak_allocated_bytes": 665975808,
+      "peak_reserved_bytes": 683671552,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 7.112312078475952,
+      "single_session_tokens_per_s": 140.6012544115307,
+      "status": "OK",
+      "tokens_per_s": 140.6012544115307
+    },
+    {
+      "batch": 8,
+      "clock_after": {
+        "sm_clock_mhz": 2610
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2610
+      },
+      "max_ms": 51.135520935058594,
+      "mean_ms": 37.10249580383301,
+      "median_ms": 35.42118263244629,
+      "min_ms": 33.20832061767578,
+      "mode": "RECURRENT_EAGER",
+      "p10_ms": 33.532928466796875,
+      "p90_ms": 44.12006378173828,
+      "peak_allocated_bytes": 1237141504,
+      "peak_reserved_bytes": 1254096896,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 4.427647829055786,
+      "single_session_tokens_per_s": 225.8535544398196,
+      "status": "OK",
+      "tokens_per_s": 225.85355443981956
+    },
+    {
+      "batch": 16,
+      "clock_after": {
+        "sm_clock_mhz": 2610
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2610
+      },
+      "max_ms": 65.44793701171875,
+      "mean_ms": 63.22649589538574,
+      "median_ms": 63.01747131347656,
+      "min_ms": 61.94073486328125,
+      "mode": "RECURRENT_EAGER",
+      "p10_ms": 62.34431838989258,
+      "p90_ms": 64.3788833618164,
+      "peak_allocated_bytes": 2379472896,
+      "peak_reserved_bytes": 2397044736,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 3.938591957092285,
+      "single_session_tokens_per_s": 253.89784240006992,
+      "status": "OK",
+      "tokens_per_s": 253.89784240006995
+    },
+    {
+      "batch": 32,
+      "clock_after": {
+        "sm_clock_mhz": 2610
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2610
+      },
+      "max_ms": 120.56883239746094,
+      "mean_ms": 118.00107543945313,
+      "median_ms": 117.90899276733398,
+      "min_ms": 117.07068634033203,
+      "mode": "RECURRENT_EAGER",
+      "p10_ms": 117.35858917236328,
+      "p90_ms": 118.793212890625,
+      "peak_allocated_bytes": 4664135680,
+      "peak_reserved_bytes": 4682940416,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 3.684656023979187,
+      "single_session_tokens_per_s": 271.3957540384097,
+      "status": "OK",
+      "tokens_per_s": 271.3957540384097
+    },
+    {
+      "batch": 1,
+      "clock_after": {
+        "sm_clock_mhz": 1920
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "compile_seconds": 48.88622889999533,
+      "compiled_vs_eager_max_abs": 0.0078125,
+      "graph_breaks": 0,
+      "layout": "buffers",
+      "max_ms": 21.427040100097656,
+      "mean_ms": 13.490099830627441,
+      "median_ms": 12.915551662445068,
+      "min_ms": 10.002431869506836,
+      "mode": "RECURRENT_COMPILED",
+      "p10_ms": 10.767647743225098,
+      "p90_ms": 16.696224212646484,
+      "peak_allocated_bytes": 349326336,
+      "peak_reserved_bytes": 373293056,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 12.915551662445068,
+      "single_session_tokens_per_s": 77.42603847946577,
+      "status": "OK",
+      "tokens_per_s": 77.42603847946577
+    },
+    {
+      "batch": 2,
+      "clock_after": {
+        "sm_clock_mhz": 2625
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "compile_seconds": 53.01484059999348,
+      "compiled_vs_eager_max_abs": 0.0078125,
+      "graph_breaks": 0,
+      "layout": "buffers",
+      "max_ms": 15.493247985839844,
+      "mean_ms": 8.051160335540771,
+      "median_ms": 6.517823934555054,
+      "min_ms": 6.326272010803223,
+      "mode": "RECURRENT_COMPILED",
+      "p10_ms": 6.338687896728516,
+      "p90_ms": 11.635711669921875,
+      "peak_allocated_bytes": 504846336,
+      "peak_reserved_bytes": 557842432,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 3.258911967277527,
+      "single_session_tokens_per_s": 306.85087846524226,
+      "status": "OK",
+      "tokens_per_s": 306.85087846524226
+    },
+    {
+      "batch": 4,
+      "clock_after": {
+        "sm_clock_mhz": 2625
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "compile_seconds": 52.407169599988265,
+      "compiled_vs_eager_max_abs": 0.0078125,
+      "graph_breaks": 0,
+      "layout": "buffers",
+      "max_ms": 10.964991569519043,
+      "mean_ms": 10.682906227111816,
+      "median_ms": 10.660864353179932,
+      "min_ms": 10.573823928833008,
+      "mode": "RECURRENT_COMPILED",
+      "p10_ms": 10.609663963317871,
+      "p90_ms": 10.758367538452148,
+      "peak_allocated_bytes": 788335104,
+      "peak_reserved_bytes": 954204160,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 2.665216088294983,
+      "single_session_tokens_per_s": 375.20409860640206,
+      "status": "OK",
+      "tokens_per_s": 375.20409860640206
+    },
+    {
+      "batch": 8,
+      "clock_after": {
+        "sm_clock_mhz": 2625
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "compile_seconds": 45.536315100005595,
+      "compiled_vs_eager_max_abs": 0.0078125,
+      "graph_breaks": 0,
+      "layout": "buffers",
+      "max_ms": 18.961408615112305,
+      "mean_ms": 18.21014347076416,
+      "median_ms": 18.191872596740723,
+      "min_ms": 18.120704650878906,
+      "mode": "RECURRENT_COMPILED",
+      "p10_ms": 18.134016036987305,
+      "p90_ms": 18.275327682495117,
+      "peak_allocated_bytes": 1412680704,
+      "peak_reserved_bytes": 1436549120,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 2.2739840745925903,
+      "single_session_tokens_per_s": 439.75681763697537,
+      "status": "OK",
+      "tokens_per_s": 439.75681763697537
+    },
+    {
+      "batch": 16,
+      "clock_after": {
+        "sm_clock_mhz": 2625
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "compile_seconds": 51.30450810000184,
+      "compiled_vs_eager_max_abs": 0.0078125,
+      "graph_breaks": 0,
+      "layout": "buffers",
+      "max_ms": 34.58047866821289,
+      "mean_ms": 33.965916290283204,
+      "median_ms": 33.94304084777832,
+      "min_ms": 33.77561569213867,
+      "mode": "RECURRENT_COMPILED",
+      "p10_ms": 33.833984375,
+      "p90_ms": 34.093055725097656,
+      "peak_allocated_bytes": 2622486528,
+      "peak_reserved_bytes": 2644508672,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 2.121440052986145,
+      "single_session_tokens_per_s": 471.3779201973665,
+      "status": "OK",
+      "tokens_per_s": 471.3779201973665
+    },
+    {
+      "batch": 32,
+      "clock_after": {
+        "sm_clock_mhz": 2625
+      },
+      "clock_before": {
+        "sm_clock_mhz": 2625
+      },
+      "compile_seconds": 47.25085109999054,
+      "compiled_vs_eager_max_abs": 0.0078125,
+      "graph_breaks": 0,
+      "layout": "buffers",
+      "max_ms": 64.9144287109375,
+      "mean_ms": 63.76035507202148,
+      "median_ms": 63.7393913269043,
+      "min_ms": 63.3804817199707,
+      "mode": "RECURRENT_COMPILED",
+      "p10_ms": 63.508480072021484,
+      "p90_ms": 63.97132873535156,
+      "peak_allocated_bytes": 5044090368,
+      "peak_reserved_bytes": 5068816384,
+      "precision": "P1_BF16_AUTOCAST_FP32_STATE",
+      "prompt_len": 32,
+      "samples": 50,
+      "single_session_ms": 1.9918559789657593,
+      "single_session_tokens_per_s": 502.04432979096947,
+      "status": "OK",
+      "tokens_per_s": 502.0443297909694
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "status": "NOT_RUN",
+  "reason": "The E4 comparison requires matched training runs on the GPU machine. The CPU analysis agent does not own the GPU and the frozen corpus is not local. This file freezes the protocol and definitions so the intervention can be executed without re-deriving them.",
+  "model_of_phenomenon": {
+    "statement": "A broad global hierarchy exists, but the exact high-mass population required for faithful computation is strongly context-dependent.",
+    "consequence": "The stable core is descriptive population structure and a useful prior; it is NOT yet evidence that forcing the core to remain always-on is the optimal compute allocation.",
+    "evidence": "results/arm_a_science/e4_forward_ablation.json: at matched 320 coords/head the ORACLE_DYNAMIC selection preserves the dense output far better than HYBRID or STATIC (4.0% vs 24.2% vs 83.3% relative logit perturbation); zero-u = 55.9%."
+  },
+  "prediction": {
+    "predeclared_ordering": "DENSE > ORACLE_DYNAMIC > LEARNED_DYNAMIC > HYBRID > STATIC on fidelity/loss at matched active width, and LEARNED_DYNAMIC > HYBRID > STATIC on training loss at matched active compute.",
+    "rationale": "STATIC misses the rotating u mass (global top-320 keeps 51.1% per token vs 98.9% for dynamic); HYBRID's fixed core consumes width that the tail could spend on per-context mass; ORACLE_DYNAMIC is the upper bound.",
+    "must_not_change": "The ordering above must not be modified after seeing learned-router results. If LEARNED_DYNAMIC fails to beat HYBRID/STATIC, that is the result.",
+    "falsification": "Any of: STATIC >= LEARNED_DYNAMIC, HYBRID > LEARNED_DYNAMIC at adaptive-router recall above the predeclared gate, or LEARNED_DYNAMIC not beating DENSE at matched width."
+  },
+  "arms": {
+    "DENSE": "unmodified Arm-A at the same token budget (upper-bound control)",
+    "STATIC": "frozen global top-w u coordinates from the census, input-independent",
+    "ORACLE_DYNAMIC": "top-w from the true u activations (reference upper bound, not implementable)",
+    "LEARNED_DYNAMIC": "top-w selected by a learned router from the level input v; trained end-to-end",
+    "HYBRID": "always-on frozen core + learned router over the remaining K-c tail; core fractions from the predeclared ladder",
+    "additional_controls": [
+      "routing shuffle: permuted router assignments with identical load",
+      "position-stratified control: route selection computed independently per position bin",
+      "expert knockout: drop the most-selected tail coordinate and measure loss change",
+      "width-matched random selection: random w coordinates per token at the same width"
+    ]
+  },
+  "matched_width_design": {
+    "active_coords_per_level_head": [320, 512, 1024],
+    "width_assignment": {
+      "STATIC": "global top-w, w in {320,512,1024}",
+      "ORACLE_DYNAMIC": "per-token top-w, w in {320,512,1024}",
+      "LEARNED_DYNAMIC": "router top-w, w in {320,512,1024}",
+      "HYBRID": "core c + tail t = w, with c in {128 (3.125%), 256 (6.25%)} and t = w - c",
+      "DENSE": "full K (control point, not width-matched)"
+    },
+    "mass_coverage_reference_from_pilot": {
+      "static_320": 0.511,
+      "hybrid_256p64": 0.912,
+      "oracle_dynamic_320": 0.989,
+      "oracle_dynamic_512": 0.999,
+      "oracle_dynamic_1024": 1.0
+    },
+    "freeze_rule": "Core membership and the global ranking are frozen from the E3 census before training; core fraction must not be tuned per task or per example."
+  },
+  "router_bridge": {
+    "question": "Can a learned router recover enough of the oracle dynamic selection to retain its fidelity advantage?",
+    "input": "v at each level (D=256) after layer norm; per head or pooled over heads (D -> H*K or D -> K)",
+    "selection": "top-w per (level, head, token)",
+    "required_metrics": {
+      "oracle_topk_recall": "fraction of the oracle top-w u coordinates recovered",
+      "oracle_mass_recall": "fraction of oracle top-w u mass recovered (primary router metric)",
+      "logit_distortion": "relative L2 logit perturbation vs dense",
+      "loss": "training/validation loss at matched active width and at matched wall-clock",
+      "tokens_to_threshold": "tokens to reach the dense control's loss at a fixed step budget",
+      "router_entropy": "entropy of coordinate selection frequency",
+      "coordinate_utilization": "fraction of coordinates selected at least once",
+      "systems_throughput": "tokens/s and update ms measured same-session against the dense control"
+    },
+    "predeclared_gate": "a trained router below 0.5 oracle-mass-recall@64 at matched width must be reported as a negative result for the learned dynamic/hybrid arms",
+    "analysis": "plot fidelity (logit distortion, loss) against oracle-mass recall for each router checkpoint; the learned dynamic arm is only competitive if it stays near the oracle frontier"
+  },
+  "tasks": {
+    "mechanism": [
+      "delayed copy (variable delay)",
+      "variable-lag retrieval",
+      "associative retrieval",
+      "repeated motifs (the E2 recurrence probe predicts content-driven persistence; test under training)",
+      "packed independent documents"
+    ],
+    "language": "frozen-corpus held-out windows using the E3 sampling frame, or an explicit fixed held-out split"
+  },
+  "metrics": [
+    "loss vs tokens (curves, not endpoints)",
+    "loss AUC and tokens-to-threshold at matched active coordinates/token",
+    "task accuracy where applicable",
+    "relative logit distortion before/after each intervention",
+    "wall-clock per update and tokens/s, same-session against the dense Arm-A control",
+    "measured active coordinates/token",
+    "u mass coverage per token",
+    "router entropy, coordinate utilization, load-balance coefficient of variation",
+    "routing persistence between adjacent tokens",
+    "expert knockout loss delta",
+    "kernel/runtime cost of the routed path"
+  ],
+  "behavioral_checks": {
+    "expert_knockout": "zero the top-1 most selected tail coordinate and report loss delta; a functional specialist should show a measurable delta",
+    "routing_shuffle": "permute router assignments within a batch preserving load; loss must degrade if routing is functional",
+    "position_control": "recompute routing per position bin; if the advantage vanishes, it is positional"
+  },
+  "statistics": {
+    "unit_of_resampling": "document/block bootstrap; tokens are not independent replicates",
+    "seeds": "at least 2 training seeds per arm; one trajectory is not replication",
+    "report": "effect sizes with confidence intervals; primary metric is loss at matched active width"
+  },
+  "decision_rule": {
+    "architecture_informing": "any arm that beats the dense control at matched wall-clock, or beats STATIC at matched active width, changes the recommended architecture",
+    "paper_central": "LEARNED_DYNAMIC > STATIC and LEARNED_DYNAMIC >= HYBRID at matched active width, reproduced across seeds and both task families, with a systems path preserving the wall-clock advantage",
+    "stop_rule": "If learned routing cannot beat static on loss at matched width, the correct conclusion is that the measured conditionality does not translate into a practical routing win; report it and stop."
+  },
+  "pilot_evidence": {
+    "file": "results/arm_a_science/e4_forward_ablation.json",
+    "status": "E4-pilot / oracle intervention; not E4 evidence",
+    "summary": "At 320 coords/head: oracle-dynamic 4.0% relative logit perturbation, hybrid 24.2%, static 83.3%, zero-u 55.9% (all cross-fitted, matched width, 8 held-out windows).",
+    "falsified": "The previous HYBRID-first fidelity prediction (hybrid < dynamic < static) is falsified and must not be softened."
+  },
+  "dependencies": {
+    "e3": "results/arm_a_science/e3_contract.json + campaigns/E3_G4_SCIENCE_CELL.md freeze the census sampling and core/ranking definitions",
+    "systems": "G4 systems validation of the routed path (from the parallel optimization track) supplies the wall-clock measurement"
+  },
+  "execution_notes": [
+    "Freeze the core ranking and width before training; never recompute per checkpoint or example.",
+    "Report the census numbers next to the intervention so the population-to-architecture chain stays auditable.",
+    "If HYBRID wins despite lower fidelity, report the systems reason explicitly rather than relabeling the hypothesis."
+  ]
+}

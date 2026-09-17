@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "purpose": "forward-only causal pilot for the E4 intervention; NOT a training comparison and NOT E4 evidence",
+    "design": "T=2048, 8 packed windows (split B), frozen u-mass rankings from split A, mask u at every level, matched width w = active coordinates per (level, head)",
+    "oracle_note": "DYNAMIC and HYBRID tail selection read the current u activations, so they are ORACLE selectors and give an upper bound for a learned router; an implementable router must predict the selection from v (see e4_static_dynamic_hybrid.json, metric router_recall@k)",
+    "prediction": "hybrid < dynamic < static in relative logit perturbation at matched width",
+    "result_vs_prediction": "FALSIFIED for forward fidelity: at matched width dynamic (oracle) preserves the dense output best, hybrid is intermediate, static is worst",
+    "widths": [
+      320,
+      512,
+      1024
+    ],
+    "core_coords": 256,
+    "evidence_class": "E4-pilot (forward-only intervention on a frozen model; no training)"
+  },
+  "results": {
+    "static_320": {
+      "relative_logit_perturbation_mean": 0.8332768328335646,
+      "relative_logit_perturbation_per_batch": [
+        0.9029550779497388,
+        0.7635985877173903
+      ],
+      "u_mass_kept": 0.5109787614308815,
+      "coords_active_mean": 320.0,
+      "seconds": 47.28515840001637
+    },
+    "static_512": {
+      "relative_logit_perturbation_mean": 0.46662546445085423,
+      "relative_logit_perturbation_per_batch": [
+        0.5167831566506282,
+        0.4164677722510802
+      ],
+      "u_mass_kept": 0.6686325872498289,
+      "coords_active_mean": 512.0,
+      "seconds": 47.57847340000444
+    },
+    "static_1024": {
+      "relative_logit_perturbation_mean": 0.193576200871644,
+      "relative_logit_perturbation_per_batch": [
+        0.21854017569412046,
+        0.16861222604916754
+      ],
+      "u_mass_kept": 0.866446746109494,
+      "coords_active_mean": 1024.0,
+      "seconds": 46.93215350000537
+    },
+    "dynamic_320": {
+      "relative_logit_perturbation_mean": 0.03948786983528825,
+      "relative_logit_perturbation_per_batch": [
+        0.06025571509355873,
+        0.018720024577017765
+      ],
+      "u_mass_kept": 0.9888289596764294,
+      "coords_active_mean": 320.0,
+      "seconds": 51.70222730000387,
+      "routing_entropy_nats": 8.703894130888127,
+      "routing_entropy_over_logK": 1.046422074921238,
+      "coordinate_utilization": 0.9998779296875,
+      "coordinate_utilization_frac2x_active": 0.9888916015625
+    },
+    "dynamic_512": {
+      "relative_logit_perturbation_mean": 0.0028072502699929207,
+      "relative_logit_perturbation_per_batch": [
+        0.0038021562254806044,
+        0.0018123443145052372
+      ],
+      "u_mass_kept": 0.9989633781049466,
+      "coords_active_mean": 512.0,
+      "seconds": 51.1528862999985,
+      "routing_entropy_nats": 8.598443583752374,
+      "routing_entropy_over_logK": 1.0337443264702564,
+      "coordinate_utilization": 0.99993896484375,
+      "coordinate_utilization_frac2x_active": 0.9920654296875
+    },
+    "dynamic_1024": {
+      "relative_logit_perturbation_mean": 1.2919358751628013e-05,
+      "relative_logit_perturbation_per_batch": [
+        2.1652300170503635e-05,
+        4.186417332752391e-06
+      ],
+      "u_mass_kept": 0.9999959237947634,
+      "coords_active_mean": 1024.0,
+      "seconds": 51.63133679999737,
+      "routing_entropy_nats": 8.732973772538655,
+      "routing_entropy_over_logK": 1.0499181628212417,
+      "coordinate_utilization": 0.99993896484375,
+      "coordinate_utilization_frac2x_active": 0.99395751953125
+    },
+    "hybrid_256p64": {
+      "relative_logit_perturbation_mean": 0.24158370605406587,
+      "relative_logit_perturbation_per_batch": [
+        0.3392400225431249,
+        0.14392738956500684
+      ],
+      "u_mass_kept": 0.9121347574068529,
+      "coords_active_mean": 320.0,
+      "seconds": 50.059988399996655
+    },
+    "hybrid_256p256": {
+      "relative_logit_perturbation_mean": 0.013387230408044782,
+      "relative_logit_perturbation_per_batch": [
+        0.018606854494417575,
+        0.00816760632167199
+      ],
+      "u_mass_kept": 0.9964568255029995,
+      "coords_active_mean": 512.0,
+      "seconds": 50.727346400002716
+    },
+    "hybrid_256p768": {
+      "relative_logit_perturbation_mean": 3.519136194226703e-05,
+      "relative_logit_perturbation_per_batch": [
+        5.120990046625649e-05,
+        1.9172823418277585e-05
+      ],
+      "u_mass_kept": 0.9999904697656673,
+      "coords_active_mean": 1024.0,
+      "seconds": 51.23017540000728
+    },
+    "zero_u": {
+      "relative_logit_perturbation_mean": 0.5589546530920015,
+      "relative_logit_perturbation_per_batch": [
+        0.6003144248117269,
+        0.5175948813722763
+      ],
+      "u_mass_kept": 0.0,
+      "coords_active_mean": 0.0,
+      "seconds": 47.059766699996544
+    }
+  },
+  "seconds": 537.5422887000022,
+  "rss_mb": NaN
+}

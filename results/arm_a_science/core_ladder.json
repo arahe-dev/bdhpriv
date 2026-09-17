@@ -1,0 +1,478 @@
+{
+  "meta": {
+    "evidence_class": "E2 (synthetic packed batches, latest checkpoint, one trajectory)",
+    "ladder": [
+      0.01,
+      0.03125,
+      0.0625,
+      0.125,
+      0.25
+    ],
+    "residual_quantiles": [
+      0.5,
+      0.8,
+      0.9
+    ],
+    "core_definition": "cross-fitted global mass top fraction per (level, head); mask from the other batch split",
+    "note": "quality under matched active width requires the E4 training intervention; this file reports coverage and tail geometry (see e4_forward_ablation.json for the forward-only fidelity pilot)"
+  },
+  "ladder": {
+    "mass_top_01": {
+      "core_fraction_of_K": 0.01,
+      "core_coords_per_head": 41,
+      "measured_core_fraction": 0.010009765625,
+      "per_key": {
+        "x": {
+          "core_mass_fraction": {
+            "mean": 0.08267475349368805,
+            "p10": 0.04326124265789986,
+            "p50": 0.08810049295425415,
+            "p90": 0.1082045152783394,
+            "n": 131072
+          },
+          "tokens_with_core_active": 0.9987106323242188,
+          "residual_top64": 0.22467362880706787,
+          "residual_top256": 0.613445520401001,
+          "coords_for_50pct_residual": {
+            "mean": 206.5156707763672,
+            "p10": 87.0,
+            "p50": 213.0,
+            "p90": 285.0,
+            "n": 131072
+          },
+          "coords_for_80pct_residual": {
+            "mean": 430.8730697631836,
+            "p10": 204.0,
+            "p50": 434.0,
+            "p90": 612.0,
+            "n": 131072
+          },
+          "coords_for_90pct_residual": {
+            "mean": 571.9680938720703,
+            "p10": 271.0,
+            "p50": 583.0,
+            "p90": 802.0,
+            "n": 131072
+          },
+          "active_width_for_90pct_total": {
+            "coords": 612.9680938720703,
+            "fraction_of_K": 0.14965041354298592
+          }
+        },
+        "u": {
+          "core_mass_fraction": {
+            "mean": 0.2935400233784601,
+            "p10": 0.13372997492551802,
+            "p50": 0.2887762784957886,
+            "p90": 0.46257649064064027,
+            "n": 131072
+          },
+          "tokens_with_core_active": 0.9962158203125,
+          "residual_top64": 0.7996792793273926,
+          "residual_top256": 0.9857068061828613,
+          "coords_for_50pct_residual": {
+            "mean": 42.692779541015625,
+            "p10": 13.0,
+            "p50": 22.0,
+            "p90": 49.0,
+            "n": 131072
+          },
+          "coords_for_80pct_residual": {
+            "mean": 85.67811584472656,
+            "p10": 34.0,
+            "p50": 57.0,
+            "p90": 127.0,
+            "n": 131072
+          },
+          "coords_for_90pct_residual": {
+            "mean": 114.02752685546875,
+            "p10": 48.0,
+            "p50": 81.0,
+            "p90": 178.0,
+            "n": 131072
+          },
+          "active_width_for_90pct_total": {
+            "coords": 155.02752685546875,
+            "fraction_of_K": 0.037848517298698425
+          }
+        }
+      }
+    },
+    "mass_top_03125": {
+      "core_fraction_of_K": 0.03125,
+      "core_coords_per_head": 128,
+      "measured_core_fraction": 0.03125,
+      "per_key": {
+        "x": {
+          "core_mass_fraction": {
+            "mean": 0.22491414411337662,
+            "p10": 0.11906166970729828,
+            "p50": 0.24185528606176376,
+            "p90": 0.3049233376979828,
+            "n": 131072
+          },
+          "tokens_with_core_active": 0.9991912841796875,
+          "residual_top64": 0.24903808534145355,
+          "residual_top256": 0.6555554270744324,
+          "coords_for_50pct_residual": {
+            "mean": 184.67979431152344,
+            "p10": 79.0,
+            "p50": 185.0,
+            "p90": 266.0,
+            "n": 131072
+          },
+          "coords_for_80pct_residual": {
+            "mean": 398.75403594970703,
+            "p10": 186.0,
+            "p50": 400.0,
+            "p90": 577.0,
+            "n": 131072
+          },
+          "coords_for_90pct_residual": {
+            "mean": 532.2640762329102,
+            "p10": 248.0,
+            "p50": 541.0,
+            "p90": 756.0,
+            "n": 131072
+          },
+          "active_width_for_90pct_total": {
+            "coords": 660.2640762329102,
+            "fraction_of_K": 0.16119728423655033
+          }
+        },
+        "u": {
+          "core_mass_fraction": {
+            "mean": 0.4804144222895612,
+            "p10": 0.2700667977333069,
+            "p50": 0.4857762008905411,
+            "p90": 0.6856739342212678,
+            "n": 131072
+          },
+          "tokens_with_core_active": 0.9963302612304688,
+          "residual_top64": 0.8413093090057373,
+          "residual_top256": 0.989219605922699,
+          "coords_for_50pct_residual": {
+            "mean": 38.58824157714844,
+            "p10": 10.0,
+            "p50": 18.0,
+            "p90": 44.0,
+            "n": 131072
+          },
+          "coords_for_80pct_residual": {
+            "mean": 75.33184814453125,
+            "p10": 27.0,
+            "p50": 48.0,
+            "p90": 114.0,
+            "n": 131072
+          },
+          "coords_for_90pct_residual": {
+            "mean": 99.5916748046875,
+            "p10": 38.0,
+            "p50": 68.0,
+            "p90": 160.0,
+            "n": 131072
+          },
+          "active_width_for_90pct_total": {
+            "coords": 227.5916748046875,
+            "fraction_of_K": 0.05556437373161316
+          }
+        }
+      }
+    },
+    "mass_top_0625": {
+      "core_fraction_of_K": 0.0625,
+      "core_coords_per_head": 256,
+      "measured_core_fraction": 0.0625,
+      "per_key": {
+        "x": {
+          "core_mass_fraction": {
+            "mean": 0.4022882244301379,
+            "p10": 0.2158368855714798,
+            "p50": 0.41622626781463623,
+            "p90": 0.5725766837596894,
+            "n": 131072
+          },
+          "tokens_with_core_active": 0.999542236328125,
+          "residual_top64": 0.29519933462142944,
+          "residual_top256": 0.6951643228530884,
+          "coords_for_50pct_residual": {
+            "mean": 158.10208129882812,
+            "p10": 70.0,
+            "p50": 156.0,
+            "p90": 239.0,
+            "n": 131072
+          },
+          "coords_for_80pct_residual": {
+            "mean": 360.4182586669922,
+            "p10": 166.0,
+            "p50": 361.0,
+            "p90": 526.0,
+            "n": 131072
+          },
+          "coords_for_90pct_residual": {
+            "mean": 480.3767776489258,
+            "p10": 221.10000000000036,
+            "p50": 486.0,
+            "p90": 690.0,
+            "n": 131072
+          },
+          "active_width_for_90pct_total": {
+            "coords": 736.3767776489258,
+            "fraction_of_K": 0.17977948673069477
+          }
+        },
+        "u": {
+          "core_mass_fraction": {
+            "mean": 0.614334492721964,
+            "p10": 0.3914669334888458,
+            "p50": 0.6309179365634918,
+            "p90": 0.8173882126808167,
+            "n": 131072
+          },
+          "tokens_with_core_active": 0.9963302612304688,
+          "residual_top64": 0.882637083530426,
+          "residual_top256": 0.99290931224823,
+          "coords_for_50pct_residual": {
+            "mean": 34.28807830810547,
+            "p10": 8.0,
+            "p50": 15.0,
+            "p90": 37.0,
+            "n": 131072
+          },
+          "coords_for_80pct_residual": {
+            "mean": 64.43804168701172,
+            "p10": 20.0,
+            "p50": 39.0,
+            "p90": 96.0,
+            "n": 131072
+          },
+          "coords_for_90pct_residual": {
+            "mean": 84.47291564941406,
+            "p10": 29.0,
+            "p50": 55.0,
+            "p90": 135.0,
+            "n": 131072
+          },
+          "active_width_for_90pct_total": {
+            "coords": 340.47291564941406,
+            "fraction_of_K": 0.08312327042222023
+          }
+        }
+      }
+    },
+    "mass_top_125": {
+      "core_fraction_of_K": 0.125,
+      "core_coords_per_head": 512,
+      "measured_core_fraction": 0.125,
+      "per_key": {
+        "x": {
+          "core_mass_fraction": {
+            "mean": 0.6246574725782876,
+            "p10": 0.3705852419137955,
+            "p50": 0.6272646188735962,
+            "p90": 0.8623666226863862,
+            "n": 131072
+          },
+          "tokens_with_core_active": 1.0,
+          "residual_top64": 0.34337615966796875,
+          "residual_top256": 0.7630411386489868,
+          "coords_for_50pct_residual": {
+            "mean": 132.27820587158203,
+            "p10": 57.0,
+            "p50": 132.0,
+            "p90": 198.0,
+            "n": 131072
+          },
+          "coords_for_80pct_residual": {
+            "mean": 293.40625,
+            "p10": 133.0,
+            "p50": 291.0,
+            "p90": 436.0,
+            "n": 131072
+          },
+          "coords_for_90pct_residual": {
+            "mean": 384.2567367553711,
+            "p10": 178.0,
+            "p50": 380.0,
+            "p90": 570.0,
+            "n": 131072
+          },
+          "active_width_for_90pct_total": {
+            "coords": 896.2567367553711,
+            "fraction_of_K": 0.21881267987191677
+          }
+        },
+        "u": {
+          "core_mass_fraction": {
+            "mean": 0.7525358952901797,
+            "p10": 0.5529096603393555,
+            "p50": 0.7782396078109741,
+            "p90": 0.9225568473339082,
+            "n": 131072
+          },
+          "tokens_with_core_active": 0.9963302612304688,
+          "residual_top64": 0.9326673746109009,
+          "residual_top256": 0.99558424949646,
+          "coords_for_50pct_residual": {
+            "mean": 28.757888793945312,
+            "p10": 5.0,
+            "p50": 11.0,
+            "p90": 27.0,
+            "n": 131072
+          },
+          "coords_for_80pct_residual": {
+            "mean": 50.16863250732422,
+            "p10": 13.0,
+            "p50": 28.0,
+            "p90": 69.0,
+            "n": 131072
+          },
+          "coords_for_90pct_residual": {
+            "mean": 64.53042602539062,
+            "p10": 18.0,
+            "p50": 39.0,
+            "p90": 97.0,
+            "n": 131072
+          },
+          "active_width_for_90pct_total": {
+            "coords": 576.5304260253906,
+            "fraction_of_K": 0.14075449854135513
+          }
+        }
+      }
+    },
+    "mass_top_25": {
+      "core_fraction_of_K": 0.25,
+      "core_coords_per_head": 1024,
+      "measured_core_fraction": 0.25,
+      "per_key": {
+        "x": {
+          "core_mass_fraction": {
+            "mean": 0.7866474659300309,
+            "p10": 0.5776760160923005,
+            "p50": 0.8168711364269257,
+            "p90": 0.9469697296619416,
+            "n": 131072
+          },
+          "tokens_with_core_active": 1.0,
+          "residual_top64": 0.4866564869880676,
+          "residual_top256": 0.905919075012207,
+          "coords_for_50pct_residual": {
+            "mean": 81.2137451171875,
+            "p10": 34.0,
+            "p50": 74.0,
+            "p90": 132.0,
+            "n": 131072
+          },
+          "coords_for_80pct_residual": {
+            "mean": 181.8785858154297,
+            "p10": 77.0,
+            "p50": 167.0,
+            "p90": 294.0,
+            "n": 131072
+          },
+          "coords_for_90pct_residual": {
+            "mean": 239.03048706054688,
+            "p10": 103.0,
+            "p50": 220.0,
+            "p90": 385.0,
+            "n": 131072
+          },
+          "active_width_for_90pct_total": {
+            "coords": 1263.0304870605469,
+            "fraction_of_K": 0.3083570525050163
+          }
+        },
+        "u": {
+          "core_mass_fraction": {
+            "mean": 0.8791054687554265,
+            "p10": 0.7340296387672425,
+            "p50": 0.9112794399261475,
+            "p90": 0.9871065139770508,
+            "n": 131072
+          },
+          "tokens_with_core_active": 0.996337890625,
+          "residual_top64": 0.9784536361694336,
+          "residual_top256": 0.9951332807540894,
+          "coords_for_50pct_residual": {
+            "mean": 27.234657287597656,
+            "p10": 2.0,
+            "p50": 6.0,
+            "p90": 15.0,
+            "n": 131072
+          },
+          "coords_for_80pct_residual": {
+            "mean": 38.48590850830078,
+            "p10": 5.0,
+            "p50": 15.0,
+            "p90": 39.0,
+            "n": 131072
+          },
+          "coords_for_90pct_residual": {
+            "mean": 46.104393005371094,
+            "p10": 6.0,
+            "p50": 21.0,
+            "p90": 54.0,
+            "n": 131072
+          },
+          "active_width_for_90pct_total": {
+            "coords": 1070.104393005371,
+            "fraction_of_K": 0.2612559553235769
+          }
+        }
+      }
+    },
+    "pact_ge_0p5": {
+      "per_key": {
+        "x": {
+          "core_mass_fraction": {
+            "mean": 0.6378199592457505,
+            "p10": 0.08841869086027146,
+            "p50": 0.7503934502601624,
+            "p90": 0.9198878943920136,
+            "n": 131072
+          },
+          "tokens_with_core_active": 0.9999237060546875,
+          "residual_top64": 0.3956615924835205
+        },
+        "u": {
+          "core_mass_fraction": {
+            "mean": 0.2545441648967473,
+            "p10": 0.07650613784790039,
+            "p50": 0.22248559445142746,
+            "p90": 0.48028320968151095,
+            "n": 131072
+          },
+          "tokens_with_core_active": 0.9953155517578125,
+          "residual_top64": 0.8222560882568359
+        }
+      }
+    },
+    "pact_ge_0p9": {
+      "per_key": {
+        "x": {
+          "core_mass_fraction": {
+            "mean": 0.4134114146301455,
+            "p10": 0.0,
+            "p50": 0.3304605334997177,
+            "p90": 0.8446389973163605,
+            "n": 131072
+          },
+          "tokens_with_core_active": 0.8577651977539062,
+          "residual_top64": 0.294185608625412
+        },
+        "u": {
+          "core_mass_fraction": {
+            "mean": 0.038856956616749525,
+            "p10": 0.0,
+            "p50": 0.014185544103384018,
+            "p90": 0.10395315587520604,
+            "n": 131072
+          },
+          "tokens_with_core_active": 0.5357513427734375,
+          "residual_top64": 0.7808944582939148
+        }
+      }
+    }
+  }
+}

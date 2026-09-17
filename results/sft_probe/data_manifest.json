@@ -1,0 +1,919 @@
+{
+  "created_at": "2026-09-17T06:08:11Z",
+  "dataset_file": "data/train-00000-of-00001-6ef3991c06080e14.parquet",
+  "dataset_file_bytes": 48393562,
+  "dataset_file_sha256": "bdd9b3f1aa3688ee2015550974c3a14b27fec20e4cfb459fd6800dc14030b9e6",
+  "dataset_name": "Alpaca-GPT4 (vicgalle/alpaca-gpt4)",
+  "dataset_revision": "f7e3ded725cb81e8e564e32feb12860f376f2b51",
+  "dataset_source": "https://huggingface.co/datasets/vicgalle/alpaca-gpt4",
+  "dose_landmarks": {
+    "dose_001": 173755,
+    "dose_003": 521265,
+    "dose_010": 1737549,
+    "dose_030": 5212647
+  },
+  "format": "arm_a_sft_probe_data_manifest_v1",
+  "format_template": {
+    "loss_applies_to": "assistant response tokens + terminating newline (target positions only)",
+    "max_seq_len": 2048,
+    "no_input": "User: {instruction}\\nAssistant: {response}\\n",
+    "special_tokens_added": false,
+    "truncation": "response tail only, deterministic; full prompt preserved; over-long prompts skipped",
+    "with_input": "User: {instruction}\\nInput: {input}\\nAssistant: {response}\\n"
+  },
+  "packing": {
+    "examples_per_row_mean": 8.345933562428408,
+    "train_fill_ratio": 0.9121947103583702,
+    "train_packed_sequence_tokens": 11416416,
+    "train_packed_target_tokens": 9716324,
+    "train_rows": 6111,
+    "val_packed_sequence_tokens": 227981,
+    "val_packed_target_tokens": 194666,
+    "val_rows": 122
+  },
+  "parameter_count": 17375489,
+  "proxy": {
+    "base_corpus_retention_status": "BLOCKED_ARTIFACT_NOT_LOCAL",
+    "proxy_content_sha256": "d22ecb95a35881b2143b7715f346c483182f1e4448238c96a26a173e3e334784",
+    "proxy_definition": "All repository .md files (tracked docs), sorted by relative path, tokenized with the exact Arm-A tokenizer; each 2048-token window is an independent segment. NOT the frozen corpus.",
+    "proxy_excluded_files": [
+      "campaigns/ARM_A_SFT_CALIBRATION_REPORT.md"
+    ],
+    "proxy_files": [
+      {
+        "bytes": 578,
+        "path": "AGENTS.md",
+        "token_offset": 0,
+        "tokens": 162
+      },
+      {
+        "bytes": 3327,
+        "path": "analysis/arm_a_science/E3_README.md",
+        "token_offset": 162,
+        "tokens": 1301
+      },
+      {
+        "bytes": 4449,
+        "path": "campaigns/350K_MISSION_REPORT.md",
+        "token_offset": 1463,
+        "tokens": 1775
+      },
+      {
+        "bytes": 13444,
+        "path": "campaigns/AKASHA_REAL_GENERATION_REPORT.md",
+        "token_offset": 3238,
+        "tokens": 5578
+      },
+      {
+        "bytes": 8557,
+        "path": "campaigns/AKASHA_V0_REPORT.md",
+        "token_offset": 8816,
+        "tokens": 3453
+      },
+      {
+        "bytes": 14790,
+        "path": "campaigns/ARM_A_MOE_RESONANT_LOCAL_DIRECTIVE.md",
+        "token_offset": 12269,
+        "tokens": 7020
+      },
+      {
+        "bytes": 13728,
+        "path": "campaigns/ARM_A_SPARSE_RESONANT_MISSION.md",
+        "token_offset": 19289,
+        "tokens": 4751
+      },
+      {
+        "bytes": 3722,
+        "path": "campaigns/ARM_BC_SEMANTICS.md",
+        "token_offset": 24040,
+        "tokens": 1386
+      },
+      {
+        "bytes": 4466,
+        "path": "campaigns/E3_G4_SCIENCE_CELL.md",
+        "token_offset": 25426,
+        "tokens": 1941
+      },
+      {
+        "bytes": 9423,
+        "path": "campaigns/G4_HERO_CLAIM_CELL.md",
+        "token_offset": 27367,
+        "tokens": 4012
+      },
+      {
+        "bytes": 5448,
+        "path": "campaigns/ONE_HOUR_MISSION_REPORT.md",
+        "token_offset": 31379,
+        "tokens": 2080
+      },
+      {
+        "bytes": 30222,
+        "path": "campaigns/SAE_SCIENCE_MISSION.md",
+        "token_offset": 33459,
+        "tokens": 10832
+      },
+      {
+        "bytes": 669,
+        "path": "context/canonical_source_provenance.md",
+        "token_offset": 44291,
+        "tokens": 253
+      },
+      {
+        "bytes": 1113,
+        "path": "context/known_findings.md",
+        "token_offset": 44544,
+        "tokens": 362
+      },
+      {
+        "bytes": 3384,
+        "path": "context/optimization_contract.md",
+        "token_offset": 44906,
+        "tokens": 1145
+      },
+      {
+        "bytes": 2530,
+        "path": "data/sae/README.md",
+        "token_offset": 46051,
+        "tokens": 1172
+      },
+      {
+        "bytes": 2696,
+        "path": "opt/notes_flops.md",
+        "token_offset": 47223,
+        "tokens": 1155
+      },
+      {
+        "bytes": 2066,
+        "path": "PROMPT_FOR_META_MUSE.md",
+        "token_offset": 48378,
+        "tokens": 672
+      },
+      {
+        "bytes": 2573,
+        "path": "README.md",
+        "token_offset": 49050,
+        "tokens": 1051
+      },
+      {
+        "bytes": 2779,
+        "path": "README_FIRST.md",
+        "token_offset": 50101,
+        "tokens": 1027
+      },
+      {
+        "bytes": 9133,
+        "path": "results/G4_CONFIRM.md",
+        "token_offset": 51128,
+        "tokens": 3642
+      },
+      {
+        "bytes": 15806,
+        "path": "results/ledger.md",
+        "token_offset": 54770,
+        "tokens": 6521
+      },
+      {
+        "bytes": 2337,
+        "path": "scripts/container_setup.md",
+        "token_offset": 61291,
+        "tokens": 980
+      },
+      {
+        "bytes": 3036,
+        "path": "training/LAUNCH.md",
+        "token_offset": 62271,
+        "tokens": 1279
+      }
+    ],
+    "proxy_label": "BASE_TEXT_PROXY",
+    "proxy_sequence_tokens": 63550,
+    "proxy_target_tokens": 63507,
+    "proxy_windows": 43
+  },
+  "replay": {
+    "file_count": 114,
+    "replay_content_sha256": "2ffa6dc8489dd94e2dfc08e5f2ba25a7aa734482f82169d3cfe88535b4df4db7",
+    "replay_definition": "All repository .py source files (excluding results/, runs/, data/, workspace_template/, __pycache__ and the sft_probe package itself), sorted by relative path, tokenized with the exact Arm-A tokenizer; each 2048-token window is an independent segment with ordinary next-token loss. Disjoint from the retention/probe proxy (markdown files).",
+    "replay_files": [
+      {
+        "bytes": 1263,
+        "path": "akasha/__init__.py",
+        "token_offset": 0,
+        "tokens": 560
+      },
+      {
+        "bytes": 58,
+        "path": "akasha/bench/__init__.py",
+        "token_offset": 560,
+        "tokens": 24
+      },
+      {
+        "bytes": 23146,
+        "path": "akasha/bench/correctness.py",
+        "token_offset": 584,
+        "tokens": 8965
+      },
+      {
+        "bytes": 50430,
+        "path": "akasha/bench/profile_v05.py",
+        "token_offset": 9549,
+        "tokens": 17671
+      },
+      {
+        "bytes": 14356,
+        "path": "akasha/bench/real_generation.py",
+        "token_offset": 27220,
+        "tokens": 5103
+      },
+      {
+        "bytes": 15879,
+        "path": "akasha/bench/recurrent_batched.py",
+        "token_offset": 32323,
+        "tokens": 5476
+      },
+      {
+        "bytes": 171,
+        "path": "akasha/checkpoint/__init__.py",
+        "token_offset": 37799,
+        "tokens": 70
+      },
+      {
+        "bytes": 5254,
+        "path": "akasha/checkpoint/convert_arma.py",
+        "token_offset": 37869,
+        "tokens": 2019
+      },
+      {
+        "bytes": 10660,
+        "path": "akasha/checkpoint/loader.py",
+        "token_offset": 39888,
+        "tokens": 4009
+      },
+      {
+        "bytes": 4833,
+        "path": "akasha/checkpoint/validate_real_checkpoint.py",
+        "token_offset": 43897,
+        "tokens": 1828
+      },
+      {
+        "bytes": 1214,
+        "path": "akasha/config.py",
+        "token_offset": 45725,
+        "tokens": 700
+      },
+      {
+        "bytes": 69,
+        "path": "akasha/models/__init__.py",
+        "token_offset": 46425,
+        "tokens": 25
+      },
+      {
+        "bytes": 409,
+        "path": "akasha/models/arma/__init__.py",
+        "token_offset": 46450,
+        "tokens": 181
+      },
+      {
+        "bytes": 1659,
+        "path": "akasha/models/arma/config.py",
+        "token_offset": 46631,
+        "tokens": 643
+      },
+      {
+        "bytes": 4059,
+        "path": "akasha/models/arma/manifest.py",
+        "token_offset": 47274,
+        "tokens": 1697
+      },
+      {
+        "bytes": 5811,
+        "path": "akasha/models/arma/ops.py",
+        "token_offset": 48971,
+        "tokens": 2415
+      },
+      {
+        "bytes": 7346,
+        "path": "akasha/models/arma/reference_full.py",
+        "token_offset": 51386,
+        "tokens": 2851
+      },
+      {
+        "bytes": 7646,
+        "path": "akasha/models/arma/reference_recurrent.py",
+        "token_offset": 54237,
+        "tokens": 2812
+      },
+      {
+        "bytes": 5446,
+        "path": "akasha/models/arma/state.py",
+        "token_offset": 57049,
+        "tokens": 2007
+      },
+      {
+        "bytes": 32,
+        "path": "akasha/runtime/__init__.py",
+        "token_offset": 59056,
+        "tokens": 16
+      },
+      {
+        "bytes": 3531,
+        "path": "akasha/runtime/model.py",
+        "token_offset": 59072,
+        "tokens": 1188
+      },
+      {
+        "bytes": 3703,
+        "path": "akasha/runtime/session.py",
+        "token_offset": 60260,
+        "tokens": 1244
+      },
+      {
+        "bytes": 26,
+        "path": "akasha/sampling/__init__.py",
+        "token_offset": 61504,
+        "tokens": 12
+      },
+      {
+        "bytes": 3536,
+        "path": "akasha/sampling/sampler.py",
+        "token_offset": 61516,
+        "tokens": 1202
+      },
+      {
+        "bytes": 27,
+        "path": "akasha/tokenizer/__init__.py",
+        "token_offset": 62718,
+        "tokens": 13
+      },
+      {
+        "bytes": 4597,
+        "path": "akasha/tokenizer/adapter.py",
+        "token_offset": 62731,
+        "tokens": 1673
+      },
+      {
+        "bytes": 10169,
+        "path": "analysis/arm_a_science/analyze_context_length.py",
+        "token_offset": 64404,
+        "tokens": 3880
+      },
+      {
+        "bytes": 4658,
+        "path": "analysis/arm_a_science/analyze_controls.py",
+        "token_offset": 68284,
+        "tokens": 1883
+      },
+      {
+        "bytes": 4525,
+        "path": "analysis/arm_a_science/analyze_core_ladder.py",
+        "token_offset": 70167,
+        "tokens": 1693
+      },
+      {
+        "bytes": 9248,
+        "path": "analysis/arm_a_science/analyze_maturation.py",
+        "token_offset": 71860,
+        "tokens": 3600
+      },
+      {
+        "bytes": 9190,
+        "path": "analysis/arm_a_science/analyze_population.py",
+        "token_offset": 75460,
+        "tokens": 3337
+      },
+      {
+        "bytes": 7999,
+        "path": "analysis/arm_a_science/analyze_stratified.py",
+        "token_offset": 78797,
+        "tokens": 3158
+      },
+      {
+        "bytes": 7397,
+        "path": "analysis/arm_a_science/analyze_topn.py",
+        "token_offset": 81955,
+        "tokens": 2889
+      },
+      {
+        "bytes": 21619,
+        "path": "analysis/arm_a_science/capture.py",
+        "token_offset": 84844,
+        "tokens": 7852
+      },
+      {
+        "bytes": 9680,
+        "path": "analysis/arm_a_science/claim_stats.py",
+        "token_offset": 92696,
+        "tokens": 3806
+      },
+      {
+        "bytes": 13935,
+        "path": "analysis/arm_a_science/collect.py",
+        "token_offset": 96502,
+        "tokens": 5480
+      },
+      {
+        "bytes": 16064,
+        "path": "analysis/arm_a_science/e3_census.py",
+        "token_offset": 101982,
+        "tokens": 6123
+      },
+      {
+        "bytes": 3314,
+        "path": "analysis/arm_a_science/e3_finalize.py",
+        "token_offset": 108105,
+        "tokens": 1379
+      },
+      {
+        "bytes": 11171,
+        "path": "analysis/arm_a_science/forward_ablation.py",
+        "token_offset": 109484,
+        "tokens": 4012
+      },
+      {
+        "bytes": 11877,
+        "path": "analysis/arm_a_science/frequency.py",
+        "token_offset": 113496,
+        "tokens": 4433
+      },
+      {
+        "bytes": 5704,
+        "path": "analysis/arm_a_science/frequency_null_bands.py",
+        "token_offset": 117929,
+        "tokens": 2043
+      },
+      {
+        "bytes": 15748,
+        "path": "analysis/arm_a_science/harness.py",
+        "token_offset": 119972,
+        "tokens": 6160
+      },
+      {
+        "bytes": 22547,
+        "path": "analysis/arm_a_science/make_figures.py",
+        "token_offset": 126132,
+        "tokens": 9231
+      },
+      {
+        "bytes": 10310,
+        "path": "analysis/arm_a_science/recurrence_probe.py",
+        "token_offset": 135363,
+        "tokens": 3705
+      },
+      {
+        "bytes": 6995,
+        "path": "analysis/sae/anthropic_static.py",
+        "token_offset": 139068,
+        "tokens": 2864
+      },
+      {
+        "bytes": 8197,
+        "path": "analysis/sae/cross_system.py",
+        "token_offset": 141932,
+        "tokens": 3156
+      },
+      {
+        "bytes": 10610,
+        "path": "analysis/sae/gemma_static.py",
+        "token_offset": 145088,
+        "tokens": 4157
+      },
+      {
+        "bytes": 5674,
+        "path": "opt/analyze_arm_a_run.py",
+        "token_offset": 149245,
+        "tokens": 2239
+      },
+      {
+        "bytes": 2191,
+        "path": "opt/analyze_log.py",
+        "token_offset": 151484,
+        "tokens": 938
+      },
+      {
+        "bytes": 10831,
+        "path": "opt/arm_a_trajectory.py",
+        "token_offset": 152422,
+        "tokens": 4435
+      },
+      {
+        "bytes": 13507,
+        "path": "opt/bench_expert_moe.py",
+        "token_offset": 156857,
+        "tokens": 4942
+      },
+      {
+        "bytes": 8179,
+        "path": "opt/bench_learned.py",
+        "token_offset": 161799,
+        "tokens": 3085
+      },
+      {
+        "bytes": 9243,
+        "path": "opt/bench_matrix.py",
+        "token_offset": 164884,
+        "tokens": 3728
+      },
+      {
+        "bytes": 3947,
+        "path": "opt/bench_step.py",
+        "token_offset": 168612,
+        "tokens": 1478
+      },
+      {
+        "bytes": 21340,
+        "path": "opt/census_metrics.py",
+        "token_offset": 170090,
+        "tokens": 7747
+      },
+      {
+        "bytes": 18803,
+        "path": "opt/census_model.py",
+        "token_offset": 177837,
+        "tokens": 6665
+      },
+      {
+        "bytes": 3172,
+        "path": "opt/compile_smoke.py",
+        "token_offset": 184502,
+        "tokens": 1269
+      },
+      {
+        "bytes": 7149,
+        "path": "opt/doe_config.py",
+        "token_offset": 185771,
+        "tokens": 2661
+      },
+      {
+        "bytes": 5131,
+        "path": "opt/doe_diag_shape.py",
+        "token_offset": 188432,
+        "tokens": 1933
+      },
+      {
+        "bytes": 11710,
+        "path": "opt/doe_round1.py",
+        "token_offset": 190365,
+        "tokens": 4480
+      },
+      {
+        "bytes": 4358,
+        "path": "opt/doe_round1_sweep.py",
+        "token_offset": 194845,
+        "tokens": 1804
+      },
+      {
+        "bytes": 3649,
+        "path": "opt/e0_memcensus.py",
+        "token_offset": 196649,
+        "tokens": 1522
+      },
+      {
+        "bytes": 3213,
+        "path": "opt/e0_profile.py",
+        "token_offset": 198171,
+        "tokens": 1273
+      },
+      {
+        "bytes": 7089,
+        "path": "opt/expert_moe.py",
+        "token_offset": 199444,
+        "tokens": 2616
+      },
+      {
+        "bytes": 7411,
+        "path": "opt/freeze_350k_state.py",
+        "token_offset": 202060,
+        "tokens": 2627
+      },
+      {
+        "bytes": 5906,
+        "path": "opt/learned_router.py",
+        "token_offset": 204687,
+        "tokens": 2133
+      },
+      {
+        "bytes": 4985,
+        "path": "opt/model_diet.py",
+        "token_offset": 206820,
+        "tokens": 1871
+      },
+      {
+        "bytes": 12666,
+        "path": "opt/model_opt.py",
+        "token_offset": 208691,
+        "tokens": 4821
+      },
+      {
+        "bytes": 14792,
+        "path": "opt/model_ref.py",
+        "token_offset": 213512,
+        "tokens": 5824
+      },
+      {
+        "bytes": 6088,
+        "path": "opt/onehour_b3_cache.py",
+        "token_offset": 219336,
+        "tokens": 2367
+      },
+      {
+        "bytes": 5364,
+        "path": "opt/onehour_b4_writer.py",
+        "token_offset": 221703,
+        "tokens": 2088
+      },
+      {
+        "bytes": 11730,
+        "path": "opt/onehour_floor.py",
+        "token_offset": 223791,
+        "tokens": 4280
+      },
+      {
+        "bytes": 7568,
+        "path": "opt/onehour_gap.py",
+        "token_offset": 228071,
+        "tokens": 3074
+      },
+      {
+        "bytes": 6376,
+        "path": "opt/onehour_microbatch.py",
+        "token_offset": 231145,
+        "tokens": 2428
+      },
+      {
+        "bytes": 3563,
+        "path": "opt/onehour_microbatch_sweep.py",
+        "token_offset": 233573,
+        "tokens": 1392
+      },
+      {
+        "bytes": 3845,
+        "path": "opt/onehour_passA.py",
+        "token_offset": 234965,
+        "tokens": 1550
+      },
+      {
+        "bytes": 6555,
+        "path": "opt/onehour_reprofile.py",
+        "token_offset": 236515,
+        "tokens": 2472
+      },
+      {
+        "bytes": 2093,
+        "path": "opt/profile_step.py",
+        "token_offset": 238987,
+        "tokens": 841
+      },
+      {
+        "bytes": 10355,
+        "path": "opt/routed_expert.py",
+        "token_offset": 239828,
+        "tokens": 3825
+      },
+      {
+        "bytes": 17319,
+        "path": "opt/run_trained_sparsity_census.py",
+        "token_offset": 243653,
+        "tokens": 6168
+      },
+      {
+        "bytes": 15878,
+        "path": "opt/scan_attn.py",
+        "token_offset": 249821,
+        "tokens": 6785
+      },
+      {
+        "bytes": 10707,
+        "path": "opt/sparsity_census.py",
+        "token_offset": 256606,
+        "tokens": 3877
+      },
+      {
+        "bytes": 9372,
+        "path": "opt/test_census_runner.py",
+        "token_offset": 260483,
+        "tokens": 3599
+      },
+      {
+        "bytes": 8349,
+        "path": "opt/test_correctness.py",
+        "token_offset": 264082,
+        "tokens": 3521
+      },
+      {
+        "bytes": 2783,
+        "path": "opt/test_diet_gate.py",
+        "token_offset": 267603,
+        "tokens": 944
+      },
+      {
+        "bytes": 8703,
+        "path": "opt/test_expert_equivalence.py",
+        "token_offset": 268547,
+        "tokens": 3406
+      },
+      {
+        "bytes": 8544,
+        "path": "opt/test_learned_router.py",
+        "token_offset": 271953,
+        "tokens": 3315
+      },
+      {
+        "bytes": 5554,
+        "path": "opt/test_model_equiv.py",
+        "token_offset": 275268,
+        "tokens": 2112
+      },
+      {
+        "bytes": 7259,
+        "path": "opt/test_packed_ab_gate.py",
+        "token_offset": 277380,
+        "tokens": 3053
+      },
+      {
+        "bytes": 9976,
+        "path": "opt/test_resonant_math.py",
+        "token_offset": 280433,
+        "tokens": 4230
+      },
+      {
+        "bytes": 10120,
+        "path": "opt/test_routed_expert.py",
+        "token_offset": 284663,
+        "tokens": 4105
+      },
+      {
+        "bytes": 2859,
+        "path": "opt/validate_final_cell.py",
+        "token_offset": 288768,
+        "tokens": 1116
+      },
+      {
+        "bytes": 2823,
+        "path": "opt/validate_g4_gate.py",
+        "token_offset": 289884,
+        "tokens": 1175
+      },
+      {
+        "bytes": 47011,
+        "path": "reference/arm_a_timing_cell_colab.py",
+        "token_offset": 291059,
+        "tokens": 17619
+      },
+      {
+        "bytes": 6459,
+        "path": "reference/scan_coordinator_oracle.py",
+        "token_offset": 308678,
+        "tokens": 2711
+      },
+      {
+        "bytes": 88903,
+        "path": "scripts/g4_hero_claim_validation.py",
+        "token_offset": 311389,
+        "tokens": 32459
+      },
+      {
+        "bytes": 983,
+        "path": "scripts/report_env.py",
+        "token_offset": 343848,
+        "tokens": 420
+      },
+      {
+        "bytes": 1539,
+        "path": "tests/akasha/conftest.py",
+        "token_offset": 344268,
+        "tokens": 643
+      },
+      {
+        "bytes": 2138,
+        "path": "tests/akasha/test_attention_algebra.py",
+        "token_offset": 344911,
+        "tokens": 935
+      },
+      {
+        "bytes": 4691,
+        "path": "tests/akasha/test_batched_recurrent.py",
+        "token_offset": 345846,
+        "tokens": 1759
+      },
+      {
+        "bytes": 5011,
+        "path": "tests/akasha/test_checkpoint.py",
+        "token_offset": 347605,
+        "tokens": 2087
+      },
+      {
+        "bytes": 2247,
+        "path": "tests/akasha/test_clone.py",
+        "token_offset": 349692,
+        "tokens": 884
+      },
+      {
+        "bytes": 968,
+        "path": "tests/akasha/test_coordinator_algebra.py",
+        "token_offset": 350576,
+        "tokens": 388
+      },
+      {
+        "bytes": 2563,
+        "path": "tests/akasha/test_prefill_next_token.py",
+        "token_offset": 350964,
+        "tokens": 1047
+      },
+      {
+        "bytes": 1388,
+        "path": "tests/akasha/test_reference_parity.py",
+        "token_offset": 352011,
+        "tokens": 551
+      },
+      {
+        "bytes": 3629,
+        "path": "tests/akasha/test_reset.py",
+        "token_offset": 352562,
+        "tokens": 1420
+      },
+      {
+        "bytes": 3079,
+        "path": "tests/akasha/test_segmented_prefill.py",
+        "token_offset": 353982,
+        "tokens": 1190
+      },
+      {
+        "bytes": 3456,
+        "path": "tests/akasha/test_serialization.py",
+        "token_offset": 355172,
+        "tokens": 1389
+      },
+      {
+        "bytes": 2519,
+        "path": "tests/akasha/test_source_contract.py",
+        "token_offset": 356561,
+        "tokens": 1075
+      },
+      {
+        "bytes": 1256,
+        "path": "tests/akasha/test_state_memory.py",
+        "token_offset": 357636,
+        "tokens": 515
+      },
+      {
+        "bytes": 2335,
+        "path": "tests/akasha/test_token_major_vs_level_major.py",
+        "token_offset": 358151,
+        "tokens": 983
+      },
+      {
+        "bytes": 4749,
+        "path": "tests/akasha/test_trainer_transcription.py",
+        "token_offset": 359134,
+        "tokens": 2013
+      },
+      {
+        "bytes": 69898,
+        "path": "training/arm_a_2p5b_trainer.py",
+        "token_offset": 361147,
+        "tokens": 24712
+      },
+      {
+        "bytes": 35849,
+        "path": "training/test_stream_and_ckpt.py",
+        "token_offset": 385859,
+        "tokens": 13993
+      }
+    ],
+    "replay_label": "BASE_TEXT_PROXY_REPLAY",
+    "replay_sequence_tokens": 399852,
+    "replay_target_tokens": 399599,
+    "replay_windows": 253
+  },
+  "split": {
+    "method": "numpy default_rng(1337).permutation once",
+    "raw_example_count": 52002,
+    "seed": 1337,
+    "train_example_count": 51002,
+    "train_examples": 51002,
+    "train_kept": 51002,
+    "train_response_len_max": 962,
+    "train_response_len_mean": 190.50868593388495,
+    "train_response_len_p50": 135.0,
+    "train_response_len_p95": 535.0,
+    "train_skipped_prompt_too_long": 0,
+    "train_target_tokens": 9716324,
+    "train_total_sequence_len_max": 985,
+    "train_total_sequence_tokens": 11416416,
+    "train_truncated_responses": 0,
+    "validation_example_count": 1000,
+    "validation_examples": 1000,
+    "validation_kept": 1000,
+    "validation_response_len_max": 815,
+    "validation_response_len_mean": 194.666,
+    "validation_response_len_p50": 131.0,
+    "validation_response_len_p95": 551.0999999999999,
+    "validation_skipped_prompt_too_long": 0,
+    "validation_target_tokens": 194666,
+    "validation_total_sequence_len_max": 843,
+    "validation_total_sequence_tokens": 227981,
+    "validation_truncated_responses": 0
+  },
+  "tokenizer_identity": "bytelevel-bpe-8192-9a05bca4c065d995",
+  "tokenizer_sha256": "9a05bca4c065d9952a01ee1e3f4b6e23e39200e1f33da65e5dad1819419f71c3"
+}

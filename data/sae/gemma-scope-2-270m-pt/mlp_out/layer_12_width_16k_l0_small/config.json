@@ -1,0 +1,10 @@
+{
+  "hf_hook_point_in": "model.layers.12.post_feedforward_layernorm.output",
+  "hf_hook_point_out": "model.layers.12.post_feedforward_layernorm.output",
+  "width": 16384,
+  "model_name": "google/gemma-3-270m-pt",
+  "architecture": "jump_relu",
+  "l0": 20,
+  "affine_connection": false,
+  "type": "sae"
+}

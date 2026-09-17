@@ -1,0 +1,61 @@
+{
+  "CHECKPOINT_PATH": "C:\\iclr-oc\\runs\\arm_a_2p5b_opt3c_all\\ckpt\\latest.pt",
+  "CHECKPOINT_STATUS": "VALIDATED",
+  "CHECKPOINT_TOKENS": {
+    "next_sequence": 1220736,
+    "target_tokens": 2500000000,
+    "tokens_consumed": 2500067328,
+    "updates_done": 19074
+  },
+  "CHECKPOINT_WEIGHTS_FINGERPRINT": "dbc2acc115e795f27b1ded7624cbffb9e90f6c49dcb54fad0cb2705f9627a934",
+  "FIRST_DIVERGENCE_TOKEN": null,
+  "FULL_VS_RECURRENT_GREEDY_MATCH": true,
+  "RECURRENT_PREFILL_DECODE_OK": true,
+  "TENSORS_FINITE": true,
+  "TENSOR_SHAPES_MATCH": true,
+  "TOKENIZER_PATH": "C:\\Users\\arahe\\OneDrive\\Documents\\ChatGPT\\icrl\\phase_bdh_corpus_stage1\\tokenizer\\tokenizer.json",
+  "TOKENIZER_SHA256": "9a05bca4c065d9952a01ee1e3f4b6e23e39200e1f33da65e5dad1819419f71c3",
+  "TOKENIZER_STATUS": "READY",
+  "format": "akasha_real_generation_validation_v1",
+  "greedy_texts": {
+    "Hello": "Hello, I'm a fan of the Moon, but I'm not sure what to do with it.\n\nI'm not sure if I'm a fan of the Moon, but I'm not sure if I'm a fan of the Moon.\n\nI'm not sure",
+    "Hi, how are you?": "Hi, how are you?\n\nI'm not sure what you mean, but I'm not sure what you mean.\n\nI'm not sure if you are not.\n\nI'm not sure if you are not.\n\nI'm not sure if you are not.\n\nI'm not sure if you are not.\n",
+    "In computer science,": "In computer science, the most important thing to understand is the importance of the process. The process is the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of the process of",
+    "Once upon a time": "Once upon a time, the British were born. The British were born in the British. The British were born in the British. The British were born in the British. The British were born in",
+    "The capital of France is": "The capital of France is a fantastic, fantastic, and fantastic, fantastic, and fantastic, fantastic, and fantastic. It\u2019s a fantastic, fantastic, fantastic, fantastic, fantastic, and fantastic.\n\nThe"
+  },
+  "sampled_texts": {
+    "Hello": "Hello, April 07, 2008\n\nApril 07, 2008\n\n\nI can't hear that but I am a guy and I am looking for new ones. As I walked through the stairs, the guy was waiting to find out.\nIt was in the night club that we were hopping. One day, I had to start looking at the guy and saw the guy playing. He stood in dice and smiled and said, \"I should have been in the house?\"\nI couldn't tell why",
+    "Hi, how are you?": "Hi, how are you? Is you talking to your audience and why?\n\nNews from the Church\n\nWednesday, May 08, 2008\n\nDid you cough your hand and pull your hand out and swing your hand over to the pinnacle of bed?? Every day, you'll take your head away from a bed and turn to the bed?\n\nThe dress should be about a thousand foot wide. Think it's a bad bastard???\n\nA little of this????",
+    "In computer science,": "In computer science, the digital technology of the US is based on a hybrid device. The system operates on the machine and the device is monitored by the machine, and there is a digital technology, called a computer. The device is designed to move in the direction and direction from which it goes. The device monitors the digital devices and is able to control the digital devices. The device is connected to a computer, and is also connected to the device. The device is connected to the device, and the device monitors the digital devices and is connected to the device",
+    "Once upon a time": "Once upon a time? How did it turn out?\n\nEvery year, Chris and Solana had made a living, but there were some bad old, unrealistic things going for. Earlier in Searching Life, John Warren has been able to show her son\u2019s true sense of honour \u2014 a son of the Rome, who in 2008 was a horrible tale to him:\n\n\nWhat are you talking about?\u00a0\n\nHold this.\n\nFor years, when we have been told of the st",
+    "The capital of France is": "The capital of France is the same as the capital of the France, and the capital of France has not been so good.\n\nWhy is the capital of France so important?\n\nSometimes, it is very difficult to see how this can be done with France, but it is one of the most important things to believe. It is one of the problems that can only be solved by getting one in the field. So, when France\u2019s federal government has passed the capital of France, France is the only one who knows what"
+  },
+  "validator_run": {
+    "TRAINED_CHECKPOINT_LOCAL_STATUS": "VALIDATED",
+    "checkpoint": "C:\\iclr-oc\\runs\\arm_a_2p5b_opt3c_all\\ckpt\\latest.pt",
+    "checkpoint_sha256": "fe7e6c2c6ac0d12630018812f735486c45003678adbfcb4a88a476d886c47efb",
+    "last_hidden_roundtrip": true,
+    "ok": true,
+    "package_dir": "C:\\iclr-oc\\results\\akasha\\real_checkpoint_package",
+    "progress": {
+      "next_sequence": 1220736,
+      "target_tokens": 2500000000,
+      "tokens_consumed": 2500067328,
+      "updates_done": 19074
+    },
+    "smoke_logits_finite": true,
+    "smoke_next_token": 261,
+    "smoke_prompt": [
+      2223,
+      7034,
+      3789,
+      5886,
+      5211,
+      154,
+      2745,
+      6379
+    ],
+    "weights_fingerprint": "dbc2acc115e795f27b1ded7624cbffb9e90f6c49dcb54fad0cb2705f9627a934"
+  }
+}

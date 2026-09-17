@@ -1,0 +1,18 @@
+{
+  "basis": [
+    "MEASURED: held-out SFT NLL improves strongly already at 0.01 TPP (2.4758 vs base 2.6642); 0.01 TPP is the evidence-supported minimum.",
+    "MEASURED: the held-out SFT NLL curve is still descending at 0.30 TPP (2.1952); marginal gain per TPP is 4.2 (0.01-0.03), 1.4 (0.03-0.10) and 0.5 (0.10-0.30) NLL per TPP. Returns decelerate ~8x but do NOT flatten by 0.30 TPP; saturation is INFERRED to lie above 0.30.",
+    "MEASURED: 0.30 TPP completed with the selected 10% replay recipe without NaN/Inf weights or losses, with non-pathological sampled generation and the lowest SFT val NLL. Safety beyond 0.30 TPP and at 0% replay beyond 0.10 TPP was not measured.",
+    "INFERRED: 0.10 TPP captures most of the fast adaptation phase (SFT NLL 2.2964) with materially less representation drift than 0.30 TPP; 0.30 TPP adds instruction fit at ~1/8 the per-token rate and shows the first degenerate generation cases. The final recipe should use 0.10 TPP as the cost/benefit point and may extend to 0.30 TPP only if instruction fidelity dominates retention.",
+    "MEASURED: 0.30 TPP proxy delta -6.72% and repeat_3gram 0.171 (10% replay recipe)."
+  ],
+  "created_at": "2026-09-17T06:10:44Z",
+  "format": "arm_a_sft_probe_recommendations_v1",
+  "max_safe_tpp": 0.3,
+  "minimum_sft_tpp": 0.01,
+  "recommended_dose_tpp": 0.1,
+  "recommended_lr": 0.0003,
+  "recommended_replay_pct": "10%",
+  "saturation_point": ">0.30 (not observed)",
+  "scope": "Provisional, campaign-scoped empirical guidance. This is NOT a final SFT recipe and NOT a claim about larger models."
+}
