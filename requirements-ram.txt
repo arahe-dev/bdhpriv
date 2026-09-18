@@ -1,0 +1,5 @@
+# CPU-only dependencies for the exact PyTorch reference runtime.
+# Install torch from the CPU wheel index; do not install a CUDA wheel.
+torch
+safetensors
+pytest
