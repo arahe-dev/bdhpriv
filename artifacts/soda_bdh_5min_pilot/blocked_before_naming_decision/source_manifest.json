@@ -1,0 +1,196 @@
+{
+  "pilot": "soda_bdh_5min_pilot",
+  "phase": 1,
+  "status": "BLOCKED",
+  "verdict": "BLOCKED",
+  "blocked_reason": "No dense SODA-BDH training path exists in any available source. No original dense Arm-A training cell was supplied with the request, the canonical Soda/vendor source file is absent from the workspace (its bytes are not in git and not on disk), and 'SODA-BDH' is not defined by any model, config, checkpoint, test, or training-path file in the repository or its history. Substituting the hash-verified dense BDH/Arm-A path and calling it SODA-BDH would be silently replacing the required source, which the mission forbids. Per the mission rule: stop with BLOCKED; do not invent one.",
+  "blocked_at_phase": 1,
+  "required_inputs_status": {
+    "1_supplied_original_dense_arm_a_training_cell": {
+      "status": "ABSENT",
+      "evidence": "No cell bytes, attachment, or path were supplied in the request; no file in the conversation carries the cell."
+    },
+    "2_canonical_dense_bdh_source": {
+      "vendor_file": "vendor/canonical/icrl_reintegrated_bdh_baseline_v1.py",
+      "present": false,
+      "pinned_sha256": "947f8b33e740adede3e13382f8cb9e8e374d845de75e282bda5feb05c582f624",
+      "pinned_in": [
+        "context/canonical_source_provenance.md",
+        "README_FIRST.md",
+        "opt/dense_verify_source_lock.py",
+        "artifacts/dense_bdh_verification/source_manifest.json"
+      ],
+      "status": "ABSENT_BUT_HASH_PINNED"
+    },
+    "soda_bdh_definition": {
+      "status": "ABSENT",
+      "searches": [
+        "rg -ri 'soda' over the working tree (excluding .git): only statements that the original Soda/vendor comparator is absent appear (opt/dense_verify_*.py, artifacts/dense_bdh_verification/*)",
+        "git log --all -i --grep=soda: only commit df7da68, whose message says 'Soda reference absent'",
+        "campaigns.zip listing (18 entries): no SODA entry",
+        "rg -i 'soda' in training/, reference/, results/: no hits"
+      ],
+      "conclusion": "'Soda' names the missing original vendor reference. There is no SODA-BDH model definition, configuration, or training path in any available source."
+    },
+    "3_known_good_dense_verification_df7da68": {
+      "status": "PRESENT",
+      "commit": "df7da680dd6420a0c4fefa35c13f107246091308",
+      "subject": "Dense BDH verification: correctness PASS vs reference ...; Soda reference absent",
+      "correctness": "PASS for the hash-verified repo-local dense path",
+      "soda_reference": "ABSENT (report.md section 13, source_manifest)",
+      "artifact_dir": "artifacts/dense_bdh_verification"
+    }
+  },
+  "git": {
+    "commit": "df7da680dd6420a0c4fefa35c13f107246091308",
+    "branch": "main",
+    "working_tree_porcelain": "M opencode.jsonc\n?? .opencode/\n?? artifacts/soda_bdh_5min_pilot/\n?? campaigns.zip\n?? campaigns/ARM_A_SFT_FULL_REPORT.md\n?? scripts/make_sft_full_report.py",
+    "described_head": "df7da680dd6420a0c4fefa35c13f107246091308 2026-09-18 09:46:29 +0530 Dense BDH verification: correctness PASS vs reference (exact small-config fwd/grads/param update, 1.3e-6 prod forward, cross-row isolation exact); pooled warm UNSTABLE from clock regimes (8.7k vs 12k tok/s), 12-min longrun stable (CV 0.10%); comparator 3.76x slower; Soda reference absent"
+  },
+  "environment_authoring": {
+    "role": "authoring environment only (not the pilot target)",
+    "python": "3.12.10",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.10.0+cu128",
+    "cuda_available": "True",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "gpu_capability": "(8, 9)",
+    "gpu_memory_MiB": "8188",
+    "torch_pinned_by_project": "2.11.0+cu128 (container iclr-arm-a)",
+    "target_environment_expected": "Colab G4 / RTX PRO 6000 Blackwell (sm_120), torch 2.11.0+cu128, CUDA 12.8, frozen packed corpus on Drive"
+  },
+  "candidate_hash_verified_dense_path_not_executed": {
+    "note": "These files match the frozen project contract and the df7da68 verification. They are recorded as evidence of what exists; they were NOT executed as a SODA-BDH pilot.",
+    "files": {
+      "control_dense": "opt/model_opt.py",
+      "control_dense_scan": "opt/scan_attn.py",
+      "comparator_executable_reference": "opt/model_ref.py",
+      "production_trainer": "training/arm_a_2p5b_trainer.py"
+    },
+    "trainer_smoke_capability": "training/arm_a_2p5b_trainer.py --mode smoke performs real packed updates, atomic checkpoint save, fresh-model reload, and one identical update on both paths with loss/parameter/cursor equivalence. Available as a verified carrier once source identity is confirmed.",
+    "model_config_contract": {
+      "T": 2048,
+      "V": 8192,
+      "D": 256,
+      "N": 16384,
+      "H": 4,
+      "L": 8,
+      "K": 4096,
+      "writer_hidden": 1040,
+      "theta": 65536,
+      "attention": "strict-past same-document, score-free, Q=K, no softmax, no scale",
+      "precision": "bf16 autocast + fp32 master parameters"
+    },
+    "optimizer_config_contract": {
+      "name": "fused AdamW",
+      "lr": 0.001,
+      "betas": [
+        0.9,
+        0.95
+      ],
+      "eps": 1e-08,
+      "weight_decay": 0.1,
+      "clip_norm": 1.0,
+      "schedule": "linear warmup 10M tokens then constant",
+      "gradient_accumulation": "global batch 64 sequences; per-update microbatch geometry configurable"
+    },
+    "dataset_identity_contract": {
+      "id": "phase_bdh_stage2_5b_v1",
+      "path": "/content/drive/Shareddrives/ICLR PHASE BDH/phase_bdh/corpus/stage2/frozen_5b_v1",
+      "sequences": 2441407,
+      "context_length": 2048,
+      "present_locally": false
+    },
+    "seeds": {
+      "SEED": 1337,
+      "INIT_STD": 0.02
+    }
+  },
+  "source_file_hashes_inspected": {
+    "opt/model_opt.py": {
+      "present": true,
+      "sha256_raw": "722fbdc1aee51721417a4dc2993312eb556b5057f6ce0d3314c94516dab8f8d8",
+      "git_blob": "6076ba04bd32f63f3c91d5028f3ff77db70ffb54"
+    },
+    "opt/scan_attn.py": {
+      "present": true,
+      "sha256_raw": "855f868e9d4869e509d2b847bc95417603239201738d304761a19a3277e5708b",
+      "git_blob": "5185d0325b759f5cdc7725dbeefee52a8b6a55dc"
+    },
+    "opt/model_ref.py": {
+      "present": true,
+      "sha256_raw": "2ff16aaa24ecd14021c46f2133779edcf86853869fbe9938a5a8b95d85eb579f",
+      "git_blob": "4801c5a3ccc7b6fba0ef38c8152e4c2b6720635b"
+    },
+    "training/arm_a_2p5b_trainer.py": {
+      "present": true,
+      "sha256_raw": "1985fa42042033c842c7ed0faea2c34ead6516bb1fe56753426b6774ee2d0b49",
+      "git_blob": "950fbb71e800e4d6f00fad51d7aa9d97f8c5ec6c"
+    },
+    "reference/arm_a_timing_cell_colab.py": {
+      "present": true,
+      "sha256_raw": "c5000be45c999f7d0af7ebf6e81d802269d3cf84b091b3d7035bf314c1f5bc0f",
+      "git_blob": "1b1c4e3a4f2cd2370e68f82e4f3c494cb84ee722"
+    },
+    "reference/scan_coordinator_oracle.py": {
+      "present": true,
+      "sha256_raw": "407a8573d89c97f30ca39bda92e09d8d57fe26519ee30fd39ca17c939a60ff90",
+      "git_blob": "8a43c66c2dac44a43d33878982f91e4f383cda0f"
+    },
+    "context/canonical_source_provenance.md": {
+      "present": true,
+      "sha256_raw": "1eacc970e5c95452b53e849f0179fc9ed0e2c4c02c7e90bcff39cfac0ab8024e",
+      "git_blob": "3f1d99bc688d249239018ae23969a264120c81cd"
+    },
+    "context/frozen_corpus_contract.json": {
+      "present": true,
+      "sha256_raw": "9a08725fb62705478cec07099f5347c62f562793fd88ce028c7da51841757562",
+      "git_blob": "4b49659ea8f591f2a008548037772efd57cc48e4"
+    },
+    "context/optimization_contract.md": {
+      "present": true,
+      "sha256_raw": "66ca075ca8bf0bedada0d28016c3eb1e56da6b0f2ddd452a06b1407337f1e66b",
+      "git_blob": "f13ca201377f565a4a76cddb7fc5bca1e1845299"
+    },
+    "README_FIRST.md": {
+      "present": true,
+      "sha256_raw": "2323b3e1ec2a299f2a99f2a95c1a404556f2f72c64cfc5bd8324e38f95bd7ce8",
+      "git_blob": "b935a5426d38b7f06d86532f7563a242f589c5bd"
+    },
+    "artifacts/dense_bdh_verification/source_manifest.json": {
+      "present": true,
+      "sha256_raw": "9169c079c7e092dd02ed196c951a62ad8e01e1ab65be8dd0f8daefebac36f7bd",
+      "git_blob": "a297670e6301885fa6717135c82146d91e6a45ed"
+    },
+    "artifacts/dense_bdh_verification/correctness.json": {
+      "present": true,
+      "sha256_raw": "36db950f745d4bccc0228ef937716cf8e21cb22cef0df78ef7bfb9797e82d227",
+      "git_blob": "d2e948b3412eb09a677a5a30a9bd3fb784670684"
+    },
+    "artifacts/dense_bdh_verification/report.md": {
+      "present": true,
+      "sha256_raw": "98b46a9313ad09237e30add15b62d2cdbdaa5cb7cd74f9c94f096e8025ef4556",
+      "git_blob": "965c1d45ac20ae334dec8629bde0df021f826e86"
+    },
+    "opt/dense_verify_source_lock.py": {
+      "present": true,
+      "sha256_raw": "43d133923f45b4f68960c78a28b73919202c96ff364c6d4e77efa537ead9e427",
+      "git_blob": "8af6e449617e0c9fd07ce0802e81cd3d2af76e95"
+    },
+    "opt/dense_verify_manifest.py": {
+      "present": true,
+      "sha256_raw": "498720d439527b3a6507d4218ea36a27be7366c1c43c0a36b12972fd31ab7b22",
+      "git_blob": "6130b4b537af6db8b478057de364a570b218156e"
+    },
+    "opt/dense_verify_report.py": {
+      "present": true,
+      "sha256_raw": "d7327c1b910d2601e4a8e6ed40fb1102d9d428a711e40841007ce63aa5ca4829",
+      "git_blob": "60a3bae18428f417f73474faaee5c427ce80e0f2"
+    }
+  },
+  "artifacts_written": {
+    "source_manifest.json": "C:\\iclr-oc\\artifacts\\soda_bdh_5min_pilot\\source_manifest.json",
+    "pilot_report.md": "C:\\iclr-oc\\artifacts\\soda_bdh_5min_pilot\\pilot_report.md",
+    "note": "The mission path /content/soda_bdh_5min_pilot/ is not available in this environment (no Colab runtime); this is the local mirror. No training artifacts (correctness.json, training_log.csv, checkpoint, ...) were fabricated because no pilot was executed."
+  }
+}
