@@ -1,0 +1,4 @@
+{"out": "/workspace/iclr-oc/artifacts/dense_bdh_verification/runs/cold_true_2.json", "kind": "cold", "pass": null}
+
+--- STDERR ---
+W0917 21:22:18.893000 6949 site-packages/torch/_inductor/utils.py:1731] [0/0] Not enough SMs to use max_autotune_gemm mode

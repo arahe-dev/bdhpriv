@@ -1,0 +1,91 @@
+{
+  "role_assignments": {
+    "CONTROL": "dense BDH = opt/model_opt.py OptArmA (opt3c flags)",
+    "COMPARATOR": "pinned executable dense reference = opt/model_ref.py NativeReadStage1ArmA",
+    "DUT": "same as CONTROL (current dense Arm-A); no separate DUT",
+    "OUT_OF_SCOPE": "sparse BDH, routed experts, top-k execution, microbatch-dependent sparse paths"
+  },
+  "git_head": "56fe91668e13496b50151e71b6cf981d693c5166",
+  "git_branch": "main",
+  "git_status_porcelain": "M opencode.jsonc\n?? .opencode/\n?? artifacts/dense_bdh_verification/\n?? campaigns.zip\n?? campaigns/ARM_A_SFT_FULL_REPORT.md\n?? opt/dense_verify.py\n?? opt/dense_verify_manifest.py\n?? opt/dense_verify_orchestrate.py\n?? opt/dense_verify_report.py\n?? opt/dense_verify_source_lock.py\n?? scripts/make_sft_full_report.py",
+  "frozen_commit": "0dcbb878d24b99b5808359c889e97143c3cec00b",
+  "sources": {
+    "control_opt_arm_a": {
+      "path": "opt/model_opt.py",
+      "sha256_raw": "722fbdc1aee51721417a4dc2993312eb556b5057f6ce0d3314c94516dab8f8d8",
+      "git_blob_hash": "6076ba04bd32f63f3c91d5028f3ff77db70ffb54",
+      "frozen_contract_blob": "6076ba04bd32f63f3c91d5028f3ff77db70ffb54",
+      "matches_frozen_contract": true,
+      "working_tree_clean_for_path": true,
+      "bytes": 12666
+    },
+    "control_scan": {
+      "path": "opt/scan_attn.py",
+      "sha256_raw": "855f868e9d4869e509d2b847bc95417603239201738d304761a19a3277e5708b",
+      "git_blob_hash": "5185d0325b759f5cdc7725dbeefee52a8b6a55dc",
+      "frozen_contract_blob": "5185d0325b759f5cdc7725dbeefee52a8b6a55dc",
+      "matches_frozen_contract": true,
+      "working_tree_clean_for_path": true,
+      "bytes": 15878
+    },
+    "comparator_reference": {
+      "path": "opt/model_ref.py",
+      "sha256_raw": "2ff16aaa24ecd14021c46f2133779edcf86853869fbe9938a5a8b95d85eb579f",
+      "git_blob_hash": "4801c5a3ccc7b6fba0ef38c8152e4c2b6720635b",
+      "frozen_contract_blob": "4801c5a3ccc7b6fba0ef38c8152e4c2b6720635b",
+      "matches_frozen_contract": true,
+      "working_tree_clean_for_path": true,
+      "bytes": 14792
+    },
+    "oracle": {
+      "path": "reference/scan_coordinator_oracle.py",
+      "sha256_raw": "407a8573d89c97f30ca39bda92e09d8d57fe26519ee30fd39ca17c939a60ff90",
+      "git_blob_hash": "8a43c66c2dac44a43d33878982f91e4f383cda0f",
+      "frozen_contract_blob": null,
+      "matches_frozen_contract": null,
+      "working_tree_clean_for_path": true,
+      "bytes": 6459
+    },
+    "canonical_timing_cell": {
+      "path": "reference/arm_a_timing_cell_colab.py",
+      "sha256_raw": "c5000be45c999f7d0af7ebf6e81d802269d3cf84b091b3d7035bf314c1f5bc0f",
+      "git_blob_hash": "1b1c4e3a4f2cd2370e68f82e4f3c494cb84ee722",
+      "frozen_contract_blob": null,
+      "matches_frozen_contract": null,
+      "working_tree_clean_for_path": true,
+      "bytes": 47011
+    },
+    "dense_verify_harness": {
+      "path": "opt/dense_verify.py",
+      "sha256_raw": "9f8cfb99bb163867003a75b5d3c091c6a567a12e53ef8e189f779e9a1a5d3f96",
+      "git_blob_hash": "1ba8c3333839d3858493003e1fed5d7068010e4a",
+      "frozen_contract_blob": null,
+      "matches_frozen_contract": null,
+      "working_tree_clean_for_path": false,
+      "bytes": 16897
+    },
+    "dense_verify_orchestrator": {
+      "path": "opt/dense_verify_orchestrate.py",
+      "sha256_raw": "d7397a36980ef2dd26803c01954af376a2cd4916fd9f4dddecc45e04d25a55f1",
+      "git_blob_hash": "d5541527ddbf1626e1bbc3982415a40704584640",
+      "frozen_contract_blob": null,
+      "matches_frozen_contract": null,
+      "working_tree_clean_for_path": false,
+      "bytes": 7743
+    },
+    "dense_verify_reporter": {
+      "path": "opt/dense_verify_report.py",
+      "sha256_raw": "5a2f5240787f0055d3557c652026d1fe895e21bc3d660f531c4edcf034c18bf5",
+      "git_blob_hash": "2dcefa5618a29a9e0c3c9e40cbdfeccfcb6c1c5d",
+      "frozen_contract_blob": null,
+      "matches_frozen_contract": null,
+      "working_tree_clean_for_path": false,
+      "bytes": 15963
+    }
+  },
+  "original_soda_vendor_file": {
+    "present": false,
+    "pinned_sha256": "947f8b33e740adede3e13382f8cb9e8e374d845de75e282bda5feb05c582f624",
+    "note": "vendor/canonical/icrl_reintegrated_bdh_baseline_v1.py is absent from this workspace (README_FIRST.md pins only its SHA-256); original Soda comparator is BLOCKED"
+  }
+}

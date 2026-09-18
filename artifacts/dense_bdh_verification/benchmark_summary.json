@@ -1,0 +1,260 @@
+{
+  "verdict": "UNSTABLE",
+  "correctness": {
+    "kind": "correctness",
+    "checks": {
+      "forward_max_abs_diff_small": 0.0,
+      "loss_abs_diff_small": 0.0,
+      "grad_max_abs_diff_small": 0.0,
+      "loss_finite": true,
+      "all_grads_finite": true,
+      "param_update_max_abs_diff_small": 0.0,
+      "prod_forward_max_abs_diff_B1": 1.3113021850585938e-06,
+      "determinism_B1": 0.0,
+      "prod_forward_max_abs_diff_B2": 1.0728836059570312e-06,
+      "determinism_B2": 0.0,
+      "cross_row_row0_control_diff": 1.1920928955078125e-06,
+      "cross_row_row0_reference_diff": 9.5367431640625e-07,
+      "cross_row_modified_row0_control_diff": 0.0,
+      "cross_row_modified_row1_changed": 2.04785418510437
+    },
+    "gates": {
+      "small_forward": true,
+      "small_grads": true,
+      "param_update": true,
+      "prod_b1": true,
+      "prod_b2": true,
+      "determinism": true,
+      "cross_row": true,
+      "finite": true
+    },
+    "pass": true
+  },
+  "rows": {
+    "dense_control_B1": {
+      "tok_s": {
+        "n": 36,
+        "mean": 9799.74611111111,
+        "median": 8722.21,
+        "std": 1552.895274385012,
+        "cv_pct": 15.846280676846458,
+        "min": 8697.03,
+        "max": 11975.67,
+        "p05": 8702.255,
+        "p50": 8722.21,
+        "p95": 11973.592499999999,
+        "p95_over_p05": 1.375918368285002,
+        "ci95_median": [
+          8716.795,
+          10319.085
+        ]
+      },
+      "drift": -0.0028451268324679027,
+      "temps": [
+        59.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        60.0,
+        72.0,
+        73.0,
+        73.0,
+        73.0,
+        73.0,
+        73.0,
+        73.0,
+        73.0,
+        73.0,
+        73.0,
+        73.0,
+        73.0,
+        60.0,
+        59.0,
+        60.0,
+        61.0,
+        60.0,
+        60.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0,
+        61.0
+      ],
+      "clocks": [
+        2070.0,
+        2475.0,
+        2055.0,
+        2085.0,
+        2070.0,
+        2085.0,
+        2145.0,
+        2100.0,
+        2115.0,
+        2085.0,
+        2115.0,
+        2100.0,
+        2610.0,
+        2610.0,
+        2610.0,
+        2610.0,
+        2610.0,
+        2610.0,
+        2610.0,
+        2610.0,
+        2610.0,
+        2610.0,
+        2610.0,
+        2610.0,
+        2010.0,
+        2070.0,
+        2025.0,
+        2115.0,
+        2115.0,
+        2535.0,
+        2100.0,
+        2100.0,
+        2085.0,
+        2010.0,
+        2400.0,
+        2085.0
+      ],
+      "classification": "UNSTABLE"
+    },
+    "dense_control_B2_limited": {
+      "tok_s": {
+        "n": 4,
+        "mean": 4323.537499999999,
+        "median": 4295.205,
+        "std": 312.0587143872127,
+        "cv_pct": 7.217671048006702,
+        "min": 3975.62,
+        "max": 4728.12,
+        "p05": 4015.478,
+        "p50": 4295.205,
+        "p95": 4671.2625,
+        "p95_over_p05": 1.1633141807774814,
+        "ci95_median": [
+          3975.62,
+          4728.12
+        ]
+      },
+      "drift": 6.0713186789045865,
+      "temps": [
+        55.0,
+        55.0,
+        58.0,
+        56.0
+      ],
+      "clocks": [
+        1335.0,
+        1290.0,
+        2520.0,
+        2505.0
+      ],
+      "classification": "UNSTABLE"
+    },
+    "comparator_reference_B1": {
+      "tok_s": {
+        "n": 3,
+        "mean": 2320.523333333333,
+        "median": 2321.5,
+        "std": 18.89394170980035,
+        "cv_pct": 0.8142103739443984,
+        "min": 2301.16,
+        "max": 2338.91,
+        "p05": 2303.194,
+        "p50": 2321.5,
+        "p95": 2337.169,
+        "p95_over_p05": 1.014751254127963,
+        "ci95_median": [
+          2301.16,
+          2338.91
+        ]
+      },
+      "drift": 0.46570503492213666,
+      "temps": [
+        58.0,
+        59.0,
+        59.0
+      ],
+      "clocks": [
+        2610.0,
+        2250.0,
+        2220.0
+      ],
+      "classification": "STABLE"
+    }
+  },
+  "cold": [
+    {
+      "run_id": "cold_true_0",
+      "build_s": 3.0242033659997105,
+      "first_step_s": 90.18616498499978,
+      "first_step_tok_s": 1453.3493027650145,
+      "external_wall_s": null
+    },
+    {
+      "run_id": "cold_true_1",
+      "build_s": 2.7346451209996303,
+      "first_step_s": 90.65727659799995,
+      "first_step_tok_s": 1445.7967955645786,
+      "external_wall_s": null
+    },
+    {
+      "run_id": "cold_true_2",
+      "build_s": 2.255770241999926,
+      "first_step_s": 75.52908025499983,
+      "first_step_tok_s": 1735.3845638987955,
+      "external_wall_s": null
+    }
+  ],
+  "longrun": {
+    "tok_s": {
+      "n": 24,
+      "mean": 8678.379583333333,
+      "median": 8678.135,
+      "std": 8.896881465931735,
+      "cv_pct": 0.10251777282268258,
+      "min": 8667.96,
+      "max": 8711.64,
+      "p05": 8669.270499999999,
+      "p50": 8678.135,
+      "p95": 8687.01,
+      "p95_over_p05": 1.002046250604362,
+      "ci95_median": [
+        8672.79,
+        8680.35
+      ]
+    },
+    "drift_pct_per_min": -0.0010027107125589827,
+    "temperature_c": {
+      "min": 58.0,
+      "max": 62.0
+    },
+    "sm_clock_mhz": {
+      "min": 1920.0,
+      "max": 2520.0
+    },
+    "mem_used_mib": {
+      "min": 3733.0,
+      "max": 3733.0
+    }
+  },
+  "matched_speedup_comparator_over_control": {
+    "value": 0.2661596086312987,
+    "ci95": [
+      0.226001438437932,
+      0.2682836184697266
+    ]
+  },
+  "comparator_available": "opt/model_ref.py NativeReadStage1ArmA",
+  "original_soda": "UNAVAILABLE (vendor file absent)"
+}

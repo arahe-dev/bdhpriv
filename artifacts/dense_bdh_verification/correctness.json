@@ -1,0 +1,30 @@
+{
+  "kind": "correctness",
+  "checks": {
+    "forward_max_abs_diff_small": 0.0,
+    "loss_abs_diff_small": 0.0,
+    "grad_max_abs_diff_small": 0.0,
+    "loss_finite": true,
+    "all_grads_finite": true,
+    "param_update_max_abs_diff_small": 0.0,
+    "prod_forward_max_abs_diff_B1": 1.3113021850585938e-06,
+    "determinism_B1": 0.0,
+    "prod_forward_max_abs_diff_B2": 1.0728836059570312e-06,
+    "determinism_B2": 0.0,
+    "cross_row_row0_control_diff": 1.1920928955078125e-06,
+    "cross_row_row0_reference_diff": 9.5367431640625e-07,
+    "cross_row_modified_row0_control_diff": 0.0,
+    "cross_row_modified_row1_changed": 2.04785418510437
+  },
+  "gates": {
+    "small_forward": true,
+    "small_grads": true,
+    "param_update": true,
+    "prod_b1": true,
+    "prod_b2": true,
+    "determinism": true,
+    "cross_row": true,
+    "finite": true
+  },
+  "pass": true
+}

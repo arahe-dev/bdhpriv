@@ -1,0 +1,3 @@
+{"out": "/workspace/iclr-oc/artifacts/dense_bdh_verification/runs/correctness.json", "kind": "correctness", "pass": true}
+
+--- STDERR ---

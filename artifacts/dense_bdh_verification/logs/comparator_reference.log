@@ -1,0 +1,6 @@
+{"update": 0, "elapsed_s": 56.959063883000454, "tok_s": 2301.161414261211, "loss": 0.14188623428344727, "telemetry": "58, 2610 MHz, 6001 MHz, 44.32 W, 56 %, 46 %, 1339 MiB"}
+{"update": 1, "elapsed_s": 56.03969291700014, "tok_s": 2338.913601723862, "loss": 0.14092779159545898, "telemetry": "59, 2250 MHz, 6001 MHz, 48.71 W, 86 %, 68 %, 1469 MiB"}
+{"update": 2, "elapsed_s": 56.45999136299997, "tok_s": 2321.502303415081, "loss": 0.13973236083984375, "telemetry": "59, 2220 MHz, 6001 MHz, 48.28 W, 72 %, 57 %, 1469 MiB"}
+{"out": "/workspace/iclr-oc/artifacts/dense_bdh_verification/runs/comparator_reference.json", "kind": "comparator", "pass": null}
+
+--- STDERR ---

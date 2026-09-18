@@ -1,0 +1,5 @@
+docker start iclr-arm-a
+docker exec -w /workspace/iclr-oc iclr-arm-a python opt/dense_verify_manifest.py
+docker exec -w /workspace/iclr-oc iclr-arm-a python opt/dense_verify_orchestrate.py
+py -3.12 opt/dense_verify_source_lock.py
+py -3.12 opt/dense_verify_report.py

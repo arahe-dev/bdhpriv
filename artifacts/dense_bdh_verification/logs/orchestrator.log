@@ -1,0 +1,18 @@
+{"done": "correctness", "rc": 0}
+{"launch": "cold_true_2"}
+{"done": "cold_true_2", "rc": 0, "wall_s": 85.0}
+{"launch": "warm_b2_limited"}
+{"done": "warm_b2_limited", "rc": 0, "wall_s": 276.8}
+{"launch": "warm_b1_rep2"}
+{"done": "warm_b1_rep2", "rc": 0, "wall_s": 269.6}
+{"launch": "longrun_dense_control"}
+{"done": "longrun_dense_control", "rc": 0, "wall_s": 768.3}
+{"launch": "warm_b1_rep0"}
+{"done": "warm_b1_rep0", "rc": 0, "wall_s": 272.3}
+{"launch": "cold_true_1"}
+{"done": "cold_true_1", "rc": 0, "wall_s": 102.2}
+{"launch": "comparator_reference"}
+{"done": "comparator_reference", "rc": 0, "wall_s": 176.6}
+{"launch": "cold_true_0"}
+{"done": "cold_true_0", "rc": 0, "wall_s": 102.5}
+{"launch": "warm_b1_rep1"}
